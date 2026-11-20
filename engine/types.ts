@@ -151,7 +151,7 @@ export interface Forecast {
   overdraftLimit: Pln;
   /** round(Σ max(0, −EOD balance) × 0.12 / 365), not posted to the balance. */
   overdraftInterest: Pln;
-  /** floor(balance at `from` / 900). */
+  /** Paliwo: floor(max(0, balance at the start of the current week) / 900); 42 at the start. */
   runwayDays: number;
 }
 
@@ -316,6 +316,15 @@ export type EngineEvent =
   | { type: "quietWeek"; week: WeekNumber }
   | { type: "lapWon"; week: WeekNumber; stars: StarId[] }
   | { type: "planValidated"; week: WeekNumber; planId: string };
+
+/** True when A and B are the same type (strict, not mutual assignability). */
+type Equals<A, B> = (<T>() => T extends A ? 1 : 2) extends <T>() => T extends B ? 1 : 2 ? true : false;
+type AssertTrue<T extends true> = T;
+/**
+ * Compile-time guard: the `type` tags of EngineEvent equal EngineEventTypeSchema (reactions.json).
+ * Adding an event to one list without the other fails `pnpm typecheck`.
+ */
+export type EngineEventTypesInSync = AssertTrue<Equals<EngineEvent["type"], EngineEventType>>;
 
 // ---------- state ----------
 

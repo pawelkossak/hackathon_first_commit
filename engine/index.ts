@@ -1,9 +1,16 @@
 // Public engine API (RUNTIME-ENGINE-CONTRACT.md). UI and narrative code import only from here.
-// E-01: final signatures; bodies are fixtures built from data/*.json until E-02…E-09 implement the rules.
+// E-01: final signatures. E-02: real forecast (forecast.ts). E-03: action cards (cards.ts).
+// E-04: seeded event deck (seed.ts, events.ts). E-05: turn state machine (turn.ts).
+// Other bodies are fixtures until E-06…E-09.
 import { isValidIsoDate } from "./calendar";
 import { gameData } from "./data";
 import { RuleError } from "./errors";
-import { fixtureForecast, initialState, weekOf } from "./fixture";
+import { initialState } from "./fixture";
+import { applyCard, cardCost, cardDef, disabledReason, safeCards } from "./cards";
+import { computeForecast } from "./forecast";
+import { applyEventChoice, currentEventView, shownEventSignals } from "./events";
+import { coreAfterPlanSave, rewindTo, settleWeek } from "./turn";
+import { assertSeed } from "./seed";
 import type {
   AgentId,
   AgentIntent,
@@ -12,7 +19,6 @@ import type {
   CardView,
   CfoHint,
   CurrentEvent,
-  DisabledReason,
   EngineEvent,
   EventChoiceId,
   Forecast,
@@ -22,7 +28,6 @@ import type {
   IsoDate,
   NegotiationResult,
   Plan,
-  StarId,
   WeekNumber,
   WeekResolution,
 } from "./types";
@@ -41,63 +46,38 @@ function withCore(state: GameState, core: GameCore, emitted: EngineEvent[] = [])
   return { ...state, core, emitted };
 }
 
-function cardDef(cardId: CardId) {
-  const card = level1.cards.find((c) => c.id === cardId);
-  if (!card) throw new RuleError("unknown_card", `unknown card ${cardId}`);
-  return card;
+function newLap(seed: string): GameState {
+  assertSeed(seed);
+  const state = initialState(seed);
+  return { ...state, emitted: [...state.emitted, ...shownEventSignals(state)] };
 }
 
-function deckFor(seed: string) {
-  return level1.seeds[seed] ?? level1.seeds[DEMO_SEED];
-}
-
-function eventForWeek(core: GameCore) {
-  const slot = deckFor(core.seed).find((s) => s.week === core.week);
-  if (!slot) return null;
-  return level1.events.find((e) => e.id === slot.eventId) ?? null;
-}
-
-function eventPending(core: GameCore): boolean {
-  const ev = eventForWeek(core);
-  return ev !== null && !core.eventsResolved.some((r) => r.eventId === ev.id);
-}
-
-function disabledReasonFor(core: GameCore, cardId: CardId): DisabledReason | null {
-  const card = cardDef(cardId);
-  const text = (key: keyof typeof level1.disabledReasons) => level1.disabledReasons[key];
-  if (core.status !== "playing") return { code: "not_playing", text: null };
-  if (core.played.some((p) => p.cardId === cardId)) return { code: "already_played", text: text("already_played") };
-  if (core.week > card.window.to) {
-    if (card.afterWindowReason) return { code: card.afterWindowReason, text: text(card.afterWindowReason) };
-    return { code: "outside_window", text: null };
-  }
-  if (core.week < card.window.from) return { code: "outside_window", text: null };
-  if (cardId === "C2" && core.invoiceState === "factored") return { code: "invoice_financed", text: text("invoice_financed") };
-  if (cardId === "C6" && core.invoiceState === "discounted") return { code: "invoice_paid", text: text("invoice_paid") };
-  if (cardId === "C4" && core.overdraftLimit > 0) return { code: "overdraft_active", text: null };
-  if (core.weekActionUsed) return { code: "week_action_used", text: null };
-  return null;
-}
-
-/** Start a new lap. Fixture: the initial state from data (this is already the final initial state). */
+/**
+ * Start a new lap with the seeded event deck. Level 1 defines only the demo seed; any other seed
+ * throws RuleError("unknown_seed") (no silent fallback).
+ */
 export function createGame(seed: string = DEMO_SEED): GameState {
-  return initialState(seed);
+  return newLap(seed);
 }
 
 /** Reset: a fresh state with both clocks cleared. The caller also clears persisted application state. */
 export function resetGame(seed: string = DEMO_SEED): GameState {
-  return initialState(seed);
+  return newLap(seed);
 }
 
-/** Read-only daily forecast. Fixture (E-02 pending): the ledger as written, no overlays. */
+/**
+ * Read-only daily forecast 21 XI … 10 I: ledger + played cards + events, business-day shift,
+ * inflows before outflows, crash below −overdraft. Post-crash points are counterfactual.
+ * Default includes the scripted E6 delay; `includeFutureEvents: false` applies E6 only once resolved.
+ */
 export function forecast(state: GameState, options: ForecastOptions = {}): Forecast {
-  return fixtureForecast(state, options);
+  return computeForecast(state, options);
 }
 
-/** All six cards with engine-owned playability and disabled reasons. Fixture: window/played/exclusivity only. */
+/** All six cards with engine-owned playability, disabled reasons and cost (C4 incl. the interest estimate). */
 export function getAvailableCards(state: GameState): CardView[] {
   return level1.cards.map((card) => {
-    const reason = disabledReasonFor(state.core, card.id);
+    const reason = disabledReason(state.core, card.id);
     return {
       id: card.id,
       key: card.key,
@@ -108,7 +88,7 @@ export function getAvailableCards(state: GameState): CardView[] {
       playable: reason === null,
       disabledReason: reason,
       tooLate: card.tooLateFrom !== null && state.core.week >= card.tooLateFrom,
-      cost: card.cost.fixed,
+      cost: cardCost(state, card.id),
       costIsEstimate: card.cost.overdraftInterest,
       relationsDelta: card.relationsDelta,
       competenceId: card.competence?.id ?? null,
@@ -117,11 +97,18 @@ export function getAvailableCards(state: GameState): CardView[] {
   });
 }
 
-/** Simulate a card without committing it. Fixture: `after` equals `before` until E-03. */
+/**
+ * Simulate a card without committing it. `after` is the forecast of the simulated state.
+ * `simulated.emitted` carries the events the play would emit; previewing a playable C5 adds
+ * `loanOffered` with `via: "C5_preview"`.
+ */
 export function previewCard(state: GameState, cardId: CardId): CardPreview {
   const card = cardDef(cardId);
-  const reason = disabledReasonFor(state.core, cardId);
-  const simulated = reason === null ? playCard(state, cardId, false) : state;
+  const reason = disabledReason(state.core, cardId);
+  const played = reason === null ? applyCard(state, cardId, false) : { ...state, emitted: [] };
+  const loanOffered: EngineEvent[] =
+    reason === null && card.effect.type === "loan" ? [{ type: "loanOffered", week: state.core.week, via: "C5_preview" }] : [];
+  const simulated: GameState = { ...played, emitted: [...played.emitted, ...loanOffered] };
   return {
     cardId,
     playable: reason === null,
@@ -129,142 +116,52 @@ export function previewCard(state: GameState, cardId: CardId): CardPreview {
     before: forecast(state),
     after: forecast(simulated),
     simulated,
-    cost: card.cost.fixed,
+    cost: cardCost(state, cardId),
     relationsDelta: card.relationsDelta,
   };
 }
 
-/** Play a card as the week's one action. Throws RuleError("card_unavailable") when disabled. Fixture: no money overlay yet. */
+/**
+ * Play a card as the week's one action (once per lap, C2 ↔ C6 exclusive). Throws RuleError("card_unavailable")
+ * when disabled. Its money effect is applied by the forecast overlay; no transaction is resolved here.
+ */
 export function playCard(state: GameState, cardId: CardId, delegated: boolean = false): GameState {
-  const card = cardDef(cardId);
-  const reason = disabledReasonFor(state.core, cardId);
-  if (reason) throw new RuleError("card_unavailable", `${cardId}: ${reason.code}`);
-  const core = state.core;
-  const competences = { ...core.competences };
-  if (card.competence) {
-    const level = delegated ? card.competence.delegated : card.competence.own;
-    competences[card.competence.id] = Math.max(competences[card.competence.id], level) as typeof level;
-  }
-  let invoiceState = core.invoiceState;
-  if (card.effect.type === "discount" || card.effect.type === "factoring") invoiceState = card.effect.invoiceStateAfter;
-  return withCore(state, {
-    ...core,
-    hand: core.hand.filter((id) => id !== cardId),
-    played: [...core.played, { cardId, week: core.week, delegated, cost: card.cost.fixed }],
-    weekActionUsed: true,
-    invoiceState,
-    overdraftLimit: card.effect.type === "overdraft" ? card.effect.limit : core.overdraftLimit,
-    relations: core.relations + card.relationsDelta,
-    costOfMoney: core.costOfMoney + card.cost.fixed,
-    competences,
-  });
+  return applyCard(state, cardId, delegated);
 }
 
-/** The event card of the current week, or null when none or already resolved. Fixture: E5 condition not yet checked. */
+/**
+ * The event card of the current week: dealt by the seed, its condition holds (E5: the known-ledger
+ * forecast still crashes), not yet resolved. Null otherwise. No event consumes the card action.
+ */
 export function getCurrentEvent(state: GameState): CurrentEvent | null {
-  if (state.core.status !== "playing" || !eventPending(state.core)) return null;
-  const ev = eventForWeek(state.core);
-  if (!ev) return null;
-  return {
-    id: ev.id,
-    week: ev.week,
-    title: ev.title,
-    choices: ev.choices.map((c) => ({ id: c.id, label: c.label })),
-  };
+  return currentEventView(state);
 }
 
-/** Resolve the current event. E6 uses `acknowledge`. Does not consume the week's card action. */
+/**
+ * Resolve the current event (E6: `acknowledge`). Own or delegated competence milestone; the money
+ * effect is applied by the forecast event overlay. Does not consume the week's card action.
+ * Emits nothing: the event's narration signal was emitted when the card became current.
+ */
 export function resolveEvent(state: GameState, choiceId: EventChoiceId, delegated: boolean = false): GameState {
-  const core = state.core;
-  if (core.status !== "playing") throw new RuleError("not_playing");
-  const ev = eventForWeek(core);
-  if (!ev || !eventPending(core)) throw new RuleError("no_event");
-  const choice = ev.choices.find((c) => c.id === choiceId);
-  if (!choice) throw new RuleError("invalid_choice", `${ev.id}: ${choiceId}`);
-  const competences = { ...core.competences };
-  if (choice.competence) {
-    const level = delegated ? choice.competence.delegated : choice.competence.own;
-    competences[choice.competence.id] = Math.max(competences[choice.competence.id], level) as typeof level;
-  }
-  const emitted: EngineEvent[] = [];
-  if (ev.id === "E2") emitted.push({ type: "bigProject", week: core.week, eventId: "E2" });
-  if (ev.id === "E5") emitted.push({ type: "loanOffered", week: core.week, via: "E5" });
-  if (ev.id === "E6") emitted.push({ type: "lateClient", week: core.week, eventId: "E6", newDate: null });
-  return withCore(
-    state,
-    {
-      ...core,
-      eventsResolved: [...core.eventsResolved, { eventId: ev.id, week: core.week, choiceId, delegated }],
-      competences,
-      loanTermsShown: core.loanTermsShown || choiceId === "show_cost",
-    },
-    emitted,
-  );
+  return applyEventChoice(state, choiceId, delegated);
 }
 
-/** Settle the current week exactly once. Throws RuleError("event_unresolved") while the event is open. */
+/**
+ * Settle the current week exactly once (turn state machine in turn.ts). Throws
+ * RuleError("event_unresolved") while the event is open and RuleError("not_playing") after the lap.
+ * Week 7 completes the lap with Pilot "pending" (or "missed"); savePlan finalises it.
+ */
 export function resolveWeek(state: GameState): WeekResolution {
-  const core = state.core;
-  if (core.status !== "playing") throw new RuleError("not_playing");
-  if (eventPending(core)) throw new RuleError("event_unresolved");
-  const f = forecast(state);
-  const week = core.week;
-  const { start, end } = level1.weeks[week - 1];
-  const transactions = f.points.filter((p) => p.date >= start && p.date <= end).flatMap((p) => p.transactions);
-  const crash = f.crash && weekOf(f.crash.date) === week ? f.crash : null;
-  const endPoint = f.points.find((p) => p.date === end);
-  const endBalance = crash || !endPoint ? null : endPoint.balance;
-  const events: EngineEvent[] = [];
-  let next: GameCore = { ...core, weeksResolved: [...core.weeksResolved, week] };
-
-  if (crash) {
-    next = { ...next, status: "crashed", crash };
-    events.push({ type: "crash", week, crash });
-  } else {
-    const balance = endBalance ?? core.balance;
-    if (week === 7) {
-      const tanio = next.costOfMoney <= 500 && next.relations === level1.rules.relationsStart;
-      const stars = { przetrwanie: "earned", tanio: tanio ? "earned" : "missed", pilot: "pending" } as const;
-      const earned: StarId[] = (Object.keys(stars) as StarId[]).filter((k) => stars[k] === "earned");
-      next = {
-        ...next,
-        status: "completed",
-        balance,
-        stars,
-        avoidedCost: level1.rules.defaultCostOfMoney - next.costOfMoney,
-        level2Unlocked: earned.length >= level1.unlock.minStars,
-      };
-      events.push({ type: "lapWon", week, stars: earned });
-    } else {
-      const nextWeek = (week + 1) as WeekNumber;
-      next = {
-        ...next,
-        week: nextWeek,
-        balance,
-        weekActionUsed: false,
-        negotiation: {
-          klient_a: { ...next.negotiation.klient_a, messagesThisWeek: 0 },
-          bank: { ...next.negotiation.bank, messagesThisWeek: 0 },
-        },
-      };
-      if (transactions.length === 0 && eventForWeek(core) === null) events.push({ type: "quietWeek", week });
-    }
-  }
-  const snapshots = next.status === "playing" ? { ...state.snapshots, [next.week]: next } : state.snapshots;
-  const newState: GameState = { ...state, core: next, snapshots, emitted: events };
-  return { state: newState, week, transactions, endBalance, crash, events };
+  return settleWeek(state);
 }
 
-/** Restore the snapshot of `week`. Keeps the account clock and saved plans. */
+/**
+ * Restore the snapshot of `week` from any status. Keeps the account clock and saved plans; Pilot
+ * lives in core.stars, so it is dropped. The restored week's event card is current again, so its
+ * narration signal is emitted again. Throws RuleError("no_snapshot") for a week not reached yet.
+ */
 export function rewind(state: GameState, week: WeekNumber): GameState {
-  const snap = state.snapshots[week];
-  if (!snap) throw new RuleError("no_snapshot", `no snapshot for week ${week}`);
-  const snapshots: GameState["snapshots"] = {};
-  for (const w of [1, 2, 3, 4, 5, 6, 7] as const) {
-    const s = state.snapshots[w];
-    if (s && w <= week) snapshots[w] = s;
-  }
-  return { ...state, core: snap, snapshots, emitted: [] };
+  return rewindTo(state, week);
 }
 
 /** Draft the plan of a played decision (not yet saved). Fixture: C1 template, else built from the card. */
@@ -290,13 +187,15 @@ export function createPlan(state: GameState, cardId: CardId): Plan {
   };
 }
 
-/** Prospective state with the plan saved (Pilot finalised). The caller persists it before showing success. */
+/**
+ * Prospective state with the plan saved. Pilot is finalised only when the lap is completed and
+ * Pilot is "pending"; a plan saved during the lap leaves Pilot "open". The caller persists the
+ * returned state before showing success.
+ */
 export function savePlan(state: GameState, cardId: CardId): GameState {
   const plan: Plan = { ...createPlan(state, cardId), savedAt: state.account.clock };
   const plans = [...state.account.plans.filter((p) => p.cardId !== cardId), plan];
-  const stars =
-    state.core.stars.pilot === "pending" ? { ...state.core.stars, pilot: "earned" as const } : state.core.stars;
-  return { ...state, core: { ...state.core, stars }, account: { ...state.account, plans }, emitted: [] };
+  return { ...state, core: coreAfterPlanSave(state.core), account: { ...state.account, plans }, emitted: [] };
 }
 
 /** Move the synthetic account clock (default 5 XII). Never changes game week, stars or unlock. Fixture: clock only. */
@@ -343,16 +242,18 @@ export function negotiate(state: GameState, agent: AgentId, intent: AgentIntent,
   };
 }
 
-/** AI-CFO hint: earliest future crash and the two cheapest playable safe cards. Fixture: risk only, no options yet. */
+/** AI-CFO hint: earliest future crash and the two cheapest playable cards that remove it (none without risk). */
 export function getCfoHint(state: GameState): CfoHint {
-  return { week: state.core.week, risk: forecast(state).crash, options: [] };
+  const risk = forecast(state).crash;
+  return { week: state.core.week, risk, options: risk ? safeCards(state).slice(0, 2) : [] };
 }
 
-/** Play the cheapest safe card as a delegated decision. Fixture: the cheapest playable card. */
+/**
+ * Play the cheapest safe card (playable, no crash after it) as a delegated decision: competence
+ * milestone 1 for its competence, none for a product. Throws RuleError("no_safe_card") when none is safe.
+ */
 export function delegateBestCard(state: GameState): GameState {
-  const playable = getAvailableCards(state)
-    .filter((c) => c.playable)
-    .sort((a, b) => a.cost - b.cost);
-  if (playable.length === 0) throw new RuleError("no_safe_card");
-  return playCard(state, playable[0].id, true);
+  const best = safeCards(state)[0];
+  if (!best) throw new RuleError("no_safe_card");
+  return applyCard(state, best.cardId, true);
 }

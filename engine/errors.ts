@@ -11,7 +11,8 @@ export type RuleErrorCode =
   | "no_snapshot"
   | "plan_not_allowed"
   | "no_safe_card"
-  | "invalid_date";
+  | "invalid_date"
+  | "unknown_seed";
 
 export class RuleError extends Error {
   readonly code: RuleErrorCode;
