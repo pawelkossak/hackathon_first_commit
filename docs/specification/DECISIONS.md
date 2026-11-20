@@ -139,3 +139,11 @@ Numbered D-01 …, never reused; a later decision that replaces one names it.
 - When: 2026-11-20
 - Why: Hard rule 3, no bank-product bias. In T1 of the demo seed the hint showed the overdraft (194 zł) next to the free C1, which reads as the AI pushing a product.
 - What it changed: E-08 implements the rule in the engine with a test; N-09 shows a product hint only with its cost.
+
+## D-18 — Engine event for the fraud reveal; lapStart after rewind to week 1
+
+- Decided: The engine emits `fraudRevealed` when the week resolution passes 23 XII on the E1 „Zapłać jak jest” path (unless the lap crashed before it), and emits `lapStart` again after `rewind` to week 1. Until the reveal the player-facing views do not show the E1 effects.
+- Who: The product owner (coordinator)
+- When: 2026-11-20
+- Why: The fraud reveal is a key moment of the story and had no engine event, so the narrator could not react to it; a rewind to the start of the lap greeted no one.
+- What it changed: ENGINE-DATA-AND-TESTS.md §6 gains the `fraudRevealed` row (exasperated, `rx.fraud`) and the rewind note on `lapStart`; the engine event union and `data/reactions.json` follow in the engine lane; the narrative lane adds the `rx.fraud` lines.
