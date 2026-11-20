@@ -1,0 +1,26 @@
+{
+  "title": "Pierwszy miesiąc firmy",
+  "weeks": [
+    {
+      "id": "week-1",
+      "title": "Klient opóźnia płatność",
+      "prompt": "Co robisz?",
+      "answers": [
+        {
+          "id": "ask-advance",
+          "label": "Poproś o zaliczkę",
+          "balanceChange": 3000,
+          "scoreChange": 2,
+          "feedback": "Zyskujesz płynność, ale klient może oczekiwać rabatu."
+        },
+        {
+          "id": "wait",
+          "label": "Poczekaj na przelew",
+          "balanceChange": 0,
+          "scoreChange": 0,
+          "feedback": "Ryzykujesz brak pieniędzy na najbliższe płatności."
+        }
+      ]
+    }
+  ]
+}
