@@ -52,6 +52,39 @@ export function getAllAssetIds(): string[] {
   return Array.from(ASSET_REGISTRY.keys());
 }
 
+interface GeneratedAssetManifest {
+  format: string;
+  buildTime: string;
+  budgetLimit: number;
+  budgetPassed: boolean;
+  totalSprites: number;
+  totalIllustrations: number;
+  firstLoadReport: Array<{
+    scene: string;
+    narratorGender: string;
+    playerGender: string;
+    bytes: number;
+    limit: number;
+    passed: boolean;
+  }>;
+}
+
+let generatedManifest: GeneratedAssetManifest | null = null;
+try {
+  // eslint-disable-next-line @typescript-eslint/no-require-imports
+  generatedManifest = require("../generated/asset-manifest.json");
+} catch {
+  // not yet built
+}
+
+export function getGeneratedManifest(): GeneratedAssetManifest | null {
+  return generatedManifest;
+}
+
+export function isMediaReady(): boolean {
+  return generatedManifest !== null && generatedManifest.totalSprites > 0;
+}
+
 export interface GameAssetProps {
   id: string;
   alt?: string;
