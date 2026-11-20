@@ -1,0 +1,20 @@
+# Text files are normalised to LF in the repository.
+* text=auto
+# Hooks and scripts must keep LF in every working copy (sh breaks on CRLF).
+.githooks/* text eol=lf
+*.sh text eol=lf
+*.mjs text eol=lf
+# Media and binaries are never converted.
+*.png binary
+*.webp binary
+*.apng binary
+*.jpg binary
+*.ico binary
+*.mp3 binary
+*.wav binary
+*.mp4 binary
+*.pdf binary
+*.woff binary
+*.woff2 binary
+*.ttf binary
+*.otf binary
