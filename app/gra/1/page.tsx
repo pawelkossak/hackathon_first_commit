@@ -2,6 +2,8 @@
 
 import React, { useEffect, use, Suspense } from "react";
 import { useGameStore } from "@/lib/ui/game-store";
+import { Hud } from "@/components/play/Hud";
+import { WorldRoute } from "@/components/scenes/WorldRoute";
 
 interface PageProps {
   searchParams?: Promise<{ seed?: string; resume?: string }>;
@@ -19,7 +21,6 @@ function GameLevel1Content(props: PageProps) {
   const rewindToWeek = useGameStore((s) => s.rewindToWeek);
   const getAvailableCards = useGameStore((s) => s.getAvailableCards);
   const getCurrentEvent = useGameStore((s) => s.getCurrentEvent);
-  const getForecast = useGameStore((s) => s.getForecast);
   const init = useGameStore((s) => s.init);
 
   useEffect(() => {
@@ -30,7 +31,7 @@ function GameLevel1Content(props: PageProps) {
 
   const cards = getAvailableCards();
   const currentEvent = getCurrentEvent();
-  const forecast = getForecast();
+  const forecast = useGameStore((s) => s.getForecast());
   const { core } = state;
 
   return (
@@ -46,49 +47,11 @@ function GameLevel1Content(props: PageProps) {
         </div>
       )}
 
-      {/* HUD (G10): Saldo, Tydzień, Odporność, Relacje, Koszt pieniądza */}
-      <section
-        aria-label="Wskaźniki gry (HUD)"
-        className="grid grid-cols-2 sm:grid-cols-5 gap-3 p-4 bg-slate-900/90 rounded-2xl border border-slate-800"
-      >
-        <div className="p-2">
-          <div className="text-xs text-slate-400">Saldo gotówki</div>
-          <div className="text-xl sm:text-2xl font-bold text-emerald-400 font-mono">
-            {core.balance.toLocaleString("pl-PL")} zł
-          </div>
-        </div>
-        <div className="p-2">
-          <div className="text-xs text-slate-400">Paliwo (rezerwa)</div>
-          <div className="text-xl sm:text-2xl font-bold text-sky-400 font-mono">
-            {forecast.runwayDays} dni
-          </div>
-        </div>
-        <div className="p-2">
-          <div className="text-xs text-slate-400">Tydzień trasy</div>
-          <div className="text-xl sm:text-2xl font-bold text-white font-mono">
-            T{core.week} <span className="text-xs text-slate-400 font-sans">/ 7</span>
-          </div>
-        </div>
-        <div className="p-2">
-          <div className="text-xs text-slate-400">Relacje z klientem</div>
-          <div className="text-xl sm:text-2xl font-bold text-amber-400 font-mono">
-            {core.relations} / 5
-          </div>
-        </div>
-        <div className="p-2">
-          <div className="text-xs text-slate-400">Koszt pieniądza</div>
-          <div className="text-xl sm:text-2xl font-bold text-slate-200 font-mono">
-            {core.costOfMoney.toLocaleString("pl-PL")} zł
-          </div>
-        </div>
-        <div className="p-2 flex flex-col justify-center">
-          <div className="text-xs text-slate-400">Stan symulacji</div>
-          <div className="text-sm font-semibold text-emerald-400 flex items-center gap-1.5">
-            <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
-            {core.status === "playing" ? "W locie" : core.status === "crashed" ? "Porażka (Sztorm)" : "Ukończono"}
-          </div>
-        </div>
-      </section>
+      {/* HUD (G10): Gotówka 38 000 zł, Paliwo 42 dni, Odporność —, Relacje 5/5, Koszt pieniądza 0 zł, Dane syntetyczne */}
+      <Hud />
+
+      {/* World Route Board (G10): 7 week nodes + finish 10 I, markers 25 XI, 21 XII, 28 XII, storm on 28 XII, plane */}
+      <WorldRoute />
 
       {/* Storm warning / Forecast insight (GM-01: Storm 28 XII -12 395 zł) */}
       {forecast.crash && (
