@@ -6,8 +6,9 @@
 
 ## Najpierw (pt, zaraz po starcie)
 1. `git switch lane/engine && pnpm install && pnpm check`.
-2. **E-01 jako pierwsze, w ciągu 1–2 h:** `engine/types.ts` i `engine/index.ts` ze wszystkimi funkcjami z `RUNTIME-ENGINE-CONTRACT.md` i ostatecznymi sygnaturami. Każda funkcja na razie zwraca stan z danych testowych. Scal to do `develop` od razu, bo B i C budują na tym API.
+2. **E-01 jako pierwsze, w ciągu 2 h:** `engine/types.ts` i `engine/index.ts` ze wszystkimi funkcjami z `RUNTIME-ENGINE-CONTRACT.md` i ostatecznymi sygnaturami. Każda funkcja na razie zwraca stan z danych testowych. Scal to do `develop` od razu, bo B i C budują na tym API.
    - Obecny `engine/types.ts` i `data/level1.json` z `main` to model quizu Pawła. Zastępujesz je modelem ze specyfikacji (powiedz o tym Pawłowi).
+   - `data/*.json` piszesz z tabel `ENGINE-DATA-AND-TESTS.md` §1–§6 i `SYNTHETIC-DATA.md` §3–§4. Silnik nie potrzebuje żadnych assetów.
 3. Potem E-02…E-10 po kolei, każde z testami ET-xx z `ENGINE-DATA-AND-TESTS.md` §7.
 
 ## Jak budujesz zadanie
@@ -34,9 +35,9 @@ Hook Claude Code zablokuje edycję poza `engine/` i `data/`, a hook gita commit 
 6. Pliki wspólne (np. nowa paczka w `package.json`) zmieniasz na `develop` albo na gałęzi `chore/*`, nie na `lane/engine`.
 
 ## Twoje checkpointy
-- pt 22:00: ET dla prognozy, kart i tur zielone (E-02…E-05).
-- sob 10:00: ET-D01 (cała ścieżka demo w silniku) zielony, wszystkie 58 ET zielone.
-- sob 12:00: decyzja go / fallback dla całego zespołu.
+- pt 23:00: E-01…E-05 zielone i scalone do `develop`.
+- sob 11:00: ET-D01 (cała ścieżka demo w silniku) zielony, wszystkie 58 ET zielone.
+- sob 12:00: decyzja go / fallback dla całego zespołu i przegląd mediów (G-07): zostają wygenerowane albo bierzemy zadeklarowany zapas.
 
 ## Czego pilnujesz u wszystkich
 Liczby tylko z silnika · dane syntetyczne · brak faworyzowania produktów banku · AI z fallbackiem i bez kluczy w kliencie · nic na `main` przed finałem.

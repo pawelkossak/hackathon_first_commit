@@ -17,7 +17,7 @@ You review; you do not fix. The brief gives a branch range (for example `develop
    - every AI call has a fallback and a timeout; no LLM/TTS call in tests;
    - no `.env*`, keys or tokens; no `any`, `@ts-ignore`, skipped tests or TODO;
    - accessibility: text ≥ 16 px, focus visible, keyboard path, captions for voice.
-6. For UI tasks, if a dev server is running, compare the screen with `design/layouts/` at the viewport the task names.
+6. For UI tasks, if a dev server is running, compare the screen with its description in `GAME-EXPERIENCE-AND-NARRATION.md` §6 and §17 (or `design/layouts/` once it exists) at the viewport the task names. In phase 1 placeholders are expected; check that every image goes through `lib/ui/assets.ts` and every sentence through `getCopy`.
 
 ## Report
 - One line per task: `<id>: PASS | FAIL — <evidence>`.

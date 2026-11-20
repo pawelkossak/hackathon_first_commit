@@ -2,6 +2,9 @@
 
 Trzy osoby, trzy tory (lanes), każdy pracuje niezależnie na swojej gałęzi. Szczegóły zadań: `docs/specification/BUILD-PLAN.md`.
 
+**Faza 1, bez assetów** (pt i sob rano): cała gra działa na placeholderach, czyli prostokątach zamiast grafik, tekstach startowych i samych napisach zamiast głosu (`BUILD-PLAN.md` §3.2).
+**Faza 2, z assetami** (sob): grafiki, głos i dźwięki generowane równolegle (`GENERATION-BRIEFS.md`) podmieniamy w tych samych komponentach, bez zmiany logiki.
+
 | Osoba | Narzędzie | Lane | Gałąź | Onboarding |
 |---|---|---|---|---|
 | A — koordynator | Claude Code | engine: silnik i dane | `lane/engine` | [ONBOARDING-A-engine.md](ONBOARDING-A-engine.md) |
@@ -43,8 +46,8 @@ Nie czekaj na scalenie, żeby brać kolejne zadanie — pracuj dalej na swojej g
 
 | Kiedy | Co |
 |---|---|
-| pt 22:00 | checkpoint 1: testy silnika dla prognozy, kart i tur; ekrany G10 + G13 na danych testowych; teksty i odtwarzacz głosu |
-| **sob 12:00** | **checkpoint 2: cała ścieżka demo klikalna na lokalnym buildzie produkcyjnym** — inaczej wariant awaryjny U-12 i cięcia |
+| pt 23:00 | checkpoint 1: silnik E-01…E-05 scalony; ekrany G09, G10, G13 na placeholderach; teksty startowe, strażnik liczb, reakcje, napisy |
+| **sob 12:00** | **checkpoint 2: cała ścieżka demo klikalna na placeholderach (lokalny build produkcyjny), test e2e zielony; przegląd mediów** — inaczej wariant awaryjny U-11 i cięcia |
 | sob 23:00 | feature freeze — od teraz tylko poprawki |
 | ndz 08:00 | code freeze, buildy lokalne na dwóch laptopach |
 | ndz przed 10:00 | zgłoszenie |

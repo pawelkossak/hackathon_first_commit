@@ -25,12 +25,14 @@ Start with **BUILD-PLAN.md** (scope, lanes, tasks, checkpoints). Then read the d
 | NOTIFICATION-DESIGN.md | reminders, return banner, opt-in | N |
 | MARKET-AND-ALTERNATIVES.md | market context for the pitch | pitch |
 | PITCH.md | the three-minute stage script | pitch |
+| GENERATION-BRIEFS.md | how art, voice and sound are generated at the event; fallback to the pre-event branch | U, N |
 
-Paths like `design/…` and `data/…` refer to the design material imported into this repository.
+Paths like `design/…` are where the media made at the event are stored (GENERATION-BRIEFS.md); until they exist, BUILD-PLAN.md §3.2 defines the placeholders. `data/…` is written from the tables of ENGINE-DATA-AND-TESTS.md and SYNTHETIC-DATA.md.
 
 ## Prepared before the event
 
 The rules allow ideas, concepts and designs once the challenges are announced; coding starts Fri 20 XI 2026 11:00.
-This specification and the design material it refers to (art, layouts, copy, voice, synthetic data tables) were
-prepared before the coding phase. All application code in this repository is written during the event; no code
-from earlier prototypes is used.
+This specification was prepared before the coding phase. All application code and the media (art, motion, voice,
+sound) are made during the event (GENERATION-BRIEFS.md); no code from earlier prototypes is used. If a design asset
+prepared before the event is used as a fallback, it is listed in `docs/team/handoffs/pre-event-assets.md` and in the
+submission.

@@ -19,7 +19,7 @@ Stack: Next.js 16 (App Router), React 19, TypeScript strict, Tailwind 4, Zustand
 
 ## How a task is done
 1. Take the next open task of **your lane** from `BUILD-PLAN.md` §5 (E-xx, U-xx or N-xx). One task at a time.
-2. Read only its inputs (the documents and `design/` files it names) and the engine contract `RUNTIME-ENGINE-CONTRACT.md`.
+2. Read only its inputs (the documents it names) and the engine contract `RUNTIME-ENGINE-CONTRACT.md`. Phase 1 tasks work without any assets: use the placeholder contracts of `BUILD-PLAN.md` §3.2.
 3. Build the smallest complete change. Write the test named in the acceptance column.
 4. Run `pnpm check` (typecheck, lint, tests, build). The task is done only when its acceptance check is green.
 5. Commit on your lane branch with one topic: `feat: U-05 world route G10`, `test: E-03 action card cases`, `fix: …`.
@@ -30,17 +30,17 @@ Stack: Next.js 16 (App Router), React 19, TypeScript strict, Tailwind 4, Zustand
 |---|---|---|
 | engine | `lane/engine` | `engine/`, `data/` |
 | ui | `lane/ui` | `app/`, `components/`, `public/`, `lib/ui/`, `lib/generated/`, `scripts/build-assets.ts`, `design/` |
-| narrative | `lane/narrative` | `narrative/`, `components/narrative/`, `lib/ai/`, `lib/reminders/`, `app/api/`, `public/sw.js`, `e2e/`, `playwright.config.ts` |
+| narrative | `lane/narrative` | `narrative/`, `components/narrative/`, `lib/ai/`, `lib/reminders/`, `app/api/`, `public/sw.js`, `e2e/`, `playwright.config.ts`, `design/voice/`, `design/audio/` |
 
-- The longest matching path wins (`app/api/` is narrative, the rest of `app/` is ui; `components/narrative/` is narrative, the rest of `components/` is ui).
+- The longest matching path wins (`app/api/` is narrative, the rest of `app/` is ui; `components/narrative/` is narrative, the rest of `components/` is ui; `design/voice/` and `design/audio/` are narrative, the rest of `design/` is ui).
 - Edit only your lane's paths and `docs/team/handoffs/`. Everything else (`package.json`, lockfile, configs, `AGENTS.md`, `docs/specification/`, `scripts/lane-check.mjs`) is shared and changes only through the coordinator.
 - Need something from another lane? Write it in your handoff and tell its owner. Never edit their files.
 - The git pre-commit hook (`scripts/lane-check.mjs`) rejects a commit that breaks these rules. Do not bypass it (`--no-verify` is forbidden).
 
 ## Interfaces between lanes (BUILD-PLAN.md §3.1)
 1. **Engine API**: `engine/index.ts` with the signatures of `RUNTIME-ENGINE-CONTRACT.md`. UI and narrative code call only this API, never engine internals. Until a function is implemented it returns a fixture state.
-2. **Copy and voice keys**: `design/copy/`, `design/voice/`, resolved by `narrative/`. Narrative screens (intro, dialogue, negotiation, voice player, settings) live in `components/narrative/`; the ui lane mounts them in its pages.
-3. **Asset manifest**: the app reads only `public/media/` and `lib/generated/`, never `design/` at runtime.
+2. **Copy keys**: every sentence through `getCopy(id, …)` from `narrative/` (seed copy first, full copy later). Narrative screens (intro, dialogue, negotiation, voice player, settings) live in `components/narrative/`; the ui lane mounts them in its pages.
+3. **Asset registry**: every image through `lib/ui/assets.ts`, which returns the file in `public/media/` or a sized placeholder. Never a file path in a component, never `design/` at runtime.
 4. **Engine events**: the typed event list of `ENGINE-DATA-AND-TESTS.md` §6.
 A change to an interface is its own commit by its owner, announced to the team first.
 
@@ -50,7 +50,7 @@ A change to an interface is its own commit by its owner, announced to the team f
 3. **No bank-product bias.** Winning never requires a product; the factoring card is labelled as a scenario; the loan is a non-bank SMS.
 4. **AI with a fallback.** Every AI call has a deterministic fallback (buttons, cached lines) and a 3 s timeout. With `PILOT_AI_OFFLINE=1` no AI call leaves the machine. Tests never call a real LLM or TTS API.
 5. **Secrets.** Never read, print or commit `.env` / `.env.*`. Only `.env.example` with variable names and no values. Keys live only on the server side.
-6. **Accessibility.** Body text ≥ 16 px, AA contrast (`design/contrast-audit.json`), keyboard path, 44 px targets, captions for every voice line, reduced motion respected.
+6. **Accessibility.** Body text ≥ 16 px, AA contrast, keyboard path, 44 px targets, captions for every voice line, reduced motion respected.
 7. **Code quality.** TypeScript strict, no `any`, no `@ts-ignore`, no skipped tests, no TODO left in a commit. The engine is pure TypeScript with no React, Next or I/O imports.
 8. **Only this repository.** Build from the specification and `design/`. Do not copy code from other repositories or earlier prototypes.
 9. **Git.** Commit only on your lane branch. Never push to `main` or `develop`, never force-push, never rewrite history. The coordinator merges.
