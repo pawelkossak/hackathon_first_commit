@@ -1,9 +1,10 @@
 // Public engine API (RUNTIME-ENGINE-CONTRACT.md). UI and narrative code import only from here.
-// E-01: final signatures; bodies are fixtures built from data/*.json until E-02…E-09 implement the rules.
+// E-01: final signatures. E-02: real forecast (forecast.ts). Other bodies are fixtures until E-03…E-09.
 import { isValidIsoDate } from "./calendar";
 import { gameData } from "./data";
 import { RuleError } from "./errors";
-import { fixtureForecast, initialState, weekOf } from "./fixture";
+import { initialState } from "./fixture";
+import { computeForecast, weekOf } from "./forecast";
 import type {
   AgentId,
   AgentIntent,
@@ -89,9 +90,13 @@ export function resetGame(seed: string = DEMO_SEED): GameState {
   return initialState(seed);
 }
 
-/** Read-only daily forecast. Fixture (E-02 pending): the ledger as written, no overlays. */
+/**
+ * Read-only daily forecast 21 XI … 10 I: ledger + played cards + events, business-day shift,
+ * inflows before outflows, crash below −overdraft. Post-crash points are counterfactual.
+ * Default includes the scripted E6 delay; `includeFutureEvents: false` applies E6 only once resolved.
+ */
 export function forecast(state: GameState, options: ForecastOptions = {}): Forecast {
-  return fixtureForecast(state, options);
+  return computeForecast(state, options);
 }
 
 /** All six cards with engine-owned playability and disabled reasons. Fixture: window/played/exclusivity only. */
@@ -117,7 +122,7 @@ export function getAvailableCards(state: GameState): CardView[] {
   });
 }
 
-/** Simulate a card without committing it. Fixture: `after` equals `before` until E-03. */
+/** Simulate a card without committing it. `after` is the forecast of the simulated state (card money overlay of E-02). */
 export function previewCard(state: GameState, cardId: CardId): CardPreview {
   const card = cardDef(cardId);
   const reason = disabledReasonFor(state.core, cardId);
@@ -134,7 +139,7 @@ export function previewCard(state: GameState, cardId: CardId): CardPreview {
   };
 }
 
-/** Play a card as the week's one action. Throws RuleError("card_unavailable") when disabled. Fixture: no money overlay yet. */
+/** Play a card as the week's one action. Throws RuleError("card_unavailable") when disabled. Its money effect is applied by the forecast overlay. */
 export function playCard(state: GameState, cardId: CardId, delegated: boolean = false): GameState {
   const card = cardDef(cardId);
   const reason = disabledReasonFor(state.core, cardId);
