@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-img-element */
 import React from "react";
 import spritesData from "../../design/contracts/runtime-sprites.json";
 import { Placeholder } from "../../components/ui/Placeholder";
@@ -90,7 +91,6 @@ export function GameAsset({
     );
   }
 
-  /* eslint-disable-next-line @next/next/no-img-element */
   return (
     <img
       src={asset.mediaPath}
