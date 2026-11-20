@@ -5,6 +5,7 @@ import { describe, expect, it } from "vitest";
 import type { CardId, CompetenceId, CompetenceLevel, EventChoiceId, EventId, GameState } from "./index";
 import {
   RuleError,
+  advanceAccountClock,
   createGame,
   createPlan,
   forecast,
@@ -168,6 +169,10 @@ describe("score: stars, competences, unlock (E-06, ENGINE-DATA-AND-TESTS §7.5)"
     // Validation only raises a competence: stars and unlock stay.
     expect(validated.stars).toEqual(saved.core.stars);
     expect(validated.level2Unlocked).toBe(true);
+    // E-09: the same step through the account clock (plan met on 5 XII).
+    const onAccount = advanceAccountClock(saved);
+    expect(onAccount.core.competences).toEqual(validated.competences);
+    expect(onAccount.core.stars).toEqual(saved.core.stars);
   });
 
   it("U-4 overdraft cost ≈ 194 zł in the demo seed (44 interest + 150), avoided 2 206, Tanio ✓, Pilot ✗", () => {

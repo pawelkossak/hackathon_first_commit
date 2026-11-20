@@ -112,6 +112,24 @@ export function checkReferences(data: GameData): string[] {
       problems.push(`${agent.name}: no fallback rule (intent unknown, any week)`);
     }
   }
+  let previous = data.futureScript.accountClock.start;
+  for (const r of data.futureScript.replay) {
+    if (r.date <= previous) problems.push(`future script: replay ${r.date} not after ${previous}`);
+    previous = r.date;
+    if (!cpIds.has(r.counterpartyId)) problems.push(`future script: unknown counterparty ${r.counterpartyId}`);
+    if (r.source === "ledger") {
+      const l = data.persona.ledger.find((x) => x.id === r.ledgerId);
+      if (!l || r.cardId !== null) problems.push(`future script: ledger row ${r.date} needs a known ledgerId and no cardId`);
+      else if (l.date !== r.date || l.amount !== r.amount || l.counterpartyId !== r.counterpartyId) {
+        problems.push(`future script: ${l.id} differs from the persona ledger`);
+      }
+    } else if (r.cardId === null || !cardIds.has(r.cardId) || r.ledgerId !== null) {
+      problems.push(`future script: card row ${r.date} needs a known cardId and no ledgerId`);
+    }
+  }
+  if (data.futureScript.accountClock.defaultTarget < data.futureScript.accountClock.start) {
+    problems.push("future script: default target before the account start");
+  }
   for (const t of data.futureScript.planTemplates) {
     if (!cardIds.has(t.cardId)) problems.push(`plan template: unknown card ${t.cardId}`);
   }
