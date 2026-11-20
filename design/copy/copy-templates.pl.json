@@ -1,0 +1,4051 @@
+{
+  "format": "copy-deck/v1",
+  "locale": "pl-PL",
+  "source": [
+    "GAME-DESIGN.md §6",
+    "D-12",
+    "D-13",
+    "D-14",
+    "BACKEND-SERVICES.md §4"
+  ],
+  "entries": [
+    {
+      "id": "g01.title",
+      "screen": "G01",
+      "component": "body",
+      "textTemplate": "Firma czeka. Kawa też.",
+      "condition": "always",
+      "speaker": null
+    },
+    {
+      "id": "g01.email",
+      "screen": "G01",
+      "component": "body",
+      "textTemplate": "E-mail",
+      "condition": "always",
+      "speaker": null
+    },
+    {
+      "id": "g01.password",
+      "screen": "G01",
+      "component": "body",
+      "textTemplate": "Hasło",
+      "condition": "always",
+      "speaker": null
+    },
+    {
+      "id": "g01.showPassword",
+      "screen": "G01",
+      "component": "body",
+      "textTemplate": "Pokaż hasło",
+      "condition": "always",
+      "speaker": null
+    },
+    {
+      "id": "g01.cta",
+      "screen": "G01",
+      "component": "button",
+      "textTemplate": "Wejdź do gry",
+      "condition": "always",
+      "speaker": null
+    },
+    {
+      "id": "g01.secondary",
+      "screen": "G01",
+      "component": "button",
+      "textTemplate": "Zagraj bez konta",
+      "condition": "always",
+      "speaker": null
+    },
+    {
+      "id": "g01.forgot",
+      "screen": "G01",
+      "component": "body",
+      "textTemplate": "Nie pamiętam hasła",
+      "condition": "always",
+      "speaker": null
+    },
+    {
+      "id": "g01.create",
+      "screen": "G01",
+      "component": "body",
+      "textTemplate": "Załóż konto",
+      "condition": "always",
+      "speaker": null
+    },
+    {
+      "id": "g01.invalid",
+      "screen": "G01",
+      "component": "body",
+      "textTemplate": "Nie udało się zalogować. Sprawdź dane i spróbuj ponownie.",
+      "condition": "always",
+      "speaker": null
+    },
+    {
+      "id": "g01.busy",
+      "screen": "G01",
+      "component": "body",
+      "textTemplate": "Otwieramy drzwi do firmy…",
+      "condition": "always",
+      "speaker": null
+    },
+    {
+      "id": "g01.sessionExpired",
+      "screen": "G01",
+      "component": "body",
+      "textTemplate": "Sesja wygasła. Zaloguj się ponownie albo kontynuuj jako gość.",
+      "condition": "always",
+      "speaker": null
+    },
+    {
+      "id": "g02.title",
+      "screen": "G02",
+      "component": "body",
+      "textTemplate": "Zakładamy firmę. Tę w grze.",
+      "condition": "always",
+      "speaker": null
+    },
+    {
+      "id": "g02.email",
+      "screen": "G02",
+      "component": "body",
+      "textTemplate": "E-mail",
+      "condition": "always",
+      "speaker": null
+    },
+    {
+      "id": "g02.password",
+      "screen": "G02",
+      "component": "body",
+      "textTemplate": "Hasło",
+      "condition": "always",
+      "speaker": null
+    },
+    {
+      "id": "g02.repeatPassword",
+      "screen": "G02",
+      "component": "body",
+      "textTemplate": "Powtórz hasło",
+      "condition": "always",
+      "speaker": null
+    },
+    {
+      "id": "g02.cta",
+      "screen": "G02",
+      "component": "button",
+      "textTemplate": "Utwórz konto",
+      "condition": "always",
+      "speaker": null
+    },
+    {
+      "id": "g02.back",
+      "screen": "G02",
+      "component": "button",
+      "textTemplate": "Wróć do logowania",
+      "condition": "always",
+      "speaker": null
+    },
+    {
+      "id": "g02.terms",
+      "screen": "G02",
+      "component": "body",
+      "textTemplate": "Akceptuję regulamin i zasady prywatności.",
+      "condition": "always",
+      "speaker": null
+    },
+    {
+      "id": "g02.emailError",
+      "screen": "G02",
+      "component": "body",
+      "textTemplate": "Wpisz poprawny adres e-mail.",
+      "condition": "always",
+      "speaker": null
+    },
+    {
+      "id": "g02.passwordMismatch",
+      "screen": "G02",
+      "component": "body",
+      "textTemplate": "Hasła muszą być takie same.",
+      "condition": "always",
+      "speaker": null
+    },
+    {
+      "id": "g02.passwordRule",
+      "screen": "G02",
+      "component": "body",
+      "textTemplate": "Wymagania hasła pokażemy przy polu.",
+      "condition": "always",
+      "speaker": null
+    },
+    {
+      "id": "g02.existing",
+      "screen": "G02",
+      "component": "body",
+      "textTemplate": "Nie udało się utworzyć konta. Spróbuj zalogować się lub odzyskać dostęp.",
+      "condition": "always",
+      "speaker": null
+    },
+    {
+      "id": "g02.busy",
+      "screen": "G02",
+      "component": "body",
+      "textTemplate": "Przygotowujemy Twoje miejsce w grze…",
+      "condition": "always",
+      "speaker": null
+    },
+    {
+      "id": "g03.title",
+      "screen": "G03",
+      "component": "body",
+      "textTemplate": "Hasło poszło na urlop?",
+      "condition": "always",
+      "speaker": null
+    },
+    {
+      "id": "g03.email",
+      "screen": "G03",
+      "component": "body",
+      "textTemplate": "E-mail",
+      "condition": "always",
+      "speaker": null
+    },
+    {
+      "id": "g03.cta",
+      "screen": "G03",
+      "component": "button",
+      "textTemplate": "Wyślij link",
+      "condition": "always",
+      "speaker": null
+    },
+    {
+      "id": "g03.back",
+      "screen": "G03",
+      "component": "button",
+      "textTemplate": "Wróć do logowania",
+      "condition": "always",
+      "speaker": null
+    },
+    {
+      "id": "g03.result",
+      "screen": "G03",
+      "component": "body",
+      "textTemplate": "Jeśli dla tego adresu istnieje konto, otrzymasz wiadomość z dalszymi krokami.",
+      "condition": "always",
+      "speaker": null
+    },
+    {
+      "id": "g03.retry",
+      "screen": "G03",
+      "component": "body",
+      "textTemplate": "Nie udało się wysłać prośby. Spróbuj ponownie.",
+      "condition": "always",
+      "speaker": null
+    },
+    {
+      "id": "g03.busy",
+      "screen": "G03",
+      "component": "body",
+      "textTemplate": "Pakujemy instrukcję do papierowego samolotu…",
+      "condition": "always",
+      "speaker": null
+    },
+    {
+      "id": "g04.title",
+      "screen": "G04",
+      "component": "body",
+      "textTemplate": "{narrator.title} też czasem kończy pracę.",
+      "condition": "always",
+      "speaker": null
+    },
+    {
+      "id": "g04.saved",
+      "screen": "G04",
+      "component": "body",
+      "textTemplate": "Ostatni zapis: przed chwilą",
+      "condition": "always",
+      "speaker": null
+    },
+    {
+      "id": "g04.pending",
+      "screen": "G04",
+      "component": "body",
+      "textTemplate": "Zapis nie został potwierdzony. Nie zamykaj gry.",
+      "condition": "always",
+      "speaker": null
+    },
+    {
+      "id": "g04.cta",
+      "screen": "G04",
+      "component": "button",
+      "textTemplate": "Wyloguj",
+      "condition": "always",
+      "speaker": null
+    },
+    {
+      "id": "g04.secondary",
+      "screen": "G04",
+      "component": "button",
+      "textTemplate": "Jeszcze jedna tura",
+      "condition": "always",
+      "speaker": null
+    },
+    {
+      "id": "g04.retrySave",
+      "screen": "G04",
+      "component": "body",
+      "textTemplate": "Spróbuj zapisać ponownie",
+      "condition": "always",
+      "speaker": null
+    },
+    {
+      "id": "g04.goodbye",
+      "screen": "G04",
+      "component": "body",
+      "textTemplate": "Do zobaczenia na kolejnej turze!",
+      "condition": "always",
+      "speaker": null
+    },
+    {
+      "id": "g04.warning",
+      "screen": "G04",
+      "component": "body",
+      "textTemplate": "Wylogowanie nastąpi po potwierdzeniu zapisu.",
+      "condition": "always",
+      "speaker": null
+    },
+    {
+      "id": "g05.title",
+      "screen": "G05",
+      "component": "body",
+      "textTemplate": "Witaj na pokładzie, {player.vocative}!",
+      "condition": "always",
+      "speaker": null
+    },
+    {
+      "id": "g05.intro",
+      "screen": "G05",
+      "component": "body",
+      "textTemplate": "{narrator.introduction} Mam klientów, dobre pomysły i kawę na trzy dni. Z pieniędzmi bywa różnie.",
+      "condition": "always",
+      "speaker": null
+    },
+    {
+      "id": "g05.role",
+      "screen": "G05",
+      "component": "body",
+      "textTemplate": "{narrator.invited} Cię, żeby pomóc przeprowadzić moje studio przez grudzień. Nie szukam pracownika. Szukam dobrego kursu.",
+      "condition": "always",
+      "speaker": null
+    },
+    {
+      "id": "g05.cta",
+      "screen": "G05",
+      "component": "button",
+      "textTemplate": "Poznajmy się",
+      "condition": "always",
+      "speaker": null
+    },
+    {
+      "id": "g05.skip",
+      "screen": "G05",
+      "component": "button",
+      "textTemplate": "Pomiń intro",
+      "condition": "always",
+      "speaker": null
+    },
+    {
+      "id": "g05.replay",
+      "screen": "G05",
+      "component": "body",
+      "textTemplate": "Posłuchaj ponownie",
+      "condition": "always",
+      "speaker": null
+    },
+    {
+      "id": "g05.captions",
+      "screen": "G05",
+      "component": "body",
+      "textTemplate": "Napisy",
+      "condition": "always",
+      "speaker": null
+    },
+    {
+      "id": "g05.voice",
+      "screen": "G05",
+      "component": "body",
+      "textTemplate": "Głos narratora",
+      "condition": "always",
+      "speaker": null
+    },
+    {
+      "id": "g06.title",
+      "screen": "G06",
+      "component": "body",
+      "textTemplate": "Kto pomaga, a kto prowadzi firmę?",
+      "condition": "always",
+      "speaker": null
+    },
+    {
+      "id": "g06.playerLabel",
+      "screen": "G06",
+      "component": "body",
+      "textTemplate": "Ty — pilot finansów",
+      "condition": "always",
+      "speaker": null
+    },
+    {
+      "id": "g06.playerWoman",
+      "screen": "G06",
+      "component": "body",
+      "textTemplate": "Kobieta",
+      "condition": "always",
+      "speaker": null
+    },
+    {
+      "id": "g06.playerMan",
+      "screen": "G06",
+      "component": "body",
+      "textTemplate": "Mężczyzna",
+      "condition": "always",
+      "speaker": null
+    },
+    {
+      "id": "g06.narratorLabel",
+      "screen": "G06",
+      "component": "body",
+      "textTemplate": "Właścicielka lub właściciel studia",
+      "condition": "always",
+      "speaker": null
+    },
+    {
+      "id": "g06.narratorWoman",
+      "screen": "G06",
+      "component": "body",
+      "textTemplate": "Szefowa — Ania",
+      "condition": "always",
+      "speaker": null
+    },
+    {
+      "id": "g06.narratorMan",
+      "screen": "G06",
+      "component": "body",
+      "textTemplate": "Szef",
+      "condition": "always",
+      "speaker": null
+    },
+    {
+      "id": "g06.note",
+      "screen": "G06",
+      "component": "body",
+      "textTemplate": "Postacie zmieniają narrację, nie liczby i zasady.",
+      "condition": "always",
+      "speaker": null
+    },
+    {
+      "id": "g06.changeLater",
+      "screen": "G06",
+      "component": "body",
+      "textTemplate": "Możesz zmienić później.",
+      "condition": "always",
+      "speaker": null
+    },
+    {
+      "id": "g06.cta",
+      "screen": "G06",
+      "component": "button",
+      "textTemplate": "Gramy!",
+      "condition": "always",
+      "speaker": null
+    },
+    {
+      "id": "g06.voicePreview",
+      "screen": "G06",
+      "component": "body",
+      "textTemplate": "Posłuchaj głosu",
+      "condition": "always",
+      "speaker": null
+    },
+    {
+      "id": "g06.selected",
+      "screen": "G06",
+      "component": "body",
+      "textTemplate": "Wybrana postać",
+      "condition": "always",
+      "speaker": null
+    },
+    {
+      "id": "g06.previewUnavailable",
+      "screen": "G06",
+      "component": "body",
+      "textTemplate": "Podgląd głosu jest chwilowo niedostępny. Możesz grać dalej.",
+      "condition": "always",
+      "speaker": null
+    },
+    {
+      "id": "g07.title",
+      "screen": "G07",
+      "component": "body",
+      "textTemplate": "Przetrwaj grudzień",
+      "condition": "always",
+      "speaker": null
+    },
+    {
+      "id": "g07.goal",
+      "screen": "G07",
+      "component": "body",
+      "textTemplate": "Przeprowadź firmę przez grudzień, zanim faktury zaczną gryźć.",
+      "condition": "always",
+      "speaker": null
+    },
+    {
+      "id": "g07.detail",
+      "screen": "G07",
+      "component": "body",
+      "textTemplate": "Pilnuj płatności, negocjuj terminy i dbaj o relacje. Firma jest moja, ale kurs wybieramy razem.",
+      "condition": "always",
+      "speaker": null
+    },
+    {
+      "id": "g07.cta",
+      "screen": "G07",
+      "component": "button",
+      "textTemplate": "Podejmuję wyzwanie",
+      "condition": "always",
+      "speaker": null
+    },
+    {
+      "id": "g07.skip",
+      "screen": "G07",
+      "component": "button",
+      "textTemplate": "Przejdź do misji",
+      "condition": "always",
+      "speaker": null
+    },
+    {
+      "id": "g08.title",
+      "screen": "G08",
+      "component": "body",
+      "textTemplate": "Tu uczysz się przez decyzje.",
+      "condition": "always",
+      "speaker": null
+    },
+    {
+      "id": "g08.loop",
+      "screen": "G08",
+      "component": "body",
+      "textTemplate": "Zdarzenie. Jeden opcjonalny manewr. Skutek. Kolejny tydzień.",
+      "condition": "always",
+      "speaker": null
+    },
+    {
+      "id": "g08.safe",
+      "screen": "G08",
+      "component": "body",
+      "textTemplate": "Negocjuj, sprawdzaj skutki i cofaj czas. Tutaj błędy można przećwiczyć.",
+      "condition": "always",
+      "speaker": null
+    },
+    {
+      "id": "g08.cta",
+      "screen": "G08",
+      "component": "button",
+      "textTemplate": "Moja pierwsza decyzja",
+      "condition": "always",
+      "speaker": null
+    },
+    {
+      "id": "g08.help",
+      "screen": "G08",
+      "component": "body",
+      "textTemplate": "Wykres i podglądy nie zużywają tury. Potwierdzenie karty — tak.",
+      "condition": "always",
+      "speaker": null
+    },
+    {
+      "id": "g08.keyboard",
+      "screen": "G08",
+      "component": "body",
+      "textTemplate": "Klawisze 1–6: wybór karty. Enter: aktywny przycisk. Esc: zamknij panel.",
+      "condition": "always",
+      "speaker": null
+    },
+    {
+      "id": "g09.title",
+      "screen": "G09",
+      "component": "body",
+      "textTemplate": "Mapa przygody",
+      "condition": "always",
+      "speaker": null
+    },
+    {
+      "id": "g09.level1",
+      "screen": "G09",
+      "component": "body",
+      "textTemplate": "Przetrwaj grudzień",
+      "condition": "always",
+      "speaker": null
+    },
+    {
+      "id": "g09.level2",
+      "screen": "G09",
+      "component": "body",
+      "textTemplate": "Pierwszy pracownik",
+      "condition": "always",
+      "speaker": null
+    },
+    {
+      "id": "g09.level3",
+      "screen": "G09",
+      "component": "body",
+      "textTemplate": "Rozwój i inwestycje",
+      "condition": "always",
+      "speaker": null
+    },
+    {
+      "id": "g09.level4",
+      "screen": "G09",
+      "component": "body",
+      "textTemplate": "Następne pokolenie",
+      "condition": "always",
+      "speaker": null
+    },
+    {
+      "id": "g09.soon",
+      "screen": "G09",
+      "component": "body",
+      "textTemplate": "Wkrótce",
+      "condition": "always",
+      "speaker": null
+    },
+    {
+      "id": "g09.locked",
+      "screen": "G09",
+      "component": "body",
+      "textTemplate": "Odblokuj poprzedni etap.",
+      "condition": "always",
+      "speaker": null
+    },
+    {
+      "id": "g09.cta",
+      "screen": "G09",
+      "component": "button",
+      "textTemplate": "Start misji",
+      "condition": "always",
+      "speaker": null
+    },
+    {
+      "id": "g09.resume",
+      "screen": "G09",
+      "component": "body",
+      "textTemplate": "Kontynuuj misję",
+      "condition": "always",
+      "speaker": null
+    },
+    {
+      "id": "g09.note",
+      "screen": "G09",
+      "component": "body",
+      "textTemplate": "Nie wszystkie wyspy są już grywalne.",
+      "condition": "always",
+      "speaker": null
+    },
+    {
+      "id": "g10.title",
+      "screen": "G10",
+      "component": "body",
+      "textTemplate": "Przetrwaj grudzień",
+      "condition": "always",
+      "speaker": null
+    },
+    {
+      "id": "g10.cash",
+      "screen": "G10",
+      "component": "body",
+      "textTemplate": "Gotówka",
+      "condition": "always",
+      "speaker": null
+    },
+    {
+      "id": "g10.runway",
+      "screen": "G10",
+      "component": "body",
+      "textTemplate": "Paliwo",
+      "condition": "always",
+      "speaker": null
+    },
+    {
+      "id": "g10.resilience",
+      "screen": "G10",
+      "component": "body",
+      "textTemplate": "Odporność",
+      "condition": "always",
+      "speaker": null
+    },
+    {
+      "id": "g10.relations",
+      "screen": "G10",
+      "component": "body",
+      "textTemplate": "Relacje",
+      "condition": "always",
+      "speaker": null
+    },
+    {
+      "id": "g10.cost",
+      "screen": "G10",
+      "component": "body",
+      "textTemplate": "Koszt pieniądza",
+      "condition": "always",
+      "speaker": null
+    },
+    {
+      "id": "g10.unknown",
+      "screen": "G10",
+      "component": "body",
+      "textTemplate": "Jeszcze nie wyliczono",
+      "condition": "always",
+      "speaker": null
+    },
+    {
+      "id": "g10.week",
+      "screen": "G10",
+      "component": "body",
+      "textTemplate": "Tydzień {week.current} / {week.total}",
+      "condition": "always",
+      "speaker": null
+    },
+    {
+      "id": "g10.storm",
+      "screen": "G10",
+      "component": "body",
+      "textTemplate": "Turbulencje {forecast.lowDate}: {forecast.baselineLow}",
+      "condition": "always",
+      "speaker": null
+    },
+    {
+      "id": "g10.cta",
+      "screen": "G10",
+      "component": "button",
+      "textTemplate": "Wybierz manewr",
+      "condition": "always",
+      "speaker": null
+    },
+    {
+      "id": "g10.next",
+      "screen": "G10",
+      "component": "body",
+      "textTemplate": "Zakończ tydzień",
+      "condition": "always",
+      "speaker": null
+    },
+    {
+      "id": "g10.cashflow",
+      "screen": "G10",
+      "component": "body",
+      "textTemplate": "Pokaż przepływy",
+      "condition": "always",
+      "speaker": null
+    },
+    {
+      "id": "g10.cards",
+      "screen": "G10",
+      "component": "body",
+      "textTemplate": "Karty działań",
+      "condition": "always",
+      "speaker": null
+    },
+    {
+      "id": "g10.oneAction",
+      "screen": "G10",
+      "component": "body",
+      "textTemplate": "Jedno opcjonalne działanie w tygodniu.",
+      "condition": "always",
+      "speaker": null
+    },
+    {
+      "id": "g10.alreadyPlayed",
+      "screen": "G10",
+      "component": "body",
+      "textTemplate": "W tej turze zagrasz tylko jedną kartę.",
+      "condition": "always",
+      "speaker": null
+    },
+    {
+      "id": "g10.synthetic",
+      "screen": "G10",
+      "component": "body",
+      "textTemplate": "Dane syntetyczne",
+      "condition": "always",
+      "speaker": null
+    },
+    {
+      "id": "g11.title",
+      "screen": "G11",
+      "component": "body",
+      "textTemplate": "Nowy numer konta?",
+      "condition": "always",
+      "speaker": null
+    },
+    {
+      "id": "g11.body",
+      "screen": "G11",
+      "component": "body",
+      "textTemplate": "Faktura na {supplier.amount} ma inny numer konta niż zwykle.",
+      "condition": "always",
+      "speaker": null
+    },
+    {
+      "id": "g11.joke",
+      "screen": "G11",
+      "component": "body",
+      "textTemplate": "Faktura ta sama. Konto jakby po liftingu.",
+      "condition": "always",
+      "speaker": null
+    },
+    {
+      "id": "g11.choiceSafe",
+      "screen": "G11",
+      "component": "button",
+      "textTemplate": "Sprawdź na białej liście i zadzwoń",
+      "condition": "always",
+      "speaker": null
+    },
+    {
+      "id": "g11.choiceRisk",
+      "screen": "G11",
+      "component": "button",
+      "textTemplate": "Zapłać jak jest",
+      "condition": "always",
+      "speaker": null
+    },
+    {
+      "id": "g11.safeResult",
+      "screen": "G11",
+      "component": "body",
+      "textTemplate": "Weryfikacja zakończona. Bezpieczne płatności — poziom 2.",
+      "condition": "always",
+      "speaker": null
+    },
+    {
+      "id": "g11.riskResult",
+      "screen": "G11",
+      "component": "body",
+      "textTemplate": "Płatność trafiła na błędny rachunek. Sprawdź konsekwencje w historii zdarzeń.",
+      "condition": "always",
+      "speaker": null
+    },
+    {
+      "id": "g11.cta",
+      "screen": "G11",
+      "component": "button",
+      "textTemplate": "Wróć do trasy",
+      "condition": "always",
+      "speaker": null
+    },
+    {
+      "id": "g11.hint",
+      "screen": "G11",
+      "component": "body",
+      "textTemplate": "Nie zatwierdzaj przelewu tylko dlatego, że faktura wygląda znajomo.",
+      "condition": "always",
+      "speaker": null
+    },
+    {
+      "id": "g12.title",
+      "screen": "G12",
+      "component": "body",
+      "textTemplate": "Prognoza: będzie bujać",
+      "condition": "always",
+      "speaker": null
+    },
+    {
+      "id": "g12.joke",
+      "screen": "G12",
+      "component": "body",
+      "textTemplate": "To nie rollercoaster. To nasze przelewy.",
+      "condition": "always",
+      "speaker": null
+    },
+    {
+      "id": "g12.baseline",
+      "screen": "G12",
+      "component": "body",
+      "textTemplate": "Bez działania",
+      "condition": "always",
+      "speaker": null
+    },
+    {
+      "id": "g12.preview",
+      "screen": "G12",
+      "component": "body",
+      "textTemplate": "Podgląd decyzji",
+      "condition": "always",
+      "speaker": null
+    },
+    {
+      "id": "g12.committed",
+      "screen": "G12",
+      "component": "body",
+      "textTemplate": "Po decyzji",
+      "condition": "always",
+      "speaker": null
+    },
+    {
+      "id": "g12.zero",
+      "screen": "G12",
+      "component": "body",
+      "textTemplate": "Saldo zerowe",
+      "condition": "always",
+      "speaker": null
+    },
+    {
+      "id": "g12.negative",
+      "screen": "G12",
+      "component": "body",
+      "textTemplate": "Prognozowany niedobór",
+      "condition": "always",
+      "speaker": null
+    },
+    {
+      "id": "g12.summary",
+      "screen": "G12",
+      "component": "body",
+      "textTemplate": "Najniższe saldo {forecast.lowDate}: {forecast.baselineLow}. Po zaliczce: {advance.low}.",
+      "condition": "always",
+      "speaker": null
+    },
+    {
+      "id": "g12.details",
+      "screen": "G12",
+      "component": "body",
+      "textTemplate": "Szczegóły transakcji",
+      "condition": "always",
+      "speaker": null
+    },
+    {
+      "id": "g12.back",
+      "screen": "G12",
+      "component": "button",
+      "textTemplate": "Wróć do gry",
+      "condition": "always",
+      "speaker": null
+    },
+    {
+      "id": "g12.unavailable",
+      "screen": "G12",
+      "component": "body",
+      "textTemplate": "Nie udało się obliczyć podglądu. Ostatnie potwierdzone dane pozostają widoczne.",
+      "condition": "always",
+      "speaker": null
+    },
+    {
+      "id": "g13.title",
+      "screen": "G13",
+      "component": "body",
+      "textTemplate": "Twój następny manewr",
+      "condition": "always",
+      "speaker": null
+    },
+    {
+      "id": "g13.joke",
+      "screen": "G13",
+      "component": "body",
+      "textTemplate": "Najpierw ruch głową. Potem pieniędzmi.",
+      "condition": "always",
+      "speaker": null
+    },
+    {
+      "id": "g13.cta",
+      "screen": "G13",
+      "component": "button",
+      "textTemplate": "Zagraj kartę",
+      "condition": "always",
+      "speaker": null
+    },
+    {
+      "id": "g13.secondary",
+      "screen": "G13",
+      "component": "button",
+      "textTemplate": "Anuluj podgląd",
+      "condition": "always",
+      "speaker": null
+    },
+    {
+      "id": "g13.cost",
+      "screen": "G13",
+      "component": "body",
+      "textTemplate": "Koszt",
+      "condition": "always",
+      "speaker": null
+    },
+    {
+      "id": "g13.effect",
+      "screen": "G13",
+      "component": "body",
+      "textTemplate": "Efekt",
+      "condition": "always",
+      "speaker": null
+    },
+    {
+      "id": "g13.timing",
+      "screen": "G13",
+      "component": "body",
+      "textTemplate": "Kiedy działa",
+      "condition": "always",
+      "speaker": null
+    },
+    {
+      "id": "g13.played",
+      "screen": "G13",
+      "component": "body",
+      "textTemplate": "Zagrano w tej turze",
+      "condition": "always",
+      "speaker": null
+    },
+    {
+      "id": "g13.preview",
+      "screen": "G13",
+      "component": "body",
+      "textTemplate": "Podgląd nie zużywa tury.",
+      "condition": "always",
+      "speaker": null
+    },
+    {
+      "id": "g13.disabled",
+      "screen": "G13",
+      "component": "body",
+      "textTemplate": "Ta karta nie jest teraz dostępna.",
+      "condition": "always",
+      "speaker": null
+    },
+    {
+      "id": "g13.noCost",
+      "screen": "G13",
+      "component": "body",
+      "textTemplate": "Koszt: {money.zero}",
+      "condition": "always",
+      "speaker": null
+    },
+    {
+      "id": "g14.title",
+      "screen": "G14",
+      "component": "body",
+      "textTemplate": "Porozmawiajmy o zaliczce",
+      "condition": "always",
+      "speaker": null
+    },
+    {
+      "id": "g14.playerAsk",
+      "screen": "G14",
+      "component": "body",
+      "textTemplate": "Czy możemy ustalić {advance.requestedPercent} zaliczki?",
+      "condition": "always",
+      "speaker": null
+    },
+    {
+      "id": "g14.clientCounter",
+      "screen": "G14",
+      "component": "body",
+      "textTemplate": "Mogę dać {advance.percent} — {advance.amount} do {advance.date}.",
+      "condition": "always",
+      "speaker": null
+    },
+    {
+      "id": "g14.pending",
+      "screen": "G14",
+      "component": "body",
+      "textTemplate": "Podgląd warunków — czeka na akceptację",
+      "condition": "always",
+      "speaker": null
+    },
+    {
+      "id": "g14.choiceAccept",
+      "screen": "G14",
+      "component": "button",
+      "textTemplate": "Akceptuję {advance.percent}",
+      "condition": "always",
+      "speaker": null
+    },
+    {
+      "id": "g14.choiceDiscount",
+      "screen": "G14",
+      "component": "button",
+      "textTemplate": "Zapytaj o skonto",
+      "condition": "always",
+      "speaker": null
+    },
+    {
+      "id": "g14.placeholder",
+      "screen": "G14",
+      "component": "body",
+      "textTemplate": "Wpisz krótką odpowiedź",
+      "condition": "always",
+      "speaker": null
+    },
+    {
+      "id": "g14.send",
+      "screen": "G14",
+      "component": "body",
+      "textTemplate": "Wyślij",
+      "condition": "always",
+      "speaker": null
+    },
+    {
+      "id": "g14.typing",
+      "screen": "G14",
+      "component": "body",
+      "textTemplate": "Klient A układa odpowiedź…",
+      "condition": "always",
+      "speaker": null
+    },
+    {
+      "id": "g14.confirmed",
+      "screen": "G14",
+      "component": "body",
+      "textTemplate": "Silnik potwierdza: zaliczka {advance.amount} do {advance.date}.",
+      "condition": "always",
+      "speaker": null
+    },
+    {
+      "id": "g14.refused",
+      "screen": "G14",
+      "component": "body",
+      "textTemplate": "Budżet projektu jest zamknięty. Sprawdź inne manewry.",
+      "condition": "always",
+      "speaker": null
+    },
+    {
+      "id": "g14.limit",
+      "screen": "G14",
+      "component": "body",
+      "textTemplate": "Pozostałe wiadomości w tej turze: {chat.remaining}",
+      "condition": "always",
+      "speaker": null
+    },
+    {
+      "id": "g14.offline",
+      "screen": "G14",
+      "component": "body",
+      "textTemplate": "Tryb bez AI — wybierz gotową odpowiedź.",
+      "condition": "always",
+      "speaker": null
+    },
+    {
+      "id": "g14.back",
+      "screen": "G14",
+      "component": "button",
+      "textTemplate": "Wróć do kart",
+      "condition": "always",
+      "speaker": null
+    },
+    {
+      "id": "g15.title",
+      "screen": "G15",
+      "component": "body",
+      "textTemplate": "{narrator.title} ma dwa pomysły.",
+      "condition": "always",
+      "speaker": null
+    },
+    {
+      "id": "g15.risk",
+      "screen": "G15",
+      "component": "body",
+      "textTemplate": "{forecast.lowDate} zabraknie środków. Sprawdź zaliczkę i skonto.",
+      "condition": "always",
+      "speaker": null
+    },
+    {
+      "id": "g15.optionAdvance",
+      "screen": "G15",
+      "component": "body",
+      "textTemplate": "Zaliczka — koszt {money.zero}",
+      "condition": "always",
+      "speaker": null
+    },
+    {
+      "id": "g15.optionDiscount",
+      "screen": "G15",
+      "component": "body",
+      "textTemplate": "Skonto — koszt {discount.cost}",
+      "condition": "always",
+      "speaker": null
+    },
+    {
+      "id": "g15.cta",
+      "screen": "G15",
+      "component": "button",
+      "textTemplate": "Decyduję samodzielnie",
+      "condition": "always",
+      "speaker": null
+    },
+    {
+      "id": "g15.secondary",
+      "screen": "G15",
+      "component": "button",
+      "textTemplate": "Deleguj decyzję",
+      "condition": "always",
+      "speaker": null
+    },
+    {
+      "id": "g15.note",
+      "screen": "G15",
+      "component": "body",
+      "textTemplate": "Delegacja: kompetencja poziom 1. Samodzielna decyzja: poziom 2.",
+      "condition": "always",
+      "speaker": null
+    },
+    {
+      "id": "g15.result",
+      "screen": "G15",
+      "component": "body",
+      "textTemplate": "AI-CFO wybrał najtańszy dozwolony manewr. Sprawdź wynik silnika.",
+      "condition": "always",
+      "speaker": null
+    },
+    {
+      "id": "g15.hintUsed",
+      "screen": "G15",
+      "component": "body",
+      "textTemplate": "Podpowiedź w tej turze została wykorzystana.",
+      "condition": "always",
+      "speaker": null
+    },
+    {
+      "id": "g16.title",
+      "screen": "G16",
+      "component": "body",
+      "textTemplate": "15 minut? A ile do oddania?",
+      "condition": "always",
+      "speaker": null
+    },
+    {
+      "id": "g16.source",
+      "screen": "G16",
+      "component": "body",
+      "textTemplate": "SMS od firmy pożyczkowej",
+      "condition": "always",
+      "speaker": null
+    },
+    {
+      "id": "g16.sender",
+      "screen": "G16",
+      "component": "body",
+      "textTemplate": "Firma pożyczkowa",
+      "condition": "always",
+      "speaker": null
+    },
+    {
+      "id": "g16.sms",
+      "screen": "G16",
+      "component": "body",
+      "textTemplate": "{loan.amount} w 15 minut!",
+      "condition": "always",
+      "speaker": null
+    },
+    {
+      "id": "g16.joke",
+      "screen": "G16",
+      "component": "body",
+      "textTemplate": "Szybko to ja robię kawę. Sprawdźmy koszt.",
+      "condition": "always",
+      "speaker": null
+    },
+    {
+      "id": "g16.explanation",
+      "screen": "G16",
+      "component": "body",
+      "textTemplate": "To oferta pozabankowa z SMS-a. Doradca banku proponuje wyłącznie limit w koncie.",
+      "condition": "always",
+      "speaker": null
+    },
+    {
+      "id": "g16.cost",
+      "screen": "G16",
+      "component": "body",
+      "textTemplate": "Koszt: {loan.cost} • szacunek",
+      "condition": "always",
+      "speaker": null
+    },
+    {
+      "id": "g16.repay",
+      "screen": "G16",
+      "component": "body",
+      "textTemplate": "{loan.amount} teraz. {loan.repayment} do oddania do {loan.dueDate}.",
+      "condition": "always",
+      "speaker": null
+    },
+    {
+      "id": "g16.cta",
+      "screen": "G16",
+      "component": "button",
+      "textTemplate": "Pokaż pełny koszt",
+      "condition": "always",
+      "speaker": null
+    },
+    {
+      "id": "g16.back",
+      "screen": "G16",
+      "component": "button",
+      "textTemplate": "Wracam do innych opcji",
+      "condition": "always",
+      "speaker": null
+    },
+    {
+      "id": "g17.title",
+      "screen": "G17",
+      "component": "body",
+      "textTemplate": "Tydzień za nami!",
+      "condition": "always",
+      "speaker": null
+    },
+    {
+      "id": "g17.balance",
+      "screen": "G17",
+      "component": "body",
+      "textTemplate": "Saldo: {week.endBalance}",
+      "condition": "always",
+      "speaker": null
+    },
+    {
+      "id": "g17.delta",
+      "screen": "G17",
+      "component": "body",
+      "textTemplate": "Zmiana: {week.delta}",
+      "condition": "always",
+      "speaker": null
+    },
+    {
+      "id": "g17.lesson",
+      "screen": "G17",
+      "component": "body",
+      "textTemplate": "VAT został zapłacony na czas. Rachunek oddycha, ale patrzmy dalej niż dzisiejsze saldo.",
+      "condition": "always",
+      "speaker": null
+    },
+    {
+      "id": "g17.joke",
+      "screen": "G17",
+      "component": "body",
+      "textTemplate": "Nic nie wybuchło. W biznesie to też jest wiadomość.",
+      "condition": "always",
+      "speaker": null
+    },
+    {
+      "id": "g17.cta",
+      "screen": "G17",
+      "component": "button",
+      "textTemplate": "Następny tydzień",
+      "condition": "always",
+      "speaker": null
+    },
+    {
+      "id": "g17.quiet",
+      "screen": "G17",
+      "component": "body",
+      "textTemplate": "Spokojny tydzień — bez nowej decyzji.",
+      "condition": "always",
+      "speaker": null
+    },
+    {
+      "id": "g17.transactions",
+      "screen": "G17",
+      "component": "body",
+      "textTemplate": "Zobacz transakcje",
+      "condition": "always",
+      "speaker": null
+    },
+    {
+      "id": "g18.title",
+      "screen": "G18",
+      "component": "body",
+      "textTemplate": "Grudzień dowieziony!",
+      "condition": "always",
+      "speaker": null
+    },
+    {
+      "id": "g18.joke",
+      "screen": "G18",
+      "component": "body",
+      "textTemplate": "Można spać. Najpierw zapiszmy, co zadziałało.",
+      "condition": "always",
+      "speaker": null
+    },
+    {
+      "id": "g18.min",
+      "screen": "G18",
+      "component": "body",
+      "textTemplate": "Minimum: {advance.low}",
+      "condition": "always",
+      "speaker": null
+    },
+    {
+      "id": "g18.avoided",
+      "screen": "G18",
+      "component": "body",
+      "textTemplate": "Unikasz {advance.avoided} kosztu w porównaniu z pożyczką.",
+      "condition": "always",
+      "speaker": null
+    },
+    {
+      "id": "g18.survival",
+      "screen": "G18",
+      "component": "body",
+      "textTemplate": "Przetrwanie — zobowiązania na czas",
+      "condition": "always",
+      "speaker": null
+    },
+    {
+      "id": "g18.cheap",
+      "screen": "G18",
+      "component": "body",
+      "textTemplate": "Tanio — koszt do {stars.cheapThreshold} i relacje bez strat",
+      "condition": "always",
+      "speaker": null
+    },
+    {
+      "id": "g18.pilotPending",
+      "screen": "G18",
+      "component": "body",
+      "textTemplate": "Pilot — czeka na zapis planu",
+      "condition": "always",
+      "speaker": null
+    },
+    {
+      "id": "g18.pilotEarned",
+      "screen": "G18",
+      "component": "body",
+      "textTemplate": "Pilot — saldo bez spadku poniżej zera i zapisany plan",
+      "condition": "always",
+      "speaker": null
+    },
+    {
+      "id": "g18.cta",
+      "screen": "G18",
+      "component": "button",
+      "textTemplate": "Zapisz plan i zdobądź gwiazdkę",
+      "condition": "always",
+      "speaker": null
+    },
+    {
+      "id": "g18.secondary",
+      "screen": "G18",
+      "component": "button",
+      "textTemplate": "Zobacz szczegóły",
+      "condition": "always",
+      "speaker": null
+    },
+    {
+      "id": "g18.notEarned",
+      "screen": "G18",
+      "component": "body",
+      "textTemplate": "Warunek tej gwiazdki nie został spełniony.",
+      "condition": "always",
+      "speaker": null
+    },
+    {
+      "id": "g19.title",
+      "screen": "G19",
+      "component": "body",
+      "textTemplate": "Przelew nie wystartował",
+      "condition": "always",
+      "speaker": null
+    },
+    {
+      "id": "g19.week",
+      "screen": "G19",
+      "component": "body",
+      "textTemplate": "Tydzień 5 — nieudany",
+      "condition": "always",
+      "speaker": null
+    },
+    {
+      "id": "g19.cause",
+      "screen": "G19",
+      "component": "body",
+      "textTemplate": "{failure.date} brakuje {failure.shortfall} na płatność {supplier.amount}.",
+      "condition": "always",
+      "speaker": null
+    },
+    {
+      "id": "g19.joke",
+      "screen": "G19",
+      "component": "body",
+      "textTemplate": "Mieliśmy negocjować termin, nie własną upadłość!",
+      "condition": "always",
+      "speaker": null
+    },
+    {
+      "id": "g19.support",
+      "screen": "G19",
+      "component": "body",
+      "textTemplate": "To próba. Cofnijmy się i spróbujmy inaczej.",
+      "condition": "always",
+      "speaker": null
+    },
+    {
+      "id": "g19.cta",
+      "screen": "G19",
+      "component": "button",
+      "textTemplate": "Cofnij czas",
+      "condition": "always",
+      "speaker": null
+    },
+    {
+      "id": "g19.secondary",
+      "screen": "G19",
+      "component": "button",
+      "textTemplate": "Co poszło nie tak?",
+      "condition": "always",
+      "speaker": null
+    },
+    {
+      "id": "g19.noLives",
+      "screen": "G19",
+      "component": "body",
+      "textTemplate": "Nie tracisz żyć ani dostępu do gry.",
+      "condition": "always",
+      "speaker": null
+    },
+    {
+      "id": "g20.title",
+      "screen": "G20",
+      "component": "body",
+      "textTemplate": "Czas na drugi manewr",
+      "condition": "always",
+      "speaker": null
+    },
+    {
+      "id": "g20.body",
+      "screen": "G20",
+      "component": "body",
+      "textTemplate": "Wróć przed negocjacje zaliczki.",
+      "condition": "always",
+      "speaker": null
+    },
+    {
+      "id": "g20.selector",
+      "screen": "G20",
+      "component": "body",
+      "textTemplate": "Wybierz tydzień 1–{rewind.max}",
+      "condition": "always",
+      "speaker": null
+    },
+    {
+      "id": "g20.cta",
+      "screen": "G20",
+      "component": "button",
+      "textTemplate": "Wracam do tygodnia {rewind.selected}",
+      "condition": "always",
+      "speaker": null
+    },
+    {
+      "id": "g20.state",
+      "screen": "G20",
+      "component": "body",
+      "textTemplate": "Stan zostanie przywrócony do wybranego tygodnia.",
+      "condition": "always",
+      "speaker": null
+    },
+    {
+      "id": "g20.back",
+      "screen": "G20",
+      "component": "button",
+      "textTemplate": "Wróć do podsumowania",
+      "condition": "always",
+      "speaker": null
+    },
+    {
+      "id": "g21.title",
+      "screen": "G21",
+      "component": "body",
+      "textTemplate": "Osiągnięcia",
+      "condition": "always",
+      "speaker": null
+    },
+    {
+      "id": "g21.advanceBadge",
+      "screen": "G21",
+      "component": "body",
+      "textTemplate": "Łowca zaliczek",
+      "condition": "always",
+      "speaker": null
+    },
+    {
+      "id": "g21.decemberBadge",
+      "screen": "G21",
+      "component": "body",
+      "textTemplate": "Spokojny grudzień",
+      "condition": "always",
+      "speaker": null
+    },
+    {
+      "id": "g21.safetyBadge",
+      "screen": "G21",
+      "component": "body",
+      "textTemplate": "Detektyw faktur",
+      "condition": "always",
+      "speaker": null
+    },
+    {
+      "id": "g21.joke",
+      "screen": "G21",
+      "component": "body",
+      "textTemplate": "Tego nie dają za samo klikanie.",
+      "condition": "always",
+      "speaker": null
+    },
+    {
+      "id": "g21.milestone1",
+      "screen": "G21",
+      "component": "body",
+      "textTemplate": "Obserwuję",
+      "condition": "always",
+      "speaker": null
+    },
+    {
+      "id": "g21.milestone2",
+      "screen": "G21",
+      "component": "body",
+      "textTemplate": "Decyduję",
+      "condition": "always",
+      "speaker": null
+    },
+    {
+      "id": "g21.milestone3",
+      "screen": "G21",
+      "component": "body",
+      "textTemplate": "Potwierdzam",
+      "condition": "always",
+      "speaker": null
+    },
+    {
+      "id": "g21.empty",
+      "screen": "G21",
+      "component": "body",
+      "textTemplate": "Pierwsza decyzja przed Tobą. Półka już czeka.",
+      "condition": "always",
+      "speaker": null
+    },
+    {
+      "id": "g21.cta",
+      "screen": "G21",
+      "component": "button",
+      "textTemplate": "Wracam na mapę",
+      "condition": "always",
+      "speaker": null
+    },
+    {
+      "id": "g21.detail",
+      "screen": "G21",
+      "component": "body",
+      "textTemplate": "Pokaż warunek osiągnięcia",
+      "condition": "always",
+      "speaker": null
+    },
+    {
+      "id": "g22.title",
+      "screen": "G22",
+      "component": "body",
+      "textTemplate": "Z gry do działania",
+      "condition": "always",
+      "speaker": null
+    },
+    {
+      "id": "g22.plan",
+      "screen": "G22",
+      "component": "body",
+      "textTemplate": "Zaliczka {advance.amount} {advance.tolerance} od Klienta A do {advance.deadline}.",
+      "condition": "always",
+      "speaker": null
+    },
+    {
+      "id": "g22.saved",
+      "screen": "G22",
+      "component": "body",
+      "textTemplate": "Plan zapisany. Gwiazdka Pilot zdobyta.",
+      "condition": "always",
+      "speaker": null
+    },
+    {
+      "id": "g22.joke",
+      "screen": "G22",
+      "component": "body",
+      "textTemplate": "Dobry plan lubi wyjść poza ekran.",
+      "condition": "always",
+      "speaker": null
+    },
+    {
+      "id": "g22.cta",
+      "screen": "G22",
+      "component": "button",
+      "textTemplate": "Przewiń czas o 2 tygodnie",
+      "condition": "always",
+      "speaker": null
+    },
+    {
+      "id": "g22.synthetic",
+      "screen": "G22",
+      "component": "body",
+      "textTemplate": "Rachunek demonstracyjny • dane syntetyczne",
+      "condition": "always",
+      "speaker": null
+    },
+    {
+      "id": "g22.pending",
+      "screen": "G22",
+      "component": "body",
+      "textTemplate": "Nie potwierdzono zapisu planu.",
+      "condition": "always",
+      "speaker": null
+    },
+    {
+      "id": "g22.retry",
+      "screen": "G22",
+      "component": "body",
+      "textTemplate": "Spróbuj zapisać ponownie",
+      "condition": "always",
+      "speaker": null
+    },
+    {
+      "id": "g23.title",
+      "screen": "G23",
+      "component": "body",
+      "textTemplate": "Zaliczka potwierdzona",
+      "condition": "always",
+      "speaker": null
+    },
+    {
+      "id": "g23.received",
+      "screen": "G23",
+      "component": "body",
+      "textTemplate": "Zaliczka dotarła! Luka {forecast.lowDate} zamknięta.",
+      "condition": "always",
+      "speaker": null
+    },
+    {
+      "id": "g23.clock",
+      "screen": "G23",
+      "component": "body",
+      "textTemplate": "Zegar konta: {account.start} → {account.replayEnd}",
+      "condition": "always",
+      "speaker": null
+    },
+    {
+      "id": "g23.competence",
+      "screen": "G23",
+      "component": "body",
+      "textTemplate": "Luka płynnościowa — poziom 3",
+      "condition": "always",
+      "speaker": null
+    },
+    {
+      "id": "g23.unlock",
+      "screen": "G23",
+      "component": "body",
+      "textTemplate": "Poziom 2 jest już odblokowany.",
+      "condition": "always",
+      "speaker": null
+    },
+    {
+      "id": "g23.cta",
+      "screen": "G23",
+      "component": "button",
+      "textTemplate": "Zobacz kolejny poziom",
+      "condition": "always",
+      "speaker": null
+    },
+    {
+      "id": "g23.details",
+      "screen": "G23",
+      "component": "body",
+      "textTemplate": "Szczegóły planu",
+      "condition": "always",
+      "speaker": null
+    },
+    {
+      "id": "g23.missed",
+      "screen": "G23",
+      "component": "body",
+      "textTemplate": "Plan nie został potwierdzony. Sprawdź wariant B.",
+      "condition": "always",
+      "speaker": null
+    },
+    {
+      "id": "g23.secondary",
+      "screen": "G23",
+      "component": "button",
+      "textTemplate": "Porównaj skonto i faktoring",
+      "condition": "always",
+      "speaker": null
+    },
+    {
+      "id": "g24.title",
+      "screen": "G24",
+      "component": "body",
+      "textTemplate": "Przerwa na kawę",
+      "condition": "always",
+      "speaker": null
+    },
+    {
+      "id": "g24.joke",
+      "screen": "G24",
+      "component": "body",
+      "textTemplate": "Spokojnie. Faktury poczekają. Tutaj.",
+      "condition": "always",
+      "speaker": null
+    },
+    {
+      "id": "g24.player",
+      "screen": "G24",
+      "component": "body",
+      "textTemplate": "Twoja postać",
+      "condition": "always",
+      "speaker": null
+    },
+    {
+      "id": "g24.narrator",
+      "screen": "G24",
+      "component": "body",
+      "textTemplate": "Szef / Szefowa",
+      "condition": "always",
+      "speaker": null
+    },
+    {
+      "id": "g24.voice",
+      "screen": "G24",
+      "component": "body",
+      "textTemplate": "Głos narratora",
+      "condition": "always",
+      "speaker": null
+    },
+    {
+      "id": "g24.captions",
+      "screen": "G24",
+      "component": "body",
+      "textTemplate": "Napisy",
+      "condition": "always",
+      "speaker": null
+    },
+    {
+      "id": "g24.motion",
+      "screen": "G24",
+      "component": "body",
+      "textTemplate": "Mniej animacji",
+      "condition": "always",
+      "speaker": null
+    },
+    {
+      "id": "g24.narratorRemarks",
+      "screen": "G24",
+      "component": "body",
+      "textTemplate": "Krótsze komentarze narratora",
+      "condition": "always",
+      "speaker": null
+    },
+    {
+      "id": "g24.cta",
+      "screen": "G24",
+      "component": "button",
+      "textTemplate": "Wracam do gry",
+      "condition": "always",
+      "speaker": null
+    },
+    {
+      "id": "g24.logout",
+      "screen": "G24",
+      "component": "body",
+      "textTemplate": "Wyloguj",
+      "condition": "always",
+      "speaker": null
+    },
+    {
+      "id": "g24.reset",
+      "screen": "G24",
+      "component": "body",
+      "textTemplate": "Zresetuj demo",
+      "condition": "always",
+      "speaker": null
+    },
+    {
+      "id": "g24.resetConfirm",
+      "screen": "G24",
+      "component": "body",
+      "textTemplate": "Reset usunie lokalny postęp demonstracji.",
+      "condition": "always",
+      "speaker": null
+    },
+    {
+      "id": "g24.choiceConfirm",
+      "screen": "G24",
+      "component": "button",
+      "textTemplate": "Zresetuj",
+      "condition": "always",
+      "speaker": null
+    },
+    {
+      "id": "g24.choiceCancel",
+      "screen": "G24",
+      "component": "button",
+      "textTemplate": "Zostaw postęp",
+      "condition": "always",
+      "speaker": null
+    },
+    {
+      "id": "g25.title",
+      "screen": "G25",
+      "component": "body",
+      "textTemplate": "Przygotowujemy firmę…",
+      "condition": "always",
+      "speaker": null
+    },
+    {
+      "id": "g25.joke",
+      "screen": "G25",
+      "component": "body",
+      "textTemplate": "{narrator.title} szuka kalkulatora. Kot wie, gdzie jest.",
+      "condition": "always",
+      "speaker": null
+    },
+    {
+      "id": "g25.voice",
+      "screen": "G25",
+      "component": "body",
+      "textTemplate": "Włącz dźwięk",
+      "condition": "always",
+      "speaker": null
+    },
+    {
+      "id": "g25.skip",
+      "screen": "G25",
+      "component": "button",
+      "textTemplate": "Pomiń narrację",
+      "condition": "always",
+      "speaker": null
+    },
+    {
+      "id": "g25.error",
+      "screen": "G25",
+      "component": "body",
+      "textTemplate": "Nie udało się pobrać części ilustracji. Spróbuj ponownie.",
+      "condition": "always",
+      "speaker": null
+    },
+    {
+      "id": "g25.retry",
+      "screen": "G25",
+      "component": "body",
+      "textTemplate": "Spróbuj ponownie",
+      "condition": "always",
+      "speaker": null
+    },
+    {
+      "id": "g26.title",
+      "screen": "G26",
+      "component": "body",
+      "textTemplate": "Lecimy do kolejnego tygodnia",
+      "condition": "always",
+      "speaker": null
+    },
+    {
+      "id": "g26.joke",
+      "screen": "G26",
+      "component": "body",
+      "textTemplate": "Proszę zapiąć terminy płatności.",
+      "condition": "always",
+      "speaker": null
+    },
+    {
+      "id": "g26.from",
+      "screen": "G26",
+      "component": "body",
+      "textTemplate": "Tydzień {transition.from}",
+      "condition": "always",
+      "speaker": null
+    },
+    {
+      "id": "g26.to",
+      "screen": "G26",
+      "component": "body",
+      "textTemplate": "Tydzień {transition.to}",
+      "condition": "always",
+      "speaker": null
+    },
+    {
+      "id": "g26.status",
+      "screen": "G26",
+      "component": "body",
+      "textTemplate": "Rozliczamy tydzień. Nie klikaj ponownie.",
+      "condition": "always",
+      "speaker": null
+    },
+    {
+      "id": "g27.title",
+      "screen": "G27",
+      "component": "body",
+      "textTemplate": "Rozmówca układa odpowiedź…",
+      "condition": "always",
+      "speaker": null
+    },
+    {
+      "id": "g27.audio",
+      "screen": "G27",
+      "component": "body",
+      "textTemplate": "Głos przygotowuje się. Napisy są już dostępne.",
+      "condition": "always",
+      "speaker": null
+    },
+    {
+      "id": "g27.cta",
+      "screen": "G27",
+      "component": "button",
+      "textTemplate": "Czytam dalej bez głosu",
+      "condition": "always",
+      "speaker": null
+    },
+    {
+      "id": "g27.offline",
+      "screen": "G27",
+      "component": "body",
+      "textTemplate": "Rozmowa bez AI — gotowe odpowiedzi działają.",
+      "condition": "always",
+      "speaker": null
+    },
+    {
+      "id": "g27.record",
+      "screen": "G27",
+      "component": "body",
+      "textTemplate": "Naciśnij, aby mówić",
+      "condition": "always",
+      "speaker": null
+    },
+    {
+      "id": "g27.recording",
+      "screen": "G27",
+      "component": "body",
+      "textTemplate": "Nagrywanie — naciśnij, aby zakończyć",
+      "condition": "always",
+      "speaker": null
+    },
+    {
+      "id": "g27.transcript",
+      "screen": "G27",
+      "component": "body",
+      "textTemplate": "Sprawdź rozpoznany tekst przed wysłaniem.",
+      "condition": "always",
+      "speaker": null
+    },
+    {
+      "id": "g27.micDenied",
+      "screen": "G27",
+      "component": "body",
+      "textTemplate": "Brak dostępu do mikrofonu. Możesz pisać lub wybrać gotową odpowiedź.",
+      "condition": "always",
+      "speaker": null
+    },
+    {
+      "id": "g27.cancel",
+      "screen": "G27",
+      "component": "body",
+      "textTemplate": "Anuluj nagranie",
+      "condition": "always",
+      "speaker": null
+    },
+    {
+      "id": "g28.title",
+      "screen": "G28",
+      "component": "body",
+      "textTemplate": "Internet poszedł po kawę.",
+      "condition": "always",
+      "speaker": null
+    },
+    {
+      "id": "g28.saveError",
+      "screen": "G28",
+      "component": "body",
+      "textTemplate": "Nie potwierdzono zapisu. Nie zamykaj gry.",
+      "condition": "always",
+      "speaker": null
+    },
+    {
+      "id": "g28.joke",
+      "screen": "G28",
+      "component": "body",
+      "textTemplate": "Gramy dalej. Mam plan B.",
+      "condition": "always",
+      "speaker": null
+    },
+    {
+      "id": "g28.cta",
+      "screen": "G28",
+      "component": "button",
+      "textTemplate": "Spróbuj zapisać ponownie",
+      "condition": "always",
+      "speaker": null
+    },
+    {
+      "id": "g28.secondary",
+      "screen": "G28",
+      "component": "button",
+      "textTemplate": "Zostań w grze",
+      "condition": "always",
+      "speaker": null
+    },
+    {
+      "id": "g28.aiOnly",
+      "screen": "G28",
+      "component": "body",
+      "textTemplate": "AI jest niedostępne. Silnik i gotowe odpowiedzi nadal działają.",
+      "condition": "always",
+      "speaker": null
+    },
+    {
+      "id": "g28.savedLocal",
+      "screen": "G28",
+      "component": "body",
+      "textTemplate": "Zapis lokalny potwierdzony. Nie oznacza to zapisu w chmurze.",
+      "condition": "always",
+      "speaker": null
+    },
+    {
+      "id": "g29.title",
+      "screen": "G29",
+      "component": "body",
+      "textTemplate": "Faktoring ekspresowy mBank",
+      "condition": "always",
+      "speaker": null
+    },
+    {
+      "id": "g29.rate",
+      "screen": "G29",
+      "component": "body",
+      "textTemplate": "Koszt: {factoring.rate}",
+      "condition": "always",
+      "speaker": null
+    },
+    {
+      "id": "g29.fee",
+      "screen": "G29",
+      "component": "body",
+      "textTemplate": "Koszt scenariusza: {factoring.fee}",
+      "condition": "always",
+      "speaker": null
+    },
+    {
+      "id": "g29.receipt",
+      "screen": "G29",
+      "component": "body",
+      "textTemplate": "Wpływ: {factoring.receipt}",
+      "condition": "always",
+      "speaker": null
+    },
+    {
+      "id": "g29.low",
+      "screen": "G29",
+      "component": "body",
+      "textTemplate": "Najniższe saldo: {factoring.low}",
+      "condition": "always",
+      "speaker": null
+    },
+    {
+      "id": "g29.joke",
+      "screen": "G29",
+      "component": "body",
+      "textTemplate": "Faktura ma termin. My mamy poniedziałek.",
+      "condition": "always",
+      "speaker": null
+    },
+    {
+      "id": "g29.cta",
+      "screen": "G29",
+      "component": "button",
+      "textTemplate": "Sprawdź efekt",
+      "condition": "always",
+      "speaker": null
+    },
+    {
+      "id": "g29.scenario",
+      "screen": "G29",
+      "component": "body",
+      "textTemplate": "Założenie scenariusza • dane syntetyczne",
+      "condition": "always",
+      "speaker": null
+    },
+    {
+      "id": "g29.timing",
+      "screen": "G29",
+      "component": "body",
+      "textTemplate": "Wniosek T1–T5. Wypłata następnego dnia roboczego.",
+      "condition": "always",
+      "speaker": null
+    },
+    {
+      "id": "g29.exclusive",
+      "screen": "G29",
+      "component": "body",
+      "textTemplate": "Faktura już opłacona lub sfinansowana — skonto i faktoring wzajemnie się wykluczają.",
+      "condition": "always",
+      "speaker": null
+    },
+    {
+      "id": "g30.title",
+      "screen": "G30",
+      "component": "body",
+      "textTemplate": "Cash Flow",
+      "condition": "always",
+      "speaker": null
+    },
+    {
+      "id": "g30.cashflowDate",
+      "screen": "G30",
+      "component": "body",
+      "textTemplate": "Wybrana data: {forecast.lowDate}",
+      "condition": "always",
+      "speaker": null
+    },
+    {
+      "id": "g30.baseline",
+      "screen": "G30",
+      "component": "body",
+      "textTemplate": "Bez działania",
+      "condition": "always",
+      "speaker": null
+    },
+    {
+      "id": "g30.preview",
+      "screen": "G30",
+      "component": "body",
+      "textTemplate": "Podgląd decyzji",
+      "condition": "always",
+      "speaker": null
+    },
+    {
+      "id": "g30.committed",
+      "screen": "G30",
+      "component": "body",
+      "textTemplate": "Po zatwierdzeniu",
+      "condition": "always",
+      "speaker": null
+    },
+    {
+      "id": "g30.transactions",
+      "screen": "G30",
+      "component": "body",
+      "textTemplate": "Transakcje w wybranym terminie",
+      "condition": "always",
+      "speaker": null
+    },
+    {
+      "id": "g30.amount",
+      "screen": "G30",
+      "component": "body",
+      "textTemplate": "Kwota",
+      "condition": "always",
+      "speaker": null
+    },
+    {
+      "id": "g30.counterparty",
+      "screen": "G30",
+      "component": "body",
+      "textTemplate": "Kontrahent",
+      "condition": "always",
+      "speaker": null
+    },
+    {
+      "id": "g30.date",
+      "screen": "G30",
+      "component": "body",
+      "textTemplate": "Data",
+      "condition": "always",
+      "speaker": null
+    },
+    {
+      "id": "g30.zero",
+      "screen": "G30",
+      "component": "body",
+      "textTemplate": "Saldo zerowe",
+      "condition": "always",
+      "speaker": null
+    },
+    {
+      "id": "g30.cta",
+      "screen": "G30",
+      "component": "button",
+      "textTemplate": "Pokaż przepływy",
+      "condition": "always",
+      "speaker": null
+    },
+    {
+      "id": "g30.close",
+      "screen": "G30",
+      "component": "body",
+      "textTemplate": "Zamknij wykres",
+      "condition": "always",
+      "speaker": null
+    },
+    {
+      "id": "g30.empty",
+      "screen": "G30",
+      "component": "body",
+      "textTemplate": "W tym terminie nie ma transakcji.",
+      "condition": "always",
+      "speaker": null
+    },
+    {
+      "id": "g30.loading",
+      "screen": "G30",
+      "component": "body",
+      "textTemplate": "Sprawdzamy trasę…",
+      "condition": "always",
+      "speaker": null
+    },
+    {
+      "id": "g30.error",
+      "screen": "G30",
+      "component": "body",
+      "textTemplate": "Nie udało się obliczyć podglądu. Spróbuj ponownie.",
+      "condition": "always",
+      "speaker": null
+    },
+    {
+      "id": "g30.summary",
+      "screen": "G30",
+      "component": "body",
+      "textTemplate": "Bez działania minimum {forecast.baselineLow}. Podgląd: {forecast.scenarioName}, minimum {forecast.currentLow}.",
+      "condition": "always",
+      "speaker": null
+    },
+    {
+      "id": "g30.free",
+      "screen": "G30",
+      "component": "body",
+      "textTemplate": "Oglądanie wykresu nie zużywa tury.",
+      "condition": "always",
+      "speaker": null
+    },
+    {
+      "id": "g31.title",
+      "screen": "G31",
+      "component": "body",
+      "textTemplate": "Porównanie przed decyzją",
+      "condition": "always",
+      "speaker": null
+    },
+    {
+      "id": "g31.joke",
+      "screen": "G31",
+      "component": "body",
+      "textTemplate": "Szybciej nie zawsze znaczy taniej. Policzmy.",
+      "condition": "always",
+      "speaker": null
+    },
+    {
+      "id": "g31.advance",
+      "screen": "G31",
+      "component": "body",
+      "textTemplate": "Zaliczka — {money.zero}",
+      "condition": "always",
+      "speaker": null
+    },
+    {
+      "id": "g31.discount",
+      "screen": "G31",
+      "component": "body",
+      "textTemplate": "Skonto — {discount.cost}",
+      "condition": "always",
+      "speaker": null
+    },
+    {
+      "id": "g31.factoring",
+      "screen": "G31",
+      "component": "body",
+      "textTemplate": "Faktoring — {factoring.fee}",
+      "condition": "always",
+      "speaker": null
+    },
+    {
+      "id": "g31.timing",
+      "screen": "G31",
+      "component": "body",
+      "textTemplate": "Porównaj koszt, dostępność i termin wpływu.",
+      "condition": "always",
+      "speaker": null
+    },
+    {
+      "id": "g31.cta",
+      "screen": "G31",
+      "component": "button",
+      "textTemplate": "Porównaj na wykresie",
+      "condition": "always",
+      "speaker": null
+    },
+    {
+      "id": "g31.back",
+      "screen": "G31",
+      "component": "button",
+      "textTemplate": "Wracam do kart",
+      "condition": "always",
+      "speaker": null
+    },
+    {
+      "id": "g31.ethics",
+      "screen": "G31",
+      "component": "body",
+      "textTemplate": "Wygrana nie wymaga zakupu produktu bankowego.",
+      "condition": "always",
+      "speaker": null
+    },
+    {
+      "id": "g32.title",
+      "screen": "G32",
+      "component": "body",
+      "textTemplate": "Podgląd efektu karty",
+      "condition": "always",
+      "speaker": null
+    },
+    {
+      "id": "g32.joke",
+      "screen": "G32",
+      "component": "body",
+      "textTemplate": "Najpierw zobaczmy, co zmieni ten manewr.",
+      "condition": "always",
+      "speaker": null
+    },
+    {
+      "id": "g32.before",
+      "screen": "G32",
+      "component": "body",
+      "textTemplate": "Przed decyzją",
+      "condition": "always",
+      "speaker": null
+    },
+    {
+      "id": "g32.after",
+      "screen": "G32",
+      "component": "body",
+      "textTemplate": "Po decyzji",
+      "condition": "always",
+      "speaker": null
+    },
+    {
+      "id": "g32.factoring",
+      "screen": "G32",
+      "component": "body",
+      "textTemplate": "Minimum po faktoringu: {factoring.low}",
+      "condition": "always",
+      "speaker": null
+    },
+    {
+      "id": "g32.cta",
+      "screen": "G32",
+      "component": "button",
+      "textTemplate": "Zagraj kartę",
+      "condition": "always",
+      "speaker": null
+    },
+    {
+      "id": "g32.secondary",
+      "screen": "G32",
+      "component": "button",
+      "textTemplate": "Wróć",
+      "condition": "always",
+      "speaker": null
+    },
+    {
+      "id": "g32.free",
+      "screen": "G32",
+      "component": "body",
+      "textTemplate": "Podgląd nie zużywa tury.",
+      "condition": "always",
+      "speaker": null
+    },
+    {
+      "id": "g32.cashflow",
+      "screen": "G32",
+      "component": "body",
+      "textTemplate": "Pokaż przepływy",
+      "condition": "always",
+      "speaker": null
+    },
+    {
+      "id": "common.synthetic",
+      "screen": "shared",
+      "component": "body",
+      "textTemplate": "Dane syntetyczne",
+      "condition": "always",
+      "speaker": null
+    },
+    {
+      "id": "common.estimate",
+      "screen": "shared",
+      "component": "body",
+      "textTemplate": "Szacunek",
+      "condition": "always",
+      "speaker": null
+    },
+    {
+      "id": "common.close",
+      "screen": "shared",
+      "component": "body",
+      "textTemplate": "Zamknij",
+      "condition": "always",
+      "speaker": null
+    },
+    {
+      "id": "common.back",
+      "screen": "shared",
+      "component": "body",
+      "textTemplate": "Wstecz",
+      "condition": "always",
+      "speaker": null
+    },
+    {
+      "id": "common.next",
+      "screen": "shared",
+      "component": "body",
+      "textTemplate": "Dalej",
+      "condition": "always",
+      "speaker": null
+    },
+    {
+      "id": "common.retry",
+      "screen": "shared",
+      "component": "body",
+      "textTemplate": "Spróbuj ponownie",
+      "condition": "always",
+      "speaker": null
+    },
+    {
+      "id": "common.on",
+      "screen": "shared",
+      "component": "body",
+      "textTemplate": "Włączone",
+      "condition": "always",
+      "speaker": null
+    },
+    {
+      "id": "common.off",
+      "screen": "shared",
+      "component": "body",
+      "textTemplate": "Wyłączone",
+      "condition": "always",
+      "speaker": null
+    },
+    {
+      "id": "common.rotate",
+      "screen": "shared",
+      "component": "body",
+      "textTemplate": "Obróć telefon, lecimy w poziomie.",
+      "condition": "always",
+      "speaker": null
+    },
+    {
+      "id": "common.rotateFallback",
+      "screen": "shared",
+      "component": "body",
+      "textTemplate": "Kontynuuj w widoku tekstowym",
+      "condition": "always",
+      "speaker": null
+    },
+    {
+      "id": "common.savePending",
+      "screen": "shared",
+      "component": "body",
+      "textTemplate": "Zapisywanie…",
+      "condition": "always",
+      "speaker": null
+    },
+    {
+      "id": "common.saved",
+      "screen": "shared",
+      "component": "body",
+      "textTemplate": "Zapis potwierdzony",
+      "condition": "always",
+      "speaker": null
+    },
+    {
+      "id": "common.weekLabel",
+      "screen": "shared",
+      "component": "body",
+      "textTemplate": "Tydzień",
+      "condition": "always",
+      "speaker": null
+    },
+    {
+      "id": "common.selected",
+      "screen": "shared",
+      "component": "body",
+      "textTemplate": "Wybrano",
+      "condition": "always",
+      "speaker": null
+    },
+    {
+      "id": "common.locked",
+      "screen": "shared",
+      "component": "body",
+      "textTemplate": "Zablokowane",
+      "condition": "always",
+      "speaker": null
+    },
+    {
+      "id": "common.focusHelp",
+      "screen": "shared",
+      "component": "body",
+      "textTemplate": "Pomoc i sterowanie",
+      "condition": "always",
+      "speaker": null
+    },
+    {
+      "id": "card.advance.title",
+      "screen": "G13",
+      "component": "card-title",
+      "textTemplate": "Poproś o zaliczkę",
+      "condition": "always",
+      "speaker": null
+    },
+    {
+      "id": "card.advance.body",
+      "screen": "G13",
+      "component": "card-body",
+      "textTemplate": "Klient A: {advance.percent} projektu z góry, {advance.amount} do {advance.date}.",
+      "condition": "always",
+      "speaker": null
+    },
+    {
+      "id": "card.advance.timing",
+      "screen": "G13",
+      "component": "card-timing",
+      "textTemplate": "Tylko T1–T2, przed startem prac.",
+      "condition": "always",
+      "speaker": null
+    },
+    {
+      "id": "card.advance.cost",
+      "screen": "G13",
+      "component": "card-cost",
+      "textTemplate": "Koszt: {money.zero}",
+      "condition": "always",
+      "speaker": null
+    },
+    {
+      "id": "card.advance.disabled",
+      "screen": "G13",
+      "component": "card-disabled",
+      "textTemplate": "Za późno — budżet klienta zamknięty.",
+      "condition": "always",
+      "speaker": null
+    },
+    {
+      "id": "card.discount.title",
+      "screen": "G13",
+      "component": "card-title",
+      "textTemplate": "Zaproponuj skonto {discount.percent}",
+      "condition": "always",
+      "speaker": null
+    },
+    {
+      "id": "card.discount.body",
+      "screen": "G13",
+      "component": "card-body",
+      "textTemplate": "Wpływ {discount.receipt} zamiast {invoice.amount}, trzy dni po ofercie.",
+      "condition": "always",
+      "speaker": null
+    },
+    {
+      "id": "card.discount.timing",
+      "screen": "G13",
+      "component": "card-timing",
+      "textTemplate": "Zaproponuj najpóźniej w T4.",
+      "condition": "always",
+      "speaker": null
+    },
+    {
+      "id": "card.discount.cost",
+      "screen": "G13",
+      "component": "card-cost",
+      "textTemplate": "Koszt: {discount.cost}",
+      "condition": "always",
+      "speaker": null
+    },
+    {
+      "id": "card.discount.disabled",
+      "screen": "G13",
+      "component": "card-disabled",
+      "textTemplate": "Za późno, aby uratować płatność 22 XII.",
+      "condition": "always",
+      "speaker": null
+    },
+    {
+      "id": "card.postpone.title",
+      "screen": "G13",
+      "component": "card-title",
+      "textTemplate": "Przesuń płatność podwykonawcom",
+      "condition": "always",
+      "speaker": null
+    },
+    {
+      "id": "card.postpone.body",
+      "screen": "G13",
+      "component": "card-body",
+      "textTemplate": "Przenieś {supplier.amount} na {supplier.newDate}. W scenariuszu demo spóźnienie klienta może oznaczać porażkę 8 I.",
+      "condition": "always",
+      "speaker": null
+    },
+    {
+      "id": "card.postpone.timing",
+      "screen": "G13",
+      "component": "card-timing",
+      "textTemplate": "Uzgodnij przed T5.",
+      "condition": "always",
+      "speaker": null
+    },
+    {
+      "id": "card.postpone.cost",
+      "screen": "G13",
+      "component": "card-cost",
+      "textTemplate": "Relacje {relations.loss}",
+      "condition": "always",
+      "speaker": null
+    },
+    {
+      "id": "card.postpone.disabled",
+      "screen": "G13",
+      "component": "card-disabled",
+      "textTemplate": "Termin płatności już nadszedł.",
+      "condition": "always",
+      "speaker": null
+    },
+    {
+      "id": "card.overdraft.title",
+      "screen": "G13",
+      "component": "card-title",
+      "textTemplate": "Limit w koncie {overdraft.amount}",
+      "condition": "always",
+      "speaker": null
+    },
+    {
+      "id": "card.overdraft.body",
+      "screen": "G13",
+      "component": "card-body",
+      "textTemplate": "Doradca banku: pięć dni roboczych na decyzję.",
+      "condition": "always",
+      "speaker": null
+    },
+    {
+      "id": "card.overdraft.timing",
+      "screen": "G13",
+      "component": "card-timing",
+      "textTemplate": "Wniosek do końca T3 — zasada tego scenariusza.",
+      "condition": "always",
+      "speaker": null
+    },
+    {
+      "id": "card.overdraft.cost",
+      "screen": "G13",
+      "component": "card-cost",
+      "textTemplate": "Koszt: {overdraft.costEstimate} • szacunek",
+      "condition": "always",
+      "speaker": null
+    },
+    {
+      "id": "card.overdraft.disabled",
+      "screen": "G13",
+      "component": "card-disabled",
+      "textTemplate": "Za późno na limit w tym scenariuszu.",
+      "condition": "always",
+      "speaker": null
+    },
+    {
+      "id": "card.loan.title",
+      "screen": "G13",
+      "component": "card-title",
+      "textTemplate": "Pożyczka w 15 minut",
+      "condition": "always",
+      "speaker": null
+    },
+    {
+      "id": "card.loan.body",
+      "screen": "G13",
+      "component": "card-body",
+      "textTemplate": "SMS od firmy pożyczkowej: {loan.amount} teraz, {loan.repayment} do {loan.dueDate}.",
+      "condition": "always",
+      "speaker": null
+    },
+    {
+      "id": "card.loan.timing",
+      "screen": "G13",
+      "component": "card-timing",
+      "textTemplate": "T1–T5, przed odrzuconą płatnością.",
+      "condition": "always",
+      "speaker": null
+    },
+    {
+      "id": "card.loan.cost",
+      "screen": "G13",
+      "component": "card-cost",
+      "textTemplate": "Koszt: {loan.cost} • szacunek",
+      "condition": "always",
+      "speaker": null
+    },
+    {
+      "id": "card.loan.disabled",
+      "screen": "G13",
+      "component": "card-disabled",
+      "textTemplate": "Płatność została już odrzucona — cofnij czas.",
+      "condition": "always",
+      "speaker": null
+    },
+    {
+      "id": "card.factoring.title",
+      "screen": "G13",
+      "component": "card-title",
+      "textTemplate": "Faktoring ekspresowy mBank",
+      "condition": "always",
+      "speaker": null
+    },
+    {
+      "id": "card.factoring.body",
+      "screen": "G13",
+      "component": "card-body",
+      "textTemplate": "Finansowanie faktury {invoice.amount}: wpływ {factoring.receipt} następnego dnia roboczego.",
+      "condition": "always",
+      "speaker": null
+    },
+    {
+      "id": "card.factoring.timing",
+      "screen": "G13",
+      "component": "card-timing",
+      "textTemplate": "T1–T5, faktura nieopłacona i bez skonta.",
+      "condition": "always",
+      "speaker": null
+    },
+    {
+      "id": "card.factoring.cost",
+      "screen": "G13",
+      "component": "card-cost",
+      "textTemplate": "{factoring.rate} = {factoring.fee} • założenie scenariusza",
+      "condition": "always",
+      "speaker": null
+    },
+    {
+      "id": "card.factoring.disabled",
+      "screen": "G13",
+      "component": "card-disabled",
+      "textTemplate": "Faktura już sfinansowana lub opłacona.",
+      "condition": "always",
+      "speaker": null
+    },
+    {
+      "id": "event.account.title",
+      "screen": "G11",
+      "component": "event-title",
+      "textTemplate": "Nowy numer konta podwykonawcy",
+      "condition": "always",
+      "speaker": null
+    },
+    {
+      "id": "event.account.body",
+      "screen": "G11",
+      "component": "event-body",
+      "textTemplate": "Faktura na {supplier.amount} przyszła z innym numerem konta.",
+      "condition": "always",
+      "speaker": null
+    },
+    {
+      "id": "event.account.choiceA",
+      "screen": "G11",
+      "component": "event-choiceA",
+      "textTemplate": "Sprawdź i zadzwoń",
+      "condition": "always",
+      "speaker": null
+    },
+    {
+      "id": "event.account.choiceB",
+      "screen": "G11",
+      "component": "event-choiceB",
+      "textTemplate": "Zapłać jak jest",
+      "condition": "always",
+      "speaker": null
+    },
+    {
+      "id": "event.order.title",
+      "screen": "G11",
+      "component": "event-title",
+      "textTemplate": "Nowe zlecenie od Klienta C",
+      "condition": "always",
+      "speaker": null
+    },
+    {
+      "id": "event.order.body",
+      "screen": "G11",
+      "component": "event-body",
+      "textTemplate": "{newOrder.net}. Podwykonawca potrzebuje {newOrder.supplier} już 14 grudnia, klient zapłaci pod koniec stycznia.",
+      "condition": "always",
+      "speaker": null
+    },
+    {
+      "id": "event.order.choiceA",
+      "screen": "G11",
+      "component": "event-choiceA",
+      "textTemplate": "Odmów",
+      "condition": "always",
+      "speaker": null
+    },
+    {
+      "id": "event.order.choiceB",
+      "screen": "G11",
+      "component": "event-choiceB",
+      "textTemplate": "Przyjmij",
+      "condition": "always",
+      "speaker": null
+    },
+    {
+      "id": "event.tool.title",
+      "screen": "G11",
+      "component": "event-title",
+      "textTemplate": "Narzędzie AI do grafiki",
+      "condition": "always",
+      "speaker": null
+    },
+    {
+      "id": "event.tool.body",
+      "screen": "G11",
+      "component": "event-body",
+      "textTemplate": "{aiTool.cost} miesięcznie, około {aiTool.hours} oszczędności w miesiącu.",
+      "condition": "always",
+      "speaker": null
+    },
+    {
+      "id": "event.tool.choiceA",
+      "screen": "G11",
+      "component": "event-choiceA",
+      "textTemplate": "Od stycznia",
+      "condition": "always",
+      "speaker": null
+    },
+    {
+      "id": "event.tool.choiceB",
+      "screen": "G11",
+      "component": "event-choiceB",
+      "textTemplate": "Kup teraz",
+      "condition": "always",
+      "speaker": null
+    },
+    {
+      "id": "event.late.title",
+      "screen": "G11",
+      "component": "event-title",
+      "textTemplate": "Klient A znów się spóźni",
+      "condition": "always",
+      "speaker": null
+    },
+    {
+      "id": "event.late.body",
+      "screen": "G11",
+      "component": "event-body",
+      "textTemplate": "Płatność przesuwa się z 8 na 22 stycznia. Po skontowaniu lub sfinansowaniu faktury ten skutek jej nie dotyczy.",
+      "condition": "always",
+      "speaker": null
+    },
+    {
+      "id": "event.late.choiceA",
+      "screen": "G11",
+      "component": "event-choiceA",
+      "textTemplate": "Rozumiem",
+      "condition": "always",
+      "speaker": null
+    },
+    {
+      "id": "event.sms.title",
+      "screen": "G11",
+      "component": "event-title",
+      "textTemplate": "SMS: pożyczka w 15 minut",
+      "condition": "always",
+      "speaker": null
+    },
+    {
+      "id": "event.sms.body",
+      "screen": "G11",
+      "component": "event-body",
+      "textTemplate": "Firma pożyczkowa proponuje {loan.amount}. Sprawdź całkowitą kwotę do oddania.",
+      "condition": "always",
+      "speaker": null
+    },
+    {
+      "id": "event.sms.choiceA",
+      "screen": "G11",
+      "component": "event-choiceA",
+      "textTemplate": "Pokaż koszt",
+      "condition": "always",
+      "speaker": null
+    },
+    {
+      "id": "event.sms.choiceB",
+      "screen": "G11",
+      "component": "event-choiceB",
+      "textTemplate": "Zignoruj",
+      "condition": "always",
+      "speaker": null
+    },
+    {
+      "id": "reaction.welcome",
+      "screen": "shared",
+      "component": "reaction",
+      "textTemplate": "{narrator.invited} Cię do pomocy. Witaj w moim studiu!",
+      "condition": "always",
+      "speaker": "narrator"
+    },
+    {
+      "id": "reaction.goodMove",
+      "screen": "shared",
+      "component": "reaction",
+      "textTemplate": "Świetny manewr. {player.handled} sobie z tym jak trzeba.",
+      "condition": "always",
+      "speaker": "narrator"
+    },
+    {
+      "id": "reaction.proud",
+      "screen": "shared",
+      "component": "reaction",
+      "textTemplate": "Jestem {narrator.proud}. Firma ma oddech, a ja odzyskuję sen.",
+      "condition": "always",
+      "speaker": "narrator"
+    },
+    {
+      "id": "reaction.late",
+      "screen": "shared",
+      "component": "reaction",
+      "textTemplate": "Klient zapewnia, że przelew już wyszedł. Chyba pieszo.",
+      "condition": "always",
+      "speaker": "narrator"
+    },
+    {
+      "id": "reaction.advance",
+      "screen": "shared",
+      "component": "reaction",
+      "textTemplate": "Podobno o pieniądzach się nie rozmawia. Na szczęście prowadzimy firmę.",
+      "condition": "always",
+      "speaker": "narrator"
+    },
+    {
+      "id": "reaction.loan",
+      "screen": "shared",
+      "component": "reaction",
+      "textTemplate": "{narrator.received} SMS od firmy pożyczkowej. To nie oferta banku.",
+      "condition": "always",
+      "speaker": "narrator"
+    },
+    {
+      "id": "reaction.failure",
+      "screen": "shared",
+      "component": "reaction",
+      "textTemplate": "Mieliśmy negocjować termin, nie własną upadłość!",
+      "condition": "always",
+      "speaker": "narrator"
+    },
+    {
+      "id": "reaction.support",
+      "screen": "shared",
+      "component": "reaction",
+      "textTemplate": "To próba. {player.ready} na drugi manewr?",
+      "condition": "always",
+      "speaker": "narrator"
+    },
+    {
+      "id": "reaction.success",
+      "screen": "shared",
+      "component": "reaction",
+      "textTemplate": "{player.chose} dobry kurs. Grudzień dowieziony!",
+      "condition": "always",
+      "speaker": "narrator"
+    },
+    {
+      "id": "reaction.close",
+      "screen": "shared",
+      "component": "reaction",
+      "textTemplate": "Przeszliśmy grudzień w grze, zanim przeszliśmy go na koncie.",
+      "condition": "always",
+      "speaker": "narrator"
+    },
+    {
+      "id": "notif.N-01.paused.push.title",
+      "screen": "G33",
+      "component": "notification",
+      "textTemplate": "Pilot Płynności",
+      "condition": "paused",
+      "speaker": "narrator",
+      "phase": "H",
+      "deepLink": "/gra/{lapId}?resume=T{week.current}"
+    },
+    {
+      "id": "notif.N-01.paused.push.body",
+      "screen": "G33",
+      "component": "notification",
+      "textTemplate": "Tydzień {week.current} czeka. Wrócisz za stery?",
+      "condition": "paused",
+      "speaker": "narrator",
+      "phase": "H",
+      "deepLink": "/gra/{lapId}?resume=T{week.current}"
+    },
+    {
+      "id": "notif.N-01.paused.email.subject",
+      "screen": "G35",
+      "component": "notification",
+      "textTemplate": "Tydzień {week.current} czeka na Twój ruch",
+      "condition": "paused",
+      "speaker": "narrator",
+      "phase": "H",
+      "deepLink": "/gra/{lapId}?resume=T{week.current}"
+    },
+    {
+      "id": "notif.N-01.paused.email.preheader",
+      "screen": "G35",
+      "component": "notification",
+      "textTemplate": "Twoja trasa jest zapisana. Wróć do gry w swoim tempie.",
+      "condition": "paused",
+      "speaker": "narrator",
+      "phase": "H",
+      "deepLink": "/gra/{lapId}?resume=T{week.current}"
+    },
+    {
+      "id": "notif.N-01.paused.email.heading",
+      "screen": "G35",
+      "component": "notification",
+      "textTemplate": "Tydzień {week.current} czeka na Twój ruch",
+      "condition": "paused",
+      "speaker": "narrator",
+      "phase": "H",
+      "deepLink": "/gra/{lapId}?resume=T{week.current}"
+    },
+    {
+      "id": "notif.N-01.paused.email.body",
+      "screen": "G35",
+      "component": "notification",
+      "textTemplate": "Twoja trasa jest zapisana. Wróć, gdy masz chwilę, i wybierz kolejny krok.",
+      "condition": "paused",
+      "speaker": "narrator",
+      "phase": "H",
+      "deepLink": "/gra/{lapId}?resume=T{week.current}"
+    },
+    {
+      "id": "notif.N-01.paused.cta",
+      "screen": "G33",
+      "component": "notification",
+      "textTemplate": "Wróć do gry",
+      "condition": "paused",
+      "speaker": "narrator",
+      "phase": "H",
+      "deepLink": "/gra/{lapId}?resume=T{week.current}"
+    },
+    {
+      "id": "notif.N-02.plan-unsaved.push.title",
+      "screen": "G33",
+      "component": "notification",
+      "textTemplate": "Pilot Płynności",
+      "condition": "plan-unsaved",
+      "speaker": "narrator",
+      "phase": "H",
+      "deepLink": "/podsumowanie"
+    },
+    {
+      "id": "notif.N-02.plan-unsaved.push.body",
+      "screen": "G33",
+      "component": "notification",
+      "textTemplate": "Lot zakończony! Zapisz swój plan na kolejny krok.",
+      "condition": "plan-unsaved",
+      "speaker": "narrator",
+      "phase": "H",
+      "deepLink": "/podsumowanie"
+    },
+    {
+      "id": "notif.N-02.plan-unsaved.email.subject",
+      "screen": "G35",
+      "component": "notification",
+      "textTemplate": "Zachowaj swój plan",
+      "condition": "plan-unsaved",
+      "speaker": "narrator",
+      "phase": "H",
+      "deepLink": "/podsumowanie"
+    },
+    {
+      "id": "notif.N-02.plan-unsaved.email.preheader",
+      "screen": "G35",
+      "component": "notification",
+      "textTemplate": "Twoja trasa jest zapisana. Wróć do gry w swoim tempie.",
+      "condition": "plan-unsaved",
+      "speaker": "narrator",
+      "phase": "H",
+      "deepLink": "/podsumowanie"
+    },
+    {
+      "id": "notif.N-02.plan-unsaved.email.heading",
+      "screen": "G35",
+      "component": "notification",
+      "textTemplate": "Zachowaj swój plan",
+      "condition": "plan-unsaved",
+      "speaker": "narrator",
+      "phase": "H",
+      "deepLink": "/podsumowanie"
+    },
+    {
+      "id": "notif.N-02.plan-unsaved.email.body",
+      "screen": "G35",
+      "component": "notification",
+      "textTemplate": "Lot zakończony. Zapisz pomysł, który chcesz sprawdzić po grze.",
+      "condition": "plan-unsaved",
+      "speaker": "narrator",
+      "phase": "H",
+      "deepLink": "/podsumowanie"
+    },
+    {
+      "id": "notif.N-02.plan-unsaved.cta",
+      "screen": "G33",
+      "component": "notification",
+      "textTemplate": "Zapisz plan",
+      "condition": "plan-unsaved",
+      "speaker": "narrator",
+      "phase": "H",
+      "deepLink": "/podsumowanie"
+    },
+    {
+      "id": "notif.N-03.level-unstarted.push.title",
+      "screen": "G33",
+      "component": "notification",
+      "textTemplate": "Pilot Płynności",
+      "condition": "level-unstarted",
+      "speaker": "narrator",
+      "phase": "P1",
+      "deepLink": "/"
+    },
+    {
+      "id": "notif.N-03.level-unstarted.push.body",
+      "screen": "G33",
+      "component": "notification",
+      "textTemplate": "Poziom {level.next} odblokowany. Sprawdzimy nową trasę?",
+      "condition": "level-unstarted",
+      "speaker": "narrator",
+      "phase": "P1",
+      "deepLink": "/"
+    },
+    {
+      "id": "notif.N-03.level-unstarted.email.subject",
+      "screen": "G35",
+      "component": "notification",
+      "textTemplate": "Nowa trasa jest gotowa",
+      "condition": "level-unstarted",
+      "speaker": "narrator",
+      "phase": "P1",
+      "deepLink": "/"
+    },
+    {
+      "id": "notif.N-03.level-unstarted.email.preheader",
+      "screen": "G35",
+      "component": "notification",
+      "textTemplate": "Twoja trasa jest zapisana. Wróć do gry w swoim tempie.",
+      "condition": "level-unstarted",
+      "speaker": "narrator",
+      "phase": "P1",
+      "deepLink": "/"
+    },
+    {
+      "id": "notif.N-03.level-unstarted.email.heading",
+      "screen": "G35",
+      "component": "notification",
+      "textTemplate": "Nowa trasa jest gotowa",
+      "condition": "level-unstarted",
+      "speaker": "narrator",
+      "phase": "P1",
+      "deepLink": "/"
+    },
+    {
+      "id": "notif.N-03.level-unstarted.email.body",
+      "screen": "G35",
+      "component": "notification",
+      "textTemplate": "Kolejny poziom już czeka. Zajrzyj na mapę, kiedy masz ochotę.",
+      "condition": "level-unstarted",
+      "speaker": "narrator",
+      "phase": "P1",
+      "deepLink": "/"
+    },
+    {
+      "id": "notif.N-03.level-unstarted.cta",
+      "screen": "G33",
+      "component": "notification",
+      "textTemplate": "Pokaż mapę",
+      "condition": "level-unstarted",
+      "speaker": "narrator",
+      "phase": "P1",
+      "deepLink": "/"
+    },
+    {
+      "id": "notif.N-04.retry-pending.push.title",
+      "screen": "G33",
+      "component": "notification",
+      "textTemplate": "Pilot Płynności",
+      "condition": "retry-pending",
+      "speaker": "narrator",
+      "phase": "P1",
+      "deepLink": "/gra/{lapId}?rewind"
+    },
+    {
+      "id": "notif.N-04.retry-pending.push.body",
+      "screen": "G33",
+      "component": "notification",
+      "textTemplate": "Możemy wrócić do wcześniejszego tygodnia. Spróbujemy inaczej?",
+      "condition": "retry-pending",
+      "speaker": "narrator",
+      "phase": "P1",
+      "deepLink": "/gra/{lapId}?rewind"
+    },
+    {
+      "id": "notif.N-04.retry-pending.email.subject",
+      "screen": "G35",
+      "component": "notification",
+      "textTemplate": "Spróbujemy innego manewru?",
+      "condition": "retry-pending",
+      "speaker": "narrator",
+      "phase": "P1",
+      "deepLink": "/gra/{lapId}?rewind"
+    },
+    {
+      "id": "notif.N-04.retry-pending.email.preheader",
+      "screen": "G35",
+      "component": "notification",
+      "textTemplate": "Twoja trasa jest zapisana. Wróć do gry w swoim tempie.",
+      "condition": "retry-pending",
+      "speaker": "narrator",
+      "phase": "P1",
+      "deepLink": "/gra/{lapId}?rewind"
+    },
+    {
+      "id": "notif.N-04.retry-pending.email.heading",
+      "screen": "G35",
+      "component": "notification",
+      "textTemplate": "Spróbujemy innego manewru?",
+      "condition": "retry-pending",
+      "speaker": "narrator",
+      "phase": "P1",
+      "deepLink": "/gra/{lapId}?rewind"
+    },
+    {
+      "id": "notif.N-04.retry-pending.email.body",
+      "screen": "G35",
+      "component": "notification",
+      "textTemplate": "Ten lot możesz przećwiczyć ponownie. Zapisana trasa czeka na mapie.",
+      "condition": "retry-pending",
+      "speaker": "narrator",
+      "phase": "P1",
+      "deepLink": "/gra/{lapId}?rewind"
+    },
+    {
+      "id": "notif.N-04.retry-pending.cta",
+      "screen": "G33",
+      "component": "notification",
+      "textTemplate": "Spróbuj ponownie",
+      "condition": "retry-pending",
+      "speaker": "narrator",
+      "phase": "P1",
+      "deepLink": "/gra/{lapId}?rewind"
+    },
+    {
+      "id": "notif.N-05.plan-due.push.title",
+      "screen": "G33",
+      "component": "notification",
+      "textTemplate": "Pilot Płynności",
+      "condition": "plan-due",
+      "speaker": "narrator",
+      "phase": "P1/P2",
+      "deepLink": "/plan"
+    },
+    {
+      "id": "notif.N-05.plan-due.push.body",
+      "screen": "G33",
+      "component": "notification",
+      "textTemplate": "Termin Twojego planu: {deadline.display}. Sprawdzimy postęp?",
+      "condition": "plan-due",
+      "speaker": "narrator",
+      "phase": "P1/P2",
+      "deepLink": "/plan"
+    },
+    {
+      "id": "notif.N-05.plan-due.email.subject",
+      "screen": "G35",
+      "component": "notification",
+      "textTemplate": "Sprawdź swój plan",
+      "condition": "plan-due",
+      "speaker": "narrator",
+      "phase": "P1/P2",
+      "deepLink": "/plan"
+    },
+    {
+      "id": "notif.N-05.plan-due.email.preheader",
+      "screen": "G35",
+      "component": "notification",
+      "textTemplate": "Twoja trasa jest zapisana. Wróć do gry w swoim tempie.",
+      "condition": "plan-due",
+      "speaker": "narrator",
+      "phase": "P1/P2",
+      "deepLink": "/plan"
+    },
+    {
+      "id": "notif.N-05.plan-due.email.heading",
+      "screen": "G35",
+      "component": "notification",
+      "textTemplate": "Sprawdź swój plan",
+      "condition": "plan-due",
+      "speaker": "narrator",
+      "phase": "P1/P2",
+      "deepLink": "/plan"
+    },
+    {
+      "id": "notif.N-05.plan-due.email.body",
+      "screen": "G35",
+      "component": "notification",
+      "textTemplate": "Termin zapisany w Twoim planie: {deadline.display}. Możesz sprawdzić postęp.",
+      "condition": "plan-due",
+      "speaker": "narrator",
+      "phase": "P1/P2",
+      "deepLink": "/plan"
+    },
+    {
+      "id": "notif.N-05.plan-due.cta",
+      "screen": "G33",
+      "component": "notification",
+      "textTemplate": "Pokaż plan",
+      "condition": "plan-due",
+      "speaker": "narrator",
+      "phase": "P1/P2",
+      "deepLink": "/plan"
+    },
+    {
+      "id": "notif.N-06.met.push.title",
+      "screen": "G33",
+      "component": "notification",
+      "textTemplate": "Pilot Płynności",
+      "condition": "met",
+      "speaker": "narrator",
+      "phase": "P2",
+      "deepLink": "/plan"
+    },
+    {
+      "id": "notif.N-06.met.push.body",
+      "screen": "G33",
+      "component": "notification",
+      "textTemplate": "Plan zrealizowany. Zobaczmy, co się udało.",
+      "condition": "met",
+      "speaker": "narrator",
+      "phase": "P2",
+      "deepLink": "/plan"
+    },
+    {
+      "id": "notif.N-06.met.email.subject",
+      "screen": "G35",
+      "component": "notification",
+      "textTemplate": "Twój plan zrealizowany",
+      "condition": "met",
+      "speaker": "narrator",
+      "phase": "P2",
+      "deepLink": "/plan"
+    },
+    {
+      "id": "notif.N-06.met.email.preheader",
+      "screen": "G35",
+      "component": "notification",
+      "textTemplate": "Twoja trasa jest zapisana. Wróć do gry w swoim tempie.",
+      "condition": "met",
+      "speaker": "narrator",
+      "phase": "P2",
+      "deepLink": "/plan"
+    },
+    {
+      "id": "notif.N-06.met.email.heading",
+      "screen": "G35",
+      "component": "notification",
+      "textTemplate": "Twój plan zrealizowany",
+      "condition": "met",
+      "speaker": "narrator",
+      "phase": "P2",
+      "deepLink": "/plan"
+    },
+    {
+      "id": "notif.N-06.met.email.body",
+      "screen": "G35",
+      "component": "notification",
+      "textTemplate": "Zapisany warunek został spełniony. Zobacz wynik swojego planu.",
+      "condition": "met",
+      "speaker": "narrator",
+      "phase": "P2",
+      "deepLink": "/plan"
+    },
+    {
+      "id": "notif.N-06.met.cta",
+      "screen": "G33",
+      "component": "notification",
+      "textTemplate": "Zobacz wynik",
+      "condition": "met",
+      "speaker": "narrator",
+      "phase": "P2",
+      "deepLink": "/plan"
+    },
+    {
+      "id": "notif.N-06.missed.push.title",
+      "screen": "G33",
+      "component": "notification",
+      "textTemplate": "Pilot Płynności",
+      "condition": "missed",
+      "speaker": "narrator",
+      "phase": "P2",
+      "deepLink": "/plan"
+    },
+    {
+      "id": "notif.N-06.missed.push.body",
+      "screen": "G33",
+      "component": "notification",
+      "textTemplate": "Plan wymaga korekty. Przećwiczymy inny wariant?",
+      "condition": "missed",
+      "speaker": "narrator",
+      "phase": "P2",
+      "deepLink": "/plan"
+    },
+    {
+      "id": "notif.N-06.missed.email.subject",
+      "screen": "G35",
+      "component": "notification",
+      "textTemplate": "Przyjrzyjmy się planowi",
+      "condition": "missed",
+      "speaker": "narrator",
+      "phase": "P2",
+      "deepLink": "/plan"
+    },
+    {
+      "id": "notif.N-06.missed.email.preheader",
+      "screen": "G35",
+      "component": "notification",
+      "textTemplate": "Twoja trasa jest zapisana. Wróć do gry w swoim tempie.",
+      "condition": "missed",
+      "speaker": "narrator",
+      "phase": "P2",
+      "deepLink": "/plan"
+    },
+    {
+      "id": "notif.N-06.missed.email.heading",
+      "screen": "G35",
+      "component": "notification",
+      "textTemplate": "Przyjrzyjmy się planowi",
+      "condition": "missed",
+      "speaker": "narrator",
+      "phase": "P2",
+      "deepLink": "/plan"
+    },
+    {
+      "id": "notif.N-06.missed.email.body",
+      "screen": "G35",
+      "component": "notification",
+      "textTemplate": "Zapisany warunek nie został spełniony. Możesz przećwiczyć inny wariant.",
+      "condition": "missed",
+      "speaker": "narrator",
+      "phase": "P2",
+      "deepLink": "/plan"
+    },
+    {
+      "id": "notif.N-06.missed.cta",
+      "screen": "G33",
+      "component": "notification",
+      "textTemplate": "Pokaż plan",
+      "condition": "missed",
+      "speaker": "narrator",
+      "phase": "P2",
+      "deepLink": "/plan"
+    },
+    {
+      "id": "notif.N-07.obligation.push.title",
+      "screen": "G33",
+      "component": "notification",
+      "textTemplate": "Pilot Płynności",
+      "condition": "obligation",
+      "speaker": "narrator",
+      "phase": "P2",
+      "deepLink": "/gra/{scenarioId}"
+    },
+    {
+      "id": "notif.N-07.obligation.push.body",
+      "screen": "G33",
+      "component": "notification",
+      "textTemplate": "Za {deadline.days} dni płatność publiczna w firmie. Przećwiczymy ten tydzień?",
+      "condition": "obligation",
+      "speaker": "narrator",
+      "phase": "P2",
+      "deepLink": "/gra/{scenarioId}"
+    },
+    {
+      "id": "notif.N-07.obligation.email.subject",
+      "screen": "G35",
+      "component": "notification",
+      "textTemplate": "Płatność publiczna w firmie: za {deadline.days} dni",
+      "condition": "obligation",
+      "speaker": "narrator",
+      "phase": "P2",
+      "deepLink": "/gra/{scenarioId}"
+    },
+    {
+      "id": "notif.N-07.obligation.email.preheader",
+      "screen": "G35",
+      "component": "notification",
+      "textTemplate": "Twoja trasa jest zapisana. Wróć do gry w swoim tempie.",
+      "condition": "obligation",
+      "speaker": "narrator",
+      "phase": "P2",
+      "deepLink": "/gra/{scenarioId}"
+    },
+    {
+      "id": "notif.N-07.obligation.email.heading",
+      "screen": "G35",
+      "component": "notification",
+      "textTemplate": "Płatność publiczna w firmie: za {deadline.days} dni",
+      "condition": "obligation",
+      "speaker": "narrator",
+      "phase": "P2",
+      "deepLink": "/gra/{scenarioId}"
+    },
+    {
+      "id": "notif.N-07.obligation.email.body",
+      "screen": "G35",
+      "component": "notification",
+      "textTemplate": "Za {deadline.days} dni przypada płatność publiczna w firmie. Możesz przećwiczyć najbliższy tydzień w symulatorze.",
+      "condition": "obligation",
+      "speaker": "narrator",
+      "phase": "P2",
+      "deepLink": "/gra/{scenarioId}"
+    },
+    {
+      "id": "notif.N-07.obligation.cta",
+      "screen": "G33",
+      "component": "notification",
+      "textTemplate": "Przećwicz tydzień",
+      "condition": "obligation",
+      "speaker": "narrator",
+      "phase": "P2",
+      "deepLink": "/gra/{scenarioId}"
+    },
+    {
+      "id": "notif.N-08.digest.push.title",
+      "screen": "G33",
+      "component": "notification",
+      "textTemplate": "Pilot Płynności",
+      "condition": "digest",
+      "speaker": "narrator",
+      "phase": "P1",
+      "deepLink": "/"
+    },
+    {
+      "id": "notif.N-08.digest.push.body",
+      "screen": "G33",
+      "component": "notification",
+      "textTemplate": "Nowy tydzień: decyzje {digest.decisions}, gwiazdki do zdobycia {digest.stars}.",
+      "condition": "digest",
+      "speaker": "narrator",
+      "phase": "P1",
+      "deepLink": "/"
+    },
+    {
+      "id": "notif.N-08.digest.email.subject",
+      "screen": "G35",
+      "component": "notification",
+      "textTemplate": "Twój tydzień w grze",
+      "condition": "digest",
+      "speaker": "narrator",
+      "phase": "P1",
+      "deepLink": "/"
+    },
+    {
+      "id": "notif.N-08.digest.email.preheader",
+      "screen": "G35",
+      "component": "notification",
+      "textTemplate": "Twoja trasa jest zapisana. Wróć do gry w swoim tempie.",
+      "condition": "digest",
+      "speaker": "narrator",
+      "phase": "P1",
+      "deepLink": "/"
+    },
+    {
+      "id": "notif.N-08.digest.email.heading",
+      "screen": "G35",
+      "component": "notification",
+      "textTemplate": "Twój tydzień w grze",
+      "condition": "digest",
+      "speaker": "narrator",
+      "phase": "P1",
+      "deepLink": "/"
+    },
+    {
+      "id": "notif.N-08.digest.email.body",
+      "screen": "G35",
+      "component": "notification",
+      "textTemplate": "Decyzje: {digest.decisions}. Gwiazdki do zdobycia: {digest.stars}. Wybierz kolejny krok w swoim tempie.",
+      "condition": "digest",
+      "speaker": "narrator",
+      "phase": "P1",
+      "deepLink": "/"
+    },
+    {
+      "id": "notif.N-08.digest.cta",
+      "screen": "G33",
+      "component": "notification",
+      "textTemplate": "Pokaż mapę",
+      "condition": "digest",
+      "speaker": "narrator",
+      "phase": "P1",
+      "deepLink": "/"
+    },
+    {
+      "id": "notif.optin.title",
+      "screen": "G34",
+      "component": "notification",
+      "textTemplate": "Kiedy wracamy za stery?",
+      "condition": "always",
+      "speaker": "narrator"
+    },
+    {
+      "id": "notif.optin.body",
+      "screen": "G34",
+      "component": "notification",
+      "textTemplate": "Możemy przypomnieć Ci o kolejnym ruchu.",
+      "condition": "always",
+      "speaker": "narrator"
+    },
+    {
+      "id": "notif.optin.accept",
+      "screen": "G34",
+      "component": "notification",
+      "textTemplate": "Ustaw przypomnienia",
+      "condition": "always",
+      "speaker": "narrator"
+    },
+    {
+      "id": "notif.optin.later",
+      "screen": "G34",
+      "component": "notification",
+      "textTemplate": "Może później",
+      "condition": "always",
+      "speaker": "narrator"
+    },
+    {
+      "id": "notif.return.body",
+      "screen": "G33",
+      "component": "notification",
+      "textTemplate": "{player.returned}! Tydzień {week.current} z {week.total} czeka.",
+      "condition": "always",
+      "speaker": "narrator",
+      "appliesTo": [
+        "G09",
+        "G10"
+      ]
+    },
+    {
+      "id": "notif.unsubscribe",
+      "screen": "G33",
+      "component": "notification",
+      "textTemplate": "Wyłącz przypomnienia e-mail",
+      "condition": "always",
+      "speaker": "narrator",
+      "appliesTo": [
+        "G35",
+        "G36"
+      ]
+    },
+    {
+      "id": "notif.preferences",
+      "screen": "G33",
+      "component": "notification",
+      "textTemplate": "Ustawienia przypomnień",
+      "condition": "always",
+      "speaker": "narrator",
+      "appliesTo": [
+        "G35",
+        "G36"
+      ]
+    },
+    {
+      "id": "notif.email.greeting",
+      "screen": "G33",
+      "component": "notification",
+      "textTemplate": "Cześć, {narrator.greeting}!",
+      "condition": "always",
+      "speaker": "narrator",
+      "appliesTo": [
+        "G35",
+        "G36"
+      ]
+    },
+    {
+      "id": "notif.email.signature",
+      "screen": "G33",
+      "component": "notification",
+      "textTemplate": "{narrator.signature}",
+      "condition": "always",
+      "speaker": "narrator",
+      "appliesTo": [
+        "G35",
+        "G36"
+      ]
+    },
+    {
+      "id": "notif.email.reason",
+      "screen": "G33",
+      "component": "notification",
+      "textTemplate": "Otrzymujesz tę wiadomość, bo włączono przypomnienia e-mail.",
+      "condition": "always",
+      "speaker": "narrator",
+      "appliesTo": [
+        "G35",
+        "G36"
+      ]
+    },
+    {
+      "id": "notif.inbox.empty",
+      "screen": "G33",
+      "component": "notification",
+      "textTemplate": "Żadnych zaległych wiadomości. Możesz spokojnie wrócić na trasę.",
+      "condition": "always",
+      "speaker": "narrator"
+    },
+    {
+      "id": "notif.demo.send",
+      "screen": "G36",
+      "component": "notification",
+      "textTemplate": "Wyślij próbne przypomnienie",
+      "condition": "always",
+      "speaker": null
+    },
+    {
+      "id": "notif.demo.scheduled",
+      "screen": "G36",
+      "component": "notification",
+      "textTemplate": "Próbne przypomnienie przyjdzie za {demo.delaySeconds} sekund.",
+      "condition": "always",
+      "speaker": null
+    },
+    {
+      "id": "notif.demo.pending",
+      "screen": "G36",
+      "component": "notification",
+      "textTemplate": "Planujemy próbne przypomnienie…",
+      "condition": "always",
+      "speaker": null
+    },
+    {
+      "id": "notif.demo.requirePermission",
+      "screen": "G36",
+      "component": "notification",
+      "textTemplate": "Włącz kanał przeglądarki i udziel zgody, aby wysłać próbę.",
+      "condition": "always",
+      "speaker": null
+    },
+    {
+      "id": "notif.demo.failed",
+      "screen": "G36",
+      "component": "notification",
+      "textTemplate": "Nie udało się zaplanować próby. Spróbuj ponownie.",
+      "condition": "always",
+      "speaker": null
+    },
+    {
+      "id": "notif.demo.accepted",
+      "screen": "G36",
+      "component": "notification",
+      "textTemplate": "Próba została wysłana do usługi powiadomień.",
+      "condition": "always",
+      "speaker": null
+    },
+    {
+      "id": "notif.demo.fallback",
+      "screen": "G36",
+      "component": "notification",
+      "textTemplate": "Baner powrotu nadal działa w grze.",
+      "condition": "always",
+      "speaker": null
+    },
+    {
+      "id": "notif.return.progress",
+      "screen": "G10",
+      "component": "notification",
+      "textTemplate": "Tydzień {week.current} z {week.total}",
+      "condition": "always",
+      "speaker": null,
+      "appliesTo": [
+        "G09",
+        "G10"
+      ]
+    },
+    {
+      "id": "notif.channel.browser",
+      "screen": "G36",
+      "component": "notification",
+      "textTemplate": "Przeglądarka",
+      "condition": "always",
+      "speaker": null
+    },
+    {
+      "id": "notif.channel.email",
+      "screen": "G36",
+      "component": "notification",
+      "textTemplate": "E-mail",
+      "condition": "always",
+      "speaker": null
+    },
+    {
+      "id": "notif.channel.inbox",
+      "screen": "G36",
+      "component": "notification",
+      "textTemplate": "Poczta w grze jest zawsze dostępna.",
+      "condition": "always",
+      "speaker": null
+    },
+    {
+      "id": "notif.permission.denied",
+      "screen": "G36",
+      "component": "notification",
+      "textTemplate": "Przeglądarka blokuje powiadomienia.",
+      "condition": "always",
+      "speaker": null
+    },
+    {
+      "id": "notif.permission.unsupported",
+      "screen": "G36",
+      "component": "notification",
+      "textTemplate": "Ta przeglądarka nie obsługuje powiadomień.",
+      "condition": "always",
+      "speaker": null
+    },
+    {
+      "id": "notif.email.unverified",
+      "screen": "G36",
+      "component": "notification",
+      "textTemplate": "Najpierw potwierdź adres e-mail.",
+      "condition": "always",
+      "speaker": null,
+      "appliesTo": [
+        "G35",
+        "G36"
+      ]
+    },
+    {
+      "id": "notif.category.progress",
+      "screen": "G36",
+      "component": "notification",
+      "textTemplate": "Postęp w grze",
+      "condition": "always",
+      "speaker": null
+    },
+    {
+      "id": "notif.category.plans",
+      "screen": "G36",
+      "component": "notification",
+      "textTemplate": "Mój plan",
+      "condition": "always",
+      "speaker": null
+    },
+    {
+      "id": "notif.category.digest",
+      "screen": "G36",
+      "component": "notification",
+      "textTemplate": "Podsumowanie tygodnia",
+      "condition": "always",
+      "speaker": null
+    },
+    {
+      "id": "notif.quiet.label",
+      "screen": "G36",
+      "component": "notification",
+      "textTemplate": "Ciche godziny",
+      "condition": "always",
+      "speaker": null
+    },
+    {
+      "id": "notif.quiet.from",
+      "screen": "G36",
+      "component": "notification",
+      "textTemplate": "Od",
+      "condition": "always",
+      "speaker": null
+    },
+    {
+      "id": "notif.quiet.to",
+      "screen": "G36",
+      "component": "notification",
+      "textTemplate": "Do",
+      "condition": "always",
+      "speaker": null
+    },
+    {
+      "id": "notif.timezone.label",
+      "screen": "G36",
+      "component": "notification",
+      "textTemplate": "Strefa czasowa",
+      "condition": "always",
+      "speaker": null
+    },
+    {
+      "id": "notif.settings.save",
+      "screen": "G36",
+      "component": "notification",
+      "textTemplate": "Zapisz ustawienia",
+      "condition": "always",
+      "speaker": null
+    },
+    {
+      "id": "notif.settings.saved",
+      "screen": "G36",
+      "component": "notification",
+      "textTemplate": "Ustawienia zapisane.",
+      "condition": "always",
+      "speaker": null
+    },
+    {
+      "id": "notif.settings.failed",
+      "screen": "G36",
+      "component": "notification",
+      "textTemplate": "Nie udało się zapisać ustawień. Dotychczasowe ustawienia pozostają.",
+      "condition": "always",
+      "speaker": null
+    },
+    {
+      "id": "notif.quiet.invalid",
+      "screen": "G36",
+      "component": "validation",
+      "textTemplate": "Podaj dwie różne godziny w formacie GG:MM.",
+      "condition": "invalid-preference",
+      "speaker": null
+    },
+    {
+      "id": "notif.timezone.invalid",
+      "screen": "G36",
+      "component": "validation",
+      "textTemplate": "Wybierz poprawną strefę czasową.",
+      "condition": "invalid-preference",
+      "speaker": null
+    },
+    {
+      "id": "g22.save",
+      "screen": "G22",
+      "component": "button",
+      "textTemplate": "Zapisz plan",
+      "condition": "always",
+      "speaker": null
+    },
+    {
+      "id": "g24.soundEffects",
+      "screen": "G24",
+      "component": "label",
+      "textTemplate": "Dźwięki gry",
+      "condition": "always",
+      "speaker": null
+    },
+    {
+      "id": "g24.volume",
+      "screen": "G24",
+      "component": "label",
+      "textTemplate": "Głośność",
+      "condition": "always",
+      "speaker": null
+    }
+  ]
+}

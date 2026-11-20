@@ -1,0 +1,456 @@
+{
+  "format": "character-audio/v1",
+  "updated": "2026-11-17",
+  "lines": [
+    {
+      "role": "client-a",
+      "lineId": "a.advance.counter",
+      "text": "Mogę dać trzydzieści procent — piętnaście tysięcy złotych do trzeciego grudnia.",
+      "path": "voice/characters/client-a/a.advance.counter.mp3",
+      "voiceName": "Rafał, most natural voice.",
+      "model": "eleven_v4",
+      "sourceMaster": "voice/characters/client-a-master.mp3",
+      "sourceStartSeconds": 0,
+      "sourceEndSeconds": 4.412358,
+      "sha256": "5fac4407cba9b460402427c4c3e4ea78120466b5dd9c39f88cb048eea560d599",
+      "bytes": 71514,
+      "durationSeconds": 4.412358276643991,
+      "peak": 0.44181379675865173
+    },
+    {
+      "role": "client-a",
+      "lineId": "a.advance.accept",
+      "text": "Ustalmy trzydzieści procent zaliczki. Piętnaście tysięcy złotych wpłynie do trzeciego grudnia.",
+      "path": "voice/characters/client-a/a.advance.accept.mp3",
+      "voiceName": "Rafał, most natural voice.",
+      "model": "eleven_v4",
+      "sourceMaster": "voice/characters/client-a-master.mp3",
+      "sourceStartSeconds": 5.999478,
+      "sourceEndSeconds": 11.126508,
+      "sha256": "f8347ec94cd95a5c5bdb1c0a4dbba15f64e6c38f06276278cffb488db57da6ee",
+      "bytes": 83216,
+      "durationSeconds": 5.1270294784580495,
+      "peak": 0.513401210308075
+    },
+    {
+      "role": "client-a",
+      "lineId": "a.advance.closed",
+      "text": "Budżet projektu jest zamknięty. Sprawdź inne manewry.",
+      "path": "voice/characters/client-a/a.advance.closed.mp3",
+      "voiceName": "Rafał, most natural voice.",
+      "model": "eleven_v4",
+      "sourceMaster": "voice/characters/client-a-master.mp3",
+      "sourceStartSeconds": 12.579456,
+      "sourceEndSeconds": 15.960951999999999,
+      "sha256": "c74b2e15c494a8c1c2d6946f87de0392d152e7f30e87b063d1cf87a664ca6d31",
+      "bytes": 55213,
+      "durationSeconds": 3.3814965986394556,
+      "peak": 0.3951410949230194
+    },
+    {
+      "role": "client-a",
+      "lineId": "a.discount.accept",
+      "text": "Dwa procent skonta przyspieszy płatność. Sprawdź datę wpływu i koszt w prognozie.",
+      "path": "voice/characters/client-a/a.discount.accept.mp3",
+      "voiceName": "Rafał, most natural voice.",
+      "model": "eleven_v4",
+      "sourceMaster": "voice/characters/client-a-master.mp3",
+      "sourceStartSeconds": 17.376303999999998,
+      "sourceEndSeconds": 22.316395,
+      "sha256": "a393966b5b4224db3dbf5b636cb92dda2d6487f2b48a893c32dfeb0d700fa42b",
+      "bytes": 80291,
+      "durationSeconds": 4.940090702947846,
+      "peak": 0.41884878277778625
+    },
+    {
+      "role": "client-a",
+      "lineId": "a.fallback",
+      "text": "Porozmawiajmy o dostępnych warunkach. Wybierz gotową odpowiedź.",
+      "path": "voice/characters/client-a/a.fallback.mp3",
+      "voiceName": "Rafał, most natural voice.",
+      "model": "eleven_v4",
+      "sourceMaster": "voice/characters/client-a-master.mp3",
+      "sourceStartSeconds": 23.685556,
+      "sourceEndSeconds": 27.353832,
+      "sha256": "cbac7d86a58e85a27d63adac953a8435e94dec43cbae7b00aa9602580408da98",
+      "bytes": 59811,
+      "durationSeconds": 3.6682766439909296,
+      "peak": 0.37786656618118286
+    },
+    {
+      "role": "client-a",
+      "lineId": "a.rude",
+      "text": "Spokojnie. Porozmawiajmy rzeczowo — relacje też są walutą.",
+      "path": "voice/characters/client-a/a.rude.mp3",
+      "voiceName": "Rafał, most natural voice.",
+      "model": "eleven_v4",
+      "sourceMaster": "voice/characters/client-a-master.mp3",
+      "sourceStartSeconds": 28.555034,
+      "sourceEndSeconds": 32.7575,
+      "sha256": "ce6bfd67c69b9fd3ebd36773662b352e92f391643229a753866ed5fa63bfe5cb",
+      "bytes": 68170,
+      "durationSeconds": 4.202471655328798,
+      "peak": 0.3434446454048157
+    },
+    {
+      "role": "bank-advisor",
+      "lineId": "bank.od.offer",
+      "text": "Możemy uruchomić limit w koncie do piętnastu tysięcy złotych. Sprawdź opłatę i odsetki w prognozie.",
+      "path": "voice/characters/bank-advisor/bank.od.offer.mp3",
+      "voiceName": "Adam A",
+      "model": "eleven_v4",
+      "sourceMaster": "voice/characters/bank-advisor-master.mp3",
+      "sourceStartSeconds": 0,
+      "sourceEndSeconds": 6.3620410000000005,
+      "sha256": "cf3f582b24c8fadfff6872ed479d906b6b231778c2eda6e9821deb8df239c9a7",
+      "bytes": 102861,
+      "durationSeconds": 6.36204081632653,
+      "peak": 0.741525411605835
+    },
+    {
+      "role": "bank-advisor",
+      "lineId": "bank.od.notneeded",
+      "text": "Limit został przyznany, choć prognoza nie pokazuje dziś niedoboru.",
+      "path": "voice/characters/bank-advisor/bank.od.notneeded.mp3",
+      "voiceName": "Adam A",
+      "model": "eleven_v4",
+      "sourceMaster": "voice/characters/bank-advisor-master.mp3",
+      "sourceStartSeconds": 7.798413,
+      "sourceEndSeconds": 11.866757,
+      "sha256": "d0ba2086ffed9e6afa4435773a132baba40d153b9a13fde8f34604abfc84c957",
+      "bytes": 66080,
+      "durationSeconds": 4.068344671201814,
+      "peak": 0.5227773189544678
+    },
+    {
+      "role": "bank-advisor",
+      "lineId": "bank.od.late",
+      "text": "Nie zdążymy uruchomić limitu przed terminem tej płatności. Sprawdź inne rozwiązania.",
+      "path": "voice/characters/bank-advisor/bank.od.late.mp3",
+      "voiceName": "Adam A",
+      "model": "eleven_v4",
+      "sourceMaster": "voice/characters/bank-advisor-master.mp3",
+      "sourceStartSeconds": 13.228594000000001,
+      "sourceEndSeconds": 18.357755,
+      "sha256": "98837e50ca3a2466d52e0f330c94b8c80361d74027912f9f7f012532f5c35f31",
+      "bytes": 83216,
+      "durationSeconds": 5.129160997732426,
+      "peak": 0.46078962087631226
+    },
+    {
+      "role": "bank-advisor",
+      "lineId": "bank.fallback",
+      "text": "Przyjrzyjmy się dostępnym możliwościom. Pożyczka z wiadomości SMS nie jest ofertą naszego banku.",
+      "path": "voice/characters/bank-advisor/bank.fallback.mp3",
+      "voiceName": "Adam A",
+      "model": "eleven_v4",
+      "sourceMaster": "voice/characters/bank-advisor-master.mp3",
+      "sourceStartSeconds": 19.577075,
+      "sourceEndSeconds": 26.200813,
+      "sha256": "a8c3d45068289b59c9882b2fbcad90071679580ae6ad7427344c6c84712561b9",
+      "bytes": 107040,
+      "durationSeconds": 6.623741496598639,
+      "peak": 0.6377578377723694
+    },
+    {
+      "role": "ai-cfo",
+      "lineId": "cfo.guide",
+      "text": "Porównaj terminy wpływów i wydatków. Zysk na fakturze nie zastępuje pieniędzy na koncie.",
+      "path": "voice/characters/ai-cfo/cfo.guide.mp3",
+      "voiceName": "Finn",
+      "model": "eleven_v4",
+      "sourceMaster": "voice/characters/ai-cfo-master.mp3",
+      "sourceStartSeconds": 0,
+      "sourceEndSeconds": 6.029478,
+      "sha256": "551e733bbb1aea06a104f895379067be6064ddc4700b9cf744eacc784abf10be",
+      "bytes": 97427,
+      "durationSeconds": 6.029478458049887,
+      "peak": 0.47878432273864746
+    },
+    {
+      "role": "ai-cfo",
+      "lineId": "cfo.options",
+      "text": "Na ekranie masz dozwolone manewry i ich koszt. Liczby pochodzą z silnika gry.",
+      "path": "voice/characters/ai-cfo/cfo.options.mp3",
+      "voiceName": "Finn",
+      "model": "eleven_v4",
+      "sourceMaster": "voice/characters/ai-cfo-master.mp3",
+      "sourceStartSeconds": 7.540363,
+      "sourceEndSeconds": 13.05941,
+      "sha256": "cd407780844e54be29a07e0ac7fb2858ff66401b26a1332be5860dab68428d29",
+      "bytes": 89486,
+      "durationSeconds": 5.519047619047619,
+      "peak": 0.6419020891189575
+    },
+    {
+      "role": "ai-cfo",
+      "lineId": "cfo.delegate",
+      "text": "Mogę wybrać najtańszy bezpieczny manewr. Decyzja samodzielna daje większy postęp kompetencji.",
+      "path": "voice/characters/ai-cfo/cfo.delegate.mp3",
+      "voiceName": "Finn",
+      "model": "eleven_v4",
+      "sourceMaster": "voice/characters/ai-cfo-master.mp3",
+      "sourceStartSeconds": 14.561088000000002,
+      "sourceEndSeconds": 20.580544,
+      "sha256": "96db089692f63cb1741012f420fd8a198c94684484a8e832544e2feda6c54515",
+      "bytes": 97427,
+      "durationSeconds": 6.019455782312925,
+      "peak": 0.5780402421951294
+    },
+    {
+      "role": "ai-cfo",
+      "lineId": "cfo.reserve",
+      "text": "Oznacz rezerwę podatkową. Saldo i środki dostępne do wydania to nie zawsze ta sama kwota.",
+      "path": "voice/characters/ai-cfo/cfo.reserve.mp3",
+      "voiceName": "Finn",
+      "model": "eleven_v4",
+      "sourceMaster": "voice/characters/ai-cfo-master.mp3",
+      "sourceStartSeconds": 21.860747999999997,
+      "sourceEndSeconds": 27.951,
+      "sha256": "7528b5542b9d8a3287f7d4d5f677a824a5b69673ea75ed7565cad0a97e2cb146",
+      "bytes": 98681,
+      "durationSeconds": 6.090249433106576,
+      "peak": 0.5660132765769958
+    },
+    {
+      "role": "player-male",
+      "lineId": "player.ask",
+      "text": "Czy możemy ustalić pięćdziesiąt procent zaliczki?",
+      "path": "voice/characters/player-male/player.ask.mp3",
+      "voiceName": "Kamil - Expressive,Joyful",
+      "model": "eleven_v4",
+      "sourceMaster": "voice/characters/player-male-master.mp3",
+      "sourceStartSeconds": 0,
+      "sourceEndSeconds": 2.537755,
+      "sha256": "d831361a0518738114c564972d07308579ddf3b3c5d32f840c8f7c4f85984dee",
+      "bytes": 41838,
+      "durationSeconds": 2.5377551020408164,
+      "peak": 0.4620960056781769
+    },
+    {
+      "role": "player-male",
+      "lineId": "player.accept",
+      "text": "Akceptuję trzydzieści procent.",
+      "path": "voice/characters/player-male/player.accept.mp3",
+      "voiceName": "Kamil - Expressive,Joyful",
+      "model": "eleven_v4",
+      "sourceMaster": "voice/characters/player-male-master.mp3",
+      "sourceStartSeconds": 3.9248529999999997,
+      "sourceEndSeconds": 5.80678,
+      "sha256": "ac46d9bcd7da1e14b42cda79232424b37c3b7307954d9e1e6909b4e29f9e95a6",
+      "bytes": 31390,
+      "durationSeconds": 1.8819274376417234,
+      "peak": 0.5191465616226196
+    },
+    {
+      "role": "player-male",
+      "lineId": "player.discount",
+      "text": "Czy skonto dwa procent przyspieszy płatność?",
+      "path": "voice/characters/player-male/player.discount.mp3",
+      "voiceName": "Kamil - Expressive,Joyful",
+      "model": "eleven_v4",
+      "sourceMaster": "voice/characters/player-male-master.mp3",
+      "sourceStartSeconds": 6.827052,
+      "sourceEndSeconds": 9.239999999999998,
+      "sha256": "110858ebf31864020d2a549dd045a36d7909c5a57fb967ca3fa2959e61fba135",
+      "bytes": 39749,
+      "durationSeconds": 2.4129478458049887,
+      "peak": 0.48952391743659973
+    },
+    {
+      "role": "player-male",
+      "lineId": "player.bank",
+      "text": "Czy możemy uruchomić limit w koncie?",
+      "path": "voice/characters/player-male/player.bank.mp3",
+      "voiceName": "Kamil - Expressive,Joyful",
+      "model": "eleven_v4",
+      "sourceMaster": "voice/characters/player-male-master.mp3",
+      "sourceStartSeconds": 10.108277000000001,
+      "sourceEndSeconds": 12.199125,
+      "sha256": "766aaa4d50c7b119a7e9d84ebb41dd1f4d256edf63b821dc2b1ca067b4619c86",
+      "bytes": 34733,
+      "durationSeconds": 2.090861678004535,
+      "peak": 0.5896214842796326
+    },
+    {
+      "role": "player-female",
+      "lineId": "player.ask",
+      "text": "Czy możemy ustalić pięćdziesiąt procent zaliczki?",
+      "path": "voice/characters/player-female/player.ask.mp3",
+      "voiceName": "Natalia - Nice & Friendly",
+      "model": "eleven_v4",
+      "sourceMaster": "voice/characters/player-female-master.mp3",
+      "sourceStartSeconds": 0,
+      "sourceEndSeconds": 2.685057,
+      "sha256": "6b0c903f80e174d1968421fa9c9f36f90235410294ca58393857844378a57740",
+      "bytes": 43928,
+      "durationSeconds": 2.6850566893424035,
+      "peak": 0.5254133343696594
+    },
+    {
+      "role": "player-female",
+      "lineId": "player.accept",
+      "text": "Akceptuję trzydzieści procent.",
+      "path": "voice/characters/player-female/player.accept.mp3",
+      "voiceName": "Natalia - Nice & Friendly",
+      "model": "eleven_v4",
+      "sourceMaster": "voice/characters/player-female-master.mp3",
+      "sourceStartSeconds": 3.8973240000000002,
+      "sourceEndSeconds": 5.932925,
+      "sha256": "f45ae3ddabfbff25ab581755b28457594c7d56003f7f9cc4b9687a08fd0bea78",
+      "bytes": 33479,
+      "durationSeconds": 2.0356009070294783,
+      "peak": 0.7250074744224548
+    },
+    {
+      "role": "player-female",
+      "lineId": "player.discount",
+      "text": "Czy skonto dwa procent przyspieszy płatność?",
+      "path": "voice/characters/player-female/player.discount.mp3",
+      "voiceName": "Natalia - Nice & Friendly",
+      "model": "eleven_v4",
+      "sourceMaster": "voice/characters/player-female-master.mp3",
+      "sourceStartSeconds": 6.695102,
+      "sourceEndSeconds": 9.240044999999999,
+      "sha256": "f20c89728e0ea2cab280f97be0c53a5d1159b0a507ddff69da45d4e51d7c17d4",
+      "bytes": 41838,
+      "durationSeconds": 2.5449433106575965,
+      "peak": 0.4801390469074249
+    },
+    {
+      "role": "player-female",
+      "lineId": "player.bank",
+      "text": "Czy możemy uruchomić limit w koncie?",
+      "path": "voice/characters/player-female/player.bank.mp3",
+      "voiceName": "Natalia - Nice & Friendly",
+      "model": "eleven_v4",
+      "sourceMaster": "voice/characters/player-female-master.mp3",
+      "sourceStartSeconds": 10.024807000000001,
+      "sourceEndSeconds": 12.355875,
+      "sha256": "80f3bd9c1b4ded07bc6bb64c1416fd6e7fbc3c950f0fab7f146dd760c99b0ba5",
+      "bytes": 38495,
+      "durationSeconds": 2.3310657596371884,
+      "peak": 0.4730975329875946
+    }
+  ],
+  "qa": [
+    {
+      "role": "client-a",
+      "clips": 6,
+      "sourceSha256": "8249b25a22c940d8b7711de19df6b108825f669e6e5ffaf89ceacac1c1a15058",
+      "longPauseBoundaries": [
+        [
+          4.292358,
+          6.119478
+        ],
+        [
+          11.006508,
+          12.699456
+        ],
+        [
+          15.840952,
+          17.496304
+        ],
+        [
+          22.196395,
+          23.805556
+        ],
+        [
+          27.233832,
+          28.675034
+        ]
+      ],
+      "allDecoded": true,
+      "clippedSamples": 0,
+      "textVerification": "Authored input retained; long-pause segment count verified; no ASR or human listening review claimed"
+    },
+    {
+      "role": "bank-advisor",
+      "clips": 4,
+      "sourceSha256": "f2a228954ea1c878f5ea016a4b7b7996f460dab67ac219a322ccb60fc1f05cf0",
+      "longPauseBoundaries": [
+        [
+          6.242041,
+          7.918413
+        ],
+        [
+          11.746757,
+          13.348594
+        ],
+        [
+          18.237755,
+          19.697075
+        ]
+      ],
+      "allDecoded": true,
+      "clippedSamples": 0,
+      "textVerification": "Authored input retained; long-pause segment count verified; no ASR or human listening review claimed"
+    },
+    {
+      "role": "ai-cfo",
+      "clips": 4,
+      "sourceSha256": "f0ee2c62ba11eddb1f4f3741b7bc9d6253197b8e913cd9f99a66291e9b1edc35",
+      "longPauseBoundaries": [
+        [
+          5.909478,
+          7.660363
+        ],
+        [
+          12.93941,
+          14.681088
+        ],
+        [
+          20.460544,
+          21.980748
+        ]
+      ],
+      "allDecoded": true,
+      "clippedSamples": 0,
+      "textVerification": "Authored input retained; long-pause segment count verified; no ASR or human listening review claimed"
+    },
+    {
+      "role": "player-male",
+      "clips": 4,
+      "sourceSha256": "b9f427ccb4c105e286aa498ee2049fadfb0c45072b96e5fca1503cfbb62b8748",
+      "longPauseBoundaries": [
+        [
+          2.417755,
+          4.044853
+        ],
+        [
+          5.68678,
+          6.947052
+        ],
+        [
+          9.12,
+          10.228277
+        ]
+      ],
+      "allDecoded": true,
+      "clippedSamples": 0,
+      "textVerification": "Authored input retained; long-pause segment count verified; no ASR or human listening review claimed"
+    },
+    {
+      "role": "player-female",
+      "clips": 4,
+      "sourceSha256": "a9b9b5d8ab5cf1d5766cbbad676353f4a85ce4ae234856f1a240081c2101bed2",
+      "longPauseBoundaries": [
+        [
+          2.565057,
+          4.017324
+        ],
+        [
+          5.812925,
+          6.815102
+        ],
+        [
+          9.120045,
+          10.144807
+        ]
+      ],
+      "allDecoded": true,
+      "clippedSamples": 0,
+      "textVerification": "Authored input retained; long-pause segment count verified; no ASR or human listening review claimed"
+    }
+  ]
+}

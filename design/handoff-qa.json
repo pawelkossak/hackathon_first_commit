@@ -1,0 +1,27 @@
+{
+  "artAtlasesAndBackgrounds": 15,
+  "atlasRegions": 64,
+  "characterRegions": 32,
+  "backgroundDimensions": "2560x1440 and1688x780 verified;source enlarged from1672x941",
+  "svgParsed": 45,
+  "coreLayouts": 14,
+  "notificationLayouts": 12,
+  "contrastChecksPassed": 46,
+  "copyEntriesPerVariant": 485,
+  "copyVariants": 4,
+  "voiceLinesPerVariant": 49,
+  "voiceVariants": 4,
+  "maxPushCharacters": 63,
+  "financialFixtureArithmetic": "passed",
+  "firstLoadWebPChosenFemaleIntroBytes": 963848,
+  "firstLoadArtAtMost1_5MB": true,
+  "limits": [
+    "Artwork-only first-load calculation;application/fonts/audio overhead still needs performance testing.",
+    "Raster source upsizing does not add detail.",
+    "Atlas regions require runtime extraction/composition;source sheets are not full-screen UI.",
+    "Soft weather edges contain near-zero alpha;render on actual scene background."
+  ],
+  "applicationCodeCreated": true,
+  "currentEvidence": "current-contract-qa.json",
+  "currentUpdated": "2026-11-17"
+}

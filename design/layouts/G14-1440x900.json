@@ -1,0 +1,82 @@
+{
+  "screen": "G14",
+  "viewport": {
+    "width": 1440,
+    "height": 900
+  },
+  "safeArea": {
+    "left": 48,
+    "right": 48,
+    "top": 24,
+    "bottom": 36
+  },
+  "font": {
+    "body": 16,
+    "caption": 12,
+    "title": 40,
+    "minAction": 15
+  },
+  "boxes": [
+    {
+      "name": "header",
+      "x": 48,
+      "y": 24,
+      "width": 1344,
+      "height": 56,
+      "purpose": "Title, provenance and pause",
+      "interactive": false
+    },
+    {
+      "name": "primary",
+      "x": 1040,
+      "y": 816,
+      "width": 352,
+      "height": 48,
+      "purpose": "One primary decision",
+      "interactive": true
+    },
+    {
+      "name": "counterparty",
+      "x": 48,
+      "y": 138,
+      "width": 400,
+      "height": 640,
+      "purpose": "Client A portrait",
+      "interactive": false
+    },
+    {
+      "name": "dialogue",
+      "x": 480,
+      "y": 138,
+      "width": 912,
+      "height": 446,
+      "purpose": "Counter-offer, caption, pending/confirmed banner",
+      "interactive": false
+    },
+    {
+      "name": "input",
+      "x": 480,
+      "y": 616,
+      "width": 912,
+      "height": 60,
+      "purpose": "Typed intent and quick replies",
+      "interactive": true
+    },
+    {
+      "name": "narrator",
+      "x": 480,
+      "y": 708,
+      "width": 360,
+      "height": 80,
+      "purpose": "Selected guide reaction",
+      "interactive": false
+    }
+  ],
+  "rules": [
+    "Coordinates are CSS px at1x; browser safe-area insets add to outer margins.",
+    "Mobile keyboard: content scrolls; never keep hidden submit behind keyboard.",
+    "No nested modal: card detail/chat/Cash Flow replace the active overlay.",
+    "G30 receives daily series and transactions from engine; opening never spends action.",
+    "Characters are separate alpha sprites, no narrator switching inside a play sequence."
+  ]
+}

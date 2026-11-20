@@ -20,6 +20,7 @@ Odpowiadasz za to, co gra mówi i jak reaguje: teksty w 4 wariantach (gracz/grac
 ## Ważne
 - **AI nigdy nie wymyśla liczb.** Model tylko rozpoznaje intencję i formułuje zdanie, a wynik i kwoty liczy silnik. Każde wywołanie ma timeout 3 s i fallback w postaci przycisków. Testy nigdy nie wołają prawdziwego API.
 - Ekrany narracji budujesz w `components/narrative/`. Osoba B wstawia je na strony. Ustalcie nazwy komponentów na czacie.
+- **Media są tylko w `design/` na `develop`**, osobnej gałęzi na assety nie ma. Głos i dźwięki (`design/voice/`, `design/audio/`) commitujesz osobno (`feat: G-xx …`) i od razu robisz PR do `develop`; koordynator scala je w pierwszej kolejności. Grafiki osoby B dostajesz przez `git pull origin develop` i ich nie edytujesz.
 - Silnik wywołujesz tylko przez `engine/index.ts`. Typy zdarzeń dla reakcji opisuje `ENGINE-DATA-AND-TESTS.md` §6.
 - Na koniec zadania: **`/handoff`**, potem `git push -u origin lane/narrative` i PR do `develop`.
 

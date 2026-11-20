@@ -1,0 +1,4714 @@
+{
+  "language_code": "pol",
+  "segments": [
+    {
+      "text": "Witaj z powrotem na pok\u0142adzie. Firma cierpliwie czeka\u0142a. Kawa troch\u0119 mniej. Zobaczmy, gdzie sko\u0144czyli\u015bmy. ",
+      "start_time": 0.18,
+      "end_time": 6.88,
+      "speaker": {
+        "id": "speaker_0",
+        "name": "Speaker 0"
+      },
+      "words": [
+        {
+          "text": "Witaj",
+          "start_time": 0.18,
+          "end_time": 0.52
+        },
+        {
+          "text": " ",
+          "start_time": 0.52,
+          "end_time": 0.56
+        },
+        {
+          "text": "z",
+          "start_time": 0.56,
+          "end_time": 0.58
+        },
+        {
+          "text": " ",
+          "start_time": 0.58,
+          "end_time": 0.64
+        },
+        {
+          "text": "powrotem",
+          "start_time": 0.64,
+          "end_time": 1.06
+        },
+        {
+          "text": " ",
+          "start_time": 1.06,
+          "end_time": 1.08
+        },
+        {
+          "text": "na",
+          "start_time": 1.08,
+          "end_time": 1.14
+        },
+        {
+          "text": " ",
+          "start_time": 1.14,
+          "end_time": 1.2
+        },
+        {
+          "text": "pok\u0142adzie.",
+          "start_time": 1.2,
+          "end_time": 1.72
+        },
+        {
+          "text": " ",
+          "start_time": 1.72,
+          "end_time": 1.72
+        },
+        {
+          "text": "Firma",
+          "start_time": 2.2,
+          "end_time": 2.5
+        },
+        {
+          "text": " ",
+          "start_time": 2.5,
+          "end_time": 2.6
+        },
+        {
+          "text": "cierpliwie",
+          "start_time": 2.6,
+          "end_time": 3.1
+        },
+        {
+          "text": " ",
+          "start_time": 3.1,
+          "end_time": 3.16
+        },
+        {
+          "text": "czeka\u0142a.",
+          "start_time": 3.16,
+          "end_time": 3.62
+        },
+        {
+          "text": " ",
+          "start_time": 3.62,
+          "end_time": 4.059
+        },
+        {
+          "text": "Kawa",
+          "start_time": 4.059,
+          "end_time": 4.34
+        },
+        {
+          "text": " ",
+          "start_time": 4.34,
+          "end_time": 4.44
+        },
+        {
+          "text": "troch\u0119",
+          "start_time": 4.44,
+          "end_time": 4.7
+        },
+        {
+          "text": " ",
+          "start_time": 4.7,
+          "end_time": 4.76
+        },
+        {
+          "text": "mniej.",
+          "start_time": 4.76,
+          "end_time": 5.04
+        },
+        {
+          "text": " ",
+          "start_time": 5.04,
+          "end_time": 5.52
+        },
+        {
+          "text": "Zobaczmy,",
+          "start_time": 5.52,
+          "end_time": 5.9
+        },
+        {
+          "text": " ",
+          "start_time": 5.9,
+          "end_time": 5.98
+        },
+        {
+          "text": "gdzie",
+          "start_time": 5.98,
+          "end_time": 6.14
+        },
+        {
+          "text": " ",
+          "start_time": 6.14,
+          "end_time": 6.18
+        },
+        {
+          "text": "sko\u0144czyli\u015bmy.",
+          "start_time": 6.18,
+          "end_time": 6.88
+        },
+        {
+          "text": " ",
+          "start_time": 6.88,
+          "end_time": 6.88
+        }
+      ]
+    },
+    {
+      "text": "Pierwsze okr\u0105\u017cenie za nami. Zobacz, co czeka dalej. W tym kalendarzu przyg\u00f3d nam nie zabraknie. ",
+      "start_time": 7.92,
+      "end_time": 13.58,
+      "speaker": {
+        "id": "speaker_0",
+        "name": "Speaker 0"
+      },
+      "words": [
+        {
+          "text": "Pierwsze",
+          "start_time": 7.92,
+          "end_time": 8.32
+        },
+        {
+          "text": " ",
+          "start_time": 8.32,
+          "end_time": 8.36
+        },
+        {
+          "text": "okr\u0105\u017cenie",
+          "start_time": 8.36,
+          "end_time": 8.86
+        },
+        {
+          "text": " ",
+          "start_time": 8.86,
+          "end_time": 8.92
+        },
+        {
+          "text": "za",
+          "start_time": 8.92,
+          "end_time": 9.0
+        },
+        {
+          "text": " ",
+          "start_time": 9.0,
+          "end_time": 9.06
+        },
+        {
+          "text": "nami.",
+          "start_time": 9.06,
+          "end_time": 9.4
+        },
+        {
+          "text": " ",
+          "start_time": 9.4,
+          "end_time": 9.82
+        },
+        {
+          "text": "Zobacz,",
+          "start_time": 9.82,
+          "end_time": 10.14
+        },
+        {
+          "text": " ",
+          "start_time": 10.14,
+          "end_time": 10.22
+        },
+        {
+          "text": "co",
+          "start_time": 10.24,
+          "end_time": 10.3
+        },
+        {
+          "text": " ",
+          "start_time": 10.3,
+          "end_time": 10.36
+        },
+        {
+          "text": "czeka",
+          "start_time": 10.36,
+          "end_time": 10.56
+        },
+        {
+          "text": " ",
+          "start_time": 10.56,
+          "end_time": 10.62
+        },
+        {
+          "text": "dalej.",
+          "start_time": 10.62,
+          "end_time": 10.94
+        },
+        {
+          "text": " ",
+          "start_time": 10.94,
+          "end_time": 11.26
+        },
+        {
+          "text": "W",
+          "start_time": 11.26,
+          "end_time": 11.28
+        },
+        {
+          "text": " ",
+          "start_time": 11.28,
+          "end_time": 11.36
+        },
+        {
+          "text": "tym",
+          "start_time": 11.36,
+          "end_time": 11.48
+        },
+        {
+          "text": " ",
+          "start_time": 11.48,
+          "end_time": 11.56
+        },
+        {
+          "text": "kalendarzu",
+          "start_time": 11.56,
+          "end_time": 12.06
+        },
+        {
+          "text": " ",
+          "start_time": 12.06,
+          "end_time": 12.18
+        },
+        {
+          "text": "przyg\u00f3d",
+          "start_time": 12.18,
+          "end_time": 12.6
+        },
+        {
+          "text": " ",
+          "start_time": 12.6,
+          "end_time": 12.66
+        },
+        {
+          "text": "nam",
+          "start_time": 12.66,
+          "end_time": 12.82
+        },
+        {
+          "text": " ",
+          "start_time": 12.82,
+          "end_time": 12.86
+        },
+        {
+          "text": "nie",
+          "start_time": 12.86,
+          "end_time": 12.98
+        },
+        {
+          "text": " ",
+          "start_time": 12.98,
+          "end_time": 13.02
+        },
+        {
+          "text": "zabraknie.",
+          "start_time": 13.02,
+          "end_time": 13.58
+        },
+        {
+          "text": " ",
+          "start_time": 13.58,
+          "end_time": 13.58
+        }
+      ]
+    },
+    {
+      "text": "Zmienione konto bez sprawdzenia? Oby to nie by\u0142 najdro\u017cszy skr\u00f3t tego grudnia. ",
+      "start_time": 14.6,
+      "end_time": 19.18,
+      "speaker": {
+        "id": "speaker_0",
+        "name": "Speaker 0"
+      },
+      "words": [
+        {
+          "text": "Zmienione",
+          "start_time": 14.6,
+          "end_time": 15.04
+        },
+        {
+          "text": " ",
+          "start_time": 15.04,
+          "end_time": 15.16
+        },
+        {
+          "text": "konto",
+          "start_time": 15.16,
+          "end_time": 15.44
+        },
+        {
+          "text": " ",
+          "start_time": 15.44,
+          "end_time": 15.48
+        },
+        {
+          "text": "bez",
+          "start_time": 15.48,
+          "end_time": 15.66
+        },
+        {
+          "text": " ",
+          "start_time": 15.66,
+          "end_time": 15.7
+        },
+        {
+          "text": "sprawdzenia?",
+          "start_time": 15.76,
+          "end_time": 16.34
+        },
+        {
+          "text": " ",
+          "start_time": 16.34,
+          "end_time": 16.34
+        },
+        {
+          "text": "Oby",
+          "start_time": 16.88,
+          "end_time": 17.06
+        },
+        {
+          "text": " ",
+          "start_time": 17.06,
+          "end_time": 17.12
+        },
+        {
+          "text": "to",
+          "start_time": 17.12,
+          "end_time": 17.22
+        },
+        {
+          "text": " ",
+          "start_time": 17.22,
+          "end_time": 17.24
+        },
+        {
+          "text": "nie",
+          "start_time": 17.24,
+          "end_time": 17.34
+        },
+        {
+          "text": " ",
+          "start_time": 17.34,
+          "end_time": 17.36
+        },
+        {
+          "text": "by\u0142",
+          "start_time": 17.36,
+          "end_time": 17.5
+        },
+        {
+          "text": " ",
+          "start_time": 17.5,
+          "end_time": 17.52
+        },
+        {
+          "text": "najdro\u017cszy",
+          "start_time": 17.52,
+          "end_time": 18.1
+        },
+        {
+          "text": " ",
+          "start_time": 18.1,
+          "end_time": 18.2
+        },
+        {
+          "text": "skr\u00f3t",
+          "start_time": 18.2,
+          "end_time": 18.48
+        },
+        {
+          "text": " ",
+          "start_time": 18.48,
+          "end_time": 18.52
+        },
+        {
+          "text": "tego",
+          "start_time": 18.52,
+          "end_time": 18.7
+        },
+        {
+          "text": " ",
+          "start_time": 18.7,
+          "end_time": 18.78
+        },
+        {
+          "text": "grudnia.",
+          "start_time": 18.78,
+          "end_time": 19.18
+        },
+        {
+          "text": " ",
+          "start_time": 19.18,
+          "end_time": 19.18
+        }
+      ]
+    },
+    {
+      "text": "Zlecenie przyj\u0119te. Zysk wygl\u0105da apetycznie, ale podwykonawca te\u017c musi co\u015b je\u015b\u0107. Sprawd\u017a, kiedy trzeba mu zap\u0142aci\u0107. Nie ka\u017cde zlecenie musi teraz wskakiwa\u0107 na pok\u0142ad. Czasem najlepszy manewr to poczeka\u0107. Kupujemy narz\u0119dzie. Niech oszcz\u0119dza godziny, a my sprawd\u017amy, czy nie zjada zapasu na p\u0142atno\u015bci. Narz\u0119dzie poczeka. Kalendarz urz\u0119du skarbowego raczej nie. Klient si\u0119 sp\u00f3\u017ani? Tym razem ta faktura ma ju\u017c zabezpieczony lot. Sprawd\u017a, jak zadzia\u0142a\u0142a wcze\u015bniejsza decyzja. Drugi pilot pom\u00f3g\u0142, ale nast\u0119pnym razem spr\u00f3buj przej\u0105\u0107 stery. W\u0142a\u015bnie tak rosn\u0105 umiej\u0119tno\u015bci. Za p\u00f3\u017ano na zaliczk\u0119. Bud\u017cet klienta ju\u017c zamkni\u0119ty. C\u00f3\u017c, nast\u0119pnym razem pukamy, zanim zgasz\u0105 \u015bwiat\u0142o. Rabat przyj\u0119ty. Teraz patrzymy na termin wp\u0142ywu. Zni\u017cka bez czasu to naprawd\u0119 kiepska promocja. Sp\u00f3jrz na dat\u0119. Pieni\u0105dze ze skonta przyjd\u0105 po tej p\u0142atno\u015bci. Dobry pomys\u0142 te\u017c potrafi sp\u00f3\u017ani\u0107 si\u0119 na samolot. Przesuni\u0119cie p\u0142atno\u015bci przesuwa problem. Nie znika ani zobowi\u0105zanie, ani podwykonawca z dobr\u0105 pami\u0119ci\u0105. Limit daje zapas w koncie. Korzystamy, gdy potrzeba i pilnujemy kosztu. Cudze paliwo te\u017c ma licznik. Po\u017cyczka wybrana. Sprawd\u017a wp\u0142yw i termin sp\u0142aty. Pi\u0119tna\u015bcie minut na decyzj\u0119, du\u017co d\u0142u\u017cej na jej skutki. Faktoring wybrany. Sprawd\u017a dat\u0119 wyp\u0142aty i koszt. Faktura ma teraz inny plan lotu. Je\u015bli zaliczka jest jeszcze dost\u0119pna, por\u00f3wnaj j\u0105 z p\u0142atnym finansowaniem. Bezp\u0142atny manewr te\u017c zas\u0142uguje na uwag\u0119. Ten tydzie\u0144 za nami. Zwr\u00f3\u0107 uwag\u0119, kiedy pieni\u0105dze przychodz\u0105, a kiedy robi\u0105 sobie wycieczk\u0119. Kolejny tydzie\u0144 zaliczony. Same dobre ch\u0119ci rachunk\u00f3w nie op\u0142ac\u0105, dlatego patrzymy dalej. \u015awi\u0119ta blisko. Terminy p\u0142atno\u015bci najwyra\u017aniej nie bior\u0105 urlopu. Sprawd\u017amy nast\u0119pny tydzie\u0144. Najg\u0119stszy fragment trasy za nami, ale nie zasypiaj przy sterach. W styczniu te\u017c mamy kalendarz. Ostatnia prosta. To moment, w kt\u00f3rym nawet optymizm powinien zerkn\u0105\u0107 w prognoz\u0119. Jeszcze czekamy na termin planu. Brak potwierdzenia dzi\u015b to nie dow\u00f3d, \u017ce manewr si\u0119 nie uda\u0142. To wymaga sprawdzenia. Cz\u0119\u015b\u0107 danych pasuje, ale nie wszystko. Wol\u0119 jedno pytanie wi\u0119cej ni\u017c pewno\u015b\u0107 zrobion\u0105 na skr\u00f3ty. Zapis si\u0119 nie uda\u0142. Zosta\u0144 jeszcze chwil\u0119 i spr\u00f3buj ponownie. Nie chc\u0119, \u017ceby dobry manewr znikn\u0105\u0142 razem z zamkni\u0119t\u0105 kart\u0105. Tu zbieramy sprawy, kt\u00f3re warto mie\u0107 na radarze. Przeczytajmy, zanim kt\u00f3ra\u015b zrobi si\u0119 burz\u0105. Mog\u0119 przypomnie\u0107 o kolejnej turze albo terminie planu, je\u015bli chcesz. Nawet ja czasem odk\u0142adam wszystko do ostatniej kawy. Ustawienia przypomnie\u0144 zapisane. Trzymamy si\u0119 wybranych zasad. Nawet przygoda potrzebuje odrobiny porz\u0105dku. Jasne, lecimy bez przypomnie\u0144. Ster jest po twojej stronie. Tu szef. B\u0119d\u0119 twoim przewodnikiem po moim studiu. Za\u0142\u00f3\u017c gogle. Czeka nas troch\u0119 liczb i sporo przygody. Zaczynamy od nowa? Ca\u0142y lot wr\u00f3ci na pocz\u0105tek. Tym razem wiesz ju\u017c, gdzie lubi\u0105 zbiera\u0107 si\u0119 chmury. Przerwa zaliczona. Kalendarz jeszcze tu jest. Wracamy do ster\u00f3w? Pilot p\u0142ynno\u015bci. Ogarnij firm\u0119, zanim firma ogarnie ciebie. No dobra, za\u0142ogo, lecimy!",
+      "start_time": 20.28,
+      "end_time": 218.28,
+      "speaker": {
+        "id": "speaker_0",
+        "name": "Speaker 0"
+      },
+      "words": [
+        {
+          "text": "Zlecenie",
+          "start_time": 20.28,
+          "end_time": 20.76
+        },
+        {
+          "text": " ",
+          "start_time": 20.76,
+          "end_time": 20.8
+        },
+        {
+          "text": "przyj\u0119te.",
+          "start_time": 20.8,
+          "end_time": 21.38
+        },
+        {
+          "text": " ",
+          "start_time": 21.38,
+          "end_time": 21.8
+        },
+        {
+          "text": "Zysk",
+          "start_time": 21.8,
+          "end_time": 22.06
+        },
+        {
+          "text": " ",
+          "start_time": 22.06,
+          "end_time": 22.1
+        },
+        {
+          "text": "wygl\u0105da",
+          "start_time": 22.1,
+          "end_time": 22.48
+        },
+        {
+          "text": " ",
+          "start_time": 22.48,
+          "end_time": 22.56
+        },
+        {
+          "text": "apetycznie,",
+          "start_time": 22.56,
+          "end_time": 23.18
+        },
+        {
+          "text": " ",
+          "start_time": 23.18,
+          "end_time": 23.44
+        },
+        {
+          "text": "ale",
+          "start_time": 23.44,
+          "end_time": 23.62
+        },
+        {
+          "text": " ",
+          "start_time": 23.62,
+          "end_time": 23.64
+        },
+        {
+          "text": "podwykonawca",
+          "start_time": 23.64,
+          "end_time": 24.34
+        },
+        {
+          "text": " ",
+          "start_time": 24.34,
+          "end_time": 24.46
+        },
+        {
+          "text": "te\u017c",
+          "start_time": 24.46,
+          "end_time": 24.62
+        },
+        {
+          "text": " ",
+          "start_time": 24.62,
+          "end_time": 24.68
+        },
+        {
+          "text": "musi",
+          "start_time": 24.68,
+          "end_time": 24.88
+        },
+        {
+          "text": " ",
+          "start_time": 24.88,
+          "end_time": 24.92
+        },
+        {
+          "text": "co\u015b",
+          "start_time": 24.92,
+          "end_time": 25.1
+        },
+        {
+          "text": " ",
+          "start_time": 25.1,
+          "end_time": 25.16
+        },
+        {
+          "text": "je\u015b\u0107.",
+          "start_time": 25.16,
+          "end_time": 25.46
+        },
+        {
+          "text": " ",
+          "start_time": 25.46,
+          "end_time": 25.78
+        },
+        {
+          "text": "Sprawd\u017a,",
+          "start_time": 25.84,
+          "end_time": 26.14
+        },
+        {
+          "text": " ",
+          "start_time": 26.14,
+          "end_time": 26.24
+        },
+        {
+          "text": "kiedy",
+          "start_time": 26.24,
+          "end_time": 26.44
+        },
+        {
+          "text": " ",
+          "start_time": 26.44,
+          "end_time": 26.48
+        },
+        {
+          "text": "trzeba",
+          "start_time": 26.48,
+          "end_time": 26.72
+        },
+        {
+          "text": " ",
+          "start_time": 26.72,
+          "end_time": 26.76
+        },
+        {
+          "text": "mu",
+          "start_time": 26.76,
+          "end_time": 26.84
+        },
+        {
+          "text": " ",
+          "start_time": 26.84,
+          "end_time": 26.88
+        },
+        {
+          "text": "zap\u0142aci\u0107.",
+          "start_time": 26.88,
+          "end_time": 27.44
+        },
+        {
+          "text": " ",
+          "start_time": 27.44,
+          "end_time": 27.44
+        },
+        {
+          "text": "Nie",
+          "start_time": 28.42,
+          "end_time": 28.54
+        },
+        {
+          "text": " ",
+          "start_time": 28.54,
+          "end_time": 28.6
+        },
+        {
+          "text": "ka\u017cde",
+          "start_time": 28.6,
+          "end_time": 28.92
+        },
+        {
+          "text": " ",
+          "start_time": 28.92,
+          "end_time": 28.96
+        },
+        {
+          "text": "zlecenie",
+          "start_time": 28.96,
+          "end_time": 29.38
+        },
+        {
+          "text": " ",
+          "start_time": 29.38,
+          "end_time": 29.42
+        },
+        {
+          "text": "musi",
+          "start_time": 29.42,
+          "end_time": 29.6
+        },
+        {
+          "text": " ",
+          "start_time": 29.6,
+          "end_time": 29.64
+        },
+        {
+          "text": "teraz",
+          "start_time": 29.64,
+          "end_time": 29.9
+        },
+        {
+          "text": " ",
+          "start_time": 29.9,
+          "end_time": 29.94
+        },
+        {
+          "text": "wskakiwa\u0107",
+          "start_time": 29.94,
+          "end_time": 30.46
+        },
+        {
+          "text": " ",
+          "start_time": 30.46,
+          "end_time": 30.5
+        },
+        {
+          "text": "na",
+          "start_time": 30.5,
+          "end_time": 30.6
+        },
+        {
+          "text": " ",
+          "start_time": 30.6,
+          "end_time": 30.64
+        },
+        {
+          "text": "pok\u0142ad.",
+          "start_time": 30.64,
+          "end_time": 31.04
+        },
+        {
+          "text": " ",
+          "start_time": 31.04,
+          "end_time": 31.36
+        },
+        {
+          "text": "Czasem",
+          "start_time": 31.36,
+          "end_time": 31.76
+        },
+        {
+          "text": " ",
+          "start_time": 31.76,
+          "end_time": 31.82
+        },
+        {
+          "text": "najlepszy",
+          "start_time": 31.82,
+          "end_time": 32.32
+        },
+        {
+          "text": " ",
+          "start_time": 32.32,
+          "end_time": 32.36
+        },
+        {
+          "text": "manewr",
+          "start_time": 32.36,
+          "end_time": 32.88
+        },
+        {
+          "text": " ",
+          "start_time": 32.88,
+          "end_time": 32.94
+        },
+        {
+          "text": "to",
+          "start_time": 32.94,
+          "end_time": 33.02
+        },
+        {
+          "text": " ",
+          "start_time": 33.02,
+          "end_time": 33.06
+        },
+        {
+          "text": "poczeka\u0107.",
+          "start_time": 33.06,
+          "end_time": 33.64
+        },
+        {
+          "text": " ",
+          "start_time": 33.64,
+          "end_time": 33.64
+        },
+        {
+          "text": "Kupujemy",
+          "start_time": 34.58,
+          "end_time": 35.02
+        },
+        {
+          "text": " ",
+          "start_time": 35.02,
+          "end_time": 35.08
+        },
+        {
+          "text": "narz\u0119dzie.",
+          "start_time": 35.08,
+          "end_time": 35.6
+        },
+        {
+          "text": " ",
+          "start_time": 35.6,
+          "end_time": 35.94
+        },
+        {
+          "text": "Niech",
+          "start_time": 35.94,
+          "end_time": 36.12
+        },
+        {
+          "text": " ",
+          "start_time": 36.12,
+          "end_time": 36.18
+        },
+        {
+          "text": "oszcz\u0119dza",
+          "start_time": 36.18,
+          "end_time": 36.56
+        },
+        {
+          "text": " ",
+          "start_time": 36.56,
+          "end_time": 36.6
+        },
+        {
+          "text": "godziny,",
+          "start_time": 36.6,
+          "end_time": 37.02
+        },
+        {
+          "text": " ",
+          "start_time": 37.02,
+          "end_time": 37.24
+        },
+        {
+          "text": "a",
+          "start_time": 37.24,
+          "end_time": 37.32
+        },
+        {
+          "text": " ",
+          "start_time": 37.32,
+          "end_time": 37.4
+        },
+        {
+          "text": "my",
+          "start_time": 37.4,
+          "end_time": 37.56
+        },
+        {
+          "text": " ",
+          "start_time": 37.56,
+          "end_time": 37.64
+        },
+        {
+          "text": "sprawd\u017amy,",
+          "start_time": 37.64,
+          "end_time": 38.14
+        },
+        {
+          "text": " ",
+          "start_time": 38.14,
+          "end_time": 38.2
+        },
+        {
+          "text": "czy",
+          "start_time": 38.2,
+          "end_time": 38.3
+        },
+        {
+          "text": " ",
+          "start_time": 38.3,
+          "end_time": 38.34
+        },
+        {
+          "text": "nie",
+          "start_time": 38.34,
+          "end_time": 38.44
+        },
+        {
+          "text": " ",
+          "start_time": 38.44,
+          "end_time": 38.5
+        },
+        {
+          "text": "zjada",
+          "start_time": 38.5,
+          "end_time": 38.78
+        },
+        {
+          "text": " ",
+          "start_time": 38.78,
+          "end_time": 38.84
+        },
+        {
+          "text": "zapasu",
+          "start_time": 38.84,
+          "end_time": 39.18
+        },
+        {
+          "text": " ",
+          "start_time": 39.18,
+          "end_time": 39.22
+        },
+        {
+          "text": "na",
+          "start_time": 39.22,
+          "end_time": 39.3
+        },
+        {
+          "text": " ",
+          "start_time": 39.3,
+          "end_time": 39.34
+        },
+        {
+          "text": "p\u0142atno\u015bci.",
+          "start_time": 39.34,
+          "end_time": 39.96
+        },
+        {
+          "text": " ",
+          "start_time": 39.96,
+          "end_time": 39.96
+        },
+        {
+          "text": "Narz\u0119dzie",
+          "start_time": 40.82,
+          "end_time": 41.32
+        },
+        {
+          "text": " ",
+          "start_time": 41.32,
+          "end_time": 41.36
+        },
+        {
+          "text": "poczeka.",
+          "start_time": 41.36,
+          "end_time": 41.82
+        },
+        {
+          "text": " ",
+          "start_time": 41.82,
+          "end_time": 42.22
+        },
+        {
+          "text": "Kalendarz",
+          "start_time": 42.22,
+          "end_time": 42.74
+        },
+        {
+          "text": " ",
+          "start_time": 42.74,
+          "end_time": 42.82
+        },
+        {
+          "text": "urz\u0119du",
+          "start_time": 42.82,
+          "end_time": 43.14
+        },
+        {
+          "text": " ",
+          "start_time": 43.14,
+          "end_time": 43.18
+        },
+        {
+          "text": "skarbowego",
+          "start_time": 43.18,
+          "end_time": 43.82
+        },
+        {
+          "text": " ",
+          "start_time": 43.82,
+          "end_time": 44.12
+        },
+        {
+          "text": "raczej",
+          "start_time": 44.12,
+          "end_time": 44.46
+        },
+        {
+          "text": " ",
+          "start_time": 44.46,
+          "end_time": 44.5
+        },
+        {
+          "text": "nie.",
+          "start_time": 44.5,
+          "end_time": 44.78
+        },
+        {
+          "text": " ",
+          "start_time": 44.78,
+          "end_time": 44.78
+        },
+        {
+          "text": "Klient",
+          "start_time": 45.58,
+          "end_time": 45.9
+        },
+        {
+          "text": " ",
+          "start_time": 45.9,
+          "end_time": 45.94
+        },
+        {
+          "text": "si\u0119",
+          "start_time": 45.94,
+          "end_time": 46.04
+        },
+        {
+          "text": " ",
+          "start_time": 46.04,
+          "end_time": 46.08
+        },
+        {
+          "text": "sp\u00f3\u017ani?",
+          "start_time": 46.08,
+          "end_time": 46.52
+        },
+        {
+          "text": " ",
+          "start_time": 46.52,
+          "end_time": 46.94
+        },
+        {
+          "text": "Tym",
+          "start_time": 46.94,
+          "end_time": 47.08
+        },
+        {
+          "text": " ",
+          "start_time": 47.08,
+          "end_time": 47.12
+        },
+        {
+          "text": "razem",
+          "start_time": 47.12,
+          "end_time": 47.4
+        },
+        {
+          "text": " ",
+          "start_time": 47.4,
+          "end_time": 47.44
+        },
+        {
+          "text": "ta",
+          "start_time": 47.44,
+          "end_time": 47.52
+        },
+        {
+          "text": " ",
+          "start_time": 47.52,
+          "end_time": 47.58
+        },
+        {
+          "text": "faktura",
+          "start_time": 47.58,
+          "end_time": 47.94
+        },
+        {
+          "text": " ",
+          "start_time": 47.94,
+          "end_time": 48.08
+        },
+        {
+          "text": "ma",
+          "start_time": 48.08,
+          "end_time": 48.2
+        },
+        {
+          "text": " ",
+          "start_time": 48.2,
+          "end_time": 48.26
+        },
+        {
+          "text": "ju\u017c",
+          "start_time": 48.26,
+          "end_time": 48.4
+        },
+        {
+          "text": " ",
+          "start_time": 48.4,
+          "end_time": 48.44
+        },
+        {
+          "text": "zabezpieczony",
+          "start_time": 48.44,
+          "end_time": 49.08
+        },
+        {
+          "text": " ",
+          "start_time": 49.08,
+          "end_time": 49.12
+        },
+        {
+          "text": "lot.",
+          "start_time": 49.12,
+          "end_time": 49.34
+        },
+        {
+          "text": " ",
+          "start_time": 49.34,
+          "end_time": 49.76
+        },
+        {
+          "text": "Sprawd\u017a,",
+          "start_time": 49.76,
+          "end_time": 50.14
+        },
+        {
+          "text": " ",
+          "start_time": 50.14,
+          "end_time": 50.3
+        },
+        {
+          "text": "jak",
+          "start_time": 50.3,
+          "end_time": 50.46
+        },
+        {
+          "text": " ",
+          "start_time": 50.46,
+          "end_time": 50.52
+        },
+        {
+          "text": "zadzia\u0142a\u0142a",
+          "start_time": 50.52,
+          "end_time": 50.96
+        },
+        {
+          "text": " ",
+          "start_time": 50.96,
+          "end_time": 51.02
+        },
+        {
+          "text": "wcze\u015bniejsza",
+          "start_time": 51.02,
+          "end_time": 51.56
+        },
+        {
+          "text": " ",
+          "start_time": 51.56,
+          "end_time": 51.6
+        },
+        {
+          "text": "decyzja.",
+          "start_time": 51.6,
+          "end_time": 52.12
+        },
+        {
+          "text": " ",
+          "start_time": 52.12,
+          "end_time": 52.94
+        },
+        {
+          "text": "Drugi",
+          "start_time": 52.94,
+          "end_time": 53.22
+        },
+        {
+          "text": " ",
+          "start_time": 53.22,
+          "end_time": 53.32
+        },
+        {
+          "text": "pilot",
+          "start_time": 53.32,
+          "end_time": 53.62
+        },
+        {
+          "text": " ",
+          "start_time": 53.62,
+          "end_time": 53.66
+        },
+        {
+          "text": "pom\u00f3g\u0142,",
+          "start_time": 53.66,
+          "end_time": 54.08
+        },
+        {
+          "text": " ",
+          "start_time": 54.08,
+          "end_time": 54.44
+        },
+        {
+          "text": "ale",
+          "start_time": 54.44,
+          "end_time": 54.56
+        },
+        {
+          "text": " ",
+          "start_time": 54.56,
+          "end_time": 54.6
+        },
+        {
+          "text": "nast\u0119pnym",
+          "start_time": 54.6,
+          "end_time": 55.1
+        },
+        {
+          "text": " ",
+          "start_time": 55.1,
+          "end_time": 55.14
+        },
+        {
+          "text": "razem",
+          "start_time": 55.14,
+          "end_time": 55.52
+        },
+        {
+          "text": " ",
+          "start_time": 55.52,
+          "end_time": 55.62
+        },
+        {
+          "text": "spr\u00f3buj",
+          "start_time": 55.62,
+          "end_time": 55.94
+        },
+        {
+          "text": " ",
+          "start_time": 55.94,
+          "end_time": 55.98
+        },
+        {
+          "text": "przej\u0105\u0107",
+          "start_time": 55.98,
+          "end_time": 56.3
+        },
+        {
+          "text": " ",
+          "start_time": 56.3,
+          "end_time": 56.38
+        },
+        {
+          "text": "stery.",
+          "start_time": 56.38,
+          "end_time": 56.7
+        },
+        {
+          "text": " ",
+          "start_time": 56.7,
+          "end_time": 57.04
+        },
+        {
+          "text": "W\u0142a\u015bnie",
+          "start_time": 57.04,
+          "end_time": 57.5
+        },
+        {
+          "text": " ",
+          "start_time": 57.5,
+          "end_time": 57.56
+        },
+        {
+          "text": "tak",
+          "start_time": 57.56,
+          "end_time": 57.8
+        },
+        {
+          "text": " ",
+          "start_time": 57.8,
+          "end_time": 57.84
+        },
+        {
+          "text": "rosn\u0105",
+          "start_time": 57.84,
+          "end_time": 58.18
+        },
+        {
+          "text": " ",
+          "start_time": 58.18,
+          "end_time": 58.24
+        },
+        {
+          "text": "umiej\u0119tno\u015bci.",
+          "start_time": 58.24,
+          "end_time": 59.02
+        },
+        {
+          "text": " ",
+          "start_time": 59.02,
+          "end_time": 59.02
+        },
+        {
+          "text": "Za",
+          "start_time": 59.9,
+          "end_time": 60.06
+        },
+        {
+          "text": " ",
+          "start_time": 60.06,
+          "end_time": 60.12
+        },
+        {
+          "text": "p\u00f3\u017ano",
+          "start_time": 60.12,
+          "end_time": 60.42
+        },
+        {
+          "text": " ",
+          "start_time": 60.42,
+          "end_time": 60.46
+        },
+        {
+          "text": "na",
+          "start_time": 60.46,
+          "end_time": 60.54
+        },
+        {
+          "text": " ",
+          "start_time": 60.54,
+          "end_time": 60.58
+        },
+        {
+          "text": "zaliczk\u0119.",
+          "start_time": 60.58,
+          "end_time": 61.06
+        },
+        {
+          "text": " ",
+          "start_time": 61.06,
+          "end_time": 61.54
+        },
+        {
+          "text": "Bud\u017cet",
+          "start_time": 61.54,
+          "end_time": 61.86
+        },
+        {
+          "text": " ",
+          "start_time": 61.86,
+          "end_time": 61.92
+        },
+        {
+          "text": "klienta",
+          "start_time": 61.92,
+          "end_time": 62.3
+        },
+        {
+          "text": " ",
+          "start_time": 62.3,
+          "end_time": 62.34
+        },
+        {
+          "text": "ju\u017c",
+          "start_time": 62.34,
+          "end_time": 62.46
+        },
+        {
+          "text": " ",
+          "start_time": 62.46,
+          "end_time": 62.5
+        },
+        {
+          "text": "zamkni\u0119ty.",
+          "start_time": 62.5,
+          "end_time": 63.12
+        },
+        {
+          "text": " ",
+          "start_time": 63.12,
+          "end_time": 63.62
+        },
+        {
+          "text": "C\u00f3\u017c,",
+          "start_time": 63.62,
+          "end_time": 63.88
+        },
+        {
+          "text": " ",
+          "start_time": 63.88,
+          "end_time": 64.34
+        },
+        {
+          "text": "nast\u0119pnym",
+          "start_time": 64.34,
+          "end_time": 64.8
+        },
+        {
+          "text": " ",
+          "start_time": 64.8,
+          "end_time": 64.84
+        },
+        {
+          "text": "razem",
+          "start_time": 64.84,
+          "end_time": 65.099
+        },
+        {
+          "text": " ",
+          "start_time": 65.099,
+          "end_time": 65.14
+        },
+        {
+          "text": "pukamy,",
+          "start_time": 65.14,
+          "end_time": 65.519
+        },
+        {
+          "text": " ",
+          "start_time": 65.519,
+          "end_time": 65.64
+        },
+        {
+          "text": "zanim",
+          "start_time": 65.64,
+          "end_time": 65.96
+        },
+        {
+          "text": " ",
+          "start_time": 65.96,
+          "end_time": 66.0
+        },
+        {
+          "text": "zgasz\u0105",
+          "start_time": 66.0,
+          "end_time": 66.34
+        },
+        {
+          "text": " ",
+          "start_time": 66.34,
+          "end_time": 66.38
+        },
+        {
+          "text": "\u015bwiat\u0142o.",
+          "start_time": 66.38,
+          "end_time": 66.86
+        },
+        {
+          "text": " ",
+          "start_time": 66.86,
+          "end_time": 66.86
+        },
+        {
+          "text": "Rabat",
+          "start_time": 67.7,
+          "end_time": 68.08
+        },
+        {
+          "text": " ",
+          "start_time": 68.08,
+          "end_time": 68.12
+        },
+        {
+          "text": "przyj\u0119ty.",
+          "start_time": 68.12,
+          "end_time": 68.74
+        },
+        {
+          "text": " ",
+          "start_time": 68.74,
+          "end_time": 69.06
+        },
+        {
+          "text": "Teraz",
+          "start_time": 69.06,
+          "end_time": 69.42
+        },
+        {
+          "text": " ",
+          "start_time": 69.42,
+          "end_time": 69.46
+        },
+        {
+          "text": "patrzymy",
+          "start_time": 69.46,
+          "end_time": 69.86
+        },
+        {
+          "text": " ",
+          "start_time": 69.86,
+          "end_time": 69.9
+        },
+        {
+          "text": "na",
+          "start_time": 69.9,
+          "end_time": 70.0
+        },
+        {
+          "text": " ",
+          "start_time": 70.0,
+          "end_time": 70.04
+        },
+        {
+          "text": "termin",
+          "start_time": 70.04,
+          "end_time": 70.34
+        },
+        {
+          "text": " ",
+          "start_time": 70.34,
+          "end_time": 70.38
+        },
+        {
+          "text": "wp\u0142ywu.",
+          "start_time": 70.38,
+          "end_time": 70.8
+        },
+        {
+          "text": " ",
+          "start_time": 70.8,
+          "end_time": 71.18
+        },
+        {
+          "text": "Zni\u017cka",
+          "start_time": 71.18,
+          "end_time": 71.54
+        },
+        {
+          "text": " ",
+          "start_time": 71.54,
+          "end_time": 71.58
+        },
+        {
+          "text": "bez",
+          "start_time": 71.58,
+          "end_time": 71.74
+        },
+        {
+          "text": " ",
+          "start_time": 71.74,
+          "end_time": 71.78
+        },
+        {
+          "text": "czasu",
+          "start_time": 71.78,
+          "end_time": 72.18
+        },
+        {
+          "text": " ",
+          "start_time": 72.18,
+          "end_time": 72.22
+        },
+        {
+          "text": "to",
+          "start_time": 72.22,
+          "end_time": 72.34
+        },
+        {
+          "text": " ",
+          "start_time": 72.34,
+          "end_time": 72.38
+        },
+        {
+          "text": "naprawd\u0119",
+          "start_time": 72.38,
+          "end_time": 72.92
+        },
+        {
+          "text": " ",
+          "start_time": 72.92,
+          "end_time": 72.96
+        },
+        {
+          "text": "kiepska",
+          "start_time": 72.96,
+          "end_time": 73.3
+        },
+        {
+          "text": " ",
+          "start_time": 73.3,
+          "end_time": 73.34
+        },
+        {
+          "text": "promocja.",
+          "start_time": 73.34,
+          "end_time": 73.86
+        },
+        {
+          "text": " ",
+          "start_time": 73.86,
+          "end_time": 73.98
+        },
+        {
+          "text": "Sp\u00f3jrz",
+          "start_time": 74.74,
+          "end_time": 75.0
+        },
+        {
+          "text": " ",
+          "start_time": 75.0,
+          "end_time": 75.04
+        },
+        {
+          "text": "na",
+          "start_time": 75.04,
+          "end_time": 75.12
+        },
+        {
+          "text": " ",
+          "start_time": 75.12,
+          "end_time": 75.18
+        },
+        {
+          "text": "dat\u0119.",
+          "start_time": 75.18,
+          "end_time": 75.52
+        },
+        {
+          "text": " ",
+          "start_time": 75.52,
+          "end_time": 75.88
+        },
+        {
+          "text": "Pieni\u0105dze",
+          "start_time": 75.88,
+          "end_time": 76.28
+        },
+        {
+          "text": " ",
+          "start_time": 76.28,
+          "end_time": 76.32
+        },
+        {
+          "text": "ze",
+          "start_time": 76.32,
+          "end_time": 76.42
+        },
+        {
+          "text": " ",
+          "start_time": 76.42,
+          "end_time": 76.46
+        },
+        {
+          "text": "skonta",
+          "start_time": 76.46,
+          "end_time": 76.84
+        },
+        {
+          "text": " ",
+          "start_time": 76.84,
+          "end_time": 76.88
+        },
+        {
+          "text": "przyjd\u0105",
+          "start_time": 76.88,
+          "end_time": 77.3
+        },
+        {
+          "text": " ",
+          "start_time": 77.3,
+          "end_time": 77.36
+        },
+        {
+          "text": "po",
+          "start_time": 77.36,
+          "end_time": 77.42
+        },
+        {
+          "text": " ",
+          "start_time": 77.42,
+          "end_time": 77.5
+        },
+        {
+          "text": "tej",
+          "start_time": 77.5,
+          "end_time": 77.64
+        },
+        {
+          "text": " ",
+          "start_time": 77.64,
+          "end_time": 77.68
+        },
+        {
+          "text": "p\u0142atno\u015bci.",
+          "start_time": 77.68,
+          "end_time": 78.3
+        },
+        {
+          "text": " ",
+          "start_time": 78.3,
+          "end_time": 78.68
+        },
+        {
+          "text": "Dobry",
+          "start_time": 78.68,
+          "end_time": 78.96
+        },
+        {
+          "text": " ",
+          "start_time": 78.96,
+          "end_time": 79.0
+        },
+        {
+          "text": "pomys\u0142",
+          "start_time": 79.0,
+          "end_time": 79.46
+        },
+        {
+          "text": " ",
+          "start_time": 79.46,
+          "end_time": 79.5
+        },
+        {
+          "text": "te\u017c",
+          "start_time": 79.5,
+          "end_time": 79.68
+        },
+        {
+          "text": " ",
+          "start_time": 79.68,
+          "end_time": 79.72
+        },
+        {
+          "text": "potrafi",
+          "start_time": 79.72,
+          "end_time": 80.1
+        },
+        {
+          "text": " ",
+          "start_time": 80.1,
+          "end_time": 80.14
+        },
+        {
+          "text": "sp\u00f3\u017ani\u0107",
+          "start_time": 80.2,
+          "end_time": 80.58
+        },
+        {
+          "text": " ",
+          "start_time": 80.58,
+          "end_time": 80.6
+        },
+        {
+          "text": "si\u0119",
+          "start_time": 80.6,
+          "end_time": 80.68
+        },
+        {
+          "text": " ",
+          "start_time": 80.68,
+          "end_time": 80.72
+        },
+        {
+          "text": "na",
+          "start_time": 80.72,
+          "end_time": 80.82
+        },
+        {
+          "text": " ",
+          "start_time": 80.82,
+          "end_time": 80.86
+        },
+        {
+          "text": "samolot.",
+          "start_time": 80.86,
+          "end_time": 81.34
+        },
+        {
+          "text": " ",
+          "start_time": 81.34,
+          "end_time": 82.02
+        },
+        {
+          "text": "Przesuni\u0119cie",
+          "start_time": 82.02,
+          "end_time": 82.6
+        },
+        {
+          "text": " ",
+          "start_time": 82.6,
+          "end_time": 82.64
+        },
+        {
+          "text": "p\u0142atno\u015bci",
+          "start_time": 82.64,
+          "end_time": 83.24
+        },
+        {
+          "text": " ",
+          "start_time": 83.24,
+          "end_time": 83.28
+        },
+        {
+          "text": "przesuwa",
+          "start_time": 83.28,
+          "end_time": 83.72
+        },
+        {
+          "text": " ",
+          "start_time": 83.72,
+          "end_time": 83.74
+        },
+        {
+          "text": "problem.",
+          "start_time": 83.74,
+          "end_time": 84.18
+        },
+        {
+          "text": " ",
+          "start_time": 84.18,
+          "end_time": 84.5
+        },
+        {
+          "text": "Nie",
+          "start_time": 84.5,
+          "end_time": 84.6
+        },
+        {
+          "text": " ",
+          "start_time": 84.6,
+          "end_time": 84.66
+        },
+        {
+          "text": "znika",
+          "start_time": 84.66,
+          "end_time": 85.02
+        },
+        {
+          "text": " ",
+          "start_time": 85.02,
+          "end_time": 85.12
+        },
+        {
+          "text": "ani",
+          "start_time": 85.12,
+          "end_time": 85.3
+        },
+        {
+          "text": " ",
+          "start_time": 85.3,
+          "end_time": 85.34
+        },
+        {
+          "text": "zobowi\u0105zanie,",
+          "start_time": 85.34,
+          "end_time": 86.06
+        },
+        {
+          "text": " ",
+          "start_time": 86.06,
+          "end_time": 86.3
+        },
+        {
+          "text": "ani",
+          "start_time": 86.3,
+          "end_time": 86.48
+        },
+        {
+          "text": " ",
+          "start_time": 86.48,
+          "end_time": 86.52
+        },
+        {
+          "text": "podwykonawca",
+          "start_time": 86.52,
+          "end_time": 87.22
+        },
+        {
+          "text": " ",
+          "start_time": 87.22,
+          "end_time": 87.26
+        },
+        {
+          "text": "z",
+          "start_time": 87.26,
+          "end_time": 87.28
+        },
+        {
+          "text": " ",
+          "start_time": 87.28,
+          "end_time": 87.32
+        },
+        {
+          "text": "dobr\u0105",
+          "start_time": 87.32,
+          "end_time": 87.6
+        },
+        {
+          "text": " ",
+          "start_time": 87.6,
+          "end_time": 87.64
+        },
+        {
+          "text": "pami\u0119ci\u0105.",
+          "start_time": 87.64,
+          "end_time": 88.2
+        },
+        {
+          "text": " ",
+          "start_time": 88.2,
+          "end_time": 89.0
+        },
+        {
+          "text": "Limit",
+          "start_time": 89.0,
+          "end_time": 89.38
+        },
+        {
+          "text": " ",
+          "start_time": 89.38,
+          "end_time": 89.44
+        },
+        {
+          "text": "daje",
+          "start_time": 89.44,
+          "end_time": 89.68
+        },
+        {
+          "text": " ",
+          "start_time": 89.68,
+          "end_time": 89.74
+        },
+        {
+          "text": "zapas",
+          "start_time": 89.74,
+          "end_time": 90.08
+        },
+        {
+          "text": " ",
+          "start_time": 90.08,
+          "end_time": 90.1
+        },
+        {
+          "text": "w",
+          "start_time": 90.1,
+          "end_time": 90.16
+        },
+        {
+          "text": " ",
+          "start_time": 90.16,
+          "end_time": 90.2
+        },
+        {
+          "text": "koncie.",
+          "start_time": 90.2,
+          "end_time": 90.6
+        },
+        {
+          "text": " ",
+          "start_time": 90.6,
+          "end_time": 90.9
+        },
+        {
+          "text": "Korzystamy,",
+          "start_time": 90.9,
+          "end_time": 91.36
+        },
+        {
+          "text": " ",
+          "start_time": 91.36,
+          "end_time": 91.42
+        },
+        {
+          "text": "gdy",
+          "start_time": 91.42,
+          "end_time": 91.54
+        },
+        {
+          "text": " ",
+          "start_time": 91.54,
+          "end_time": 91.58
+        },
+        {
+          "text": "potrzeba",
+          "start_time": 91.58,
+          "end_time": 92.18
+        },
+        {
+          "text": " ",
+          "start_time": 92.18,
+          "end_time": 92.24
+        },
+        {
+          "text": "i",
+          "start_time": 92.24,
+          "end_time": 92.34
+        },
+        {
+          "text": " ",
+          "start_time": 92.34,
+          "end_time": 92.38
+        },
+        {
+          "text": "pilnujemy",
+          "start_time": 92.38,
+          "end_time": 92.9
+        },
+        {
+          "text": " ",
+          "start_time": 92.9,
+          "end_time": 92.94
+        },
+        {
+          "text": "kosztu.",
+          "start_time": 92.94,
+          "end_time": 93.34
+        },
+        {
+          "text": " ",
+          "start_time": 93.34,
+          "end_time": 93.68
+        },
+        {
+          "text": "Cudze",
+          "start_time": 93.68,
+          "end_time": 93.94
+        },
+        {
+          "text": " ",
+          "start_time": 93.94,
+          "end_time": 93.98
+        },
+        {
+          "text": "paliwo",
+          "start_time": 93.98,
+          "end_time": 94.44
+        },
+        {
+          "text": " ",
+          "start_time": 94.44,
+          "end_time": 94.5
+        },
+        {
+          "text": "te\u017c",
+          "start_time": 94.5,
+          "end_time": 94.72
+        },
+        {
+          "text": " ",
+          "start_time": 94.72,
+          "end_time": 94.76
+        },
+        {
+          "text": "ma",
+          "start_time": 94.76,
+          "end_time": 94.84
+        },
+        {
+          "text": " ",
+          "start_time": 94.84,
+          "end_time": 94.88
+        },
+        {
+          "text": "licznik.",
+          "start_time": 94.88,
+          "end_time": 95.34
+        },
+        {
+          "text": " ",
+          "start_time": 95.34,
+          "end_time": 95.34
+        },
+        {
+          "text": "Po\u017cyczka",
+          "start_time": 96.1,
+          "end_time": 96.6
+        },
+        {
+          "text": " ",
+          "start_time": 96.6,
+          "end_time": 96.64
+        },
+        {
+          "text": "wybrana.",
+          "start_time": 96.64,
+          "end_time": 97.12
+        },
+        {
+          "text": " ",
+          "start_time": 97.12,
+          "end_time": 97.58
+        },
+        {
+          "text": "Sprawd\u017a",
+          "start_time": 97.58,
+          "end_time": 97.92
+        },
+        {
+          "text": " ",
+          "start_time": 97.92,
+          "end_time": 97.98
+        },
+        {
+          "text": "wp\u0142yw",
+          "start_time": 97.98,
+          "end_time": 98.38
+        },
+        {
+          "text": " ",
+          "start_time": 98.38,
+          "end_time": 98.44
+        },
+        {
+          "text": "i",
+          "start_time": 98.44,
+          "end_time": 98.52
+        },
+        {
+          "text": " ",
+          "start_time": 98.52,
+          "end_time": 98.56
+        },
+        {
+          "text": "termin",
+          "start_time": 98.56,
+          "end_time": 98.84
+        },
+        {
+          "text": " ",
+          "start_time": 98.84,
+          "end_time": 98.92
+        },
+        {
+          "text": "sp\u0142aty.",
+          "start_time": 98.92,
+          "end_time": 99.38
+        },
+        {
+          "text": " ",
+          "start_time": 99.38,
+          "end_time": 99.72
+        },
+        {
+          "text": "Pi\u0119tna\u015bcie",
+          "start_time": 99.72,
+          "end_time": 100.2
+        },
+        {
+          "text": " ",
+          "start_time": 100.2,
+          "end_time": 100.24
+        },
+        {
+          "text": "minut",
+          "start_time": 100.24,
+          "end_time": 100.52
+        },
+        {
+          "text": " ",
+          "start_time": 100.52,
+          "end_time": 100.56
+        },
+        {
+          "text": "na",
+          "start_time": 100.56,
+          "end_time": 100.64
+        },
+        {
+          "text": " ",
+          "start_time": 100.64,
+          "end_time": 100.68
+        },
+        {
+          "text": "decyzj\u0119,",
+          "start_time": 100.68,
+          "end_time": 101.18
+        },
+        {
+          "text": " ",
+          "start_time": 101.18,
+          "end_time": 101.48
+        },
+        {
+          "text": "du\u017co",
+          "start_time": 101.48,
+          "end_time": 101.78
+        },
+        {
+          "text": " ",
+          "start_time": 101.78,
+          "end_time": 101.84
+        },
+        {
+          "text": "d\u0142u\u017cej",
+          "start_time": 101.84,
+          "end_time": 102.2
+        },
+        {
+          "text": " ",
+          "start_time": 102.2,
+          "end_time": 102.24
+        },
+        {
+          "text": "na",
+          "start_time": 102.24,
+          "end_time": 102.32
+        },
+        {
+          "text": " ",
+          "start_time": 102.32,
+          "end_time": 102.36
+        },
+        {
+          "text": "jej",
+          "start_time": 102.36,
+          "end_time": 102.5
+        },
+        {
+          "text": " ",
+          "start_time": 102.5,
+          "end_time": 102.54
+        },
+        {
+          "text": "skutki.",
+          "start_time": 102.54,
+          "end_time": 103.02
+        },
+        {
+          "text": " ",
+          "start_time": 103.02,
+          "end_time": 103.76
+        },
+        {
+          "text": "Faktoring",
+          "start_time": 103.76,
+          "end_time": 104.28
+        },
+        {
+          "text": " ",
+          "start_time": 104.28,
+          "end_time": 104.32
+        },
+        {
+          "text": "wybrany.",
+          "start_time": 104.32,
+          "end_time": 104.78
+        },
+        {
+          "text": " ",
+          "start_time": 104.78,
+          "end_time": 105.18
+        },
+        {
+          "text": "Sprawd\u017a",
+          "start_time": 105.18,
+          "end_time": 105.52
+        },
+        {
+          "text": " ",
+          "start_time": 105.52,
+          "end_time": 105.58
+        },
+        {
+          "text": "dat\u0119",
+          "start_time": 105.58,
+          "end_time": 105.78
+        },
+        {
+          "text": " ",
+          "start_time": 105.78,
+          "end_time": 105.82
+        },
+        {
+          "text": "wyp\u0142aty",
+          "start_time": 105.82,
+          "end_time": 106.32
+        },
+        {
+          "text": " ",
+          "start_time": 106.32,
+          "end_time": 106.36
+        },
+        {
+          "text": "i",
+          "start_time": 106.36,
+          "end_time": 106.44
+        },
+        {
+          "text": " ",
+          "start_time": 106.44,
+          "end_time": 106.5
+        },
+        {
+          "text": "koszt.",
+          "start_time": 106.5,
+          "end_time": 106.82
+        },
+        {
+          "text": " ",
+          "start_time": 106.82,
+          "end_time": 107.14
+        },
+        {
+          "text": "Faktura",
+          "start_time": 107.14,
+          "end_time": 107.6
+        },
+        {
+          "text": " ",
+          "start_time": 107.6,
+          "end_time": 107.66
+        },
+        {
+          "text": "ma",
+          "start_time": 107.66,
+          "end_time": 107.74
+        },
+        {
+          "text": " ",
+          "start_time": 107.74,
+          "end_time": 107.78
+        },
+        {
+          "text": "teraz",
+          "start_time": 107.78,
+          "end_time": 108.1
+        },
+        {
+          "text": " ",
+          "start_time": 108.1,
+          "end_time": 108.18
+        },
+        {
+          "text": "inny",
+          "start_time": 108.18,
+          "end_time": 108.42
+        },
+        {
+          "text": " ",
+          "start_time": 108.42,
+          "end_time": 108.52
+        },
+        {
+          "text": "plan",
+          "start_time": 108.52,
+          "end_time": 108.7
+        },
+        {
+          "text": " ",
+          "start_time": 108.7,
+          "end_time": 108.76
+        },
+        {
+          "text": "lotu.",
+          "start_time": 108.76,
+          "end_time": 109.1
+        },
+        {
+          "text": " ",
+          "start_time": 109.1,
+          "end_time": 109.84
+        },
+        {
+          "text": "Je\u015bli",
+          "start_time": 109.84,
+          "end_time": 110.1
+        },
+        {
+          "text": " ",
+          "start_time": 110.1,
+          "end_time": 110.16
+        },
+        {
+          "text": "zaliczka",
+          "start_time": 110.16,
+          "end_time": 110.56
+        },
+        {
+          "text": " ",
+          "start_time": 110.56,
+          "end_time": 110.6
+        },
+        {
+          "text": "jest",
+          "start_time": 110.6,
+          "end_time": 110.76
+        },
+        {
+          "text": " ",
+          "start_time": 110.76,
+          "end_time": 110.8
+        },
+        {
+          "text": "jeszcze",
+          "start_time": 110.8,
+          "end_time": 111.02
+        },
+        {
+          "text": " ",
+          "start_time": 111.02,
+          "end_time": 111.06
+        },
+        {
+          "text": "dost\u0119pna,",
+          "start_time": 111.06,
+          "end_time": 111.62
+        },
+        {
+          "text": " ",
+          "start_time": 111.62,
+          "end_time": 111.82
+        },
+        {
+          "text": "por\u00f3wnaj",
+          "start_time": 111.82,
+          "end_time": 112.28
+        },
+        {
+          "text": " ",
+          "start_time": 112.28,
+          "end_time": 112.32
+        },
+        {
+          "text": "j\u0105",
+          "start_time": 112.32,
+          "end_time": 112.48
+        },
+        {
+          "text": " ",
+          "start_time": 112.48,
+          "end_time": 112.52
+        },
+        {
+          "text": "z",
+          "start_time": 112.52,
+          "end_time": 112.58
+        },
+        {
+          "text": " ",
+          "start_time": 112.58,
+          "end_time": 112.62
+        },
+        {
+          "text": "p\u0142atnym",
+          "start_time": 112.62,
+          "end_time": 112.94
+        },
+        {
+          "text": " ",
+          "start_time": 112.94,
+          "end_time": 113.0
+        },
+        {
+          "text": "finansowaniem.",
+          "start_time": 113.0,
+          "end_time": 113.74
+        },
+        {
+          "text": " ",
+          "start_time": 113.74,
+          "end_time": 114.06
+        },
+        {
+          "text": "Bezp\u0142atny",
+          "start_time": 114.06,
+          "end_time": 114.56
+        },
+        {
+          "text": " ",
+          "start_time": 114.56,
+          "end_time": 114.62
+        },
+        {
+          "text": "manewr",
+          "start_time": 114.62,
+          "end_time": 115.1
+        },
+        {
+          "text": " ",
+          "start_time": 115.1,
+          "end_time": 115.16
+        },
+        {
+          "text": "te\u017c",
+          "start_time": 115.16,
+          "end_time": 115.36
+        },
+        {
+          "text": " ",
+          "start_time": 115.36,
+          "end_time": 115.4
+        },
+        {
+          "text": "zas\u0142uguje",
+          "start_time": 115.4,
+          "end_time": 115.94
+        },
+        {
+          "text": " ",
+          "start_time": 115.94,
+          "end_time": 115.98
+        },
+        {
+          "text": "na",
+          "start_time": 115.98,
+          "end_time": 116.08
+        },
+        {
+          "text": " ",
+          "start_time": 116.08,
+          "end_time": 116.12
+        },
+        {
+          "text": "uwag\u0119.",
+          "start_time": 116.12,
+          "end_time": 116.54
+        },
+        {
+          "text": " ",
+          "start_time": 116.54,
+          "end_time": 117.28
+        },
+        {
+          "text": "Ten",
+          "start_time": 117.28,
+          "end_time": 117.48
+        },
+        {
+          "text": " ",
+          "start_time": 117.48,
+          "end_time": 117.56
+        },
+        {
+          "text": "tydzie\u0144",
+          "start_time": 117.56,
+          "end_time": 117.9
+        },
+        {
+          "text": " ",
+          "start_time": 117.9,
+          "end_time": 117.94
+        },
+        {
+          "text": "za",
+          "start_time": 117.94,
+          "end_time": 118.04
+        },
+        {
+          "text": " ",
+          "start_time": 118.04,
+          "end_time": 118.08
+        },
+        {
+          "text": "nami.",
+          "start_time": 118.1,
+          "end_time": 118.4
+        },
+        {
+          "text": " ",
+          "start_time": 118.4,
+          "end_time": 118.8
+        },
+        {
+          "text": "Zwr\u00f3\u0107",
+          "start_time": 118.8,
+          "end_time": 119.08
+        },
+        {
+          "text": " ",
+          "start_time": 119.08,
+          "end_time": 119.16
+        },
+        {
+          "text": "uwag\u0119,",
+          "start_time": 119.16,
+          "end_time": 119.46
+        },
+        {
+          "text": " ",
+          "start_time": 119.46,
+          "end_time": 119.58
+        },
+        {
+          "text": "kiedy",
+          "start_time": 119.58,
+          "end_time": 119.82
+        },
+        {
+          "text": " ",
+          "start_time": 119.82,
+          "end_time": 119.86
+        },
+        {
+          "text": "pieni\u0105dze",
+          "start_time": 119.86,
+          "end_time": 120.24
+        },
+        {
+          "text": " ",
+          "start_time": 120.24,
+          "end_time": 120.28
+        },
+        {
+          "text": "przychodz\u0105,",
+          "start_time": 120.28,
+          "end_time": 120.82
+        },
+        {
+          "text": " ",
+          "start_time": 120.82,
+          "end_time": 121.04
+        },
+        {
+          "text": "a",
+          "start_time": 121.04,
+          "end_time": 121.16
+        },
+        {
+          "text": " ",
+          "start_time": 121.16,
+          "end_time": 121.2
+        },
+        {
+          "text": "kiedy",
+          "start_time": 121.2,
+          "end_time": 121.46
+        },
+        {
+          "text": " ",
+          "start_time": 121.46,
+          "end_time": 121.5
+        },
+        {
+          "text": "robi\u0105",
+          "start_time": 121.52,
+          "end_time": 121.8
+        },
+        {
+          "text": " ",
+          "start_time": 121.8,
+          "end_time": 121.84
+        },
+        {
+          "text": "sobie",
+          "start_time": 121.84,
+          "end_time": 122.04
+        },
+        {
+          "text": " ",
+          "start_time": 122.04,
+          "end_time": 122.08
+        },
+        {
+          "text": "wycieczk\u0119.",
+          "start_time": 122.08,
+          "end_time": 122.62
+        },
+        {
+          "text": " ",
+          "start_time": 122.62,
+          "end_time": 122.62
+        },
+        {
+          "text": "Kolejny",
+          "start_time": 123.36,
+          "end_time": 123.8
+        },
+        {
+          "text": " ",
+          "start_time": 123.8,
+          "end_time": 123.9
+        },
+        {
+          "text": "tydzie\u0144",
+          "start_time": 123.9,
+          "end_time": 124.22
+        },
+        {
+          "text": " ",
+          "start_time": 124.22,
+          "end_time": 124.3
+        },
+        {
+          "text": "zaliczony.",
+          "start_time": 124.3,
+          "end_time": 124.9
+        },
+        {
+          "text": " ",
+          "start_time": 124.9,
+          "end_time": 125.28
+        },
+        {
+          "text": "Same",
+          "start_time": 125.28,
+          "end_time": 125.52
+        },
+        {
+          "text": " ",
+          "start_time": 125.52,
+          "end_time": 125.56
+        },
+        {
+          "text": "dobre",
+          "start_time": 125.56,
+          "end_time": 125.78
+        },
+        {
+          "text": " ",
+          "start_time": 125.78,
+          "end_time": 125.82
+        },
+        {
+          "text": "ch\u0119ci",
+          "start_time": 125.82,
+          "end_time": 126.2
+        },
+        {
+          "text": " ",
+          "start_time": 126.2,
+          "end_time": 126.24
+        },
+        {
+          "text": "rachunk\u00f3w",
+          "start_time": 126.24,
+          "end_time": 126.72
+        },
+        {
+          "text": " ",
+          "start_time": 126.72,
+          "end_time": 126.76
+        },
+        {
+          "text": "nie",
+          "start_time": 126.76,
+          "end_time": 126.84
+        },
+        {
+          "text": " ",
+          "start_time": 126.84,
+          "end_time": 126.9
+        },
+        {
+          "text": "op\u0142ac\u0105,",
+          "start_time": 126.9,
+          "end_time": 127.4
+        },
+        {
+          "text": " ",
+          "start_time": 127.4,
+          "end_time": 127.72
+        },
+        {
+          "text": "dlatego",
+          "start_time": 127.72,
+          "end_time": 128.16
+        },
+        {
+          "text": " ",
+          "start_time": 128.16,
+          "end_time": 128.3
+        },
+        {
+          "text": "patrzymy",
+          "start_time": 128.3,
+          "end_time": 128.759
+        },
+        {
+          "text": " ",
+          "start_time": 128.759,
+          "end_time": 128.82
+        },
+        {
+          "text": "dalej.",
+          "start_time": 128.82,
+          "end_time": 129.16
+        },
+        {
+          "text": " ",
+          "start_time": 129.16,
+          "end_time": 129.16
+        },
+        {
+          "text": "\u015awi\u0119ta",
+          "start_time": 129.96,
+          "end_time": 130.4
+        },
+        {
+          "text": " ",
+          "start_time": 130.4,
+          "end_time": 130.479
+        },
+        {
+          "text": "blisko.",
+          "start_time": 130.479,
+          "end_time": 130.94
+        },
+        {
+          "text": " ",
+          "start_time": 130.94,
+          "end_time": 131.32
+        },
+        {
+          "text": "Terminy",
+          "start_time": 131.32,
+          "end_time": 131.7
+        },
+        {
+          "text": " ",
+          "start_time": 131.7,
+          "end_time": 131.74
+        },
+        {
+          "text": "p\u0142atno\u015bci",
+          "start_time": 131.74,
+          "end_time": 132.3
+        },
+        {
+          "text": " ",
+          "start_time": 132.3,
+          "end_time": 132.34
+        },
+        {
+          "text": "najwyra\u017aniej",
+          "start_time": 132.34,
+          "end_time": 132.98
+        },
+        {
+          "text": " ",
+          "start_time": 132.98,
+          "end_time": 133.02
+        },
+        {
+          "text": "nie",
+          "start_time": 133.02,
+          "end_time": 133.14
+        },
+        {
+          "text": " ",
+          "start_time": 133.14,
+          "end_time": 133.18
+        },
+        {
+          "text": "bior\u0105",
+          "start_time": 133.18,
+          "end_time": 133.52
+        },
+        {
+          "text": " ",
+          "start_time": 133.52,
+          "end_time": 133.6
+        },
+        {
+          "text": "urlopu.",
+          "start_time": 133.6,
+          "end_time": 134.06
+        },
+        {
+          "text": " ",
+          "start_time": 134.06,
+          "end_time": 134.42
+        },
+        {
+          "text": "Sprawd\u017amy",
+          "start_time": 134.48,
+          "end_time": 134.88
+        },
+        {
+          "text": " ",
+          "start_time": 134.88,
+          "end_time": 134.92
+        },
+        {
+          "text": "nast\u0119pny",
+          "start_time": 134.92,
+          "end_time": 135.38
+        },
+        {
+          "text": " ",
+          "start_time": 135.38,
+          "end_time": 135.46
+        },
+        {
+          "text": "tydzie\u0144.",
+          "start_time": 135.46,
+          "end_time": 135.82
+        },
+        {
+          "text": " ",
+          "start_time": 135.82,
+          "end_time": 135.82
+        },
+        {
+          "text": "Najg\u0119stszy",
+          "start_time": 136.46,
+          "end_time": 137.12
+        },
+        {
+          "text": " ",
+          "start_time": 137.12,
+          "end_time": 137.2
+        },
+        {
+          "text": "fragment",
+          "start_time": 137.2,
+          "end_time": 137.58
+        },
+        {
+          "text": " ",
+          "start_time": 137.58,
+          "end_time": 137.66
+        },
+        {
+          "text": "trasy",
+          "start_time": 137.66,
+          "end_time": 137.92
+        },
+        {
+          "text": " ",
+          "start_time": 137.92,
+          "end_time": 137.98
+        },
+        {
+          "text": "za",
+          "start_time": 137.98,
+          "end_time": 138.06
+        },
+        {
+          "text": " ",
+          "start_time": 138.06,
+          "end_time": 138.12
+        },
+        {
+          "text": "nami,",
+          "start_time": 138.12,
+          "end_time": 138.42
+        },
+        {
+          "text": " ",
+          "start_time": 138.42,
+          "end_time": 138.42
+        },
+        {
+          "text": "ale",
+          "start_time": 138.9,
+          "end_time": 139.04
+        },
+        {
+          "text": " ",
+          "start_time": 139.04,
+          "end_time": 139.08
+        },
+        {
+          "text": "nie",
+          "start_time": 139.08,
+          "end_time": 139.16
+        },
+        {
+          "text": " ",
+          "start_time": 139.16,
+          "end_time": 139.2
+        },
+        {
+          "text": "zasypiaj",
+          "start_time": 139.22,
+          "end_time": 139.62
+        },
+        {
+          "text": " ",
+          "start_time": 139.62,
+          "end_time": 139.64
+        },
+        {
+          "text": "przy",
+          "start_time": 139.64,
+          "end_time": 139.74
+        },
+        {
+          "text": " ",
+          "start_time": 139.74,
+          "end_time": 139.84
+        },
+        {
+          "text": "sterach.",
+          "start_time": 139.84,
+          "end_time": 140.24
+        },
+        {
+          "text": " ",
+          "start_time": 140.24,
+          "end_time": 140.5
+        },
+        {
+          "text": "W",
+          "start_time": 140.5,
+          "end_time": 140.52
+        },
+        {
+          "text": " ",
+          "start_time": 140.52,
+          "end_time": 140.62
+        },
+        {
+          "text": "styczniu",
+          "start_time": 140.62,
+          "end_time": 141.06
+        },
+        {
+          "text": " ",
+          "start_time": 141.06,
+          "end_time": 141.1
+        },
+        {
+          "text": "te\u017c",
+          "start_time": 141.1,
+          "end_time": 141.28
+        },
+        {
+          "text": " ",
+          "start_time": 141.28,
+          "end_time": 141.32
+        },
+        {
+          "text": "mamy",
+          "start_time": 141.32,
+          "end_time": 141.52
+        },
+        {
+          "text": " ",
+          "start_time": 141.52,
+          "end_time": 141.54
+        },
+        {
+          "text": "kalendarz.",
+          "start_time": 141.54,
+          "end_time": 142.08
+        },
+        {
+          "text": " ",
+          "start_time": 142.08,
+          "end_time": 142.08
+        },
+        {
+          "text": "Ostatnia",
+          "start_time": 142.72,
+          "end_time": 143.2
+        },
+        {
+          "text": " ",
+          "start_time": 143.2,
+          "end_time": 143.28
+        },
+        {
+          "text": "prosta.",
+          "start_time": 143.28,
+          "end_time": 143.72
+        },
+        {
+          "text": " ",
+          "start_time": 143.72,
+          "end_time": 144.12
+        },
+        {
+          "text": "To",
+          "start_time": 144.12,
+          "end_time": 144.22
+        },
+        {
+          "text": " ",
+          "start_time": 144.22,
+          "end_time": 144.28
+        },
+        {
+          "text": "moment,",
+          "start_time": 144.28,
+          "end_time": 144.58
+        },
+        {
+          "text": " ",
+          "start_time": 144.58,
+          "end_time": 144.66
+        },
+        {
+          "text": "w",
+          "start_time": 144.66,
+          "end_time": 144.68
+        },
+        {
+          "text": " ",
+          "start_time": 144.68,
+          "end_time": 144.74
+        },
+        {
+          "text": "kt\u00f3rym",
+          "start_time": 144.74,
+          "end_time": 145.0
+        },
+        {
+          "text": " ",
+          "start_time": 145.0,
+          "end_time": 145.04
+        },
+        {
+          "text": "nawet",
+          "start_time": 145.04,
+          "end_time": 145.34
+        },
+        {
+          "text": " ",
+          "start_time": 145.34,
+          "end_time": 145.4
+        },
+        {
+          "text": "optymizm",
+          "start_time": 145.4,
+          "end_time": 146.08
+        },
+        {
+          "text": " ",
+          "start_time": 146.08,
+          "end_time": 146.12
+        },
+        {
+          "text": "powinien",
+          "start_time": 146.12,
+          "end_time": 146.48
+        },
+        {
+          "text": " ",
+          "start_time": 146.48,
+          "end_time": 146.54
+        },
+        {
+          "text": "zerkn\u0105\u0107",
+          "start_time": 146.54,
+          "end_time": 146.94
+        },
+        {
+          "text": " ",
+          "start_time": 146.94,
+          "end_time": 146.98
+        },
+        {
+          "text": "w",
+          "start_time": 146.98,
+          "end_time": 147.02
+        },
+        {
+          "text": " ",
+          "start_time": 147.02,
+          "end_time": 147.06
+        },
+        {
+          "text": "prognoz\u0119.",
+          "start_time": 147.06,
+          "end_time": 147.56
+        },
+        {
+          "text": " ",
+          "start_time": 147.56,
+          "end_time": 148.26
+        },
+        {
+          "text": "Jeszcze",
+          "start_time": 148.26,
+          "end_time": 148.5
+        },
+        {
+          "text": " ",
+          "start_time": 148.5,
+          "end_time": 148.56
+        },
+        {
+          "text": "czekamy",
+          "start_time": 148.56,
+          "end_time": 148.9
+        },
+        {
+          "text": " ",
+          "start_time": 148.9,
+          "end_time": 148.94
+        },
+        {
+          "text": "na",
+          "start_time": 148.94,
+          "end_time": 149.0
+        },
+        {
+          "text": " ",
+          "start_time": 149.0,
+          "end_time": 149.08
+        },
+        {
+          "text": "termin",
+          "start_time": 149.08,
+          "end_time": 149.34
+        },
+        {
+          "text": " ",
+          "start_time": 149.34,
+          "end_time": 149.42
+        },
+        {
+          "text": "planu.",
+          "start_time": 149.42,
+          "end_time": 149.76
+        },
+        {
+          "text": " ",
+          "start_time": 149.76,
+          "end_time": 150.18
+        },
+        {
+          "text": "Brak",
+          "start_time": 150.18,
+          "end_time": 150.4
+        },
+        {
+          "text": " ",
+          "start_time": 150.4,
+          "end_time": 150.42
+        },
+        {
+          "text": "potwierdzenia",
+          "start_time": 150.42,
+          "end_time": 151.0
+        },
+        {
+          "text": " ",
+          "start_time": 151.0,
+          "end_time": 151.02
+        },
+        {
+          "text": "dzi\u015b",
+          "start_time": 151.02,
+          "end_time": 151.34
+        },
+        {
+          "text": " ",
+          "start_time": 151.34,
+          "end_time": 151.46
+        },
+        {
+          "text": "to",
+          "start_time": 151.46,
+          "end_time": 151.54
+        },
+        {
+          "text": " ",
+          "start_time": 151.54,
+          "end_time": 151.6
+        },
+        {
+          "text": "nie",
+          "start_time": 151.6,
+          "end_time": 151.68
+        },
+        {
+          "text": " ",
+          "start_time": 151.68,
+          "end_time": 151.76
+        },
+        {
+          "text": "dow\u00f3d,",
+          "start_time": 151.76,
+          "end_time": 152.08
+        },
+        {
+          "text": " ",
+          "start_time": 152.08,
+          "end_time": 152.18
+        },
+        {
+          "text": "\u017ce",
+          "start_time": 152.18,
+          "end_time": 152.26
+        },
+        {
+          "text": " ",
+          "start_time": 152.26,
+          "end_time": 152.32
+        },
+        {
+          "text": "manewr",
+          "start_time": 152.32,
+          "end_time": 152.64
+        },
+        {
+          "text": " ",
+          "start_time": 152.64,
+          "end_time": 152.72
+        },
+        {
+          "text": "si\u0119",
+          "start_time": 152.72,
+          "end_time": 152.82
+        },
+        {
+          "text": " ",
+          "start_time": 152.82,
+          "end_time": 152.86
+        },
+        {
+          "text": "nie",
+          "start_time": 152.86,
+          "end_time": 152.98
+        },
+        {
+          "text": " ",
+          "start_time": 152.98,
+          "end_time": 153.04
+        },
+        {
+          "text": "uda\u0142.",
+          "start_time": 153.04,
+          "end_time": 153.34
+        },
+        {
+          "text": " ",
+          "start_time": 153.34,
+          "end_time": 153.34
+        },
+        {
+          "text": "To",
+          "start_time": 153.96,
+          "end_time": 154.04
+        },
+        {
+          "text": " ",
+          "start_time": 154.04,
+          "end_time": 154.1
+        },
+        {
+          "text": "wymaga",
+          "start_time": 154.1,
+          "end_time": 154.4
+        },
+        {
+          "text": " ",
+          "start_time": 154.4,
+          "end_time": 154.5
+        },
+        {
+          "text": "sprawdzenia.",
+          "start_time": 154.5,
+          "end_time": 155.08
+        },
+        {
+          "text": " ",
+          "start_time": 155.08,
+          "end_time": 155.46
+        },
+        {
+          "text": "Cz\u0119\u015b\u0107",
+          "start_time": 155.46,
+          "end_time": 155.84
+        },
+        {
+          "text": " ",
+          "start_time": 155.84,
+          "end_time": 155.88
+        },
+        {
+          "text": "danych",
+          "start_time": 155.88,
+          "end_time": 156.16
+        },
+        {
+          "text": " ",
+          "start_time": 156.16,
+          "end_time": 156.18
+        },
+        {
+          "text": "pasuje,",
+          "start_time": 156.18,
+          "end_time": 156.74
+        },
+        {
+          "text": " ",
+          "start_time": 156.74,
+          "end_time": 156.92
+        },
+        {
+          "text": "ale",
+          "start_time": 156.92,
+          "end_time": 157.12
+        },
+        {
+          "text": " ",
+          "start_time": 157.12,
+          "end_time": 157.16
+        },
+        {
+          "text": "nie",
+          "start_time": 157.16,
+          "end_time": 157.24
+        },
+        {
+          "text": " ",
+          "start_time": 157.24,
+          "end_time": 157.28
+        },
+        {
+          "text": "wszystko.",
+          "start_time": 157.28,
+          "end_time": 157.78
+        },
+        {
+          "text": " ",
+          "start_time": 157.78,
+          "end_time": 158.16
+        },
+        {
+          "text": "Wol\u0119",
+          "start_time": 158.16,
+          "end_time": 158.4
+        },
+        {
+          "text": " ",
+          "start_time": 158.4,
+          "end_time": 158.44
+        },
+        {
+          "text": "jedno",
+          "start_time": 158.44,
+          "end_time": 158.66
+        },
+        {
+          "text": " ",
+          "start_time": 158.66,
+          "end_time": 158.72
+        },
+        {
+          "text": "pytanie",
+          "start_time": 158.72,
+          "end_time": 159.06
+        },
+        {
+          "text": " ",
+          "start_time": 159.06,
+          "end_time": 159.1
+        },
+        {
+          "text": "wi\u0119cej",
+          "start_time": 159.1,
+          "end_time": 159.54
+        },
+        {
+          "text": " ",
+          "start_time": 159.54,
+          "end_time": 159.6
+        },
+        {
+          "text": "ni\u017c",
+          "start_time": 159.6,
+          "end_time": 159.86
+        },
+        {
+          "text": " ",
+          "start_time": 159.86,
+          "end_time": 159.9
+        },
+        {
+          "text": "pewno\u015b\u0107",
+          "start_time": 159.9,
+          "end_time": 160.38
+        },
+        {
+          "text": " ",
+          "start_time": 160.38,
+          "end_time": 160.42
+        },
+        {
+          "text": "zrobion\u0105",
+          "start_time": 160.42,
+          "end_time": 160.82
+        },
+        {
+          "text": " ",
+          "start_time": 160.82,
+          "end_time": 160.86
+        },
+        {
+          "text": "na",
+          "start_time": 160.86,
+          "end_time": 160.92
+        },
+        {
+          "text": " ",
+          "start_time": 160.92,
+          "end_time": 160.98
+        },
+        {
+          "text": "skr\u00f3ty.",
+          "start_time": 160.98,
+          "end_time": 161.38
+        },
+        {
+          "text": " ",
+          "start_time": 161.38,
+          "end_time": 161.38
+        },
+        {
+          "text": "Zapis",
+          "start_time": 162.02,
+          "end_time": 162.36
+        },
+        {
+          "text": " ",
+          "start_time": 162.36,
+          "end_time": 162.4
+        },
+        {
+          "text": "si\u0119",
+          "start_time": 162.4,
+          "end_time": 162.5
+        },
+        {
+          "text": " ",
+          "start_time": 162.5,
+          "end_time": 162.54
+        },
+        {
+          "text": "nie",
+          "start_time": 162.54,
+          "end_time": 162.64
+        },
+        {
+          "text": " ",
+          "start_time": 162.64,
+          "end_time": 162.72
+        },
+        {
+          "text": "uda\u0142.",
+          "start_time": 162.72,
+          "end_time": 162.98
+        },
+        {
+          "text": " ",
+          "start_time": 162.98,
+          "end_time": 163.44
+        },
+        {
+          "text": "Zosta\u0144",
+          "start_time": 163.44,
+          "end_time": 163.74
+        },
+        {
+          "text": " ",
+          "start_time": 163.74,
+          "end_time": 163.78
+        },
+        {
+          "text": "jeszcze",
+          "start_time": 163.78,
+          "end_time": 164.0
+        },
+        {
+          "text": " ",
+          "start_time": 164.0,
+          "end_time": 164.04
+        },
+        {
+          "text": "chwil\u0119",
+          "start_time": 164.04,
+          "end_time": 164.34
+        },
+        {
+          "text": " ",
+          "start_time": 164.34,
+          "end_time": 164.38
+        },
+        {
+          "text": "i",
+          "start_time": 164.38,
+          "end_time": 164.42
+        },
+        {
+          "text": " ",
+          "start_time": 164.42,
+          "end_time": 164.52
+        },
+        {
+          "text": "spr\u00f3buj",
+          "start_time": 164.58,
+          "end_time": 164.88
+        },
+        {
+          "text": " ",
+          "start_time": 164.88,
+          "end_time": 164.9
+        },
+        {
+          "text": "ponownie.",
+          "start_time": 164.9,
+          "end_time": 165.34
+        },
+        {
+          "text": " ",
+          "start_time": 165.34,
+          "end_time": 165.68
+        },
+        {
+          "text": "Nie",
+          "start_time": 165.7,
+          "end_time": 165.8
+        },
+        {
+          "text": " ",
+          "start_time": 165.8,
+          "end_time": 165.82
+        },
+        {
+          "text": "chc\u0119,",
+          "start_time": 165.82,
+          "end_time": 165.98
+        },
+        {
+          "text": " ",
+          "start_time": 165.98,
+          "end_time": 166.06
+        },
+        {
+          "text": "\u017ceby",
+          "start_time": 166.06,
+          "end_time": 166.3
+        },
+        {
+          "text": " ",
+          "start_time": 166.3,
+          "end_time": 166.32
+        },
+        {
+          "text": "dobry",
+          "start_time": 166.32,
+          "end_time": 166.56
+        },
+        {
+          "text": " ",
+          "start_time": 166.56,
+          "end_time": 166.64
+        },
+        {
+          "text": "manewr",
+          "start_time": 166.64,
+          "end_time": 167.0
+        },
+        {
+          "text": " ",
+          "start_time": 167.0,
+          "end_time": 167.12
+        },
+        {
+          "text": "znikn\u0105\u0142",
+          "start_time": 167.12,
+          "end_time": 167.52
+        },
+        {
+          "text": " ",
+          "start_time": 167.52,
+          "end_time": 167.56
+        },
+        {
+          "text": "razem",
+          "start_time": 167.56,
+          "end_time": 167.8
+        },
+        {
+          "text": " ",
+          "start_time": 167.8,
+          "end_time": 167.88
+        },
+        {
+          "text": "z",
+          "start_time": 167.88,
+          "end_time": 167.92
+        },
+        {
+          "text": " ",
+          "start_time": 167.92,
+          "end_time": 167.96
+        },
+        {
+          "text": "zamkni\u0119t\u0105",
+          "start_time": 167.98,
+          "end_time": 168.44
+        },
+        {
+          "text": " ",
+          "start_time": 168.44,
+          "end_time": 168.52
+        },
+        {
+          "text": "kart\u0105.",
+          "start_time": 168.52,
+          "end_time": 168.96
+        },
+        {
+          "text": " ",
+          "start_time": 168.96,
+          "end_time": 169.44
+        },
+        {
+          "text": "Tu",
+          "start_time": 169.44,
+          "end_time": 169.54
+        },
+        {
+          "text": " ",
+          "start_time": 169.54,
+          "end_time": 169.62
+        },
+        {
+          "text": "zbieramy",
+          "start_time": 169.62,
+          "end_time": 169.98
+        },
+        {
+          "text": " ",
+          "start_time": 169.98,
+          "end_time": 170.1
+        },
+        {
+          "text": "sprawy,",
+          "start_time": 170.1,
+          "end_time": 170.42
+        },
+        {
+          "text": " ",
+          "start_time": 170.42,
+          "end_time": 170.52
+        },
+        {
+          "text": "kt\u00f3re",
+          "start_time": 170.52,
+          "end_time": 170.78
+        },
+        {
+          "text": " ",
+          "start_time": 170.78,
+          "end_time": 170.92
+        },
+        {
+          "text": "warto",
+          "start_time": 170.92,
+          "end_time": 171.22
+        },
+        {
+          "text": " ",
+          "start_time": 171.22,
+          "end_time": 171.28
+        },
+        {
+          "text": "mie\u0107",
+          "start_time": 171.28,
+          "end_time": 171.5
+        },
+        {
+          "text": " ",
+          "start_time": 171.5,
+          "end_time": 171.54
+        },
+        {
+          "text": "na",
+          "start_time": 171.54,
+          "end_time": 171.6
+        },
+        {
+          "text": " ",
+          "start_time": 171.6,
+          "end_time": 171.64
+        },
+        {
+          "text": "radarze.",
+          "start_time": 171.64,
+          "end_time": 172.1
+        },
+        {
+          "text": " ",
+          "start_time": 172.1,
+          "end_time": 172.42
+        },
+        {
+          "text": "Przeczytajmy,",
+          "start_time": 172.42,
+          "end_time": 173.02
+        },
+        {
+          "text": " ",
+          "start_time": 173.02,
+          "end_time": 173.12
+        },
+        {
+          "text": "zanim",
+          "start_time": 173.12,
+          "end_time": 173.38
+        },
+        {
+          "text": " ",
+          "start_time": 173.38,
+          "end_time": 173.42
+        },
+        {
+          "text": "kt\u00f3ra\u015b",
+          "start_time": 173.42,
+          "end_time": 173.74
+        },
+        {
+          "text": " ",
+          "start_time": 173.74,
+          "end_time": 173.78
+        },
+        {
+          "text": "zrobi",
+          "start_time": 173.8,
+          "end_time": 174.02
+        },
+        {
+          "text": " ",
+          "start_time": 174.02,
+          "end_time": 174.08
+        },
+        {
+          "text": "si\u0119",
+          "start_time": 174.08,
+          "end_time": 174.22
+        },
+        {
+          "text": " ",
+          "start_time": 174.22,
+          "end_time": 174.24
+        },
+        {
+          "text": "burz\u0105.",
+          "start_time": 174.24,
+          "end_time": 174.6
+        },
+        {
+          "text": " ",
+          "start_time": 174.6,
+          "end_time": 174.6
+        },
+        {
+          "text": "Mog\u0119",
+          "start_time": 175.16,
+          "end_time": 175.38
+        },
+        {
+          "text": " ",
+          "start_time": 175.38,
+          "end_time": 175.4
+        },
+        {
+          "text": "przypomnie\u0107",
+          "start_time": 175.4,
+          "end_time": 175.98
+        },
+        {
+          "text": " ",
+          "start_time": 175.98,
+          "end_time": 176.02
+        },
+        {
+          "text": "o",
+          "start_time": 176.02,
+          "end_time": 176.06
+        },
+        {
+          "text": " ",
+          "start_time": 176.06,
+          "end_time": 176.14
+        },
+        {
+          "text": "kolejnej",
+          "start_time": 176.14,
+          "end_time": 176.52
+        },
+        {
+          "text": " ",
+          "start_time": 176.52,
+          "end_time": 176.62
+        },
+        {
+          "text": "turze",
+          "start_time": 176.62,
+          "end_time": 177.08
+        },
+        {
+          "text": " ",
+          "start_time": 177.08,
+          "end_time": 177.16
+        },
+        {
+          "text": "albo",
+          "start_time": 177.16,
+          "end_time": 177.48
+        },
+        {
+          "text": " ",
+          "start_time": 177.48,
+          "end_time": 177.52
+        },
+        {
+          "text": "terminie",
+          "start_time": 177.52,
+          "end_time": 177.92
+        },
+        {
+          "text": " ",
+          "start_time": 177.92,
+          "end_time": 177.94
+        },
+        {
+          "text": "planu,",
+          "start_time": 177.96,
+          "end_time": 178.3
+        },
+        {
+          "text": " ",
+          "start_time": 178.3,
+          "end_time": 178.66
+        },
+        {
+          "text": "je\u015bli",
+          "start_time": 178.66,
+          "end_time": 178.94
+        },
+        {
+          "text": " ",
+          "start_time": 178.94,
+          "end_time": 178.96
+        },
+        {
+          "text": "chcesz.",
+          "start_time": 178.96,
+          "end_time": 179.38
+        },
+        {
+          "text": " ",
+          "start_time": 179.38,
+          "end_time": 179.72
+        },
+        {
+          "text": "Nawet",
+          "start_time": 179.72,
+          "end_time": 179.98
+        },
+        {
+          "text": " ",
+          "start_time": 179.98,
+          "end_time": 180.04
+        },
+        {
+          "text": "ja",
+          "start_time": 180.04,
+          "end_time": 180.18
+        },
+        {
+          "text": " ",
+          "start_time": 180.18,
+          "end_time": 180.24
+        },
+        {
+          "text": "czasem",
+          "start_time": 180.24,
+          "end_time": 180.52
+        },
+        {
+          "text": " ",
+          "start_time": 180.52,
+          "end_time": 180.58
+        },
+        {
+          "text": "odk\u0142adam",
+          "start_time": 180.58,
+          "end_time": 181.02
+        },
+        {
+          "text": " ",
+          "start_time": 181.02,
+          "end_time": 181.04
+        },
+        {
+          "text": "wszystko",
+          "start_time": 181.04,
+          "end_time": 181.46
+        },
+        {
+          "text": " ",
+          "start_time": 181.46,
+          "end_time": 181.52
+        },
+        {
+          "text": "do",
+          "start_time": 181.52,
+          "end_time": 181.58
+        },
+        {
+          "text": " ",
+          "start_time": 181.58,
+          "end_time": 181.62
+        },
+        {
+          "text": "ostatniej",
+          "start_time": 181.62,
+          "end_time": 182.06
+        },
+        {
+          "text": " ",
+          "start_time": 182.06,
+          "end_time": 182.16
+        },
+        {
+          "text": "kawy.",
+          "start_time": 182.16,
+          "end_time": 182.48
+        },
+        {
+          "text": " ",
+          "start_time": 182.48,
+          "end_time": 182.98
+        },
+        {
+          "text": "Ustawienia",
+          "start_time": 182.98,
+          "end_time": 183.46
+        },
+        {
+          "text": " ",
+          "start_time": 183.46,
+          "end_time": 183.54
+        },
+        {
+          "text": "przypomnie\u0144",
+          "start_time": 183.54,
+          "end_time": 184.14
+        },
+        {
+          "text": " ",
+          "start_time": 184.14,
+          "end_time": 184.22
+        },
+        {
+          "text": "zapisane.",
+          "start_time": 184.22,
+          "end_time": 184.82
+        },
+        {
+          "text": " ",
+          "start_time": 184.82,
+          "end_time": 185.18
+        },
+        {
+          "text": "Trzymamy",
+          "start_time": 185.18,
+          "end_time": 185.56
+        },
+        {
+          "text": " ",
+          "start_time": 185.56,
+          "end_time": 185.6
+        },
+        {
+          "text": "si\u0119",
+          "start_time": 185.6,
+          "end_time": 185.7
+        },
+        {
+          "text": " ",
+          "start_time": 185.7,
+          "end_time": 185.72
+        },
+        {
+          "text": "wybranych",
+          "start_time": 185.72,
+          "end_time": 186.1
+        },
+        {
+          "text": " ",
+          "start_time": 186.1,
+          "end_time": 186.16
+        },
+        {
+          "text": "zasad.",
+          "start_time": 186.18,
+          "end_time": 186.56
+        },
+        {
+          "text": " ",
+          "start_time": 186.56,
+          "end_time": 186.86
+        },
+        {
+          "text": "Nawet",
+          "start_time": 186.86,
+          "end_time": 187.14
+        },
+        {
+          "text": " ",
+          "start_time": 187.14,
+          "end_time": 187.18
+        },
+        {
+          "text": "przygoda",
+          "start_time": 187.18,
+          "end_time": 187.7
+        },
+        {
+          "text": " ",
+          "start_time": 187.7,
+          "end_time": 187.72
+        },
+        {
+          "text": "potrzebuje",
+          "start_time": 187.72,
+          "end_time": 188.3
+        },
+        {
+          "text": " ",
+          "start_time": 188.3,
+          "end_time": 188.34
+        },
+        {
+          "text": "odrobiny",
+          "start_time": 188.34,
+          "end_time": 188.76
+        },
+        {
+          "text": " ",
+          "start_time": 188.76,
+          "end_time": 188.84
+        },
+        {
+          "text": "porz\u0105dku.",
+          "start_time": 188.86,
+          "end_time": 189.38
+        },
+        {
+          "text": " ",
+          "start_time": 189.38,
+          "end_time": 189.38
+        },
+        {
+          "text": "Jasne,",
+          "start_time": 189.94,
+          "end_time": 190.38
+        },
+        {
+          "text": " ",
+          "start_time": 190.38,
+          "end_time": 190.62
+        },
+        {
+          "text": "lecimy",
+          "start_time": 190.64,
+          "end_time": 191.0
+        },
+        {
+          "text": " ",
+          "start_time": 191.0,
+          "end_time": 191.04
+        },
+        {
+          "text": "bez",
+          "start_time": 191.04,
+          "end_time": 191.2
+        },
+        {
+          "text": " ",
+          "start_time": 191.2,
+          "end_time": 191.22
+        },
+        {
+          "text": "przypomnie\u0144.",
+          "start_time": 191.22,
+          "end_time": 191.76
+        },
+        {
+          "text": " ",
+          "start_time": 191.76,
+          "end_time": 192.14
+        },
+        {
+          "text": "Ster",
+          "start_time": 192.14,
+          "end_time": 192.32
+        },
+        {
+          "text": " ",
+          "start_time": 192.32,
+          "end_time": 192.4
+        },
+        {
+          "text": "jest",
+          "start_time": 192.4,
+          "end_time": 192.64
+        },
+        {
+          "text": " ",
+          "start_time": 192.64,
+          "end_time": 192.68
+        },
+        {
+          "text": "po",
+          "start_time": 192.68,
+          "end_time": 192.74
+        },
+        {
+          "text": " ",
+          "start_time": 192.74,
+          "end_time": 192.8
+        },
+        {
+          "text": "twojej",
+          "start_time": 192.82,
+          "end_time": 193.12
+        },
+        {
+          "text": " ",
+          "start_time": 193.12,
+          "end_time": 193.24
+        },
+        {
+          "text": "stronie.",
+          "start_time": 193.24,
+          "end_time": 193.62
+        },
+        {
+          "text": " ",
+          "start_time": 193.62,
+          "end_time": 194.08
+        },
+        {
+          "text": "Tu",
+          "start_time": 194.08,
+          "end_time": 194.16
+        },
+        {
+          "text": " ",
+          "start_time": 194.16,
+          "end_time": 194.24
+        },
+        {
+          "text": "szef.",
+          "start_time": 194.24,
+          "end_time": 194.52
+        },
+        {
+          "text": " ",
+          "start_time": 194.52,
+          "end_time": 194.86
+        },
+        {
+          "text": "B\u0119d\u0119",
+          "start_time": 194.86,
+          "end_time": 195.12
+        },
+        {
+          "text": " ",
+          "start_time": 195.12,
+          "end_time": 195.14
+        },
+        {
+          "text": "twoim",
+          "start_time": 195.16,
+          "end_time": 195.38
+        },
+        {
+          "text": " ",
+          "start_time": 195.38,
+          "end_time": 195.44
+        },
+        {
+          "text": "przewodnikiem",
+          "start_time": 195.44,
+          "end_time": 196.1
+        },
+        {
+          "text": " ",
+          "start_time": 196.1,
+          "end_time": 196.12
+        },
+        {
+          "text": "po",
+          "start_time": 196.12,
+          "end_time": 196.18
+        },
+        {
+          "text": " ",
+          "start_time": 196.18,
+          "end_time": 196.24
+        },
+        {
+          "text": "moim",
+          "start_time": 196.24,
+          "end_time": 196.42
+        },
+        {
+          "text": " ",
+          "start_time": 196.42,
+          "end_time": 196.54
+        },
+        {
+          "text": "studiu.",
+          "start_time": 196.54,
+          "end_time": 196.9
+        },
+        {
+          "text": " ",
+          "start_time": 196.9,
+          "end_time": 197.3
+        },
+        {
+          "text": "Za\u0142\u00f3\u017c",
+          "start_time": 197.3,
+          "end_time": 197.56
+        },
+        {
+          "text": " ",
+          "start_time": 197.56,
+          "end_time": 197.62
+        },
+        {
+          "text": "gogle.",
+          "start_time": 197.62,
+          "end_time": 197.94
+        },
+        {
+          "text": " ",
+          "start_time": 197.94,
+          "end_time": 198.24
+        },
+        {
+          "text": "Czeka",
+          "start_time": 198.24,
+          "end_time": 198.5
+        },
+        {
+          "text": " ",
+          "start_time": 198.5,
+          "end_time": 198.54
+        },
+        {
+          "text": "nas",
+          "start_time": 198.54,
+          "end_time": 198.72
+        },
+        {
+          "text": " ",
+          "start_time": 198.72,
+          "end_time": 198.76
+        },
+        {
+          "text": "troch\u0119",
+          "start_time": 198.76,
+          "end_time": 199.04
+        },
+        {
+          "text": " ",
+          "start_time": 199.04,
+          "end_time": 199.08
+        },
+        {
+          "text": "liczb",
+          "start_time": 199.08,
+          "end_time": 199.54
+        },
+        {
+          "text": " ",
+          "start_time": 199.54,
+          "end_time": 199.6
+        },
+        {
+          "text": "i",
+          "start_time": 199.6,
+          "end_time": 199.68
+        },
+        {
+          "text": " ",
+          "start_time": 199.68,
+          "end_time": 199.82
+        },
+        {
+          "text": "sporo",
+          "start_time": 199.82,
+          "end_time": 200.16
+        },
+        {
+          "text": " ",
+          "start_time": 200.16,
+          "end_time": 200.22
+        },
+        {
+          "text": "przygody.",
+          "start_time": 200.22,
+          "end_time": 200.76
+        },
+        {
+          "text": " ",
+          "start_time": 200.76,
+          "end_time": 201.3
+        },
+        {
+          "text": "Zaczynamy",
+          "start_time": 201.3,
+          "end_time": 201.82
+        },
+        {
+          "text": " ",
+          "start_time": 201.82,
+          "end_time": 201.86
+        },
+        {
+          "text": "od",
+          "start_time": 201.86,
+          "end_time": 201.96
+        },
+        {
+          "text": " ",
+          "start_time": 201.96,
+          "end_time": 202.04
+        },
+        {
+          "text": "nowa?",
+          "start_time": 202.04,
+          "end_time": 202.34
+        },
+        {
+          "text": " ",
+          "start_time": 202.34,
+          "end_time": 202.8
+        },
+        {
+          "text": "Ca\u0142y",
+          "start_time": 202.8,
+          "end_time": 203.1
+        },
+        {
+          "text": " ",
+          "start_time": 203.1,
+          "end_time": 203.14
+        },
+        {
+          "text": "lot",
+          "start_time": 203.14,
+          "end_time": 203.32
+        },
+        {
+          "text": " ",
+          "start_time": 203.32,
+          "end_time": 203.38
+        },
+        {
+          "text": "wr\u00f3ci",
+          "start_time": 203.38,
+          "end_time": 203.64
+        },
+        {
+          "text": " ",
+          "start_time": 203.64,
+          "end_time": 203.68
+        },
+        {
+          "text": "na",
+          "start_time": 203.68,
+          "end_time": 203.74
+        },
+        {
+          "text": " ",
+          "start_time": 203.74,
+          "end_time": 203.8
+        },
+        {
+          "text": "pocz\u0105tek.",
+          "start_time": 203.8,
+          "end_time": 204.34
+        },
+        {
+          "text": " ",
+          "start_time": 204.34,
+          "end_time": 204.68
+        },
+        {
+          "text": "Tym",
+          "start_time": 204.68,
+          "end_time": 204.82
+        },
+        {
+          "text": " ",
+          "start_time": 204.82,
+          "end_time": 204.86
+        },
+        {
+          "text": "razem",
+          "start_time": 204.86,
+          "end_time": 205.16
+        },
+        {
+          "text": " ",
+          "start_time": 205.16,
+          "end_time": 205.24
+        },
+        {
+          "text": "wiesz",
+          "start_time": 205.24,
+          "end_time": 205.5
+        },
+        {
+          "text": " ",
+          "start_time": 205.5,
+          "end_time": 205.56
+        },
+        {
+          "text": "ju\u017c,",
+          "start_time": 205.56,
+          "end_time": 205.7
+        },
+        {
+          "text": " ",
+          "start_time": 205.7,
+          "end_time": 205.8
+        },
+        {
+          "text": "gdzie",
+          "start_time": 205.8,
+          "end_time": 205.96
+        },
+        {
+          "text": " ",
+          "start_time": 205.96,
+          "end_time": 206.0
+        },
+        {
+          "text": "lubi\u0105",
+          "start_time": 206.0,
+          "end_time": 206.24
+        },
+        {
+          "text": " ",
+          "start_time": 206.24,
+          "end_time": 206.32
+        },
+        {
+          "text": "zbiera\u0107",
+          "start_time": 206.32,
+          "end_time": 206.68
+        },
+        {
+          "text": " ",
+          "start_time": 206.68,
+          "end_time": 206.72
+        },
+        {
+          "text": "si\u0119",
+          "start_time": 206.72,
+          "end_time": 206.82
+        },
+        {
+          "text": " ",
+          "start_time": 206.82,
+          "end_time": 206.84
+        },
+        {
+          "text": "chmury.",
+          "start_time": 206.84,
+          "end_time": 207.22
+        },
+        {
+          "text": " ",
+          "start_time": 207.22,
+          "end_time": 207.68
+        },
+        {
+          "text": "Przerwa",
+          "start_time": 207.68,
+          "end_time": 208.06
+        },
+        {
+          "text": " ",
+          "start_time": 208.06,
+          "end_time": 208.14
+        },
+        {
+          "text": "zaliczona.",
+          "start_time": 208.14,
+          "end_time": 208.72
+        },
+        {
+          "text": " ",
+          "start_time": 208.72,
+          "end_time": 209.08
+        },
+        {
+          "text": "Kalendarz",
+          "start_time": 209.08,
+          "end_time": 209.56
+        },
+        {
+          "text": " ",
+          "start_time": 209.56,
+          "end_time": 209.6
+        },
+        {
+          "text": "jeszcze",
+          "start_time": 209.6,
+          "end_time": 209.82
+        },
+        {
+          "text": " ",
+          "start_time": 209.82,
+          "end_time": 209.88
+        },
+        {
+          "text": "tu",
+          "start_time": 209.88,
+          "end_time": 209.96
+        },
+        {
+          "text": " ",
+          "start_time": 209.96,
+          "end_time": 210.0
+        },
+        {
+          "text": "jest.",
+          "start_time": 210.0,
+          "end_time": 210.34
+        },
+        {
+          "text": " ",
+          "start_time": 210.34,
+          "end_time": 210.64
+        },
+        {
+          "text": "Wracamy",
+          "start_time": 210.64,
+          "end_time": 211.0
+        },
+        {
+          "text": " ",
+          "start_time": 211.0,
+          "end_time": 211.02
+        },
+        {
+          "text": "do",
+          "start_time": 211.02,
+          "end_time": 211.1
+        },
+        {
+          "text": " ",
+          "start_time": 211.1,
+          "end_time": 211.18
+        },
+        {
+          "text": "ster\u00f3w?",
+          "start_time": 211.18,
+          "end_time": 211.5
+        },
+        {
+          "text": " ",
+          "start_time": 211.5,
+          "end_time": 211.5
+        },
+        {
+          "text": "Pilot",
+          "start_time": 211.96,
+          "end_time": 212.28
+        },
+        {
+          "text": " ",
+          "start_time": 212.28,
+          "end_time": 212.38
+        },
+        {
+          "text": "p\u0142ynno\u015bci.",
+          "start_time": 212.38,
+          "end_time": 213.12
+        },
+        {
+          "text": " ",
+          "start_time": 213.12,
+          "end_time": 213.46
+        },
+        {
+          "text": "Ogarnij",
+          "start_time": 213.46,
+          "end_time": 213.86
+        },
+        {
+          "text": " ",
+          "start_time": 213.86,
+          "end_time": 213.96
+        },
+        {
+          "text": "firm\u0119,",
+          "start_time": 213.96,
+          "end_time": 214.3
+        },
+        {
+          "text": " ",
+          "start_time": 214.3,
+          "end_time": 214.56
+        },
+        {
+          "text": "zanim",
+          "start_time": 214.56,
+          "end_time": 214.92
+        },
+        {
+          "text": " ",
+          "start_time": 214.92,
+          "end_time": 214.96
+        },
+        {
+          "text": "firma",
+          "start_time": 214.96,
+          "end_time": 215.28
+        },
+        {
+          "text": " ",
+          "start_time": 215.28,
+          "end_time": 215.32
+        },
+        {
+          "text": "ogarnie",
+          "start_time": 215.32,
+          "end_time": 215.68
+        },
+        {
+          "text": " ",
+          "start_time": 215.68,
+          "end_time": 215.76
+        },
+        {
+          "text": "ciebie.",
+          "start_time": 215.76,
+          "end_time": 216.08
+        },
+        {
+          "text": " ",
+          "start_time": 216.08,
+          "end_time": 216.46
+        },
+        {
+          "text": "No",
+          "start_time": 216.46,
+          "end_time": 216.56
+        },
+        {
+          "text": " ",
+          "start_time": 216.56,
+          "end_time": 216.6
+        },
+        {
+          "text": "dobra,",
+          "start_time": 216.6,
+          "end_time": 216.82
+        },
+        {
+          "text": " ",
+          "start_time": 216.82,
+          "end_time": 216.9
+        },
+        {
+          "text": "za\u0142ogo,",
+          "start_time": 216.9,
+          "end_time": 217.32
+        },
+        {
+          "text": " ",
+          "start_time": 217.32,
+          "end_time": 217.74
+        },
+        {
+          "text": "lecimy!",
+          "start_time": 217.74,
+          "end_time": 218.28
+        }
+      ]
+    }
+  ]
+}

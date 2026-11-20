@@ -1,7 +1,7 @@
 ---
 answers: >-
   How the game's media (art, motion, voice, sound) are generated during the event, where each output goes,
-  and when the pre-event version is used instead.
+  and how every lane gets them.
 excludes: Layouts, copy deck, contracts and tokens (design material, see BUILD-READY-ARTEFACTS.md).
 status: current
 updated: 2026-11-20
@@ -9,13 +9,13 @@ updated: 2026-11-20
 
 # Generation briefs — media made at the event
 
-## Rule: generate first, fall back if needed
+## Rule: one place for media, shared through `develop`
 
-1. Media are generated during the event from the briefs below and saved at the **same paths** the specification uses (`design/assets/…`, `design/voice/…`, `design/audio/…`), so the asset pipeline and the UI do not change.
-2. The UI never waits: until an asset exists it shows a plain placeholder of the right size.
-3. **Fallback:** the branch `assets/pre-event` holds design media prepared before the event (declared in `README.md` of this folder). If a generated asset is not ready or not good enough at the media review (**Sat 12:00**, G-07), the coordinator copies that one asset from the branch:
-   `git checkout origin/assets/pre-event -- <path>` and commits it as `chore: use pre-event asset <path>`.
-   Every asset taken this way is listed in `docs/team/handoffs/pre-event-assets.md` and in the submission.
+1. Media are generated during the event from the briefs below and saved at the **same paths** the specification uses (`design/assets/…`, `design/voice/…`, `design/audio/…`), so the asset pipeline and the UI do not change. There is no separate asset branch: `design/` in `develop` is the only source of media.
+2. The owning lane commits media (`design/voice/`, `design/audio/`: narrative; the rest of `design/`: ui) in a commit of their own, `feat: G-xx <what>`, and opens a pull request into `develop` at once. The coordinator merges media pull requests first, without waiting for feature work.
+3. Every lane gets the media with `git pull origin develop`. Other lanes read them (through the asset registry, the voice player, the pipeline) and never edit them; a change is a message to the owning lane.
+4. The UI never waits: until an asset exists it shows a plain placeholder of the right size.
+5. **Media review (Sat 12:00, G-07):** the coordinator checks which media of the demo-path minimum are in `develop`. A missing or unusable asset stays a placeholder styled with the theme (BUILD-PLAN.md §7, cut 6); the list goes to `docs/team/handoffs/G-07.md`.
 
 ## Style (all art)
 

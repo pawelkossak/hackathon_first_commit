@@ -1,0 +1,726 @@
+{
+  "count": 72,
+  "layouts": [
+    {
+      "scene": "G01",
+      "viewport": {
+        "width": 1440,
+        "height": 900
+      },
+      "layout": "layouts/complete/G01-1440x900.json",
+      "template": "account",
+      "surface": "game"
+    },
+    {
+      "scene": "G01",
+      "viewport": {
+        "width": 844,
+        "height": 390
+      },
+      "layout": "layouts/complete/G01-844x390.json",
+      "template": "account",
+      "surface": "game"
+    },
+    {
+      "scene": "G02",
+      "viewport": {
+        "width": 1440,
+        "height": 900
+      },
+      "layout": "layouts/complete/G02-1440x900.json",
+      "template": "account",
+      "surface": "game"
+    },
+    {
+      "scene": "G02",
+      "viewport": {
+        "width": 844,
+        "height": 390
+      },
+      "layout": "layouts/complete/G02-844x390.json",
+      "template": "account",
+      "surface": "game"
+    },
+    {
+      "scene": "G03",
+      "viewport": {
+        "width": 1440,
+        "height": 900
+      },
+      "layout": "layouts/complete/G03-1440x900.json",
+      "template": "account",
+      "surface": "game"
+    },
+    {
+      "scene": "G03",
+      "viewport": {
+        "width": 844,
+        "height": 390
+      },
+      "layout": "layouts/complete/G03-844x390.json",
+      "template": "account",
+      "surface": "game"
+    },
+    {
+      "scene": "G04",
+      "viewport": {
+        "width": 1440,
+        "height": 900
+      },
+      "layout": "layouts/complete/G04-1440x900.json",
+      "template": "dialog",
+      "surface": "game"
+    },
+    {
+      "scene": "G04",
+      "viewport": {
+        "width": 844,
+        "height": 390
+      },
+      "layout": "layouts/complete/G04-844x390.json",
+      "template": "dialog",
+      "surface": "game"
+    },
+    {
+      "scene": "G05",
+      "viewport": {
+        "width": 1440,
+        "height": 900
+      },
+      "layout": "layouts/complete/G05-1440x900.json",
+      "template": "story",
+      "surface": "game"
+    },
+    {
+      "scene": "G05",
+      "viewport": {
+        "width": 844,
+        "height": 390
+      },
+      "layout": "layouts/complete/G05-844x390.json",
+      "template": "story",
+      "surface": "game"
+    },
+    {
+      "scene": "G06",
+      "viewport": {
+        "width": 1440,
+        "height": 900
+      },
+      "layout": "layouts/complete/G06-1440x900.json",
+      "template": "selection",
+      "surface": "game"
+    },
+    {
+      "scene": "G06",
+      "viewport": {
+        "width": 844,
+        "height": 390
+      },
+      "layout": "layouts/complete/G06-844x390.json",
+      "template": "selection",
+      "surface": "game"
+    },
+    {
+      "scene": "G07",
+      "viewport": {
+        "width": 1440,
+        "height": 900
+      },
+      "layout": "layouts/complete/G07-1440x900.json",
+      "template": "story",
+      "surface": "game"
+    },
+    {
+      "scene": "G07",
+      "viewport": {
+        "width": 844,
+        "height": 390
+      },
+      "layout": "layouts/complete/G07-844x390.json",
+      "template": "story",
+      "surface": "game"
+    },
+    {
+      "scene": "G08",
+      "viewport": {
+        "width": 1440,
+        "height": 900
+      },
+      "layout": "layouts/complete/G08-1440x900.json",
+      "template": "story",
+      "surface": "game"
+    },
+    {
+      "scene": "G08",
+      "viewport": {
+        "width": 844,
+        "height": 390
+      },
+      "layout": "layouts/complete/G08-844x390.json",
+      "template": "story",
+      "surface": "game"
+    },
+    {
+      "scene": "G09",
+      "viewport": {
+        "width": 1440,
+        "height": 900
+      },
+      "layout": "layouts/complete/G09-1440x900.json",
+      "template": "map",
+      "surface": "game"
+    },
+    {
+      "scene": "G09",
+      "viewport": {
+        "width": 844,
+        "height": 390
+      },
+      "layout": "layouts/complete/G09-844x390.json",
+      "template": "map",
+      "surface": "game"
+    },
+    {
+      "scene": "G10",
+      "viewport": {
+        "width": 1440,
+        "height": 900
+      },
+      "layout": "layouts/complete/G10-1440x900.json",
+      "template": "world",
+      "surface": "game"
+    },
+    {
+      "scene": "G10",
+      "viewport": {
+        "width": 844,
+        "height": 390
+      },
+      "layout": "layouts/complete/G10-844x390.json",
+      "template": "world",
+      "surface": "game"
+    },
+    {
+      "scene": "G11",
+      "viewport": {
+        "width": 1440,
+        "height": 900
+      },
+      "layout": "layouts/complete/G11-1440x900.json",
+      "template": "event",
+      "surface": "game"
+    },
+    {
+      "scene": "G11",
+      "viewport": {
+        "width": 844,
+        "height": 390
+      },
+      "layout": "layouts/complete/G11-844x390.json",
+      "template": "event",
+      "surface": "game"
+    },
+    {
+      "scene": "G12",
+      "viewport": {
+        "width": 1440,
+        "height": 900
+      },
+      "layout": "layouts/complete/G12-1440x900.json",
+      "template": "cashflow",
+      "surface": "game"
+    },
+    {
+      "scene": "G12",
+      "viewport": {
+        "width": 844,
+        "height": 390
+      },
+      "layout": "layouts/complete/G12-844x390.json",
+      "template": "cashflow",
+      "surface": "game"
+    },
+    {
+      "scene": "G13",
+      "viewport": {
+        "width": 1440,
+        "height": 900
+      },
+      "layout": "layouts/complete/G13-1440x900.json",
+      "template": "cards",
+      "surface": "game"
+    },
+    {
+      "scene": "G13",
+      "viewport": {
+        "width": 844,
+        "height": 390
+      },
+      "layout": "layouts/complete/G13-844x390.json",
+      "template": "cards",
+      "surface": "game"
+    },
+    {
+      "scene": "G14",
+      "viewport": {
+        "width": 1440,
+        "height": 900
+      },
+      "layout": "layouts/complete/G14-1440x900.json",
+      "template": "dialog",
+      "surface": "game"
+    },
+    {
+      "scene": "G14",
+      "viewport": {
+        "width": 844,
+        "height": 390
+      },
+      "layout": "layouts/complete/G14-844x390.json",
+      "template": "dialog",
+      "surface": "game"
+    },
+    {
+      "scene": "G15",
+      "viewport": {
+        "width": 1440,
+        "height": 900
+      },
+      "layout": "layouts/complete/G15-1440x900.json",
+      "template": "dialog",
+      "surface": "game"
+    },
+    {
+      "scene": "G15",
+      "viewport": {
+        "width": 844,
+        "height": 390
+      },
+      "layout": "layouts/complete/G15-844x390.json",
+      "template": "dialog",
+      "surface": "game"
+    },
+    {
+      "scene": "G16",
+      "viewport": {
+        "width": 1440,
+        "height": 900
+      },
+      "layout": "layouts/complete/G16-1440x900.json",
+      "template": "event",
+      "surface": "game"
+    },
+    {
+      "scene": "G16",
+      "viewport": {
+        "width": 844,
+        "height": 390
+      },
+      "layout": "layouts/complete/G16-844x390.json",
+      "template": "event",
+      "surface": "game"
+    },
+    {
+      "scene": "G17",
+      "viewport": {
+        "width": 1440,
+        "height": 900
+      },
+      "layout": "layouts/complete/G17-1440x900.json",
+      "template": "result",
+      "surface": "game"
+    },
+    {
+      "scene": "G17",
+      "viewport": {
+        "width": 844,
+        "height": 390
+      },
+      "layout": "layouts/complete/G17-844x390.json",
+      "template": "result",
+      "surface": "game"
+    },
+    {
+      "scene": "G18",
+      "viewport": {
+        "width": 1440,
+        "height": 900
+      },
+      "layout": "layouts/complete/G18-1440x900.json",
+      "template": "result",
+      "surface": "game"
+    },
+    {
+      "scene": "G18",
+      "viewport": {
+        "width": 844,
+        "height": 390
+      },
+      "layout": "layouts/complete/G18-844x390.json",
+      "template": "result",
+      "surface": "game"
+    },
+    {
+      "scene": "G19",
+      "viewport": {
+        "width": 1440,
+        "height": 900
+      },
+      "layout": "layouts/complete/G19-1440x900.json",
+      "template": "result",
+      "surface": "game"
+    },
+    {
+      "scene": "G19",
+      "viewport": {
+        "width": 844,
+        "height": 390
+      },
+      "layout": "layouts/complete/G19-844x390.json",
+      "template": "result",
+      "surface": "game"
+    },
+    {
+      "scene": "G20",
+      "viewport": {
+        "width": 1440,
+        "height": 900
+      },
+      "layout": "layouts/complete/G20-1440x900.json",
+      "template": "rewind",
+      "surface": "game"
+    },
+    {
+      "scene": "G20",
+      "viewport": {
+        "width": 844,
+        "height": 390
+      },
+      "layout": "layouts/complete/G20-844x390.json",
+      "template": "rewind",
+      "surface": "game"
+    },
+    {
+      "scene": "G21",
+      "viewport": {
+        "width": 1440,
+        "height": 900
+      },
+      "layout": "layouts/complete/G21-1440x900.json",
+      "template": "achievements",
+      "surface": "game"
+    },
+    {
+      "scene": "G21",
+      "viewport": {
+        "width": 844,
+        "height": 390
+      },
+      "layout": "layouts/complete/G21-844x390.json",
+      "template": "achievements",
+      "surface": "game"
+    },
+    {
+      "scene": "G22",
+      "viewport": {
+        "width": 1440,
+        "height": 900
+      },
+      "layout": "layouts/complete/G22-1440x900.json",
+      "template": "plan",
+      "surface": "game"
+    },
+    {
+      "scene": "G22",
+      "viewport": {
+        "width": 844,
+        "height": 390
+      },
+      "layout": "layouts/complete/G22-844x390.json",
+      "template": "plan",
+      "surface": "game"
+    },
+    {
+      "scene": "G23",
+      "viewport": {
+        "width": 1440,
+        "height": 900
+      },
+      "layout": "layouts/complete/G23-1440x900.json",
+      "template": "result",
+      "surface": "game"
+    },
+    {
+      "scene": "G23",
+      "viewport": {
+        "width": 844,
+        "height": 390
+      },
+      "layout": "layouts/complete/G23-844x390.json",
+      "template": "result",
+      "surface": "game"
+    },
+    {
+      "scene": "G24",
+      "viewport": {
+        "width": 1440,
+        "height": 900
+      },
+      "layout": "layouts/complete/G24-1440x900.json",
+      "template": "settings",
+      "surface": "game"
+    },
+    {
+      "scene": "G24",
+      "viewport": {
+        "width": 844,
+        "height": 390
+      },
+      "layout": "layouts/complete/G24-844x390.json",
+      "template": "settings",
+      "surface": "game"
+    },
+    {
+      "scene": "G25",
+      "viewport": {
+        "width": 1440,
+        "height": 900
+      },
+      "layout": "layouts/complete/G25-1440x900.json",
+      "template": "loading",
+      "surface": "game"
+    },
+    {
+      "scene": "G25",
+      "viewport": {
+        "width": 844,
+        "height": 390
+      },
+      "layout": "layouts/complete/G25-844x390.json",
+      "template": "loading",
+      "surface": "game"
+    },
+    {
+      "scene": "G26",
+      "viewport": {
+        "width": 1440,
+        "height": 900
+      },
+      "layout": "layouts/complete/G26-1440x900.json",
+      "template": "loading",
+      "surface": "game"
+    },
+    {
+      "scene": "G26",
+      "viewport": {
+        "width": 844,
+        "height": 390
+      },
+      "layout": "layouts/complete/G26-844x390.json",
+      "template": "loading",
+      "surface": "game"
+    },
+    {
+      "scene": "G27",
+      "viewport": {
+        "width": 1440,
+        "height": 900
+      },
+      "layout": "layouts/complete/G27-1440x900.json",
+      "template": "loading",
+      "surface": "game"
+    },
+    {
+      "scene": "G27",
+      "viewport": {
+        "width": 844,
+        "height": 390
+      },
+      "layout": "layouts/complete/G27-844x390.json",
+      "template": "loading",
+      "surface": "game"
+    },
+    {
+      "scene": "G28",
+      "viewport": {
+        "width": 1440,
+        "height": 900
+      },
+      "layout": "layouts/complete/G28-1440x900.json",
+      "template": "recovery",
+      "surface": "game"
+    },
+    {
+      "scene": "G28",
+      "viewport": {
+        "width": 844,
+        "height": 390
+      },
+      "layout": "layouts/complete/G28-844x390.json",
+      "template": "recovery",
+      "surface": "game"
+    },
+    {
+      "scene": "G29",
+      "viewport": {
+        "width": 1440,
+        "height": 900
+      },
+      "layout": "layouts/complete/G29-1440x900.json",
+      "template": "cards",
+      "surface": "game"
+    },
+    {
+      "scene": "G29",
+      "viewport": {
+        "width": 844,
+        "height": 390
+      },
+      "layout": "layouts/complete/G29-844x390.json",
+      "template": "cards",
+      "surface": "game"
+    },
+    {
+      "scene": "G30",
+      "viewport": {
+        "width": 1440,
+        "height": 900
+      },
+      "layout": "layouts/complete/G30-1440x900.json",
+      "template": "cashflow",
+      "surface": "game"
+    },
+    {
+      "scene": "G30",
+      "viewport": {
+        "width": 844,
+        "height": 390
+      },
+      "layout": "layouts/complete/G30-844x390.json",
+      "template": "cashflow",
+      "surface": "game"
+    },
+    {
+      "scene": "G31",
+      "viewport": {
+        "width": 1440,
+        "height": 900
+      },
+      "layout": "layouts/complete/G31-1440x900.json",
+      "template": "cashflow",
+      "surface": "game"
+    },
+    {
+      "scene": "G31",
+      "viewport": {
+        "width": 844,
+        "height": 390
+      },
+      "layout": "layouts/complete/G31-844x390.json",
+      "template": "cashflow",
+      "surface": "game"
+    },
+    {
+      "scene": "G32",
+      "viewport": {
+        "width": 1440,
+        "height": 900
+      },
+      "layout": "layouts/complete/G32-1440x900.json",
+      "template": "cashflow",
+      "surface": "game"
+    },
+    {
+      "scene": "G32",
+      "viewport": {
+        "width": 844,
+        "height": 390
+      },
+      "layout": "layouts/complete/G32-844x390.json",
+      "template": "cashflow",
+      "surface": "game"
+    },
+    {
+      "scene": "G33",
+      "viewport": {
+        "width": 1440,
+        "height": 900
+      },
+      "layout": "layouts/complete/G33-1440x900.json",
+      "template": "notification",
+      "surface": "game"
+    },
+    {
+      "scene": "G33",
+      "viewport": {
+        "width": 844,
+        "height": 390
+      },
+      "layout": "layouts/complete/G33-844x390.json",
+      "template": "notification",
+      "surface": "game"
+    },
+    {
+      "scene": "G34",
+      "viewport": {
+        "width": 1440,
+        "height": 900
+      },
+      "layout": "layouts/complete/G34-1440x900.json",
+      "template": "notification",
+      "surface": "game"
+    },
+    {
+      "scene": "G34",
+      "viewport": {
+        "width": 844,
+        "height": 390
+      },
+      "layout": "layouts/complete/G34-844x390.json",
+      "template": "notification",
+      "surface": "game"
+    },
+    {
+      "scene": "G35",
+      "viewport": {
+        "width": 600,
+        "height": 960
+      },
+      "layout": "layouts/complete/G35-600x960.json",
+      "template": "email",
+      "surface": "email"
+    },
+    {
+      "scene": "G35",
+      "viewport": {
+        "width": 375,
+        "height": 1030
+      },
+      "layout": "layouts/complete/G35-375x1030.json",
+      "template": "email",
+      "surface": "email"
+    },
+    {
+      "scene": "G36",
+      "viewport": {
+        "width": 1440,
+        "height": 900
+      },
+      "layout": "layouts/complete/G36-1440x900.json",
+      "template": "notification",
+      "surface": "game"
+    },
+    {
+      "scene": "G36",
+      "viewport": {
+        "width": 844,
+        "height": 390
+      },
+      "layout": "layouts/complete/G36-844x390.json",
+      "template": "notification",
+      "surface": "game"
+    }
+  ],
+  "note": "35gamescenes×2landscapeviewports+emailG35×2portraitwidths. Scrollrulesandactualcontrolsarepartofcontract."
+}

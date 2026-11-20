@@ -1,0 +1,36 @@
+id,file,description,durationMs,trigger,scenes,sync,gain,cooldownMs
+click,click.wav,Soft button tap,70,ui.validControlActivated,G05;G06;G07;G08;G09;G24;G36,after activation accepted; omit if a semantic cue follows,0.45,90
+panel-open,panel-open.wav,Light panel opening,150,ui.panelOpened,G12;G13;G14;G15;G16;G20;G24;G33;G34;G36,panel entrance start,0.45,400
+panel-close,panel-close.wav,Soft panel closing,130,ui.panelClosed,G12;G13;G14;G15;G16;G20;G24;G33;G34;G36,close accepted,0.4,400
+ui-back,ui-back.wav,Short return tap,90,ui.back,G07;G08;G09;G21;G23,navigation accepted,0.4,400
+toggle-on,toggle-on.wav,Switch on,100,preferences.toggleEnabled,G24;G36,successful enabled toggle; no cue if muted,0.4,400
+toggle-off,toggle-off.wav,Switch off,100,preferences.toggleDisabled,G24;G36,no cue when disabling master audio,0.4,400
+action-unavailable,action-unavailable.wav,Muted unavailable action,150,ui.unavailableActionExplained,G09;G13,"explicit activation only, not hover or keyboard focus",0.35,400
+card-select,card-select.wav,Paper edge picked up,120,card.previewOpened,G13;G29;G31,preview state visible,0.5,400
+card-play,card-play.wav,Paper card settles,160,card.committed,G13;G32,engine accepted card once,0.6,400
+whoosh,whoosh.wav,Short scene swish,280,scene.transitionStarted,G26,generic scene transition when no flight cue applies,0.4,400
+plane-launch,plane-launch.wav,Air lift with rising pitch,360,level.started,G09,level start confirmed,0.5,400
+plane-flyby,plane-flyby.wav,Paper plane passes with soft Doppler,520,week.travelStarted,G26,"after week resolved, at plane motion start",0.55,400
+plane-land,plane-land.wav,Soft paper landing,260,week.travelArrived,G10,"route motion arrival; navigation only, never settle transactions",0.45,400
+lock-open,lock-open.wav,"Metal catch click, spring and shackle opening",480,level.unlocked,G09;G18,at unlock motion start after earned-star condition,0.65,400
+unlock,unlock.wav,Existing level reward chime,500,level.unlocked,G09;G18,offset240ms; reward accent after latch click,0.45,400
+rewind-tick,rewind-tick.wav,Single mechanical dial detent,75,rewind.selectionChanged,G20,one detent per newly selected valid week; throttled,0.35,150
+rewind-confirm,rewind-confirm.wav,Reverse turning gear sweep,280,rewind.confirmed,G20,"snapshot restore succeeded, wheel rotation start",0.6,400
+message-send,message-send.wav,Envelope swish rising out,260,dialogue.messageSubmitted,G14;G16,message locally accepted; not server delivery/read receipt,0.45,400
+message-received,message-received.wav,Small incoming pop and bell,200,dialogue.replyReady,G14;G16,actual reply displayed,0.4,400
+negotiation-accepted,negotiation-accepted.wav,Gentle resolved two-note phrase,300,dialogue.offerAccepted,G14,"engine acceptance confirmed, replaces generic received cue",0.55,400
+counteroffer,counteroffer.wav,Curious ascending interval,180,dialogue.counterofferReady,G14,counteroffer displayed; no card committed,0.4,400
+save-confirmed,save-confirmed.wav,Small solid save latch and confirmation,240,plan.persisted,G22;G28,storage write succeeded; replaces generic click,0.55,400
+save-error,save-error.wav,Restrained two-note save error,240,plan.persistFailed,G22;G28,real write failure shown; no success cue,0.5,400
+week-complete,week-complete.wav,Short warm progress marker,280,week.resolved,G17,"week report ready, after engine resolution",0.45,400
+star-award,star-award.wav,Single star sparkle,360,star.awarded,G18,one earned star at a time; Pilot only after persistence,0.5,400
+competence-up,competence-up.wav,Soft progress chord,440,competence.confirmed,G21;G23,"real new competence milestone, never repeated on scene remount",0.5,400
+risk-reveal,risk-reveal.wav,Low airy warning,320,forecast.riskRevealed,G10;G12,"newly revealed crash risk, not each forecast render",0.45,3000
+storm,storm.wav,Low soft storm rumble,600,storm.entered,G10,"once on entering visible storm state, never loop",0.35,3000
+storm-clear,storm-clear.wav,Air clears and one warm tone,400,risk.resolved,G10,engine forecast no longer crashes,0.45,400
+notification,notification.wav,Gentle two-note incoming cue,220,inbox.itemReceived,G33,foreground in-game inbox only; native push uses OS sound,0.4,400
+reminder-scheduled,reminder-scheduled.wav,Acknowledged schedule; not delivery,220,reminder.scheduleAcknowledged,G36,scheduler ACK only; never claims delivered notification,0.45,400
+pause,pause.wav,Low pause tap,130,game.paused,G24,explicit pause accepted,0.35,400
+resume,resume.wav,Rising resume tap,130,game.resumed,G10,explicit resume accepted,0.35,400
+success,success.wav,Warm three-note completion,420,lap.completed,G18,"successful lap, at summary entrance",0.55,400
+failure,failure.wav,Short descending warning,240,payment.rejected,G19,actual rejected transfer once; replaces generic error,0.55,400

@@ -1,0 +1,85 @@
+{
+  "narrator": "female",
+  "player": "female",
+  "runtimeSeconds": 165,
+  "board": "pitch-storyboard-seven-beats.png",
+  "frames": [
+    {
+      "beat": 1,
+      "title": "Poznaj Anię",
+      "screen": "G05–G08",
+      "seconds": 20,
+      "meaning": "Szefowa owns the studio;playerwoman helps as pilot finansów.",
+      "liveBindings": {}
+    },
+    {
+      "beat": 2,
+      "title": "Zobacz trasę",
+      "screen": "G09–G10",
+      "seconds": 20,
+      "meaning": "Synthetic December liquidity challenge.",
+      "liveBindings": {
+        "cash.start": 38000,
+        "runway.start": 42
+      }
+    },
+    {
+      "beat": 3,
+      "title": "Sprawdź przepływy",
+      "screen": "G12/G30",
+      "seconds": 25,
+      "meaning": "Compare baseline and action preview;opening is not an action.",
+      "liveBindings": {
+        "forecast.baselineLow": -12395,
+        "forecast.lowDate": "2026-12-28"
+      }
+    },
+    {
+      "beat": 4,
+      "title": "Wybierz manewr",
+      "screen": "G13",
+      "seconds": 20,
+      "meaning": "Choose free advance;no financial product is required.",
+      "liveBindings": {
+        "advance.percent": 30,
+        "advance.amount": 15000
+      }
+    },
+    {
+      "beat": 5,
+      "title": "Uzgodnij warunki",
+      "screen": "G14",
+      "seconds": 30,
+      "meaning": "ClientA counters and player explicitly confirms.",
+      "liveBindings": {
+        "advance.date": "2026-12-03",
+        "money.zero": 0
+      }
+    },
+    {
+      "beat": 6,
+      "title": "Przeleć przez grudzień",
+      "screen": "G17–G18",
+      "seconds": 25,
+      "meaning": "Resolve route with deterministic engine.",
+      "liveBindings": {
+        "advance.low": 2605,
+        "advance.lapEnd": 9985
+      }
+    },
+    {
+      "beat": 7,
+      "title": "Zapisz plan",
+      "screen": "G22–G23",
+      "seconds": 25,
+      "meaning": "Save plan;Pilot star awarded only on save. Return banner / stage push follows as separate reminder demo.",
+      "liveBindings": {
+        "advance.avoided": 2400
+      }
+    }
+  ],
+  "notes": [
+    "One sheet contains all7 beats;concept chart is schematic. Exact numbers overlay from engine.",
+    "The extra reminder demo is rehearsed separately;do not claim the core165second storyboard includes push waiting time."
+  ]
+}

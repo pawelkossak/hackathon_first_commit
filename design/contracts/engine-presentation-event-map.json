@@ -1,0 +1,111 @@
+{
+  "source": "ARCHITECTURE§9andENGINE-DATA-AND-TESTS§6",
+  "aliases": {
+    "lapStart": {
+      "presentationEvent": "scene.ready",
+      "scene": "G05",
+      "voiceIds": [
+        "intro.owner",
+        "intro.role"
+      ],
+      "emotion": "welcoming"
+    },
+    "playerReturns": {
+      "presentationEvent": "run.restored",
+      "scene": "G10",
+      "copyId": "notif.return.body",
+      "voiceIds": [
+        "return.welcome"
+      ],
+      "emotion": "welcoming"
+    },
+    "bigProject": {
+      "presentationEvent": "event.new-order",
+      "scene": "G11",
+      "voiceIds": [
+        "event.order"
+      ],
+      "emotion": "excited"
+    },
+    "negotiationOpen": {
+      "presentationEvent": "negotiation.opened",
+      "scene": "G14",
+      "voiceIds": [
+        "advance.joke"
+      ],
+      "emotion": "confident"
+    },
+    "lateClient": {
+      "presentationEvent": "event.late-customer",
+      "scene": "G11",
+      "voiceIds": [
+        "event.late"
+      ],
+      "emotion": "suspicious"
+    },
+    "loanOffered": {
+      "presentationEvent": "loan.sms-opened",
+      "scene": "G16",
+      "voiceIds": [
+        "loan.source",
+        "loan.repayment",
+        "loan.cost"
+      ],
+      "emotion": "suspicious"
+    },
+    "goodMove": {
+      "presentationEvent": "reaction.confirmed",
+      "scene": "G14",
+      "voiceIds": [
+        "move.praise"
+      ],
+      "emotion": "proud"
+    },
+    "gapClosed": {
+      "presentationEvent": "risk.resolved",
+      "scene": "G10",
+      "voiceIds": [
+        "move.delegated"
+      ],
+      "emotion": "proud"
+    },
+    "crash": {
+      "presentationEvent": "payment.rejected",
+      "scene": "G19",
+      "voiceIds": [
+        "failure.cause",
+        "failure.support"
+      ],
+      "emotion": "exasperated",
+      "thenEmotion": "supportive"
+    },
+    "quietWeek": {
+      "presentationEvent": "week.resolved",
+      "scene": "G17",
+      "voiceIds": [
+        "week.quiet"
+      ],
+      "emotion": "relaxed"
+    },
+    "lapWon": {
+      "presentationEvent": "lap.completed",
+      "scene": "G18",
+      "voiceIds": [
+        "success.joke",
+        "success.avoided",
+        "success.pending"
+      ],
+      "emotion": "delighted"
+    },
+    "planValidated": {
+      "presentationEvent": "competence.confirmed",
+      "scene": "G23",
+      "voiceIds": [
+        "plan.met",
+        "close.pitch"
+      ],
+      "emotion": "delighted"
+    }
+  },
+  "rule": "Adapteremitsnamedpresentationeventonlyafterthetypedengineevent;noanimationtimercallsenginecommands."
+}

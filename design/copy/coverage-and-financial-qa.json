@@ -1,0 +1,49 @@
+{
+  "source": "D-12 and GAME-DESIGN.md §6",
+  "combinations": [
+    {
+      "variant": "player-female_narrator-female",
+      "copyEntries": 382,
+      "voiceLines": 49,
+      "screenCount": 32
+    },
+    {
+      "variant": "player-female_narrator-male",
+      "copyEntries": 382,
+      "voiceLines": 49,
+      "screenCount": 32
+    },
+    {
+      "variant": "player-male_narrator-female",
+      "copyEntries": 382,
+      "voiceLines": 49,
+      "screenCount": 32
+    },
+    {
+      "variant": "player-male_narrator-male",
+      "copyEntries": 382,
+      "voiceLines": 49,
+      "screenCount": 32
+    }
+  ],
+  "financialChecks": "passed",
+  "runtimeCodeCreated": false,
+  "notificationExtension": {
+    "source": "../notifications/notification-qa.json",
+    "templatesAdded": 98,
+    "screenIdsAdded": [
+      "G33",
+      "G34",
+      "G35",
+      "G36"
+    ],
+    "note": "Original G01-G32 financial and voice checks remain; counts below extended by notification strings.",
+    "reviewFixes": "D14 demo control/state,editablechannelpreferences,narratorart,N07publicobligation,signatureandweek-total"
+  },
+  "currentCopyEntryCounts": {
+    "player-male_narrator-female.pl": 480,
+    "player-male_narrator-male.pl": 480,
+    "player-female_narrator-male.pl": 480,
+    "player-female_narrator-female.pl": 480
+  }
+}

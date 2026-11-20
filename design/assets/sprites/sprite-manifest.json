@@ -1,0 +1,1281 @@
+{
+  "format": "individual-sprites/v1",
+  "frames": [
+    {
+      "id": "sky",
+      "atlas": "sky",
+      "x": 0,
+      "y": 0,
+      "width": 1672,
+      "height": 941,
+      "anchor": [
+        0.5,
+        0.5
+      ],
+      "padding": "Keep source transparent margins; do not trim independently.",
+      "textBakedIn": false,
+      "png": "sky.png",
+      "webp": "sky.webp",
+      "bytes": {
+        "png": 1736952,
+        "webp": 138684
+      }
+    },
+    {
+      "id": "studio-interior",
+      "atlas": "studio-interior",
+      "x": 0,
+      "y": 0,
+      "width": 1672,
+      "height": 941,
+      "anchor": [
+        0.5,
+        0.5
+      ],
+      "padding": "Keep source transparent margins; do not trim independently.",
+      "textBakedIn": false,
+      "png": "studio-interior.png",
+      "webp": "studio-interior.webp",
+      "bytes": {
+        "png": 2131450,
+        "webp": 247714
+      }
+    },
+    {
+      "id": "campaign.survive",
+      "atlas": "campaign-islands",
+      "x": 0,
+      "y": 0,
+      "width": 632,
+      "height": 623,
+      "anchor": [
+        0.5,
+        1
+      ],
+      "padding": "Keep source transparent margins; do not trim independently.",
+      "textBakedIn": false,
+      "png": "campaign-survive.png",
+      "webp": "campaign-survive.webp",
+      "bytes": {
+        "png": 510736,
+        "webp": 130350
+      }
+    },
+    {
+      "id": "campaign.first-hire",
+      "atlas": "campaign-islands",
+      "x": 632,
+      "y": 0,
+      "width": 631,
+      "height": 623,
+      "anchor": [
+        0.5,
+        1
+      ],
+      "padding": "Keep source transparent margins; do not trim independently.",
+      "textBakedIn": false,
+      "png": "campaign-first-hire.png",
+      "webp": "campaign-first-hire.webp",
+      "bytes": {
+        "png": 491241,
+        "webp": 123064
+      }
+    },
+    {
+      "id": "campaign.investment",
+      "atlas": "campaign-islands",
+      "x": 0,
+      "y": 623,
+      "width": 632,
+      "height": 623,
+      "anchor": [
+        0.5,
+        1
+      ],
+      "padding": "Keep source transparent margins; do not trim independently.",
+      "textBakedIn": false,
+      "png": "campaign-investment.png",
+      "webp": "campaign-investment.webp",
+      "bytes": {
+        "png": 507094,
+        "webp": 119188
+      }
+    },
+    {
+      "id": "campaign.next-generation",
+      "atlas": "campaign-islands",
+      "x": 632,
+      "y": 623,
+      "width": 631,
+      "height": 623,
+      "anchor": [
+        0.5,
+        1
+      ],
+      "padding": "Keep source transparent margins; do not trim independently.",
+      "textBakedIn": false,
+      "png": "campaign-next-generation.png",
+      "webp": "campaign-next-generation.webp",
+      "bytes": {
+        "png": 619882,
+        "webp": 154834
+      }
+    },
+    {
+      "id": "week.1",
+      "atlas": "week-islands",
+      "x": 0,
+      "y": 0,
+      "width": 444,
+      "height": 444,
+      "anchor": [
+        0.5,
+        1
+      ],
+      "padding": "Keep source transparent margins; do not trim independently.",
+      "textBakedIn": false,
+      "png": "week-1.png",
+      "webp": "week-1.webp",
+      "bytes": {
+        "png": 321081,
+        "webp": 95010
+      }
+    },
+    {
+      "id": "week.2",
+      "atlas": "week-islands",
+      "x": 444,
+      "y": 0,
+      "width": 443,
+      "height": 444,
+      "anchor": [
+        0.5,
+        1
+      ],
+      "padding": "Keep source transparent margins; do not trim independently.",
+      "textBakedIn": false,
+      "png": "week-2.png",
+      "webp": "week-2.webp",
+      "bytes": {
+        "png": 298096,
+        "webp": 82702
+      }
+    },
+    {
+      "id": "week.3",
+      "atlas": "week-islands",
+      "x": 887,
+      "y": 0,
+      "width": 443,
+      "height": 444,
+      "anchor": [
+        0.5,
+        1
+      ],
+      "padding": "Keep source transparent margins; do not trim independently.",
+      "textBakedIn": false,
+      "png": "week-3.png",
+      "webp": "week-3.webp",
+      "bytes": {
+        "png": 317035,
+        "webp": 85738
+      }
+    },
+    {
+      "id": "week.4",
+      "atlas": "week-islands",
+      "x": 1330,
+      "y": 0,
+      "width": 444,
+      "height": 444,
+      "anchor": [
+        0.5,
+        1
+      ],
+      "padding": "Keep source transparent margins; do not trim independently.",
+      "textBakedIn": false,
+      "png": "week-4.png",
+      "webp": "week-4.webp",
+      "bytes": {
+        "png": 327103,
+        "webp": 91642
+      }
+    },
+    {
+      "id": "week.5",
+      "atlas": "week-islands",
+      "x": 0,
+      "y": 444,
+      "width": 444,
+      "height": 443,
+      "anchor": [
+        0.5,
+        1
+      ],
+      "padding": "Keep source transparent margins; do not trim independently.",
+      "textBakedIn": false,
+      "png": "week-5.png",
+      "webp": "week-5.webp",
+      "bytes": {
+        "png": 288684,
+        "webp": 75798
+      }
+    },
+    {
+      "id": "week.6",
+      "atlas": "week-islands",
+      "x": 444,
+      "y": 444,
+      "width": 443,
+      "height": 443,
+      "anchor": [
+        0.5,
+        1
+      ],
+      "padding": "Keep source transparent margins; do not trim independently.",
+      "textBakedIn": false,
+      "png": "week-6.png",
+      "webp": "week-6.webp",
+      "bytes": {
+        "png": 258950,
+        "webp": 79172
+      }
+    },
+    {
+      "id": "week.7",
+      "atlas": "week-islands",
+      "x": 887,
+      "y": 444,
+      "width": 443,
+      "height": 443,
+      "anchor": [
+        0.5,
+        1
+      ],
+      "padding": "Keep source transparent margins; do not trim independently.",
+      "textBakedIn": false,
+      "png": "week-7.png",
+      "webp": "week-7.webp",
+      "bytes": {
+        "png": 313172,
+        "webp": 90800
+      }
+    },
+    {
+      "id": "finish",
+      "atlas": "week-islands",
+      "x": 1330,
+      "y": 444,
+      "width": 444,
+      "height": 443,
+      "anchor": [
+        0.5,
+        1
+      ],
+      "padding": "Keep source transparent margins; do not trim independently.",
+      "textBakedIn": false,
+      "png": "finish.png",
+      "webp": "finish.webp",
+      "bytes": {
+        "png": 329890,
+        "webp": 78746
+      }
+    },
+    {
+      "id": "boss.female.welcoming",
+      "atlas": "boss-female",
+      "x": 0,
+      "y": 0,
+      "width": 444,
+      "height": 444,
+      "anchor": [
+        0.5,
+        1
+      ],
+      "padding": "Keep source transparent margins; do not trim independently.",
+      "textBakedIn": false,
+      "png": "boss-female-welcoming.png",
+      "webp": "boss-female-welcoming.webp",
+      "bytes": {
+        "png": 276826,
+        "webp": 62100
+      }
+    },
+    {
+      "id": "boss.female.excited",
+      "atlas": "boss-female",
+      "x": 444,
+      "y": 0,
+      "width": 443,
+      "height": 444,
+      "anchor": [
+        0.5,
+        1
+      ],
+      "padding": "Keep source transparent margins; do not trim independently.",
+      "textBakedIn": false,
+      "png": "boss-female-excited.png",
+      "webp": "boss-female-excited.webp",
+      "bytes": {
+        "png": 304236,
+        "webp": 70632
+      }
+    },
+    {
+      "id": "boss.female.confident",
+      "atlas": "boss-female",
+      "x": 887,
+      "y": 0,
+      "width": 443,
+      "height": 444,
+      "anchor": [
+        0.5,
+        1
+      ],
+      "padding": "Keep source transparent margins; do not trim independently.",
+      "textBakedIn": false,
+      "png": "boss-female-confident.png",
+      "webp": "boss-female-confident.webp",
+      "bytes": {
+        "png": 290549,
+        "webp": 66188
+      }
+    },
+    {
+      "id": "boss.female.suspicious",
+      "atlas": "boss-female",
+      "x": 1330,
+      "y": 0,
+      "width": 444,
+      "height": 444,
+      "anchor": [
+        0.5,
+        1
+      ],
+      "padding": "Keep source transparent margins; do not trim independently.",
+      "textBakedIn": false,
+      "png": "boss-female-suspicious.png",
+      "webp": "boss-female-suspicious.webp",
+      "bytes": {
+        "png": 296156,
+        "webp": 67642
+      }
+    },
+    {
+      "id": "boss.female.exasperated",
+      "atlas": "boss-female",
+      "x": 0,
+      "y": 444,
+      "width": 444,
+      "height": 443,
+      "anchor": [
+        0.5,
+        1
+      ],
+      "padding": "Keep source transparent margins; do not trim independently.",
+      "textBakedIn": false,
+      "png": "boss-female-exasperated.png",
+      "webp": "boss-female-exasperated.webp",
+      "bytes": {
+        "png": 301346,
+        "webp": 66152
+      }
+    },
+    {
+      "id": "boss.female.proud",
+      "atlas": "boss-female",
+      "x": 444,
+      "y": 444,
+      "width": 443,
+      "height": 443,
+      "anchor": [
+        0.5,
+        1
+      ],
+      "padding": "Keep source transparent margins; do not trim independently.",
+      "textBakedIn": false,
+      "png": "boss-female-proud.png",
+      "webp": "boss-female-proud.webp",
+      "bytes": {
+        "png": 286483,
+        "webp": 63128
+      }
+    },
+    {
+      "id": "boss.female.relaxed",
+      "atlas": "boss-female",
+      "x": 887,
+      "y": 444,
+      "width": 443,
+      "height": 443,
+      "anchor": [
+        0.5,
+        1
+      ],
+      "padding": "Keep source transparent margins; do not trim independently.",
+      "textBakedIn": false,
+      "png": "boss-female-relaxed.png",
+      "webp": "boss-female-relaxed.webp",
+      "bytes": {
+        "png": 301393,
+        "webp": 67152
+      }
+    },
+    {
+      "id": "boss.male.welcoming",
+      "atlas": "boss-male",
+      "x": 0,
+      "y": 0,
+      "width": 444,
+      "height": 444,
+      "anchor": [
+        0.5,
+        1
+      ],
+      "padding": "Keep source transparent margins; do not trim independently.",
+      "textBakedIn": false,
+      "png": "boss-male-welcoming.png",
+      "webp": "boss-male-welcoming.webp",
+      "bytes": {
+        "png": 269810,
+        "webp": 81320
+      }
+    },
+    {
+      "id": "boss.male.excited",
+      "atlas": "boss-male",
+      "x": 444,
+      "y": 0,
+      "width": 443,
+      "height": 444,
+      "anchor": [
+        0.5,
+        1
+      ],
+      "padding": "Keep source transparent margins; do not trim independently.",
+      "textBakedIn": false,
+      "png": "boss-male-excited.png",
+      "webp": "boss-male-excited.webp",
+      "bytes": {
+        "png": 286982,
+        "webp": 80200
+      }
+    },
+    {
+      "id": "boss.male.confident",
+      "atlas": "boss-male",
+      "x": 887,
+      "y": 0,
+      "width": 443,
+      "height": 444,
+      "anchor": [
+        0.5,
+        1
+      ],
+      "padding": "Keep source transparent margins; do not trim independently.",
+      "textBakedIn": false,
+      "png": "boss-male-confident.png",
+      "webp": "boss-male-confident.webp",
+      "bytes": {
+        "png": 291820,
+        "webp": 88562
+      }
+    },
+    {
+      "id": "boss.male.suspicious",
+      "atlas": "boss-male",
+      "x": 1330,
+      "y": 0,
+      "width": 444,
+      "height": 444,
+      "anchor": [
+        0.5,
+        1
+      ],
+      "padding": "Keep source transparent margins; do not trim independently.",
+      "textBakedIn": false,
+      "png": "boss-male-suspicious.png",
+      "webp": "boss-male-suspicious.webp",
+      "bytes": {
+        "png": 277956,
+        "webp": 75042
+      }
+    },
+    {
+      "id": "boss.male.exasperated",
+      "atlas": "boss-male",
+      "x": 0,
+      "y": 444,
+      "width": 444,
+      "height": 443,
+      "anchor": [
+        0.5,
+        1
+      ],
+      "padding": "Keep source transparent margins; do not trim independently.",
+      "textBakedIn": false,
+      "png": "boss-male-exasperated.png",
+      "webp": "boss-male-exasperated.webp",
+      "bytes": {
+        "png": 285593,
+        "webp": 75980
+      }
+    },
+    {
+      "id": "boss.male.proud",
+      "atlas": "boss-male",
+      "x": 444,
+      "y": 444,
+      "width": 443,
+      "height": 443,
+      "anchor": [
+        0.5,
+        1
+      ],
+      "padding": "Keep source transparent margins; do not trim independently.",
+      "textBakedIn": false,
+      "png": "boss-male-proud.png",
+      "webp": "boss-male-proud.webp",
+      "bytes": {
+        "png": 269722,
+        "webp": 77566
+      }
+    },
+    {
+      "id": "boss.male.relaxed",
+      "atlas": "boss-male",
+      "x": 887,
+      "y": 444,
+      "width": 443,
+      "height": 443,
+      "anchor": [
+        0.5,
+        1
+      ],
+      "padding": "Keep source transparent margins; do not trim independently.",
+      "textBakedIn": false,
+      "png": "boss-male-relaxed.png",
+      "webp": "boss-male-relaxed.webp",
+      "bytes": {
+        "png": 280271,
+        "webp": 79054
+      }
+    },
+    {
+      "id": "player.female.neutral",
+      "atlas": "player-female",
+      "x": 0,
+      "y": 0,
+      "width": 632,
+      "height": 623,
+      "anchor": [
+        0.5,
+        1
+      ],
+      "padding": "Keep source transparent margins; do not trim independently.",
+      "textBakedIn": false,
+      "png": "player-female-neutral.png",
+      "webp": "player-female-neutral.webp",
+      "bytes": {
+        "png": 390927,
+        "webp": 71356
+      }
+    },
+    {
+      "id": "player.female.happy",
+      "atlas": "player-female",
+      "x": 632,
+      "y": 0,
+      "width": 631,
+      "height": 623,
+      "anchor": [
+        0.5,
+        1
+      ],
+      "padding": "Keep source transparent margins; do not trim independently.",
+      "textBakedIn": false,
+      "png": "player-female-happy.png",
+      "webp": "player-female-happy.webp",
+      "bytes": {
+        "png": 416376,
+        "webp": 81026
+      }
+    },
+    {
+      "id": "player.female.worried",
+      "atlas": "player-female",
+      "x": 0,
+      "y": 623,
+      "width": 632,
+      "height": 623,
+      "anchor": [
+        0.5,
+        1
+      ],
+      "padding": "Keep source transparent margins; do not trim independently.",
+      "textBakedIn": false,
+      "png": "player-female-worried.png",
+      "webp": "player-female-worried.webp",
+      "bytes": {
+        "png": 461981,
+        "webp": 95570
+      }
+    },
+    {
+      "id": "player.female.plane",
+      "atlas": "player-female",
+      "x": 632,
+      "y": 623,
+      "width": 631,
+      "height": 623,
+      "anchor": [
+        0.5,
+        1
+      ],
+      "padding": "Keep source transparent margins; do not trim independently.",
+      "textBakedIn": false,
+      "png": "player-female-plane.png",
+      "webp": "player-female-plane.webp",
+      "bytes": {
+        "png": 481782,
+        "webp": 103480
+      }
+    },
+    {
+      "id": "player.male.neutral",
+      "atlas": "player-male",
+      "x": 0,
+      "y": 0,
+      "width": 632,
+      "height": 623,
+      "anchor": [
+        0.5,
+        1
+      ],
+      "padding": "Keep source transparent margins; do not trim independently.",
+      "textBakedIn": false,
+      "png": "player-male-neutral.png",
+      "webp": "player-male-neutral.webp",
+      "bytes": {
+        "png": 320700,
+        "webp": 57086
+      }
+    },
+    {
+      "id": "player.male.happy",
+      "atlas": "player-male",
+      "x": 632,
+      "y": 0,
+      "width": 631,
+      "height": 623,
+      "anchor": [
+        0.5,
+        1
+      ],
+      "padding": "Keep source transparent margins; do not trim independently.",
+      "textBakedIn": false,
+      "png": "player-male-happy.png",
+      "webp": "player-male-happy.webp",
+      "bytes": {
+        "png": 328733,
+        "webp": 59694
+      }
+    },
+    {
+      "id": "player.male.worried",
+      "atlas": "player-male",
+      "x": 0,
+      "y": 623,
+      "width": 632,
+      "height": 623,
+      "anchor": [
+        0.5,
+        1
+      ],
+      "padding": "Keep source transparent margins; do not trim independently.",
+      "textBakedIn": false,
+      "png": "player-male-worried.png",
+      "webp": "player-male-worried.webp",
+      "bytes": {
+        "png": 336169,
+        "webp": 60814
+      }
+    },
+    {
+      "id": "player.male.plane",
+      "atlas": "player-male",
+      "x": 632,
+      "y": 623,
+      "width": 631,
+      "height": 623,
+      "anchor": [
+        0.5,
+        1
+      ],
+      "padding": "Keep source transparent margins; do not trim independently.",
+      "textBakedIn": false,
+      "png": "player-male-plane.png",
+      "webp": "player-male-plane.webp",
+      "bytes": {
+        "png": 386830,
+        "webp": 74718
+      }
+    },
+    {
+      "id": "client.neutral",
+      "atlas": "supporting-characters",
+      "x": 0,
+      "y": 0,
+      "width": 397,
+      "height": 396,
+      "anchor": [
+        0.5,
+        1
+      ],
+      "padding": "Keep source transparent margins; do not trim independently.",
+      "textBakedIn": false,
+      "png": "client-neutral.png",
+      "webp": "client-neutral.webp",
+      "bytes": {
+        "png": 204637,
+        "webp": 55782
+      }
+    },
+    {
+      "id": "client.negotiating",
+      "atlas": "supporting-characters",
+      "x": 397,
+      "y": 0,
+      "width": 396,
+      "height": 396,
+      "anchor": [
+        0.5,
+        1
+      ],
+      "padding": "Keep source transparent margins; do not trim independently.",
+      "textBakedIn": false,
+      "png": "client-negotiating.png",
+      "webp": "client-negotiating.webp",
+      "bytes": {
+        "png": 235810,
+        "webp": 65812
+      }
+    },
+    {
+      "id": "client.happy",
+      "atlas": "supporting-characters",
+      "x": 793,
+      "y": 0,
+      "width": 397,
+      "height": 396,
+      "anchor": [
+        0.5,
+        1
+      ],
+      "padding": "Keep source transparent margins; do not trim independently.",
+      "textBakedIn": false,
+      "png": "client-happy.png",
+      "webp": "client-happy.webp",
+      "bytes": {
+        "png": 221576,
+        "webp": 60794
+      }
+    },
+    {
+      "id": "bank.neutral",
+      "atlas": "supporting-characters",
+      "x": 1190,
+      "y": 0,
+      "width": 396,
+      "height": 396,
+      "anchor": [
+        0.5,
+        1
+      ],
+      "padding": "Keep source transparent margins; do not trim independently.",
+      "textBakedIn": false,
+      "png": "bank-neutral.png",
+      "webp": "bank-neutral.webp",
+      "bytes": {
+        "png": 184047,
+        "webp": 43760
+      }
+    },
+    {
+      "id": "bank.explaining",
+      "atlas": "supporting-characters",
+      "x": 1586,
+      "y": 0,
+      "width": 397,
+      "height": 396,
+      "anchor": [
+        0.5,
+        1
+      ],
+      "padding": "Keep source transparent margins; do not trim independently.",
+      "textBakedIn": false,
+      "png": "bank-explaining.png",
+      "webp": "bank-explaining.webp",
+      "bytes": {
+        "png": 196040,
+        "webp": 45948
+      }
+    },
+    {
+      "id": "cfo.neutral",
+      "atlas": "supporting-characters",
+      "x": 0,
+      "y": 396,
+      "width": 397,
+      "height": 397,
+      "anchor": [
+        0.5,
+        1
+      ],
+      "padding": "Keep source transparent margins; do not trim independently.",
+      "textBakedIn": false,
+      "png": "cfo-neutral.png",
+      "webp": "cfo-neutral.webp",
+      "bytes": {
+        "png": 165139,
+        "webp": 45296
+      }
+    },
+    {
+      "id": "cfo.thinking",
+      "atlas": "supporting-characters",
+      "x": 397,
+      "y": 396,
+      "width": 396,
+      "height": 397,
+      "anchor": [
+        0.5,
+        1
+      ],
+      "padding": "Keep source transparent margins; do not trim independently.",
+      "textBakedIn": false,
+      "png": "cfo-thinking.png",
+      "webp": "cfo-thinking.webp",
+      "bytes": {
+        "png": 169593,
+        "webp": 50810
+      }
+    },
+    {
+      "id": "cfo.happy",
+      "atlas": "supporting-characters",
+      "x": 793,
+      "y": 396,
+      "width": 397,
+      "height": 397,
+      "anchor": [
+        0.5,
+        1
+      ],
+      "padding": "Keep source transparent margins; do not trim independently.",
+      "textBakedIn": false,
+      "png": "cfo-happy.png",
+      "webp": "cfo-happy.webp",
+      "bytes": {
+        "png": 181589,
+        "webp": 56220
+      }
+    },
+    {
+      "id": "cat.sleeping",
+      "atlas": "supporting-characters",
+      "x": 1190,
+      "y": 396,
+      "width": 396,
+      "height": 397,
+      "anchor": [
+        0.5,
+        1
+      ],
+      "padding": "Keep source transparent margins; do not trim independently.",
+      "textBakedIn": false,
+      "png": "cat-sleeping.png",
+      "webp": "cat-sleeping.webp",
+      "bytes": {
+        "png": 132473,
+        "webp": 33898
+      }
+    },
+    {
+      "id": "cat.alert",
+      "atlas": "supporting-characters",
+      "x": 1586,
+      "y": 396,
+      "width": 397,
+      "height": 397,
+      "anchor": [
+        0.5,
+        1
+      ],
+      "padding": "Keep source transparent margins; do not trim independently.",
+      "textBakedIn": false,
+      "png": "cat-alert.png",
+      "webp": "cat-alert.webp",
+      "bytes": {
+        "png": 146814,
+        "webp": 38626
+      }
+    },
+    {
+      "id": "action.advance",
+      "atlas": "card-art",
+      "x": 0,
+      "y": 0,
+      "width": 362,
+      "height": 362,
+      "anchor": [
+        0.5,
+        0.5
+      ],
+      "padding": "Keep source transparent margins; do not trim independently.",
+      "textBakedIn": false,
+      "png": "action-advance.png",
+      "webp": "action-advance.webp",
+      "bytes": {
+        "png": 175250,
+        "webp": 43618
+      }
+    },
+    {
+      "id": "action.discount",
+      "atlas": "card-art",
+      "x": 362,
+      "y": 0,
+      "width": 362,
+      "height": 362,
+      "anchor": [
+        0.5,
+        0.5
+      ],
+      "padding": "Keep source transparent margins; do not trim independently.",
+      "textBakedIn": false,
+      "png": "action-discount.png",
+      "webp": "action-discount.webp",
+      "bytes": {
+        "png": 158365,
+        "webp": 42314
+      }
+    },
+    {
+      "id": "action.postpone",
+      "atlas": "card-art",
+      "x": 724,
+      "y": 0,
+      "width": 362,
+      "height": 362,
+      "anchor": [
+        0.5,
+        0.5
+      ],
+      "padding": "Keep source transparent margins; do not trim independently.",
+      "textBakedIn": false,
+      "png": "action-postpone.png",
+      "webp": "action-postpone.webp",
+      "bytes": {
+        "png": 160829,
+        "webp": 40304
+      }
+    },
+    {
+      "id": "action.overdraft",
+      "atlas": "card-art",
+      "x": 1086,
+      "y": 0,
+      "width": 362,
+      "height": 362,
+      "anchor": [
+        0.5,
+        0.5
+      ],
+      "padding": "Keep source transparent margins; do not trim independently.",
+      "textBakedIn": false,
+      "png": "action-overdraft.png",
+      "webp": "action-overdraft.webp",
+      "bytes": {
+        "png": 191200,
+        "webp": 46560
+      }
+    },
+    {
+      "id": "action.nonbank-loan",
+      "atlas": "card-art",
+      "x": 0,
+      "y": 362,
+      "width": 362,
+      "height": 362,
+      "anchor": [
+        0.5,
+        0.5
+      ],
+      "padding": "Keep source transparent margins; do not trim independently.",
+      "textBakedIn": false,
+      "png": "action-nonbank-loan.png",
+      "webp": "action-nonbank-loan.webp",
+      "bytes": {
+        "png": 174091,
+        "webp": 41352
+      }
+    },
+    {
+      "id": "action.factoring",
+      "atlas": "card-art",
+      "x": 362,
+      "y": 362,
+      "width": 362,
+      "height": 362,
+      "anchor": [
+        0.5,
+        0.5
+      ],
+      "padding": "Keep source transparent margins; do not trim independently.",
+      "textBakedIn": false,
+      "png": "action-factoring.png",
+      "webp": "action-factoring.webp",
+      "bytes": {
+        "png": 175494,
+        "webp": 44330
+      }
+    },
+    {
+      "id": "event.account-change",
+      "atlas": "card-art",
+      "x": 724,
+      "y": 362,
+      "width": 362,
+      "height": 362,
+      "anchor": [
+        0.5,
+        0.5
+      ],
+      "padding": "Keep source transparent margins; do not trim independently.",
+      "textBakedIn": false,
+      "png": "event-account-change.png",
+      "webp": "event-account-change.webp",
+      "bytes": {
+        "png": 185214,
+        "webp": 46886
+      }
+    },
+    {
+      "id": "event.new-order",
+      "atlas": "card-art",
+      "x": 1086,
+      "y": 362,
+      "width": 362,
+      "height": 362,
+      "anchor": [
+        0.5,
+        0.5
+      ],
+      "padding": "Keep source transparent margins; do not trim independently.",
+      "textBakedIn": false,
+      "png": "event-new-order.png",
+      "webp": "event-new-order.webp",
+      "bytes": {
+        "png": 185873,
+        "webp": 45308
+      }
+    },
+    {
+      "id": "event.ai-tool",
+      "atlas": "card-art",
+      "x": 0,
+      "y": 724,
+      "width": 362,
+      "height": 362,
+      "anchor": [
+        0.5,
+        0.5
+      ],
+      "padding": "Keep source transparent margins; do not trim independently.",
+      "textBakedIn": false,
+      "png": "event-ai-tool.png",
+      "webp": "event-ai-tool.webp",
+      "bytes": {
+        "png": 214182,
+        "webp": 57368
+      }
+    },
+    {
+      "id": "event.late-customer",
+      "atlas": "card-art",
+      "x": 362,
+      "y": 724,
+      "width": 362,
+      "height": 362,
+      "anchor": [
+        0.5,
+        0.5
+      ],
+      "padding": "Keep source transparent margins; do not trim independently.",
+      "textBakedIn": false,
+      "png": "event-late-customer.png",
+      "webp": "event-late-customer.webp",
+      "bytes": {
+        "png": 184420,
+        "webp": 46508
+      }
+    },
+    {
+      "id": "event.obligation",
+      "atlas": "card-art",
+      "x": 724,
+      "y": 724,
+      "width": 362,
+      "height": 362,
+      "anchor": [
+        0.5,
+        0.5
+      ],
+      "padding": "Keep source transparent margins; do not trim independently.",
+      "textBakedIn": false,
+      "png": "event-obligation.png",
+      "webp": "event-obligation.webp",
+      "bytes": {
+        "png": 181454,
+        "webp": 46448
+      }
+    },
+    {
+      "id": "crash",
+      "atlas": "card-art",
+      "x": 1086,
+      "y": 724,
+      "width": 362,
+      "height": 362,
+      "anchor": [
+        0.5,
+        0.5
+      ],
+      "padding": "Keep source transparent margins; do not trim independently.",
+      "textBakedIn": false,
+      "png": "crash.png",
+      "webp": "crash.webp",
+      "bytes": {
+        "png": 160153,
+        "webp": 42082
+      }
+    },
+    {
+      "id": "weather.forming",
+      "atlas": "weather-effects",
+      "x": 0,
+      "y": 0,
+      "width": 512,
+      "height": 512,
+      "anchor": [
+        0.5,
+        0.5
+      ],
+      "textBakedIn": false,
+      "png": "weather-forming.png",
+      "webp": "weather-forming.webp",
+      "bytes": {
+        "png": 284508,
+        "webp": 55818
+      }
+    },
+    {
+      "id": "weather.active",
+      "atlas": "weather-effects",
+      "x": 512,
+      "y": 0,
+      "width": 512,
+      "height": 512,
+      "anchor": [
+        0.5,
+        0.5
+      ],
+      "textBakedIn": false,
+      "png": "weather-active.png",
+      "webp": "weather-active.webp",
+      "bytes": {
+        "png": 407511,
+        "webp": 65754
+      }
+    },
+    {
+      "id": "weather.dissolving",
+      "atlas": "weather-effects",
+      "x": 1024,
+      "y": 0,
+      "width": 512,
+      "height": 512,
+      "anchor": [
+        0.5,
+        0.5
+      ],
+      "textBakedIn": false,
+      "png": "weather-dissolving.png",
+      "webp": "weather-dissolving.webp",
+      "bytes": {
+        "png": 306003,
+        "webp": 57976
+      }
+    },
+    {
+      "id": "weather.sun",
+      "atlas": "weather-effects",
+      "x": 0,
+      "y": 512,
+      "width": 512,
+      "height": 512,
+      "anchor": [
+        0.5,
+        0.5
+      ],
+      "textBakedIn": false,
+      "png": "weather-sun.png",
+      "webp": "weather-sun.webp",
+      "bytes": {
+        "png": 319452,
+        "webp": 60000
+      }
+    },
+    {
+      "id": "weather.fog",
+      "atlas": "weather-effects",
+      "x": 512,
+      "y": 512,
+      "width": 512,
+      "height": 512,
+      "anchor": [
+        0.5,
+        0.5
+      ],
+      "textBakedIn": false,
+      "png": "weather-fog.png",
+      "webp": "weather-fog.webp",
+      "bytes": {
+        "png": 301451,
+        "webp": 45816
+      }
+    },
+    {
+      "id": "weather.stars",
+      "atlas": "weather-effects",
+      "x": 1024,
+      "y": 512,
+      "width": 512,
+      "height": 512,
+      "anchor": [
+        0.5,
+        0.5
+      ],
+      "textBakedIn": false,
+      "png": "weather-stars.png",
+      "webp": "weather-stars.webp",
+      "bytes": {
+        "png": 296368,
+        "webp": 53822
+      }
+    }
+  ],
+  "pixelRule": "Exact integer region export from illustration-manifest;alpha unchanged.",
+  "count": 64
+}

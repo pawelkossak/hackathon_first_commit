@@ -1,0 +1,15 @@
+{
+  "file": "pilot-plynnosci-alan-welcome.mp4",
+  "sha256": "1f64c1f5e4dd620fe986f10ed1e742ea7fe30f8ce0c52c2156cc6346c8b9bb6f",
+  "bytes": 1265929,
+  "seconds": 6.88,
+  "width": 1280,
+  "height": 704,
+  "video": "h264",
+  "audio": "aac",
+  "fullDecodePassed": true,
+  "approvedBy": "Mike",
+  "approvedOn": "2026-11-17",
+  "preservedApprovedAnimationBytes": true,
+  "runtime": "/media/intro/alan-welcome.mp4"
+}

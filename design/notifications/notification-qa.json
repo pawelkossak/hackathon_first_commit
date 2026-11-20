@@ -1,0 +1,43 @@
+{
+  "copyVariants": [
+    {
+      "variant": "player-female_narrator-female",
+      "maxPushCharacters": 63,
+      "allAtMost120": true,
+      "strings": 98
+    },
+    {
+      "variant": "player-female_narrator-male",
+      "maxPushCharacters": 63,
+      "allAtMost120": true,
+      "strings": 98
+    },
+    {
+      "variant": "player-male_narrator-female",
+      "maxPushCharacters": 63,
+      "allAtMost120": true,
+      "strings": 98
+    },
+    {
+      "variant": "player-male_narrator-male",
+      "maxPushCharacters": 63,
+      "allAtMost120": true,
+      "strings": 98
+    }
+  ],
+  "layoutExports": 12,
+  "pngExports": 12,
+  "copyEntriesAddedThisReview": 24,
+  "notificationTemplates": 98,
+  "mainCopyEntries": 480,
+  "reviewFixes": [
+    "Polish Boss nameplates;updated board09 verified",
+    "Email signature owner wording corrected",
+    "Week current/total progress",
+    "Demo send and acknowledgement strings/states",
+    "G36 channel toggles and editable quiet-hours/timezone with44pxhitareas",
+    "Narrator image slots in G33/G34/G36/return",
+    "N07 public-obligation wording distinct from plan"
+  ],
+  "applicationCodeCreated": false
+}

@@ -1,0 +1,89 @@
+{
+  "screen": "G13",
+  "viewport": {
+    "width": 1440,
+    "height": 900
+  },
+  "safeArea": {
+    "left": 48,
+    "right": 48,
+    "top": 24,
+    "bottom": 36
+  },
+  "font": {
+    "body": 16,
+    "caption": 12,
+    "title": 40,
+    "minAction": 15
+  },
+  "boxes": [
+    {
+      "name": "header",
+      "x": 48,
+      "y": 24,
+      "width": 1344,
+      "height": 56,
+      "purpose": "Title, provenance and pause",
+      "interactive": false,
+      "layer": 50
+    },
+    {
+      "name": "primary",
+      "x": 1040,
+      "y": 816,
+      "width": 352,
+      "height": 48,
+      "purpose": "One primary decision",
+      "interactive": true,
+      "layer": 50
+    },
+    {
+      "name": "cards",
+      "x": 48,
+      "y": 150,
+      "width": 1344,
+      "height": 380,
+      "purpose": "6 selectable cards,214 wide plus12 gap",
+      "interactive": true,
+      "layer": 50
+    },
+    {
+      "name": "preview",
+      "x": 48,
+      "y": 566,
+      "width": 940,
+      "height": 220,
+      "purpose": "Selected illustration, effect, cost and timing",
+      "interactive": false,
+      "layer": 50
+    },
+    {
+      "name": "narrator",
+      "x": 1020,
+      "y": 566,
+      "width": 372,
+      "height": 220,
+      "purpose": "Owner comment",
+      "interactive": false,
+      "layer": 30
+    }
+  ],
+  "rules": [
+    "Coordinates are CSS px at1x; browser safe-area insets add to outer margins.",
+    "Mobile keyboard: content scrolls; never keep hidden submit behind keyboard.",
+    "No nested modal: card detail/chat/Cash Flow replace the active overlay.",
+    "G30 receives daily series and transactions from engine; opening never spends action.",
+    "Characters are separate alpha sprites, no narrator switching inside a play sequence."
+  ],
+  "origin": "ExistingapprovedA5spec",
+  "title": "Wybierz manewr",
+  "template": "cards",
+  "surface": "game",
+  "states": [
+    "available",
+    "selected",
+    "unavailable-reason",
+    "played"
+  ],
+  "textMode": "Livecopybindings;previewtextnotfinancialtruth"
+}

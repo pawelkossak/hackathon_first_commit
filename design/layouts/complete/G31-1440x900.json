@@ -1,0 +1,67 @@
+{
+  "screen": "G31",
+  "viewport": {
+    "width": 1440,
+    "height": 900
+  },
+  "safeArea": {
+    "left": 48,
+    "right": 48,
+    "top": 24,
+    "bottom": 36
+  },
+  "font": {
+    "body": 16,
+    "caption": 12,
+    "title": 40,
+    "minAction": 15
+  },
+  "boxes": [
+    {
+      "name": "header",
+      "x": 48,
+      "y": 24,
+      "width": 1344,
+      "height": 44,
+      "interactive": false,
+      "layer": 60,
+      "purpose": ""
+    },
+    {
+      "name": "cashflow-panel",
+      "x": 48,
+      "y": 112,
+      "width": 1344,
+      "height": 716,
+      "interactive": false,
+      "layer": 50,
+      "purpose": "Chart+legend+transactiontable;financialvaluesfromengine"
+    },
+    {
+      "name": "close",
+      "x": 1348,
+      "y": 118,
+      "width": 44,
+      "height": 44,
+      "interactive": true,
+      "layer": 60,
+      "purpose": "Close,restoreopenerfocus"
+    }
+  ],
+  "rules": [
+    "CSSpixelsat1x;addbrowsernotchinsetstooutermargins.",
+    "Scrollcontentwithinpanel;neveroverlapfixedprimarycontrol.",
+    "Engineupdatesstatebeforedecorativemotion;alllabelsandnumberslive.",
+    "Focusonopenerrestoredonclose;keyboardtargetminimum44px."
+  ],
+  "title": "Porównaj trzy manewry",
+  "template": "cashflow",
+  "surface": "game",
+  "states": [
+    "advance",
+    "discount",
+    "factoring",
+    "inspect-only"
+  ],
+  "textMode": "Livecopybindings;previewtextnotfinancialtruth"
+}

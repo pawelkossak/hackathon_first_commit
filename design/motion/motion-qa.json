@@ -1,0 +1,27 @@
+{
+  "animationClips": 20,
+  "decodedFramesChecked": 234,
+  "renderSourcePixelEquality": "all frames passed during export",
+  "animationDurationLoopAlpha": "passed",
+  "staticReducedMotionPosters": 20,
+  "animatedSvg": 5,
+  "svgReducedMotionAndNoScripts": "passed",
+  "transitionBlueprints": 18,
+  "waveFiles": 8,
+  "waveDecodePeaksFormat": "passed",
+  "previewMp4Decode": "passed",
+  "previewSeconds": 20,
+  "individualSpritePairs": 64,
+  "notificationLayouts": 12,
+  "notificationTemplates": 100,
+  "mainCopyEntriesPerVariant": 485,
+  "reviewFixes": "all4review findings and3Mikecorrections applied;board09visuallyreviewed",
+  "lighterFemaleIntroArtBytes": 320958,
+  "narrationAudioFiles": 0,
+  "remaining": [
+    "ElevenLabs recordings andvoicechoices;projectkeynotconfigured."
+  ],
+  "applicationCodeCreated": true,
+  "currentEvidence": "current-contract-qa.json",
+  "currentUpdated": "2026-11-17"
+}

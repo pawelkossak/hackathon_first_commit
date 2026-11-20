@@ -1,0 +1,76 @@
+{
+  "screen": "G26",
+  "viewport": {
+    "width": 1440,
+    "height": 900
+  },
+  "safeArea": {
+    "left": 48,
+    "right": 48,
+    "top": 24,
+    "bottom": 36
+  },
+  "font": {
+    "body": 16,
+    "caption": 12,
+    "title": 40,
+    "minAction": 15
+  },
+  "boxes": [
+    {
+      "name": "header",
+      "x": 48,
+      "y": 24,
+      "width": 1344,
+      "height": 44,
+      "interactive": false,
+      "layer": 40,
+      "purpose": "Wordmark/title/provenance"
+    },
+    {
+      "name": "primary",
+      "x": 1052,
+      "y": 816,
+      "width": 340,
+      "height": 48,
+      "interactive": true,
+      "layer": 60,
+      "purpose": "Explicit primaryaction;neveronanimationend"
+    },
+    {
+      "name": "loading-art",
+      "x": 48,
+      "y": 150,
+      "width": 440,
+      "height": 480,
+      "interactive": false,
+      "layer": 20,
+      "purpose": ""
+    },
+    {
+      "name": "status",
+      "x": 560,
+      "y": 200,
+      "width": 800,
+      "height": 360,
+      "interactive": false,
+      "layer": 50,
+      "purpose": "Truthfulpendingstatus;cachedchoices/skipwhenallowed"
+    }
+  ],
+  "rules": [
+    "CSSpixelsat1x;addbrowsernotchinsetstooutermargins.",
+    "Scrollcontentwithinpanel;neveroverlapfixedprimarycontrol.",
+    "Engineupdatesstatebeforedecorativemotion;alllabelsandnumberslive.",
+    "Focusonopenerrestoredonclose;keyboardtargetminimum44px."
+  ],
+  "title": "Lecimy dalej",
+  "template": "loading",
+  "surface": "game",
+  "states": [
+    "week-confirmed",
+    "travel",
+    "arrived"
+  ],
+  "textMode": "Livecopybindings;previewtextnotfinancialtruth"
+}

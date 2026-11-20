@@ -8,7 +8,7 @@ updated: 2026-11-16
 
 # Build-ready design handoff
 
-D-01 remains in force: design data, original art, SVG specifications and previews only. No application source or runtime was built. Q-06 remains an organiser question; retain generation briefs for hour zero if pre-event assets are disallowed.
+D-01 remains in force: design data, original art, SVG specifications and previews only. No application source or runtime was built. Media are generated at the event from GENERATION-BRIEFS.md and shared through `design/` on `develop`.
 
 | Artefact | Delivery |
 |---|---|

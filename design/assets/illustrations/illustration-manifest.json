@@ -1,0 +1,1250 @@
+{
+  "format": "illustration-atlas/v1",
+  "applicationCode": false,
+  "assets": [
+    {
+      "id": "sky",
+      "category": "background",
+      "png": "sky.png",
+      "webp": "sky.webp",
+      "width": 1672,
+      "height": 941,
+      "grid": {
+        "columns": 1,
+        "rows": 1
+      },
+      "alpha": false,
+      "bytes": {
+        "png": 1765596,
+        "webp": 137798
+      },
+      "sha256": "0453503ff8e07dad230dd44bbc495a293bb5dd9db89d2870bfe49ccbe7305a3b",
+      "source": "exec-6967928b-1a0a-4e35-a04d-f7e98c838094.png"
+    },
+    {
+      "id": "studio-interior",
+      "category": "background",
+      "png": "studio-interior.png",
+      "webp": "studio-interior.webp",
+      "width": 1672,
+      "height": 941,
+      "grid": {
+        "columns": 1,
+        "rows": 1
+      },
+      "alpha": false,
+      "bytes": {
+        "png": 2116805,
+        "webp": 240624
+      },
+      "sha256": "a724d40bd66222212ba525e193b65b1be41dcb09e8fcc809391aae49b44ea025",
+      "source": "exec-2d6dc9f7-4fc1-4994-8ed1-38e11313bcaf.png"
+    },
+    {
+      "id": "campaign-islands",
+      "category": "world",
+      "png": "campaign-islands.png",
+      "webp": "campaign-islands.webp",
+      "width": 1263,
+      "height": 1246,
+      "grid": {
+        "columns": 2,
+        "rows": 2
+      },
+      "alpha": true,
+      "bytes": {
+        "png": 2101185,
+        "webp": 511090
+      },
+      "sha256": "987a1883af70a43b39beba3860fbcb6916a733d79431422f8a6df0afc6872fe6",
+      "source": "exec-7306fe9d-45ec-41a8-90a5-ed833c974a81.png",
+      "alphaStats": {
+        "zeroPixels": 729135,
+        "nearTransparentPixels": 769653,
+        "maxAlpha": 255
+      }
+    },
+    {
+      "id": "week-islands",
+      "category": "world",
+      "png": "week-islands.png",
+      "webp": "week-islands.webp",
+      "width": 1774,
+      "height": 887,
+      "grid": {
+        "columns": 4,
+        "rows": 2
+      },
+      "alpha": true,
+      "bytes": {
+        "png": 2488639,
+        "webp": 654286
+      },
+      "sha256": "d1044318d396e2c7a6ae9b95af89f0769331858ea634147a62dadb669857bc7e",
+      "source": "exec-0b5edb88-98ce-4fbf-8b87-d94afd67cb3e.png",
+      "alphaStats": {
+        "zeroPixels": 519731,
+        "nearTransparentPixels": 661514,
+        "maxAlpha": 255
+      }
+    },
+    {
+      "id": "boss-female",
+      "category": "character",
+      "png": "boss-female.png",
+      "webp": "boss-female.webp",
+      "width": 1774,
+      "height": 887,
+      "grid": {
+        "columns": 4,
+        "rows": 2
+      },
+      "alpha": true,
+      "bytes": {
+        "png": 2086389,
+        "webp": 439480
+      },
+      "sha256": "6718197edc8f738fc4d5baa1d54b4a8322246885ed98eb7b80b609072229d495",
+      "source": "exec-1ac21f22-1d48-4669-9574-4f4277fb3119.png",
+      "alphaStats": {
+        "zeroPixels": 704925,
+        "nearTransparentPixels": 761207,
+        "maxAlpha": 255
+      }
+    },
+    {
+      "id": "boss-male",
+      "category": "character",
+      "png": "boss-male.png",
+      "webp": "boss-male.webp",
+      "width": 1774,
+      "height": 887,
+      "grid": {
+        "columns": 4,
+        "rows": 2
+      },
+      "alpha": true,
+      "bytes": {
+        "png": 2200051,
+        "webp": 535628
+      },
+      "sha256": "a990e953b899b55870404a6dae8ab6feb1b2825428947f2743546fd2fcf2e6d1",
+      "source": "exec-4175c727-7e98-468f-8983-0e5002daa7b6.png",
+      "alphaStats": {
+        "zeroPixels": 336834,
+        "nearTransparentPixels": 824037,
+        "maxAlpha": 255
+      }
+    },
+    {
+      "id": "player-female",
+      "category": "character",
+      "png": "player-female.png",
+      "webp": "player-female.webp",
+      "width": 1263,
+      "height": 1246,
+      "grid": {
+        "columns": 2,
+        "rows": 2
+      },
+      "alpha": true,
+      "bytes": {
+        "png": 1738881,
+        "webp": 336866
+      },
+      "sha256": "72baf37883fd1a7b7f1622a637bb465b83c73c6f42cb3869bc58c7aa87b2ff0f",
+      "source": "exec-8ca73094-42f2-4606-9cfa-4f584cc002a6.png",
+      "alphaStats": {
+        "zeroPixels": 742552,
+        "nearTransparentPixels": 792364,
+        "maxAlpha": 255
+      }
+    },
+    {
+      "id": "player-male",
+      "category": "character",
+      "png": "player-male.png",
+      "webp": "player-male.webp",
+      "width": 1263,
+      "height": 1246,
+      "grid": {
+        "columns": 2,
+        "rows": 2
+      },
+      "alpha": true,
+      "bytes": {
+        "png": 1399964,
+        "webp": 240364
+      },
+      "sha256": "b26768fffeb406350ad52a4699082c84574dc51cf9e3a2959fa8f9189808397e",
+      "source": "exec-a45070db-faf1-454f-bfb8-0de13c186ef8.png",
+      "alphaStats": {
+        "zeroPixels": 919423,
+        "nearTransparentPixels": 961347,
+        "maxAlpha": 255
+      }
+    },
+    {
+      "id": "supporting-characters",
+      "category": "character",
+      "png": "supporting-characters.png",
+      "webp": "supporting-characters.webp",
+      "width": 1983,
+      "height": 793,
+      "grid": {
+        "columns": 5,
+        "rows": 2
+      },
+      "alpha": true,
+      "bytes": {
+        "png": 1908430,
+        "webp": 472174
+      },
+      "sha256": "d8ef81bdaaab81b290a511ff2b0a7da7aaae20e660a64f2270b8196172144004",
+      "source": "exec-c1cf5521-81f8-4450-9d09-080ab8fb1906.png",
+      "alphaStats": {
+        "zeroPixels": 706339,
+        "nearTransparentPixels": 856232,
+        "maxAlpha": 255
+      }
+    },
+    {
+      "id": "card-art",
+      "category": "card",
+      "png": "card-art.png",
+      "webp": "card-art.webp",
+      "width": 1448,
+      "height": 1086,
+      "grid": {
+        "columns": 4,
+        "rows": 3
+      },
+      "alpha": true,
+      "bytes": {
+        "png": 2174920,
+        "webp": 517178
+      },
+      "sha256": "6056a9f9252c91feb30376105bfe70b7579b481917342a5909757e3225d1494e",
+      "source": "exec-a75b876d-680c-4dc6-a596-e4cdbe5b7435.png",
+      "alphaStats": {
+        "zeroPixels": 590501,
+        "nearTransparentPixels": 686766,
+        "maxAlpha": 255
+      }
+    },
+    {
+      "id": "weather-effects",
+      "category": "weather",
+      "png": "weather-effects.png",
+      "webp": "weather-effects.webp",
+      "width": 1536,
+      "height": 1024,
+      "alpha": true,
+      "bytes": {
+        "png": 1915795,
+        "webp": 337870
+      },
+      "sha256": "f5078d04c951180a96bdb0bdd7f7b48832ff60f3860f6848479cbc38b2217d63"
+    },
+    {
+      "id": "sky-desktop",
+      "category": "background-export",
+      "png": "sky-desktop.png",
+      "webp": "sky-desktop.webp",
+      "width": 2560,
+      "height": 1440,
+      "alpha": false,
+      "bytes": {
+        "png": 4935832,
+        "webp": 187502
+      },
+      "sha256": "1c4a3b7f7794de7f3f50ca9571d0bd6a2b9a8fe43c089923260a1369906fc1b9"
+    },
+    {
+      "id": "sky-mobile-landscape",
+      "category": "background-export",
+      "png": "sky-mobile-landscape.png",
+      "webp": "sky-mobile-landscape.webp",
+      "width": 1688,
+      "height": 780,
+      "alpha": false,
+      "bytes": {
+        "png": 2315452,
+        "webp": 104638
+      },
+      "sha256": "7d154cccea4f131be7143260205253bf7dbcad7d808054cfa9d92e90e376b417"
+    },
+    {
+      "id": "studio-desktop",
+      "category": "background-export",
+      "png": "studio-desktop.png",
+      "webp": "studio-desktop.webp",
+      "width": 2560,
+      "height": 1440,
+      "alpha": false,
+      "bytes": {
+        "png": 6447112,
+        "webp": 323966
+      },
+      "sha256": "5110cac861b6b7a50f437c635ece5a46e42d9c5bb89b3165f9ad61ca5cd40725"
+    },
+    {
+      "id": "studio-mobile-landscape",
+      "category": "background-export",
+      "png": "studio-mobile-landscape.png",
+      "webp": "studio-mobile-landscape.webp",
+      "width": 1688,
+      "height": 780,
+      "alpha": false,
+      "bytes": {
+        "png": 2821332,
+        "webp": 184950
+      },
+      "sha256": "328d7623bd7a6b9013fde99aa882be994a934900ac778d807c8028a18424f1f4"
+    }
+  ],
+  "frames": [
+    {
+      "id": "sky",
+      "atlas": "sky",
+      "x": 0,
+      "y": 0,
+      "width": 1672,
+      "height": 941,
+      "anchor": [
+        0.5,
+        0.5
+      ],
+      "padding": "Keep source transparent margins; do not trim independently.",
+      "textBakedIn": false
+    },
+    {
+      "id": "studio-interior",
+      "atlas": "studio-interior",
+      "x": 0,
+      "y": 0,
+      "width": 1672,
+      "height": 941,
+      "anchor": [
+        0.5,
+        0.5
+      ],
+      "padding": "Keep source transparent margins; do not trim independently.",
+      "textBakedIn": false
+    },
+    {
+      "id": "campaign.survive",
+      "atlas": "campaign-islands",
+      "x": 0,
+      "y": 0,
+      "width": 632,
+      "height": 623,
+      "anchor": [
+        0.5,
+        1
+      ],
+      "padding": "Keep source transparent margins; do not trim independently.",
+      "textBakedIn": false
+    },
+    {
+      "id": "campaign.first-hire",
+      "atlas": "campaign-islands",
+      "x": 632,
+      "y": 0,
+      "width": 631,
+      "height": 623,
+      "anchor": [
+        0.5,
+        1
+      ],
+      "padding": "Keep source transparent margins; do not trim independently.",
+      "textBakedIn": false
+    },
+    {
+      "id": "campaign.investment",
+      "atlas": "campaign-islands",
+      "x": 0,
+      "y": 623,
+      "width": 632,
+      "height": 623,
+      "anchor": [
+        0.5,
+        1
+      ],
+      "padding": "Keep source transparent margins; do not trim independently.",
+      "textBakedIn": false
+    },
+    {
+      "id": "campaign.next-generation",
+      "atlas": "campaign-islands",
+      "x": 632,
+      "y": 623,
+      "width": 631,
+      "height": 623,
+      "anchor": [
+        0.5,
+        1
+      ],
+      "padding": "Keep source transparent margins; do not trim independently.",
+      "textBakedIn": false
+    },
+    {
+      "id": "week.1",
+      "atlas": "week-islands",
+      "x": 0,
+      "y": 0,
+      "width": 444,
+      "height": 444,
+      "anchor": [
+        0.5,
+        1
+      ],
+      "padding": "Keep source transparent margins; do not trim independently.",
+      "textBakedIn": false
+    },
+    {
+      "id": "week.2",
+      "atlas": "week-islands",
+      "x": 444,
+      "y": 0,
+      "width": 443,
+      "height": 444,
+      "anchor": [
+        0.5,
+        1
+      ],
+      "padding": "Keep source transparent margins; do not trim independently.",
+      "textBakedIn": false
+    },
+    {
+      "id": "week.3",
+      "atlas": "week-islands",
+      "x": 887,
+      "y": 0,
+      "width": 443,
+      "height": 444,
+      "anchor": [
+        0.5,
+        1
+      ],
+      "padding": "Keep source transparent margins; do not trim independently.",
+      "textBakedIn": false
+    },
+    {
+      "id": "week.4",
+      "atlas": "week-islands",
+      "x": 1330,
+      "y": 0,
+      "width": 444,
+      "height": 444,
+      "anchor": [
+        0.5,
+        1
+      ],
+      "padding": "Keep source transparent margins; do not trim independently.",
+      "textBakedIn": false
+    },
+    {
+      "id": "week.5",
+      "atlas": "week-islands",
+      "x": 0,
+      "y": 444,
+      "width": 444,
+      "height": 443,
+      "anchor": [
+        0.5,
+        1
+      ],
+      "padding": "Keep source transparent margins; do not trim independently.",
+      "textBakedIn": false
+    },
+    {
+      "id": "week.6",
+      "atlas": "week-islands",
+      "x": 444,
+      "y": 444,
+      "width": 443,
+      "height": 443,
+      "anchor": [
+        0.5,
+        1
+      ],
+      "padding": "Keep source transparent margins; do not trim independently.",
+      "textBakedIn": false
+    },
+    {
+      "id": "week.7",
+      "atlas": "week-islands",
+      "x": 887,
+      "y": 444,
+      "width": 443,
+      "height": 443,
+      "anchor": [
+        0.5,
+        1
+      ],
+      "padding": "Keep source transparent margins; do not trim independently.",
+      "textBakedIn": false
+    },
+    {
+      "id": "finish",
+      "atlas": "week-islands",
+      "x": 1330,
+      "y": 444,
+      "width": 444,
+      "height": 443,
+      "anchor": [
+        0.5,
+        1
+      ],
+      "padding": "Keep source transparent margins; do not trim independently.",
+      "textBakedIn": false
+    },
+    {
+      "id": "boss.female.welcoming",
+      "atlas": "boss-female",
+      "x": 0,
+      "y": 0,
+      "width": 444,
+      "height": 444,
+      "anchor": [
+        0.5,
+        1
+      ],
+      "padding": "Keep source transparent margins; do not trim independently.",
+      "textBakedIn": false
+    },
+    {
+      "id": "boss.female.excited",
+      "atlas": "boss-female",
+      "x": 444,
+      "y": 0,
+      "width": 443,
+      "height": 444,
+      "anchor": [
+        0.5,
+        1
+      ],
+      "padding": "Keep source transparent margins; do not trim independently.",
+      "textBakedIn": false
+    },
+    {
+      "id": "boss.female.confident",
+      "atlas": "boss-female",
+      "x": 887,
+      "y": 0,
+      "width": 443,
+      "height": 444,
+      "anchor": [
+        0.5,
+        1
+      ],
+      "padding": "Keep source transparent margins; do not trim independently.",
+      "textBakedIn": false
+    },
+    {
+      "id": "boss.female.suspicious",
+      "atlas": "boss-female",
+      "x": 1330,
+      "y": 0,
+      "width": 444,
+      "height": 444,
+      "anchor": [
+        0.5,
+        1
+      ],
+      "padding": "Keep source transparent margins; do not trim independently.",
+      "textBakedIn": false
+    },
+    {
+      "id": "boss.female.exasperated",
+      "atlas": "boss-female",
+      "x": 0,
+      "y": 444,
+      "width": 444,
+      "height": 443,
+      "anchor": [
+        0.5,
+        1
+      ],
+      "padding": "Keep source transparent margins; do not trim independently.",
+      "textBakedIn": false
+    },
+    {
+      "id": "boss.female.proud",
+      "atlas": "boss-female",
+      "x": 444,
+      "y": 444,
+      "width": 443,
+      "height": 443,
+      "anchor": [
+        0.5,
+        1
+      ],
+      "padding": "Keep source transparent margins; do not trim independently.",
+      "textBakedIn": false
+    },
+    {
+      "id": "boss.female.relaxed",
+      "atlas": "boss-female",
+      "x": 887,
+      "y": 444,
+      "width": 443,
+      "height": 443,
+      "anchor": [
+        0.5,
+        1
+      ],
+      "padding": "Keep source transparent margins; do not trim independently.",
+      "textBakedIn": false
+    },
+    {
+      "id": "boss.male.welcoming",
+      "atlas": "boss-male",
+      "x": 0,
+      "y": 0,
+      "width": 444,
+      "height": 444,
+      "anchor": [
+        0.5,
+        1
+      ],
+      "padding": "Keep source transparent margins; do not trim independently.",
+      "textBakedIn": false
+    },
+    {
+      "id": "boss.male.excited",
+      "atlas": "boss-male",
+      "x": 444,
+      "y": 0,
+      "width": 443,
+      "height": 444,
+      "anchor": [
+        0.5,
+        1
+      ],
+      "padding": "Keep source transparent margins; do not trim independently.",
+      "textBakedIn": false
+    },
+    {
+      "id": "boss.male.confident",
+      "atlas": "boss-male",
+      "x": 887,
+      "y": 0,
+      "width": 443,
+      "height": 444,
+      "anchor": [
+        0.5,
+        1
+      ],
+      "padding": "Keep source transparent margins; do not trim independently.",
+      "textBakedIn": false
+    },
+    {
+      "id": "boss.male.suspicious",
+      "atlas": "boss-male",
+      "x": 1330,
+      "y": 0,
+      "width": 444,
+      "height": 444,
+      "anchor": [
+        0.5,
+        1
+      ],
+      "padding": "Keep source transparent margins; do not trim independently.",
+      "textBakedIn": false
+    },
+    {
+      "id": "boss.male.exasperated",
+      "atlas": "boss-male",
+      "x": 0,
+      "y": 444,
+      "width": 444,
+      "height": 443,
+      "anchor": [
+        0.5,
+        1
+      ],
+      "padding": "Keep source transparent margins; do not trim independently.",
+      "textBakedIn": false
+    },
+    {
+      "id": "boss.male.proud",
+      "atlas": "boss-male",
+      "x": 444,
+      "y": 444,
+      "width": 443,
+      "height": 443,
+      "anchor": [
+        0.5,
+        1
+      ],
+      "padding": "Keep source transparent margins; do not trim independently.",
+      "textBakedIn": false
+    },
+    {
+      "id": "boss.male.relaxed",
+      "atlas": "boss-male",
+      "x": 887,
+      "y": 444,
+      "width": 443,
+      "height": 443,
+      "anchor": [
+        0.5,
+        1
+      ],
+      "padding": "Keep source transparent margins; do not trim independently.",
+      "textBakedIn": false
+    },
+    {
+      "id": "player.female.neutral",
+      "atlas": "player-female",
+      "x": 0,
+      "y": 0,
+      "width": 632,
+      "height": 623,
+      "anchor": [
+        0.5,
+        1
+      ],
+      "padding": "Keep source transparent margins; do not trim independently.",
+      "textBakedIn": false
+    },
+    {
+      "id": "player.female.happy",
+      "atlas": "player-female",
+      "x": 632,
+      "y": 0,
+      "width": 631,
+      "height": 623,
+      "anchor": [
+        0.5,
+        1
+      ],
+      "padding": "Keep source transparent margins; do not trim independently.",
+      "textBakedIn": false
+    },
+    {
+      "id": "player.female.worried",
+      "atlas": "player-female",
+      "x": 0,
+      "y": 623,
+      "width": 632,
+      "height": 623,
+      "anchor": [
+        0.5,
+        1
+      ],
+      "padding": "Keep source transparent margins; do not trim independently.",
+      "textBakedIn": false
+    },
+    {
+      "id": "player.female.plane",
+      "atlas": "player-female",
+      "x": 632,
+      "y": 623,
+      "width": 631,
+      "height": 623,
+      "anchor": [
+        0.5,
+        1
+      ],
+      "padding": "Keep source transparent margins; do not trim independently.",
+      "textBakedIn": false
+    },
+    {
+      "id": "player.male.neutral",
+      "atlas": "player-male",
+      "x": 0,
+      "y": 0,
+      "width": 632,
+      "height": 623,
+      "anchor": [
+        0.5,
+        1
+      ],
+      "padding": "Keep source transparent margins; do not trim independently.",
+      "textBakedIn": false
+    },
+    {
+      "id": "player.male.happy",
+      "atlas": "player-male",
+      "x": 632,
+      "y": 0,
+      "width": 631,
+      "height": 623,
+      "anchor": [
+        0.5,
+        1
+      ],
+      "padding": "Keep source transparent margins; do not trim independently.",
+      "textBakedIn": false
+    },
+    {
+      "id": "player.male.worried",
+      "atlas": "player-male",
+      "x": 0,
+      "y": 623,
+      "width": 632,
+      "height": 623,
+      "anchor": [
+        0.5,
+        1
+      ],
+      "padding": "Keep source transparent margins; do not trim independently.",
+      "textBakedIn": false
+    },
+    {
+      "id": "player.male.plane",
+      "atlas": "player-male",
+      "x": 632,
+      "y": 623,
+      "width": 631,
+      "height": 623,
+      "anchor": [
+        0.5,
+        1
+      ],
+      "padding": "Keep source transparent margins; do not trim independently.",
+      "textBakedIn": false
+    },
+    {
+      "id": "client.neutral",
+      "atlas": "supporting-characters",
+      "x": 0,
+      "y": 0,
+      "width": 397,
+      "height": 396,
+      "anchor": [
+        0.5,
+        1
+      ],
+      "padding": "Keep source transparent margins; do not trim independently.",
+      "textBakedIn": false
+    },
+    {
+      "id": "client.negotiating",
+      "atlas": "supporting-characters",
+      "x": 397,
+      "y": 0,
+      "width": 396,
+      "height": 396,
+      "anchor": [
+        0.5,
+        1
+      ],
+      "padding": "Keep source transparent margins; do not trim independently.",
+      "textBakedIn": false
+    },
+    {
+      "id": "client.happy",
+      "atlas": "supporting-characters",
+      "x": 793,
+      "y": 0,
+      "width": 397,
+      "height": 396,
+      "anchor": [
+        0.5,
+        1
+      ],
+      "padding": "Keep source transparent margins; do not trim independently.",
+      "textBakedIn": false
+    },
+    {
+      "id": "bank.neutral",
+      "atlas": "supporting-characters",
+      "x": 1190,
+      "y": 0,
+      "width": 396,
+      "height": 396,
+      "anchor": [
+        0.5,
+        1
+      ],
+      "padding": "Keep source transparent margins; do not trim independently.",
+      "textBakedIn": false
+    },
+    {
+      "id": "bank.explaining",
+      "atlas": "supporting-characters",
+      "x": 1586,
+      "y": 0,
+      "width": 397,
+      "height": 396,
+      "anchor": [
+        0.5,
+        1
+      ],
+      "padding": "Keep source transparent margins; do not trim independently.",
+      "textBakedIn": false
+    },
+    {
+      "id": "cfo.neutral",
+      "atlas": "supporting-characters",
+      "x": 0,
+      "y": 396,
+      "width": 397,
+      "height": 397,
+      "anchor": [
+        0.5,
+        1
+      ],
+      "padding": "Keep source transparent margins; do not trim independently.",
+      "textBakedIn": false
+    },
+    {
+      "id": "cfo.thinking",
+      "atlas": "supporting-characters",
+      "x": 397,
+      "y": 396,
+      "width": 396,
+      "height": 397,
+      "anchor": [
+        0.5,
+        1
+      ],
+      "padding": "Keep source transparent margins; do not trim independently.",
+      "textBakedIn": false
+    },
+    {
+      "id": "cfo.happy",
+      "atlas": "supporting-characters",
+      "x": 793,
+      "y": 396,
+      "width": 397,
+      "height": 397,
+      "anchor": [
+        0.5,
+        1
+      ],
+      "padding": "Keep source transparent margins; do not trim independently.",
+      "textBakedIn": false
+    },
+    {
+      "id": "cat.sleeping",
+      "atlas": "supporting-characters",
+      "x": 1190,
+      "y": 396,
+      "width": 396,
+      "height": 397,
+      "anchor": [
+        0.5,
+        1
+      ],
+      "padding": "Keep source transparent margins; do not trim independently.",
+      "textBakedIn": false
+    },
+    {
+      "id": "cat.alert",
+      "atlas": "supporting-characters",
+      "x": 1586,
+      "y": 396,
+      "width": 397,
+      "height": 397,
+      "anchor": [
+        0.5,
+        1
+      ],
+      "padding": "Keep source transparent margins; do not trim independently.",
+      "textBakedIn": false
+    },
+    {
+      "id": "action.advance",
+      "atlas": "card-art",
+      "x": 0,
+      "y": 0,
+      "width": 362,
+      "height": 362,
+      "anchor": [
+        0.5,
+        0.5
+      ],
+      "padding": "Keep source transparent margins; do not trim independently.",
+      "textBakedIn": false
+    },
+    {
+      "id": "action.discount",
+      "atlas": "card-art",
+      "x": 362,
+      "y": 0,
+      "width": 362,
+      "height": 362,
+      "anchor": [
+        0.5,
+        0.5
+      ],
+      "padding": "Keep source transparent margins; do not trim independently.",
+      "textBakedIn": false
+    },
+    {
+      "id": "action.postpone",
+      "atlas": "card-art",
+      "x": 724,
+      "y": 0,
+      "width": 362,
+      "height": 362,
+      "anchor": [
+        0.5,
+        0.5
+      ],
+      "padding": "Keep source transparent margins; do not trim independently.",
+      "textBakedIn": false
+    },
+    {
+      "id": "action.overdraft",
+      "atlas": "card-art",
+      "x": 1086,
+      "y": 0,
+      "width": 362,
+      "height": 362,
+      "anchor": [
+        0.5,
+        0.5
+      ],
+      "padding": "Keep source transparent margins; do not trim independently.",
+      "textBakedIn": false
+    },
+    {
+      "id": "action.nonbank-loan",
+      "atlas": "card-art",
+      "x": 0,
+      "y": 362,
+      "width": 362,
+      "height": 362,
+      "anchor": [
+        0.5,
+        0.5
+      ],
+      "padding": "Keep source transparent margins; do not trim independently.",
+      "textBakedIn": false
+    },
+    {
+      "id": "action.factoring",
+      "atlas": "card-art",
+      "x": 362,
+      "y": 362,
+      "width": 362,
+      "height": 362,
+      "anchor": [
+        0.5,
+        0.5
+      ],
+      "padding": "Keep source transparent margins; do not trim independently.",
+      "textBakedIn": false
+    },
+    {
+      "id": "event.account-change",
+      "atlas": "card-art",
+      "x": 724,
+      "y": 362,
+      "width": 362,
+      "height": 362,
+      "anchor": [
+        0.5,
+        0.5
+      ],
+      "padding": "Keep source transparent margins; do not trim independently.",
+      "textBakedIn": false
+    },
+    {
+      "id": "event.new-order",
+      "atlas": "card-art",
+      "x": 1086,
+      "y": 362,
+      "width": 362,
+      "height": 362,
+      "anchor": [
+        0.5,
+        0.5
+      ],
+      "padding": "Keep source transparent margins; do not trim independently.",
+      "textBakedIn": false
+    },
+    {
+      "id": "event.ai-tool",
+      "atlas": "card-art",
+      "x": 0,
+      "y": 724,
+      "width": 362,
+      "height": 362,
+      "anchor": [
+        0.5,
+        0.5
+      ],
+      "padding": "Keep source transparent margins; do not trim independently.",
+      "textBakedIn": false
+    },
+    {
+      "id": "event.late-customer",
+      "atlas": "card-art",
+      "x": 362,
+      "y": 724,
+      "width": 362,
+      "height": 362,
+      "anchor": [
+        0.5,
+        0.5
+      ],
+      "padding": "Keep source transparent margins; do not trim independently.",
+      "textBakedIn": false
+    },
+    {
+      "id": "event.obligation",
+      "atlas": "card-art",
+      "x": 724,
+      "y": 724,
+      "width": 362,
+      "height": 362,
+      "anchor": [
+        0.5,
+        0.5
+      ],
+      "padding": "Keep source transparent margins; do not trim independently.",
+      "textBakedIn": false
+    },
+    {
+      "id": "crash",
+      "atlas": "card-art",
+      "x": 1086,
+      "y": 724,
+      "width": 362,
+      "height": 362,
+      "anchor": [
+        0.5,
+        0.5
+      ],
+      "padding": "Keep source transparent margins; do not trim independently.",
+      "textBakedIn": false
+    },
+    {
+      "id": "weather.forming",
+      "atlas": "weather-effects",
+      "x": 0,
+      "y": 0,
+      "width": 512,
+      "height": 512,
+      "anchor": [
+        0.5,
+        0.5
+      ],
+      "textBakedIn": false
+    },
+    {
+      "id": "weather.active",
+      "atlas": "weather-effects",
+      "x": 512,
+      "y": 0,
+      "width": 512,
+      "height": 512,
+      "anchor": [
+        0.5,
+        0.5
+      ],
+      "textBakedIn": false
+    },
+    {
+      "id": "weather.dissolving",
+      "atlas": "weather-effects",
+      "x": 1024,
+      "y": 0,
+      "width": 512,
+      "height": 512,
+      "anchor": [
+        0.5,
+        0.5
+      ],
+      "textBakedIn": false
+    },
+    {
+      "id": "weather.sun",
+      "atlas": "weather-effects",
+      "x": 0,
+      "y": 512,
+      "width": 512,
+      "height": 512,
+      "anchor": [
+        0.5,
+        0.5
+      ],
+      "textBakedIn": false
+    },
+    {
+      "id": "weather.fog",
+      "atlas": "weather-effects",
+      "x": 512,
+      "y": 512,
+      "width": 512,
+      "height": 512,
+      "anchor": [
+        0.5,
+        0.5
+      ],
+      "textBakedIn": false
+    },
+    {
+      "id": "weather.stars",
+      "atlas": "weather-effects",
+      "x": 1024,
+      "y": 512,
+      "width": 512,
+      "height": 512,
+      "anchor": [
+        0.5,
+        0.5
+      ],
+      "textBakedIn": false
+    }
+  ],
+  "backgroundViews": [
+    {
+      "id": "sky.desktop",
+      "atlas": "sky",
+      "target": [
+        2560,
+        1440
+      ],
+      "fit": "cover",
+      "position": [
+        0.5,
+        0.5
+      ],
+      "note": "Native source1672x941; upscale required for target. Does not add detail."
+    },
+    {
+      "id": "sky.mobile-landscape",
+      "atlas": "sky",
+      "target": [
+        1688,
+        780
+      ],
+      "fit": "cover",
+      "position": [
+        0.5,
+        0.5
+      ],
+      "note": "Cover crop specified at layout time; preserve source separately."
+    },
+    {
+      "id": "studio.desktop",
+      "atlas": "studio-interior",
+      "target": [
+        2560,
+        1440
+      ],
+      "fit": "cover",
+      "position": [
+        0.5,
+        0.5
+      ]
+    }
+  ],
+  "integrationRules": [
+    "Read frames as atlas regions, not full-sheet images. Do not render labels from concept boards.",
+    "All dates, flags, week numbers, money and card labels are live overlay copy.",
+    "Boss selected gender persists independently from player avatar.",
+    "Warm source rasters are provided at native resolution; target output sizes are explicitly separate.",
+    "WebP conversion is format export only; PNG retains generator source pixels.",
+    "Artwork is generated original design material; Q-06 event eligibility is not yet confirmed.",
+    "Preload only current required regions/atlases, not whole source archive."
+  ]
+}

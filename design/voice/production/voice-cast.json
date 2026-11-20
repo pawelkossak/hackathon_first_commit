@@ -1,0 +1,93 @@
+{
+  "format": "voice-cast/v1",
+  "updated": "2026-11-17",
+  "language": "pl-PL",
+  "runtimePolicy": "Pre-rendered local audio only; no live TTS required.",
+  "cast": [
+    {
+      "character": "narrator-female",
+      "name": "Ania",
+      "provider": "ElevenLabs",
+      "voiceId": "XLf9vFrIQPgwhuq1DKHi",
+      "libraryName": "Pilot Płynności — Ania",
+      "source": "Original Voice Design, selected Voice 1",
+      "approval": "Mike: Ania super!!!, 17 November 2026",
+      "language": "Polish",
+      "characterDirection": "Warm, bright, cheeky adventure-game studio owner in her early thirties. Smiling confidence, playful irony, dry comic timing, clear emotional contrasts.",
+      "status": "85 clips delivered; standard voice-on demo verified on desktop and mobile; both player variants validated against exact audio paths",
+      "approvedTake": "Generation 1",
+      "masterFile": "ania-generation-1-master.mp3",
+      "model": "eleven_v4",
+      "settings": {
+        "stability": 0.5,
+        "similarity": 0.75
+      },
+      "masterSha256": "13c879561c913a1501af03f2ccedd6b9eaeb90d8f60b97e243d763cde4fa5139",
+      "supplementMasterFile": "ania-supplement-generation-1-master.mp3",
+      "totalClips": 85,
+      "gameClips": 79,
+      "trailerClips": 6
+    },
+    {
+      "character": "narrator-male",
+      "name": "Szef",
+      "provider": "ElevenLabs",
+      "voiceId": "u3Dnxmjtuw3QrXOthMi5",
+      "libraryName": "Pilot Płynności — Szef",
+      "source": "Original Voice Design, selected Voice 1",
+      "approval": "Mike approved both voices and required both in trailer; D-16, 17 November2026",
+      "language": "Polish",
+      "status": "85 clips exported; transcript and PCM QA passed; runtime integration verification pending",
+      "approvedTake": "Generation 1",
+      "masterFile": "szef-generation-1-master.mp3",
+      "supplementMasterFile": "szef-supplement-generation-1-master.mp3",
+      "model": "eleven_v4",
+      "settings": {
+        "stability": 0.5,
+        "similarity": 0.75
+      },
+      "totalClips": 85,
+      "gameClips": 79,
+      "trailerClips": 6
+    }
+  ],
+  "pendingCharacters": [],
+  "initialAudition": "auditions/beata-initial-audition.mp3 is a preliminary stock-voice test, not the approved designed Ania voice.",
+  "additionalCharacters": [
+    {
+      "character": "client-a",
+      "voiceName": "Rafał, most natural voice.",
+      "clips": 6,
+      "manifest": "../characters/manifest.json",
+      "status": "recorded, segmented and decoded; transcript source and long-pause count verified; no human listening claim"
+    },
+    {
+      "character": "bank-advisor",
+      "voiceName": "Adam A",
+      "clips": 4,
+      "manifest": "../characters/manifest.json",
+      "status": "recorded, segmented and decoded; transcript source and long-pause count verified; no human listening claim"
+    },
+    {
+      "character": "ai-cfo",
+      "voiceName": "Finn",
+      "clips": 4,
+      "manifest": "../characters/manifest.json",
+      "status": "recorded, segmented and decoded; transcript source and long-pause count verified; no human listening claim"
+    },
+    {
+      "character": "player-male",
+      "voiceName": "Kamil - Expressive,Joyful",
+      "clips": 4,
+      "manifest": "../characters/manifest.json",
+      "status": "recorded, segmented and decoded; transcript source and long-pause count verified; no human listening claim"
+    },
+    {
+      "character": "player-female",
+      "voiceName": "Natalia - Nice & Friendly",
+      "clips": 4,
+      "manifest": "../characters/manifest.json",
+      "status": "recorded, segmented and decoded; transcript source and long-pause count verified; no human listening claim"
+    }
+  ]
+}
