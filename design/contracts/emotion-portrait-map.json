@@ -1,0 +1,102 @@
+{
+  "format": "emotion-portrait-map/v1",
+  "narrator": {
+    "welcoming": {
+      "female": "sprite.boss.female.welcoming",
+      "male": "sprite.boss.male.welcoming"
+    },
+    "excited": {
+      "female": "sprite.boss.female.excited",
+      "male": "sprite.boss.male.excited"
+    },
+    "confident": {
+      "female": "sprite.boss.female.confident",
+      "male": "sprite.boss.male.confident"
+    },
+    "suspicious": {
+      "female": "sprite.boss.female.suspicious",
+      "male": "sprite.boss.male.suspicious"
+    },
+    "exasperated": {
+      "female": "sprite.boss.female.exasperated",
+      "male": "sprite.boss.male.exasperated"
+    },
+    "proud": {
+      "female": "sprite.boss.female.proud",
+      "male": "sprite.boss.male.proud"
+    },
+    "relaxed": {
+      "female": "sprite.boss.female.relaxed",
+      "male": "sprite.boss.male.relaxed"
+    },
+    "curious": {
+      "female": "sprite.boss.female.suspicious",
+      "male": "sprite.boss.male.suspicious"
+    },
+    "reassuring": {
+      "female": "sprite.boss.female.welcoming",
+      "male": "sprite.boss.male.welcoming"
+    },
+    "supportive": {
+      "female": "sprite.boss.female.welcoming",
+      "male": "sprite.boss.male.welcoming"
+    },
+    "neutral": {
+      "female": "sprite.boss.female.confident",
+      "male": "sprite.boss.male.confident"
+    },
+    "delighted": {
+      "female": "sprite.boss.female.excited",
+      "male": "sprite.boss.male.excited"
+    }
+  },
+  "client-a": {
+    "neutral": "sprite.client.neutral",
+    "negotiating": "sprite.client.negotiating",
+    "happy": "sprite.client.happy"
+  },
+  "bank-advisor": {
+    "neutral": "sprite.bank.neutral",
+    "explaining": "sprite.bank.explaining"
+  },
+  "ai-cfo": {
+    "neutral": "sprite.cfo.neutral",
+    "thinking": "sprite.cfo.thinking",
+    "happy": "sprite.cfo.happy"
+  },
+  "player": {
+    "neutral": {
+      "female": "sprite.player.female.neutral",
+      "male": "sprite.player.male.neutral"
+    },
+    "happy": {
+      "female": "sprite.player.female.happy",
+      "male": "sprite.player.male.happy"
+    },
+    "worried": {
+      "female": "sprite.player.female.worried",
+      "male": "sprite.player.male.worried"
+    },
+    "plane": {
+      "female": "sprite.player.female.plane",
+      "male": "sprite.player.male.plane"
+    }
+  },
+  "cat": {
+    "sleeping": "sprite.cat.sleeping",
+    "alert": "sprite.cat.alert"
+  },
+  "guard": "Narrator andplayer genders selectedindependently;no substituteactororNN/randomemotion.",
+  "voiceEmotionsVerified": [
+    "confident",
+    "curious",
+    "exasperated",
+    "excited",
+    "neutral",
+    "proud",
+    "reassuring",
+    "relaxed",
+    "suspicious",
+    "welcoming"
+  ]
+}

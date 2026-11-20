@@ -1,0 +1,78 @@
+{
+  "screen": "G03",
+  "viewport": {
+    "width": 844,
+    "height": 390
+  },
+  "safeArea": {
+    "left": 24,
+    "right": 24,
+    "top": 12,
+    "bottom": 12
+  },
+  "font": {
+    "body": 16,
+    "caption": 12,
+    "title": 24,
+    "minAction": 15
+  },
+  "boxes": [
+    {
+      "name": "header",
+      "x": 24,
+      "y": 12,
+      "width": 796,
+      "height": 44,
+      "interactive": false,
+      "layer": 40,
+      "purpose": "Wordmark/title/provenance"
+    },
+    {
+      "name": "primary",
+      "x": 574,
+      "y": 330,
+      "width": 246,
+      "height": 48,
+      "interactive": true,
+      "layer": 60,
+      "purpose": "Explicit primaryaction;neveronanimationend"
+    },
+    {
+      "name": "form",
+      "x": 240,
+      "y": 68,
+      "width": 580,
+      "height": 246,
+      "interactive": false,
+      "layer": 50,
+      "purpose": "Scrollable accountfields;keep44pxcontrols",
+      "scroll": "vertical"
+    },
+    {
+      "name": "illustration",
+      "x": 24,
+      "y": 112,
+      "width": 190,
+      "height": 210,
+      "interactive": false,
+      "layer": 10,
+      "purpose": "Studio/backgroundcrop"
+    }
+  ],
+  "rules": [
+    "CSSpixelsat1x;addbrowsernotchinsetstooutermargins.",
+    "Scrollcontentwithinpanel;neveroverlapfixedprimarycontrol.",
+    "Engineupdatesstatebeforedecorativemotion;alllabelsandnumberslive.",
+    "Focusonopenerrestoredonclose;keyboardtargetminimum44px."
+  ],
+  "title": "Odzyskaj dostęp",
+  "template": "account",
+  "surface": "game",
+  "states": [
+    "idle",
+    "busy",
+    "neutral-sent",
+    "send-failed"
+  ],
+  "textMode": "Livecopybindings;previewtextnotfinancialtruth"
+}

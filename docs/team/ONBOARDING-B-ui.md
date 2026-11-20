@@ -19,6 +19,7 @@ Budujesz to, co widać: shell aplikacji, mapę kampanii, trasę wysp, karty, wyd
 - **Nie czekasz na silnik.** `engine/index.ts` od pierwszych godzin zwraca dane testowe. Wywołuj tylko funkcje z niego, a kwoty bierz zawsze z wyniku silnika, nigdy nie wpisuj ich na sztywno.
 - **Ekrany narracji robi osoba C** w `components/narrative/` (intro, dialog, negocjacja, odtwarzacz głosu, ustawienia). Ty je tylko wstawiasz na swoje strony.
 - Każdy obrazek idzie przez rejestr `lib/ui/assets.ts`. Gdy pliku nie ma, rejestr zwraca placeholder o właściwym rozmiarze, więc podmiana grafik niczego nie psuje.
+- **Media są tylko w `design/` na `develop`**, osobnej gałęzi na assety nie ma. Swoje grafiki commitujesz osobno (`feat: G-xx …`) i od razu robisz PR do `develop`; koordynator scala je w pierwszej kolejności. Głos i dźwięki osoby C (`design/voice/`, `design/audio/`) dostajesz przez `git pull origin develop` i ich nie edytujesz.
 - Układ ekranów bierzesz z opisu w `GAME-EXPERIENCE-AND-NARRATION.md` §6 i §17 (1440×900). Sprawdza to workflow **`/browser-check`**.
 - Na koniec zadania: **`/handoff`**, potem `git push -u origin lane/ui` i PR do `develop`.
 - Potrzebujesz nowej paczki npm albo zmiany konfiguracji? Poproś koordynatora (A).

@@ -1,0 +1,580 @@
+{
+  "icons": [
+    {
+      "id": "icon.close",
+      "path": "ui-kit/icons/close.svg",
+      "width": 24,
+      "height": 24,
+      "bytes": 235,
+      "category": "ui-icon",
+      "loadPolicy": "component-inline",
+      "firstLoad": false,
+      "rules": [
+        "Decorative glyph;visible/accessible button label fromcopy.",
+        "44pxminimumhitarea belongs to button,not24pximage."
+      ]
+    },
+    {
+      "id": "icon.back",
+      "path": "ui-kit/icons/back.svg",
+      "width": 24,
+      "height": 24,
+      "bytes": 231,
+      "category": "ui-icon",
+      "loadPolicy": "component-inline",
+      "firstLoad": false,
+      "rules": [
+        "Decorative glyph;visible/accessible button label fromcopy.",
+        "44pxminimumhitarea belongs to button,not24pximage."
+      ]
+    },
+    {
+      "id": "icon.next",
+      "path": "ui-kit/icons/next.svg",
+      "width": 24,
+      "height": 24,
+      "bytes": 230,
+      "category": "ui-icon",
+      "loadPolicy": "component-inline",
+      "firstLoad": false,
+      "rules": [
+        "Decorative glyph;visible/accessible button label fromcopy.",
+        "44pxminimumhitarea belongs to button,not24pximage."
+      ]
+    },
+    {
+      "id": "icon.check",
+      "path": "ui-kit/icons/check.svg",
+      "width": 24,
+      "height": 24,
+      "bytes": 230,
+      "category": "ui-icon",
+      "loadPolicy": "component-inline",
+      "firstLoad": false,
+      "rules": [
+        "Decorative glyph;visible/accessible button label fromcopy.",
+        "44pxminimumhitarea belongs to button,not24pximage."
+      ]
+    },
+    {
+      "id": "icon.warning",
+      "path": "ui-kit/icons/warning.svg",
+      "width": 24,
+      "height": 24,
+      "bytes": 248,
+      "category": "ui-icon",
+      "loadPolicy": "component-inline",
+      "firstLoad": false,
+      "rules": [
+        "Decorative glyph;visible/accessible button label fromcopy.",
+        "44pxminimumhitarea belongs to button,not24pximage."
+      ]
+    },
+    {
+      "id": "icon.info",
+      "path": "ui-kit/icons/info.svg",
+      "width": 24,
+      "height": 24,
+      "bytes": 233,
+      "category": "ui-icon",
+      "loadPolicy": "component-inline",
+      "firstLoad": false,
+      "rules": [
+        "Decorative glyph;visible/accessible button label fromcopy.",
+        "44pxminimumhitarea belongs to button,not24pximage."
+      ]
+    },
+    {
+      "id": "icon.pause",
+      "path": "ui-kit/icons/pause.svg",
+      "width": 24,
+      "height": 24,
+      "bytes": 230,
+      "category": "ui-icon",
+      "loadPolicy": "component-inline",
+      "firstLoad": false,
+      "rules": [
+        "Decorative glyph;visible/accessible button label fromcopy.",
+        "44pxminimumhitarea belongs to button,not24pximage."
+      ]
+    },
+    {
+      "id": "icon.play",
+      "path": "ui-kit/icons/play.svg",
+      "width": 24,
+      "height": 24,
+      "bytes": 231,
+      "category": "ui-icon",
+      "loadPolicy": "component-inline",
+      "firstLoad": false,
+      "rules": [
+        "Decorative glyph;visible/accessible button label fromcopy.",
+        "44pxminimumhitarea belongs to button,not24pximage."
+      ]
+    },
+    {
+      "id": "icon.replay",
+      "path": "ui-kit/icons/replay.svg",
+      "width": 24,
+      "height": 24,
+      "bytes": 246,
+      "category": "ui-icon",
+      "loadPolicy": "component-inline",
+      "firstLoad": false,
+      "rules": [
+        "Decorative glyph;visible/accessible button label fromcopy.",
+        "44pxminimumhitarea belongs to button,not24pximage."
+      ]
+    },
+    {
+      "id": "icon.stop",
+      "path": "ui-kit/icons/stop.svg",
+      "width": 24,
+      "height": 24,
+      "bytes": 228,
+      "category": "ui-icon",
+      "loadPolicy": "component-inline",
+      "firstLoad": false,
+      "rules": [
+        "Decorative glyph;visible/accessible button label fromcopy.",
+        "44pxminimumhitarea belongs to button,not24pximage."
+      ]
+    },
+    {
+      "id": "icon.sound",
+      "path": "ui-kit/icons/sound.svg",
+      "width": 24,
+      "height": 24,
+      "bytes": 254,
+      "category": "ui-icon",
+      "loadPolicy": "component-inline",
+      "firstLoad": false,
+      "rules": [
+        "Decorative glyph;visible/accessible button label fromcopy.",
+        "44pxminimumhitarea belongs to button,not24pximage."
+      ]
+    },
+    {
+      "id": "icon.mute",
+      "path": "ui-kit/icons/mute.svg",
+      "width": 24,
+      "height": 24,
+      "bytes": 259,
+      "category": "ui-icon",
+      "loadPolicy": "component-inline",
+      "firstLoad": false,
+      "rules": [
+        "Decorative glyph;visible/accessible button label fromcopy.",
+        "44pxminimumhitarea belongs to button,not24pximage."
+      ]
+    },
+    {
+      "id": "icon.captions",
+      "path": "ui-kit/icons/captions.svg",
+      "width": 24,
+      "height": 24,
+      "bytes": 257,
+      "category": "ui-icon",
+      "loadPolicy": "component-inline",
+      "firstLoad": false,
+      "rules": [
+        "Decorative glyph;visible/accessible button label fromcopy.",
+        "44pxminimumhitarea belongs to button,not24pximage."
+      ]
+    },
+    {
+      "id": "icon.reduced-motion",
+      "path": "ui-kit/icons/reduced-motion.svg",
+      "width": 24,
+      "height": 24,
+      "bytes": 254,
+      "category": "ui-icon",
+      "loadPolicy": "component-inline",
+      "firstLoad": false,
+      "rules": [
+        "Decorative glyph;visible/accessible button label fromcopy.",
+        "44pxminimumhitarea belongs to button,not24pximage."
+      ]
+    },
+    {
+      "id": "icon.settings",
+      "path": "ui-kit/icons/settings.svg",
+      "width": 24,
+      "height": 24,
+      "bytes": 302,
+      "category": "ui-icon",
+      "loadPolicy": "component-inline",
+      "firstLoad": false,
+      "rules": [
+        "Decorative glyph;visible/accessible button label fromcopy.",
+        "44pxminimumhitarea belongs to button,not24pximage."
+      ]
+    },
+    {
+      "id": "icon.mail",
+      "path": "ui-kit/icons/mail.svg",
+      "width": 24,
+      "height": 24,
+      "bytes": 243,
+      "category": "ui-icon",
+      "loadPolicy": "component-inline",
+      "firstLoad": false,
+      "rules": [
+        "Decorative glyph;visible/accessible button label fromcopy.",
+        "44pxminimumhitarea belongs to button,not24pximage."
+      ]
+    },
+    {
+      "id": "icon.bell",
+      "path": "ui-kit/icons/bell.svg",
+      "width": 24,
+      "height": 24,
+      "bytes": 260,
+      "category": "ui-icon",
+      "loadPolicy": "component-inline",
+      "firstLoad": false,
+      "rules": [
+        "Decorative glyph;visible/accessible button label fromcopy.",
+        "44pxminimumhitarea belongs to button,not24pximage."
+      ]
+    },
+    {
+      "id": "icon.calendar",
+      "path": "ui-kit/icons/calendar.svg",
+      "width": 24,
+      "height": 24,
+      "bytes": 249,
+      "category": "ui-icon",
+      "loadPolicy": "component-inline",
+      "firstLoad": false,
+      "rules": [
+        "Decorative glyph;visible/accessible button label fromcopy.",
+        "44pxminimumhitarea belongs to button,not24pximage."
+      ]
+    },
+    {
+      "id": "icon.clock",
+      "path": "ui-kit/icons/clock.svg",
+      "width": 24,
+      "height": 24,
+      "bytes": 265,
+      "category": "ui-icon",
+      "loadPolicy": "component-inline",
+      "firstLoad": false,
+      "rules": [
+        "Decorative glyph;visible/accessible button label fromcopy.",
+        "44pxminimumhitarea belongs to button,not24pximage."
+      ]
+    },
+    {
+      "id": "icon.wallet",
+      "path": "ui-kit/icons/wallet.svg",
+      "width": 24,
+      "height": 24,
+      "bytes": 268,
+      "category": "ui-icon",
+      "loadPolicy": "component-inline",
+      "firstLoad": false,
+      "rules": [
+        "Decorative glyph;visible/accessible button label fromcopy.",
+        "44pxminimumhitarea belongs to button,not24pximage."
+      ]
+    },
+    {
+      "id": "icon.fuel",
+      "path": "ui-kit/icons/fuel.svg",
+      "width": 24,
+      "height": 24,
+      "bytes": 272,
+      "category": "ui-icon",
+      "loadPolicy": "component-inline",
+      "firstLoad": false,
+      "rules": [
+        "Decorative glyph;visible/accessible button label fromcopy.",
+        "44pxminimumhitarea belongs to button,not24pximage."
+      ]
+    },
+    {
+      "id": "icon.heart",
+      "path": "ui-kit/icons/heart.svg",
+      "width": 24,
+      "height": 24,
+      "bytes": 254,
+      "category": "ui-icon",
+      "loadPolicy": "component-inline",
+      "firstLoad": false,
+      "rules": [
+        "Decorative glyph;visible/accessible button label fromcopy.",
+        "44pxminimumhitarea belongs to button,not24pximage."
+      ]
+    },
+    {
+      "id": "icon.star",
+      "path": "ui-kit/icons/star.svg",
+      "width": 24,
+      "height": 24,
+      "bytes": 267,
+      "category": "ui-icon",
+      "loadPolicy": "component-inline",
+      "firstLoad": false,
+      "rules": [
+        "Decorative glyph;visible/accessible button label fromcopy.",
+        "44pxminimumhitarea belongs to button,not24pximage."
+      ]
+    },
+    {
+      "id": "icon.shield",
+      "path": "ui-kit/icons/shield.svg",
+      "width": 24,
+      "height": 24,
+      "bytes": 269,
+      "category": "ui-icon",
+      "loadPolicy": "component-inline",
+      "firstLoad": false,
+      "rules": [
+        "Decorative glyph;visible/accessible button label fromcopy.",
+        "44pxminimumhitarea belongs to button,not24pximage."
+      ]
+    },
+    {
+      "id": "icon.chart",
+      "path": "ui-kit/icons/chart.svg",
+      "width": 24,
+      "height": 24,
+      "bytes": 247,
+      "category": "ui-icon",
+      "loadPolicy": "component-inline",
+      "firstLoad": false,
+      "rules": [
+        "Decorative glyph;visible/accessible button label fromcopy.",
+        "44pxminimumhitarea belongs to button,not24pximage."
+      ]
+    },
+    {
+      "id": "icon.table",
+      "path": "ui-kit/icons/table.svg",
+      "width": 24,
+      "height": 24,
+      "bytes": 250,
+      "category": "ui-icon",
+      "loadPolicy": "component-inline",
+      "firstLoad": false,
+      "rules": [
+        "Decorative glyph;visible/accessible button label fromcopy.",
+        "44pxminimumhitarea belongs to button,not24pximage."
+      ]
+    },
+    {
+      "id": "icon.phone",
+      "path": "ui-kit/icons/phone.svg",
+      "width": 24,
+      "height": 24,
+      "bytes": 268,
+      "category": "ui-icon",
+      "loadPolicy": "component-inline",
+      "firstLoad": false,
+      "rules": [
+        "Decorative glyph;visible/accessible button label fromcopy.",
+        "44pxminimumhitarea belongs to button,not24pximage."
+      ]
+    },
+    {
+      "id": "icon.eye",
+      "path": "ui-kit/icons/eye.svg",
+      "width": 24,
+      "height": 24,
+      "bytes": 279,
+      "category": "ui-icon",
+      "loadPolicy": "component-inline",
+      "firstLoad": false,
+      "rules": [
+        "Decorative glyph;visible/accessible button label fromcopy.",
+        "44pxminimumhitarea belongs to button,not24pximage."
+      ]
+    },
+    {
+      "id": "icon.eye-off",
+      "path": "ui-kit/icons/eye-off.svg",
+      "width": 24,
+      "height": 24,
+      "bytes": 257,
+      "category": "ui-icon",
+      "loadPolicy": "component-inline",
+      "firstLoad": false,
+      "rules": [
+        "Decorative glyph;visible/accessible button label fromcopy.",
+        "44pxminimumhitarea belongs to button,not24pximage."
+      ]
+    },
+    {
+      "id": "icon.user",
+      "path": "ui-kit/icons/user.svg",
+      "width": 24,
+      "height": 24,
+      "bytes": 285,
+      "category": "ui-icon",
+      "loadPolicy": "component-inline",
+      "firstLoad": false,
+      "rules": [
+        "Decorative glyph;visible/accessible button label fromcopy.",
+        "44pxminimumhitarea belongs to button,not24pximage."
+      ]
+    },
+    {
+      "id": "icon.logout",
+      "path": "ui-kit/icons/logout.svg",
+      "width": 24,
+      "height": 24,
+      "bytes": 253,
+      "category": "ui-icon",
+      "loadPolicy": "component-inline",
+      "firstLoad": false,
+      "rules": [
+        "Decorative glyph;visible/accessible button label fromcopy.",
+        "44pxminimumhitarea belongs to button,not24pximage."
+      ]
+    },
+    {
+      "id": "icon.retry",
+      "path": "ui-kit/icons/retry.svg",
+      "width": 24,
+      "height": 24,
+      "bytes": 244,
+      "category": "ui-icon",
+      "loadPolicy": "component-inline",
+      "firstLoad": false,
+      "rules": [
+        "Decorative glyph;visible/accessible button label fromcopy.",
+        "44pxminimumhitarea belongs to button,not24pximage."
+      ]
+    },
+    {
+      "id": "icon.offline",
+      "path": "ui-kit/icons/offline.svg",
+      "width": 24,
+      "height": 24,
+      "bytes": 284,
+      "category": "ui-icon",
+      "loadPolicy": "component-inline",
+      "firstLoad": false,
+      "rules": [
+        "Decorative glyph;visible/accessible button label fromcopy.",
+        "44pxminimumhitarea belongs to button,not24pximage."
+      ]
+    },
+    {
+      "id": "icon.cloud",
+      "path": "ui-kit/icons/cloud.svg",
+      "width": 24,
+      "height": 24,
+      "bytes": 267,
+      "category": "ui-icon",
+      "loadPolicy": "component-inline",
+      "firstLoad": false,
+      "rules": [
+        "Decorative glyph;visible/accessible button label fromcopy.",
+        "44pxminimumhitarea belongs to button,not24pximage."
+      ]
+    },
+    {
+      "id": "icon.save",
+      "path": "ui-kit/icons/save.svg",
+      "width": 24,
+      "height": 24,
+      "bytes": 258,
+      "category": "ui-icon",
+      "loadPolicy": "component-inline",
+      "firstLoad": false,
+      "rules": [
+        "Decorative glyph;visible/accessible button label fromcopy.",
+        "44pxminimumhitarea belongs to button,not24pximage."
+      ]
+    },
+    {
+      "id": "icon.lock",
+      "path": "ui-kit/icons/lock.svg",
+      "width": 24,
+      "height": 24,
+      "bytes": 254,
+      "category": "ui-icon",
+      "loadPolicy": "component-inline",
+      "firstLoad": false,
+      "rules": [
+        "Decorative glyph;visible/accessible button label fromcopy.",
+        "44pxminimumhitarea belongs to button,not24pximage."
+      ]
+    },
+    {
+      "id": "icon.unlock",
+      "path": "ui-kit/icons/unlock.svg",
+      "width": 24,
+      "height": 24,
+      "bytes": 251,
+      "category": "ui-icon",
+      "loadPolicy": "component-inline",
+      "firstLoad": false,
+      "rules": [
+        "Decorative glyph;visible/accessible button label fromcopy.",
+        "44pxminimumhitarea belongs to button,not24pximage."
+      ]
+    },
+    {
+      "id": "icon.send",
+      "path": "ui-kit/icons/send.svg",
+      "width": 24,
+      "height": 24,
+      "bytes": 249,
+      "category": "ui-icon",
+      "loadPolicy": "component-inline",
+      "firstLoad": false,
+      "rules": [
+        "Decorative glyph;visible/accessible button label fromcopy.",
+        "44pxminimumhitarea belongs to button,not24pximage."
+      ]
+    },
+    {
+      "id": "icon.microphone",
+      "path": "ui-kit/icons/microphone.svg",
+      "width": 24,
+      "height": 24,
+      "bytes": 277,
+      "category": "ui-icon",
+      "loadPolicy": "component-inline",
+      "firstLoad": false,
+      "rules": [
+        "Decorative glyph;visible/accessible button label fromcopy.",
+        "44pxminimumhitarea belongs to button,not24pximage."
+      ]
+    },
+    {
+      "id": "icon.help",
+      "path": "ui-kit/icons/help.svg",
+      "width": 24,
+      "height": 24,
+      "bytes": 258,
+      "category": "ui-icon",
+      "loadPolicy": "component-inline",
+      "firstLoad": false,
+      "rules": [
+        "Decorative glyph;visible/accessible button label fromcopy.",
+        "44pxminimumhitarea belongs to button,not24pximage."
+      ]
+    },
+    {
+      "id": "icon.rotate-device",
+      "path": "ui-kit/icons/rotate-device.svg",
+      "width": 24,
+      "height": 24,
+      "bytes": 263,
+      "category": "ui-icon",
+      "loadPolicy": "component-inline",
+      "firstLoad": false,
+      "rules": [
+        "Decorative glyph;visible/accessible button label fromcopy.",
+        "44pxminimumhitarea belongs to button,not24pximage."
+      ]
+    }
+  ],
+  "colour": "currentColor mapped to semantic ink",
+  "background": "none"
+}

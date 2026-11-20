@@ -1,0 +1,81 @@
+{
+  "screen": "G11",
+  "viewport": {
+    "width": 1440,
+    "height": 900
+  },
+  "safeArea": {
+    "left": 48,
+    "right": 48,
+    "top": 24,
+    "bottom": 36
+  },
+  "font": {
+    "body": 16,
+    "caption": 12,
+    "title": 40,
+    "minAction": 15
+  },
+  "boxes": [
+    {
+      "name": "header",
+      "x": 48,
+      "y": 24,
+      "width": 1344,
+      "height": 44,
+      "interactive": false,
+      "layer": 40,
+      "purpose": "Wordmark/title/provenance"
+    },
+    {
+      "name": "primary",
+      "x": 1052,
+      "y": 816,
+      "width": 340,
+      "height": 48,
+      "interactive": true,
+      "layer": 60,
+      "purpose": "Explicit primaryaction;neveronanimationend"
+    },
+    {
+      "name": "narrator",
+      "x": 48,
+      "y": 240,
+      "width": 340,
+      "height": 420,
+      "interactive": false,
+      "layer": 30,
+      "purpose": "Selected narratorportrait;emotionfromeventbinding"
+    },
+    {
+      "name": "content",
+      "x": 460,
+      "y": 160,
+      "width": 932,
+      "height": 570,
+      "interactive": false,
+      "layer": 50,
+      "purpose": "Dialogue,choiceorresultcontent;scrollinsidepanel",
+      "scroll": "vertical"
+    }
+  ],
+  "rules": [
+    "CSSpixelsat1x;addbrowsernotchinsetstooutermargins.",
+    "Scrollcontentwithinpanel;neveroverlapfixedprimarycontrol.",
+    "Engineupdatesstatebeforedecorativemotion;alllabelsandnumberslive.",
+    "Focusonopenerrestoredonclose;keyboardtargetminimum44px."
+  ],
+  "title": "Wydarzenie na trasie",
+  "template": "event",
+  "surface": "game",
+  "states": [
+    "account-change",
+    "new-order",
+    "ai-tool",
+    "obligation",
+    "late-client",
+    "choice-resolved",
+    "conditional-event-skipped"
+  ],
+  "textMode": "Livecopybindings;previewtextnotfinancialtruth"
+}

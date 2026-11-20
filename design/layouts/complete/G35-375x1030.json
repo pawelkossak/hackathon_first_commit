@@ -1,0 +1,35 @@
+{
+  "screen": "G35",
+  "viewport": {
+    "width": 375,
+    "height": 1030
+  },
+  "boxes": [
+    {
+      "name": "email-body",
+      "x": 20,
+      "y": 24,
+      "width": 335,
+      "height": 982,
+      "interactive": false,
+      "layer": 50
+    }
+  ],
+  "origin": "notifications/layout-specs.json",
+  "referenceSvg": "notifications/G35-reminder-email-375.svg",
+  "title": "Wiadomość do gracza",
+  "template": "email",
+  "surface": "email",
+  "states": [
+    "N-01",
+    "N-02",
+    "N-03",
+    "N-04",
+    "N-05",
+    "N-06-met",
+    "N-06-missed",
+    "N-07",
+    "N-08"
+  ],
+  "textMode": "Livecopybindings;previewtextnotfinancialtruth"
+}

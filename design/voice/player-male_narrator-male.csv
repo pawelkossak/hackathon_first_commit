@@ -1,0 +1,50 @@
+id,screen,speaker,trigger,emotionIntent,displayExample,spokenExample,targetSecondsEstimate
+intro.owner,G05,narrator,first_entry,welcoming,"Jestem właścicielem tego studia. Mam klientów, dobre pomysły i kawę na trzy dni. Z pieniędzmi bywa różnie.","Jestem właścicielem tego studia. Mam klientów, dobre pomysły i kawę na trzy dni. Z pieniędzmi bywa różnie.",6.8
+intro.role,G05,narrator,first_entry,welcoming,"Zaprosiłem Cię, żeby pomóc przeprowadzić moje studio przez grudzień. Nie szukam pracownika. Szukam dobrego kursu.","Zaprosiłem Cię, żeby pomóc przeprowadzić moje studio przez grudzień. Nie szukam pracownika. Szukam dobrego kursu.",6.0
+intro.goal,G07,narrator,mission_goal,confident,"Przeprowadź firmę przez grudzień, zanim faktury zaczną gryźć.","Przeprowadź firmę przez grudzień, zanim faktury zaczną gryźć.",3.2
+intro.practice,G08,narrator,tutorial,confident,"Negocjuj, sprawdzaj skutki i cofaj czas. Tutaj błędy można przećwiczyć.","Negocjuj, sprawdzaj skutki i cofaj czas. Tutaj błędy można przećwiczyć.",4.0
+map.start,G09,narrator,level_selected,excited,"Pilnuj płatności, negocjuj terminy i dbaj o relacje. Firma jest moja, ale kurs wybieramy razem.","Pilnuj płatności, negocjuj terminy i dbaj o relacje. Firma jest moja, ale kurs wybieramy razem.",6.0
+mission.storm,G10,narrator,forecast_risk,suspicious,Turbulencje 28 XII: −12 395 zł,Uwaga na dwudziesty ósmy grudnia. Najniższe saldo bez działania wyniesie minus dwanaście tysięcy trzysta dziewięćdziesiąt pięć złotych.,6.8
+event.account,G11,narrator,account_changed,suspicious,Faktura na 35 700 zł ma inny numer konta niż zwykle.,Faktura na trzydzieści pięć tysięcy siedemset złotych ma inny numer konta niż zwykle.,5.2
+event.account.joke,G11,narrator,account_changed,suspicious,Faktura ta sama. Konto jakby po liftingu.,Faktura ta sama. Konto jakby po liftingu.,2.8
+event.account.safe,G11,narrator,account_verified,proud,Weryfikacja zakończona. Bezpieczne płatności — poziom 2.,Weryfikacja zakończona. Bezpieczne płatności — poziom 2.,2.8
+advance.joke,G13,narrator,advance_selected,confident,Podobno o pieniądzach się nie rozmawia. Na szczęście prowadzimy firmę.,Podobno o pieniądzach się nie rozmawia. Na szczęście prowadzimy firmę.,4.0
+client.counter,G14,client-a,advance_counteroffer,neutral,Mogę dać 30% — 15 000 zł do 3 XII.,Mogę dać trzydzieści procent — piętnaście tysięcy złotych do trzeciego grudnia.,4.4
+advance.confirmed,G14,narrator,advance_committed,proud,Silnik potwierdza: zaliczka 15 000 zł do 3 XII.,Silnik potwierdza: zaliczka piętnaście tysięcy złotych do trzeciego grudnia.,3.6
+move.praise,G14,narrator,valid_own_decision,proud,Świetny manewr. Poradziłeś sobie z tym jak trzeba.,Świetny manewr. Poradziłeś sobie z tym jak trzeba.,3.2
+cashflow.explain,G30,narrator,chart_opened,confident,"Bez działania minimum −12 395 zł. Podgląd: Zaliczka, minimum +2 605 zł.","Bez działania minimum minus dwanaście tysięcy trzysta dziewięćdziesiąt pięć złotych. Podgląd: zaliczka, minimum dwa tysiące sześćset pięć złotych.",7.2
+cashflow.joke,G12,narrator,chart_opened_first_time,relaxed,To nie rollercoaster. To nasze przelewy.,To nie rollercoaster. To nasze przelewy.,2.4
+event.order,G11,narrator,order_event,curious,"6 000 zł netto. Podwykonawca potrzebuje 3 000 zł już 14 grudnia, klient zapłaci pod koniec stycznia.","sześć tysięcy złotych netto. Podwykonawca potrzebuje trzy tysiące złotych już 14 grudnia, klient zapłaci pod koniec stycznia.",6.8
+event.tool,G11,narrator,tool_event,curious,"400 zł miesięcznie, około 10 godzin oszczędności w miesiącu.","czterysta złotych miesięcznie, około dziesięć godzin oszczędności w miesiącu.",3.6
+event.late,G11,narrator,late_client_event,exasperated,Płatność przesuwa się z 8 na 22 stycznia. Po skontowaniu lub sfinansowaniu faktury ten skutek jej nie dotyczy.,Płatność przesuwa się z 8 na 22 stycznia. Po skontowaniu lub sfinansowaniu faktury ten skutek jej nie dotyczy.,7.2
+client.late.joke,G11,narrator,late_client_event,exasperated,"Klient zapewnia, że przelew już wyszedł. Chyba pieszo.","Klient zapewnia, że przelew już wyszedł. Chyba pieszo.",3.2
+loan.source,G16,narrator,loan_sms_opened,suspicious,To oferta pozabankowa z SMS-a. Doradca banku proponuje wyłącznie limit w koncie.,To oferta pozabankowa z SMS-a. Doradca banku proponuje wyłącznie limit w koncie.,4.8
+loan.repayment,G16,narrator,loan_cost_opened,suspicious,15 000 zł teraz. 17 400 zł do oddania do 20 I.,piętnaście tysięcy złotych teraz. siedemnaście tysięcy czterysta złotych do oddania do dwudziestego stycznia.,5.2
+loan.joke,G16,narrator,loan_cost_opened,suspicious,Szybko to ja robię kawę. Sprawdźmy koszt.,Szybko to ja robię kawę. Sprawdźmy koszt.,2.8
+loan.cost,G16,narrator,loan_cost_opened,confident,Koszt: 2 400 zł • szacunek,Koszt wynosi dwa tysiące czterysta złotych. To szacunek w scenariuszu demonstracyjnym.,4.4
+bank.limit,G13,bank-advisor,overdraft_selected,neutral,Doradca banku: pięć dni roboczych na decyzję.,Doradca banku: pięć dni roboczych na decyzję.,2.8
+bank.limit.cost,G13,bank-advisor,overdraft_selected,neutral,Koszt: ok. 194 zł • szacunek,Koszt wynosi około stu dziewięćdziesięciu czterech złotych. To szacunek w tym scenariuszu.,4.8
+hint.options,G15,narrator,cfo_hint_gap_open,confident,28 XII zabraknie środków. Sprawdź zaliczkę i skonto.,dwudziestego ósmego grudnia zabraknie środków. Sprawdź zaliczkę i skonto.,3.6
+week.report,G17,narrator,week_resolved_t1,relaxed,"VAT został zapłacony na czas. Rachunek oddycha, ale patrzmy dalej niż dzisiejsze saldo.","Podatek od towarów i usług został zapłacony na czas. Rachunek oddycha, ale patrzmy dalej niż dzisiejsze saldo.",6.8
+week.quiet,G17,narrator,quiet_week,relaxed,Nic nie wybuchło. W biznesie to też jest wiadomość.,Nic nie wybuchło. W biznesie to też jest wiadomość.,3.6
+turn.travel,G26,narrator,turn_transition,confident,Proszę zapiąć terminy płatności.,Proszę zapiąć terminy płatności.,1.6
+success.joke,G18,narrator,lap_completed,proud,"Można spać. Najpierw zapiszmy, co zadziałało.","Można spać. Najpierw zapiszmy, co zadziałało.",2.4
+success.avoided,G18,narrator,lap_completed,proud,Unikasz 2 400 zł kosztu w porównaniu z pożyczką.,Unikasz dwa tysiące czterysta złotych kosztu w porównaniu z pożyczką.,4.0
+success.pending,G18,narrator,lap_completed_plan_pending,confident,Pilot — czeka na zapis planu,Gwiazdka Pilot czeka na zapis planu.,2.4
+failure.cause,G19,narrator,payment_rejected,exasperated,22 XII brakuje 8 095 zł na płatność 35 700 zł.,dwudziestego drugiego grudnia brakuje osiem tysięcy dziewięćdziesiąt pięć złotych na płatność trzydzieści pięć tysięcy siedemset złotych.,6.4
+failure.joke,G19,narrator,payment_rejected,exasperated,"Mieliśmy negocjować termin, nie własną upadłość!","Mieliśmy negocjować termin, nie własną upadłość!",2.4
+failure.support,G19,narrator,payment_rejected,reassuring,To próba. Cofnijmy się i spróbujmy inaczej.,To próba. Cofnijmy się i spróbujmy inaczej.,2.8
+rewind.help,G20,narrator,rewind_opened,reassuring,Wróć przed negocjacje zaliczki.,Wróć przed negocjacje zaliczki.,1.6
+plan.saved,G22,narrator,plan_saved,proud,Plan zapisany. Gwiazdka Pilot zdobyta.,Plan zapisany. Gwiazdka Pilot zdobyta.,2.0
+plan.goal,G22,narrator,plan_saved,confident,Zaliczka 15 000 zł ±10% od Klienta A do 4 XII.,Zaliczka piętnaście tysięcy złotych plus lub minus dziesięć procent od Klienta A do czwartego grudnia.,6.0
+plan.met,G23,narrator,plan_matched,proud,Zaliczka dotarła! Luka 28 XII zamknięta.,Zaliczka dotarła! Luka dwudziestego ósmego grudnia zamknięta.,2.8
+plan.missed,G23,narrator,plan_missed,reassuring,Plan nie został potwierdzony. Sprawdź wariant B.,Plan nie został potwierdzony. Sprawdź wariant B.,2.8
+close.pitch,G23,narrator,plan_matched,proud,"Przeszliśmy grudzień w grze, zanim przeszliśmy go na koncie.","Przeszliśmy grudzień w grze, zanim przeszliśmy go na koncie.",3.6
+factoring.joke,G29,narrator,factoring_selected,confident,Faktura ma termin. My mamy poniedziałek.,Faktura ma termin. My mamy poniedziałek.,2.4
+factoring.fee,G29,narrator,factoring_preview,confident,Koszt scenariusza: 304 zł,Koszt scenariusza: trzysta cztery złote,2.0
+factoring.receipt,G29,narrator,factoring_preview,confident,Wpływ: 19 991 zł,Wpływ: dziewiętnaście tysięcy dziewięćset dziewięćdziesiąt jeden złotych,2.8
+factoring.low,G32,narrator,factoring_preview,confident,Minimum po faktoringu: +7 596 zł,Minimum po faktoringu: siedem tysięcy pięćset dziewięćdziesiąt sześć złotych,3.6
+compare.ethics,G31,narrator,comparison_opened,confident,Szybciej nie zawsze znaczy taniej. Policzmy.,Szybciej nie zawsze znaczy taniej. Policzmy.,2.4
+loader.start,G25,narrator,initial_load_slow,relaxed,"Szef szuka kalkulatora. Kot wie, gdzie jest.","Szef szuka kalkulatora. Kot wie, gdzie jest.",2.8
+offline.joke,G28,narrator,network_offline,reassuring,Internet poszedł po kawę.,Internet poszedł po kawę.,1.6
+logout.goodbye,G04,narrator,logout_confirmed,relaxed,Do zobaczenia na kolejnej turze!,Do zobaczenia na kolejnej turze!,2.0

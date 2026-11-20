@@ -1,0 +1,2080 @@
+{
+  "format": "runtime-import/v1",
+  "assets": [
+    {
+      "id": "sprite.campaign.survive",
+      "path": "runtime-media/sprites/campaign-survive.webp",
+      "source": "assets/sprites/campaign-survive.webp",
+      "width": 384,
+      "height": 379,
+      "bytes": 54396,
+      "category": "sprite",
+      "loadPolicy": "on-scene-demand",
+      "firstLoad": true
+    },
+    {
+      "id": "sprite.campaign.first-hire",
+      "path": "runtime-media/sprites/campaign-first-hire.webp",
+      "source": "assets/sprites/campaign-first-hire.webp",
+      "width": 384,
+      "height": 379,
+      "bytes": 51138,
+      "category": "sprite",
+      "loadPolicy": "on-scene-demand",
+      "firstLoad": true
+    },
+    {
+      "id": "sprite.campaign.investment",
+      "path": "runtime-media/sprites/campaign-investment.webp",
+      "source": "assets/sprites/campaign-investment.webp",
+      "width": 384,
+      "height": 379,
+      "bytes": 50028,
+      "category": "sprite",
+      "loadPolicy": "on-scene-demand",
+      "firstLoad": true
+    },
+    {
+      "id": "sprite.campaign.next-generation",
+      "path": "runtime-media/sprites/campaign-next-generation.webp",
+      "source": "assets/sprites/campaign-next-generation.webp",
+      "width": 384,
+      "height": 379,
+      "bytes": 63546,
+      "category": "sprite",
+      "loadPolicy": "on-scene-demand",
+      "firstLoad": true
+    },
+    {
+      "id": "sprite.week.1",
+      "path": "runtime-media/sprites/week-1.webp",
+      "source": "assets/sprites/week-1.webp",
+      "width": 224,
+      "height": 224,
+      "bytes": 29062,
+      "category": "sprite",
+      "loadPolicy": "on-scene-demand",
+      "firstLoad": true
+    },
+    {
+      "id": "sprite.week.2",
+      "path": "runtime-media/sprites/week-2.webp",
+      "source": "assets/sprites/week-2.webp",
+      "width": 223,
+      "height": 224,
+      "bytes": 24824,
+      "category": "sprite",
+      "loadPolicy": "on-scene-demand",
+      "firstLoad": true
+    },
+    {
+      "id": "sprite.week.3",
+      "path": "runtime-media/sprites/week-3.webp",
+      "source": "assets/sprites/week-3.webp",
+      "width": 223,
+      "height": 224,
+      "bytes": 25524,
+      "category": "sprite",
+      "loadPolicy": "on-scene-demand",
+      "firstLoad": true
+    },
+    {
+      "id": "sprite.week.4",
+      "path": "runtime-media/sprites/week-4.webp",
+      "source": "assets/sprites/week-4.webp",
+      "width": 224,
+      "height": 224,
+      "bytes": 27320,
+      "category": "sprite",
+      "loadPolicy": "on-scene-demand",
+      "firstLoad": true
+    },
+    {
+      "id": "sprite.week.5",
+      "path": "runtime-media/sprites/week-5.webp",
+      "source": "assets/sprites/week-5.webp",
+      "width": 224,
+      "height": 223,
+      "bytes": 23476,
+      "category": "sprite",
+      "loadPolicy": "on-scene-demand",
+      "firstLoad": true
+    },
+    {
+      "id": "sprite.week.6",
+      "path": "runtime-media/sprites/week-6.webp",
+      "source": "assets/sprites/week-6.webp",
+      "width": 224,
+      "height": 224,
+      "bytes": 24406,
+      "category": "sprite",
+      "loadPolicy": "on-scene-demand",
+      "firstLoad": true
+    },
+    {
+      "id": "sprite.week.7",
+      "path": "runtime-media/sprites/week-7.webp",
+      "source": "assets/sprites/week-7.webp",
+      "width": 224,
+      "height": 224,
+      "bytes": 27672,
+      "category": "sprite",
+      "loadPolicy": "on-scene-demand",
+      "firstLoad": true
+    },
+    {
+      "id": "sprite.finish",
+      "path": "runtime-media/sprites/finish.webp",
+      "source": "assets/sprites/finish.webp",
+      "width": 224,
+      "height": 223,
+      "bytes": 23382,
+      "category": "sprite",
+      "loadPolicy": "on-scene-demand",
+      "firstLoad": true
+    },
+    {
+      "id": "sprite.boss.female.welcoming",
+      "path": "runtime-media/sprites/boss-female-welcoming.webp",
+      "source": "assets/sprites/boss-female-welcoming.webp",
+      "width": 384,
+      "height": 384,
+      "bytes": 44880,
+      "category": "sprite",
+      "loadPolicy": "on-scene-demand",
+      "firstLoad": true
+    },
+    {
+      "id": "sprite.boss.female.excited",
+      "path": "runtime-media/sprites/boss-female-excited.webp",
+      "source": "assets/sprites/boss-female-excited.webp",
+      "width": 383,
+      "height": 384,
+      "bytes": 51612,
+      "category": "sprite",
+      "loadPolicy": "on-scene-demand",
+      "firstLoad": false
+    },
+    {
+      "id": "sprite.boss.female.confident",
+      "path": "runtime-media/sprites/boss-female-confident.webp",
+      "source": "assets/sprites/boss-female-confident.webp",
+      "width": 383,
+      "height": 384,
+      "bytes": 48050,
+      "category": "sprite",
+      "loadPolicy": "on-scene-demand",
+      "firstLoad": true
+    },
+    {
+      "id": "sprite.boss.female.suspicious",
+      "path": "runtime-media/sprites/boss-female-suspicious.webp",
+      "source": "assets/sprites/boss-female-suspicious.webp",
+      "width": 384,
+      "height": 384,
+      "bytes": 48514,
+      "category": "sprite",
+      "loadPolicy": "on-scene-demand",
+      "firstLoad": false
+    },
+    {
+      "id": "sprite.boss.female.exasperated",
+      "path": "runtime-media/sprites/boss-female-exasperated.webp",
+      "source": "assets/sprites/boss-female-exasperated.webp",
+      "width": 384,
+      "height": 383,
+      "bytes": 47684,
+      "category": "sprite",
+      "loadPolicy": "on-scene-demand",
+      "firstLoad": false
+    },
+    {
+      "id": "sprite.boss.female.proud",
+      "path": "runtime-media/sprites/boss-female-proud.webp",
+      "source": "assets/sprites/boss-female-proud.webp",
+      "width": 384,
+      "height": 384,
+      "bytes": 45744,
+      "category": "sprite",
+      "loadPolicy": "on-scene-demand",
+      "firstLoad": false
+    },
+    {
+      "id": "sprite.boss.female.relaxed",
+      "path": "runtime-media/sprites/boss-female-relaxed.webp",
+      "source": "assets/sprites/boss-female-relaxed.webp",
+      "width": 384,
+      "height": 384,
+      "bytes": 48768,
+      "category": "sprite",
+      "loadPolicy": "on-scene-demand",
+      "firstLoad": false
+    },
+    {
+      "id": "sprite.boss.male.welcoming",
+      "path": "runtime-media/sprites/boss-male-welcoming.webp",
+      "source": "assets/sprites/boss-male-welcoming.webp",
+      "width": 384,
+      "height": 384,
+      "bytes": 59338,
+      "category": "sprite",
+      "loadPolicy": "on-scene-demand",
+      "firstLoad": true
+    },
+    {
+      "id": "sprite.boss.male.excited",
+      "path": "runtime-media/sprites/boss-male-excited.webp",
+      "source": "assets/sprites/boss-male-excited.webp",
+      "width": 383,
+      "height": 384,
+      "bytes": 58866,
+      "category": "sprite",
+      "loadPolicy": "on-scene-demand",
+      "firstLoad": false
+    },
+    {
+      "id": "sprite.boss.male.confident",
+      "path": "runtime-media/sprites/boss-male-confident.webp",
+      "source": "assets/sprites/boss-male-confident.webp",
+      "width": 383,
+      "height": 384,
+      "bytes": 64764,
+      "category": "sprite",
+      "loadPolicy": "on-scene-demand",
+      "firstLoad": true
+    },
+    {
+      "id": "sprite.boss.male.suspicious",
+      "path": "runtime-media/sprites/boss-male-suspicious.webp",
+      "source": "assets/sprites/boss-male-suspicious.webp",
+      "width": 384,
+      "height": 384,
+      "bytes": 54870,
+      "category": "sprite",
+      "loadPolicy": "on-scene-demand",
+      "firstLoad": false
+    },
+    {
+      "id": "sprite.boss.male.exasperated",
+      "path": "runtime-media/sprites/boss-male-exasperated.webp",
+      "source": "assets/sprites/boss-male-exasperated.webp",
+      "width": 384,
+      "height": 383,
+      "bytes": 55852,
+      "category": "sprite",
+      "loadPolicy": "on-scene-demand",
+      "firstLoad": false
+    },
+    {
+      "id": "sprite.boss.male.proud",
+      "path": "runtime-media/sprites/boss-male-proud.webp",
+      "source": "assets/sprites/boss-male-proud.webp",
+      "width": 384,
+      "height": 384,
+      "bytes": 57872,
+      "category": "sprite",
+      "loadPolicy": "on-scene-demand",
+      "firstLoad": false
+    },
+    {
+      "id": "sprite.boss.male.relaxed",
+      "path": "runtime-media/sprites/boss-male-relaxed.webp",
+      "source": "assets/sprites/boss-male-relaxed.webp",
+      "width": 384,
+      "height": 384,
+      "bytes": 58426,
+      "category": "sprite",
+      "loadPolicy": "on-scene-demand",
+      "firstLoad": false
+    },
+    {
+      "id": "sprite.player.female.neutral",
+      "path": "runtime-media/sprites/player-female-neutral.webp",
+      "source": "assets/sprites/player-female-neutral.webp",
+      "width": 384,
+      "height": 379,
+      "bytes": 30970,
+      "category": "sprite",
+      "loadPolicy": "on-scene-demand",
+      "firstLoad": true
+    },
+    {
+      "id": "sprite.player.female.happy",
+      "path": "runtime-media/sprites/player-female-happy.webp",
+      "source": "assets/sprites/player-female-happy.webp",
+      "width": 384,
+      "height": 379,
+      "bytes": 35518,
+      "category": "sprite",
+      "loadPolicy": "on-scene-demand",
+      "firstLoad": false
+    },
+    {
+      "id": "sprite.player.female.worried",
+      "path": "runtime-media/sprites/player-female-worried.webp",
+      "source": "assets/sprites/player-female-worried.webp",
+      "width": 384,
+      "height": 379,
+      "bytes": 41208,
+      "category": "sprite",
+      "loadPolicy": "on-scene-demand",
+      "firstLoad": false
+    },
+    {
+      "id": "sprite.player.female.plane",
+      "path": "runtime-media/sprites/player-female-plane.webp",
+      "source": "assets/sprites/player-female-plane.webp",
+      "width": 384,
+      "height": 379,
+      "bytes": 45146,
+      "category": "sprite",
+      "loadPolicy": "on-scene-demand",
+      "firstLoad": false
+    },
+    {
+      "id": "sprite.player.male.neutral",
+      "path": "runtime-media/sprites/player-male-neutral.webp",
+      "source": "assets/sprites/player-male-neutral.webp",
+      "width": 384,
+      "height": 379,
+      "bytes": 25652,
+      "category": "sprite",
+      "loadPolicy": "on-scene-demand",
+      "firstLoad": true
+    },
+    {
+      "id": "sprite.player.male.happy",
+      "path": "runtime-media/sprites/player-male-happy.webp",
+      "source": "assets/sprites/player-male-happy.webp",
+      "width": 384,
+      "height": 379,
+      "bytes": 26846,
+      "category": "sprite",
+      "loadPolicy": "on-scene-demand",
+      "firstLoad": false
+    },
+    {
+      "id": "sprite.player.male.worried",
+      "path": "runtime-media/sprites/player-male-worried.webp",
+      "source": "assets/sprites/player-male-worried.webp",
+      "width": 384,
+      "height": 379,
+      "bytes": 27072,
+      "category": "sprite",
+      "loadPolicy": "on-scene-demand",
+      "firstLoad": false
+    },
+    {
+      "id": "sprite.player.male.plane",
+      "path": "runtime-media/sprites/player-male-plane.webp",
+      "source": "assets/sprites/player-male-plane.webp",
+      "width": 384,
+      "height": 379,
+      "bytes": 33450,
+      "category": "sprite",
+      "loadPolicy": "on-scene-demand",
+      "firstLoad": false
+    },
+    {
+      "id": "sprite.client.neutral",
+      "path": "runtime-media/sprites/client-neutral.webp",
+      "source": "assets/sprites/client-neutral.webp",
+      "width": 384,
+      "height": 383,
+      "bytes": 49000,
+      "category": "sprite",
+      "loadPolicy": "on-scene-demand",
+      "firstLoad": false
+    },
+    {
+      "id": "sprite.client.negotiating",
+      "path": "runtime-media/sprites/client-negotiating.webp",
+      "source": "assets/sprites/client-negotiating.webp",
+      "width": 384,
+      "height": 384,
+      "bytes": 57166,
+      "category": "sprite",
+      "loadPolicy": "on-scene-demand",
+      "firstLoad": false
+    },
+    {
+      "id": "sprite.client.happy",
+      "path": "runtime-media/sprites/client-happy.webp",
+      "source": "assets/sprites/client-happy.webp",
+      "width": 384,
+      "height": 383,
+      "bytes": 53026,
+      "category": "sprite",
+      "loadPolicy": "on-scene-demand",
+      "firstLoad": false
+    },
+    {
+      "id": "sprite.bank.neutral",
+      "path": "runtime-media/sprites/bank-neutral.webp",
+      "source": "assets/sprites/bank-neutral.webp",
+      "width": 384,
+      "height": 384,
+      "bytes": 38108,
+      "category": "sprite",
+      "loadPolicy": "on-scene-demand",
+      "firstLoad": false
+    },
+    {
+      "id": "sprite.bank.explaining",
+      "path": "runtime-media/sprites/bank-explaining.webp",
+      "source": "assets/sprites/bank-explaining.webp",
+      "width": 384,
+      "height": 383,
+      "bytes": 40298,
+      "category": "sprite",
+      "loadPolicy": "on-scene-demand",
+      "firstLoad": false
+    },
+    {
+      "id": "sprite.cfo.neutral",
+      "path": "runtime-media/sprites/cfo-neutral.webp",
+      "source": "assets/sprites/cfo-neutral.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 22004,
+      "category": "sprite",
+      "loadPolicy": "on-scene-demand",
+      "firstLoad": false
+    },
+    {
+      "id": "sprite.cfo.thinking",
+      "path": "runtime-media/sprites/cfo-thinking.webp",
+      "source": "assets/sprites/cfo-thinking.webp",
+      "width": 255,
+      "height": 256,
+      "bytes": 24786,
+      "category": "sprite",
+      "loadPolicy": "on-scene-demand",
+      "firstLoad": false
+    },
+    {
+      "id": "sprite.cfo.happy",
+      "path": "runtime-media/sprites/cfo-happy.webp",
+      "source": "assets/sprites/cfo-happy.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 27200,
+      "category": "sprite",
+      "loadPolicy": "on-scene-demand",
+      "firstLoad": false
+    },
+    {
+      "id": "sprite.cat.sleeping",
+      "path": "runtime-media/sprites/cat-sleeping.webp",
+      "source": "assets/sprites/cat-sleeping.webp",
+      "width": 255,
+      "height": 256,
+      "bytes": 16552,
+      "category": "sprite",
+      "loadPolicy": "on-scene-demand",
+      "firstLoad": false
+    },
+    {
+      "id": "sprite.cat.alert",
+      "path": "runtime-media/sprites/cat-alert.webp",
+      "source": "assets/sprites/cat-alert.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 18638,
+      "category": "sprite",
+      "loadPolicy": "on-scene-demand",
+      "firstLoad": false
+    },
+    {
+      "id": "sprite.action.advance",
+      "path": "runtime-media/sprites/action-advance.webp",
+      "source": "assets/sprites/action-advance.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 23932,
+      "category": "sprite",
+      "loadPolicy": "on-scene-demand",
+      "firstLoad": true
+    },
+    {
+      "id": "sprite.action.discount",
+      "path": "runtime-media/sprites/action-discount.webp",
+      "source": "assets/sprites/action-discount.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 23044,
+      "category": "sprite",
+      "loadPolicy": "on-scene-demand",
+      "firstLoad": true
+    },
+    {
+      "id": "sprite.action.postpone",
+      "path": "runtime-media/sprites/action-postpone.webp",
+      "source": "assets/sprites/action-postpone.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 22094,
+      "category": "sprite",
+      "loadPolicy": "on-scene-demand",
+      "firstLoad": true
+    },
+    {
+      "id": "sprite.action.overdraft",
+      "path": "runtime-media/sprites/action-overdraft.webp",
+      "source": "assets/sprites/action-overdraft.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 25214,
+      "category": "sprite",
+      "loadPolicy": "on-scene-demand",
+      "firstLoad": true
+    },
+    {
+      "id": "sprite.action.nonbank-loan",
+      "path": "runtime-media/sprites/action-nonbank-loan.webp",
+      "source": "assets/sprites/action-nonbank-loan.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 22740,
+      "category": "sprite",
+      "loadPolicy": "on-scene-demand",
+      "firstLoad": true
+    },
+    {
+      "id": "sprite.action.factoring",
+      "path": "runtime-media/sprites/action-factoring.webp",
+      "source": "assets/sprites/action-factoring.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 24384,
+      "category": "sprite",
+      "loadPolicy": "on-scene-demand",
+      "firstLoad": true
+    },
+    {
+      "id": "sprite.event.account-change",
+      "path": "runtime-media/sprites/event-account-change.webp",
+      "source": "assets/sprites/event-account-change.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 25516,
+      "category": "sprite",
+      "loadPolicy": "on-scene-demand",
+      "firstLoad": false
+    },
+    {
+      "id": "sprite.event.new-order",
+      "path": "runtime-media/sprites/event-new-order.webp",
+      "source": "assets/sprites/event-new-order.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 24580,
+      "category": "sprite",
+      "loadPolicy": "on-scene-demand",
+      "firstLoad": false
+    },
+    {
+      "id": "sprite.event.ai-tool",
+      "path": "runtime-media/sprites/event-ai-tool.webp",
+      "source": "assets/sprites/event-ai-tool.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 31820,
+      "category": "sprite",
+      "loadPolicy": "on-scene-demand",
+      "firstLoad": false
+    },
+    {
+      "id": "sprite.event.late-customer",
+      "path": "runtime-media/sprites/event-late-customer.webp",
+      "source": "assets/sprites/event-late-customer.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 25970,
+      "category": "sprite",
+      "loadPolicy": "on-scene-demand",
+      "firstLoad": false
+    },
+    {
+      "id": "sprite.event.obligation",
+      "path": "runtime-media/sprites/event-obligation.webp",
+      "source": "assets/sprites/event-obligation.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 25402,
+      "category": "sprite",
+      "loadPolicy": "on-scene-demand",
+      "firstLoad": false
+    },
+    {
+      "id": "sprite.crash",
+      "path": "runtime-media/sprites/crash.webp",
+      "source": "assets/sprites/crash.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 23602,
+      "category": "sprite",
+      "loadPolicy": "on-scene-demand",
+      "firstLoad": false
+    },
+    {
+      "id": "sprite.weather.forming",
+      "path": "runtime-media/sprites/weather-forming.webp",
+      "source": "assets/sprites/weather-forming.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 25686,
+      "category": "sprite",
+      "loadPolicy": "on-scene-demand",
+      "firstLoad": false
+    },
+    {
+      "id": "sprite.weather.active",
+      "path": "runtime-media/sprites/weather-active.webp",
+      "source": "assets/sprites/weather-active.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 27282,
+      "category": "sprite",
+      "loadPolicy": "on-scene-demand",
+      "firstLoad": false
+    },
+    {
+      "id": "sprite.weather.dissolving",
+      "path": "runtime-media/sprites/weather-dissolving.webp",
+      "source": "assets/sprites/weather-dissolving.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 25142,
+      "category": "sprite",
+      "loadPolicy": "on-scene-demand",
+      "firstLoad": false
+    },
+    {
+      "id": "sprite.weather.sun",
+      "path": "runtime-media/sprites/weather-sun.webp",
+      "source": "assets/sprites/weather-sun.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 23912,
+      "category": "sprite",
+      "loadPolicy": "on-scene-demand",
+      "firstLoad": false
+    },
+    {
+      "id": "sprite.weather.fog",
+      "path": "runtime-media/sprites/weather-fog.webp",
+      "source": "assets/sprites/weather-fog.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 17484,
+      "category": "sprite",
+      "loadPolicy": "on-scene-demand",
+      "firstLoad": false
+    },
+    {
+      "id": "sprite.weather.stars",
+      "path": "runtime-media/sprites/weather-stars.webp",
+      "source": "assets/sprites/weather-stars.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 19712,
+      "category": "sprite",
+      "loadPolicy": "on-scene-demand",
+      "firstLoad": false
+    },
+    {
+      "id": "component.painted-plane",
+      "path": "assets/motion-components/painted-plane.webp",
+      "bytes": 57520,
+      "width": 768,
+      "height": 463,
+      "category": "painted-component",
+      "loadPolicy": "on-scene-demand",
+      "firstLoad": true
+    },
+    {
+      "id": "component.rewind-dial",
+      "path": "assets/motion-components/rewind-dial.webp",
+      "bytes": 150822,
+      "width": 764,
+      "height": 768,
+      "category": "painted-component",
+      "loadPolicy": "on-scene-demand",
+      "firstLoad": false
+    },
+    {
+      "id": "component.lock-closed",
+      "path": "assets/motion-components/lock-closed.webp",
+      "bytes": 15718,
+      "width": 384,
+      "height": 384,
+      "category": "painted-component",
+      "loadPolicy": "on-scene-demand",
+      "firstLoad": true
+    },
+    {
+      "id": "component.lock-open",
+      "path": "assets/motion-components/lock-open.webp",
+      "bytes": 17826,
+      "width": 384,
+      "height": 384,
+      "category": "painted-component",
+      "loadPolicy": "on-scene-demand",
+      "firstLoad": false
+    },
+    {
+      "id": "background.studio",
+      "path": "assets/illustrations/studio-desktop.webp",
+      "bytes": 323966,
+      "width": 2560,
+      "height": 1440,
+      "category": "background",
+      "loadPolicy": "on-scene-demand",
+      "firstLoad": true,
+      "mobilePath": "assets/illustrations/studio-mobile-landscape.webp"
+    },
+    {
+      "id": "background.sky",
+      "path": "assets/illustrations/sky-desktop.webp",
+      "bytes": 187502,
+      "width": 2560,
+      "height": 1440,
+      "category": "background",
+      "loadPolicy": "on-scene-demand",
+      "firstLoad": true,
+      "mobilePath": "assets/illustrations/sky-mobile-landscape.webp"
+    },
+    {
+      "id": "icon.close",
+      "path": "ui-kit/icons/close.svg",
+      "width": 24,
+      "height": 24,
+      "bytes": 235,
+      "category": "ui-icon",
+      "loadPolicy": "component-inline",
+      "firstLoad": true,
+      "rules": [
+        "Decorative glyph;visible/accessible button label fromcopy.",
+        "44pxminimumhitarea belongs to button,not24pximage."
+      ]
+    },
+    {
+      "id": "icon.back",
+      "path": "ui-kit/icons/back.svg",
+      "width": 24,
+      "height": 24,
+      "bytes": 231,
+      "category": "ui-icon",
+      "loadPolicy": "component-inline",
+      "firstLoad": true,
+      "rules": [
+        "Decorative glyph;visible/accessible button label fromcopy.",
+        "44pxminimumhitarea belongs to button,not24pximage."
+      ]
+    },
+    {
+      "id": "icon.next",
+      "path": "ui-kit/icons/next.svg",
+      "width": 24,
+      "height": 24,
+      "bytes": 230,
+      "category": "ui-icon",
+      "loadPolicy": "component-inline",
+      "firstLoad": true,
+      "rules": [
+        "Decorative glyph;visible/accessible button label fromcopy.",
+        "44pxminimumhitarea belongs to button,not24pximage."
+      ]
+    },
+    {
+      "id": "icon.check",
+      "path": "ui-kit/icons/check.svg",
+      "width": 24,
+      "height": 24,
+      "bytes": 230,
+      "category": "ui-icon",
+      "loadPolicy": "component-inline",
+      "firstLoad": true,
+      "rules": [
+        "Decorative glyph;visible/accessible button label fromcopy.",
+        "44pxminimumhitarea belongs to button,not24pximage."
+      ]
+    },
+    {
+      "id": "icon.warning",
+      "path": "ui-kit/icons/warning.svg",
+      "width": 24,
+      "height": 24,
+      "bytes": 248,
+      "category": "ui-icon",
+      "loadPolicy": "component-inline",
+      "firstLoad": true,
+      "rules": [
+        "Decorative glyph;visible/accessible button label fromcopy.",
+        "44pxminimumhitarea belongs to button,not24pximage."
+      ]
+    },
+    {
+      "id": "icon.info",
+      "path": "ui-kit/icons/info.svg",
+      "width": 24,
+      "height": 24,
+      "bytes": 233,
+      "category": "ui-icon",
+      "loadPolicy": "component-inline",
+      "firstLoad": true,
+      "rules": [
+        "Decorative glyph;visible/accessible button label fromcopy.",
+        "44pxminimumhitarea belongs to button,not24pximage."
+      ]
+    },
+    {
+      "id": "icon.pause",
+      "path": "ui-kit/icons/pause.svg",
+      "width": 24,
+      "height": 24,
+      "bytes": 230,
+      "category": "ui-icon",
+      "loadPolicy": "component-inline",
+      "firstLoad": true,
+      "rules": [
+        "Decorative glyph;visible/accessible button label fromcopy.",
+        "44pxminimumhitarea belongs to button,not24pximage."
+      ]
+    },
+    {
+      "id": "icon.play",
+      "path": "ui-kit/icons/play.svg",
+      "width": 24,
+      "height": 24,
+      "bytes": 231,
+      "category": "ui-icon",
+      "loadPolicy": "component-inline",
+      "firstLoad": true,
+      "rules": [
+        "Decorative glyph;visible/accessible button label fromcopy.",
+        "44pxminimumhitarea belongs to button,not24pximage."
+      ]
+    },
+    {
+      "id": "icon.replay",
+      "path": "ui-kit/icons/replay.svg",
+      "width": 24,
+      "height": 24,
+      "bytes": 246,
+      "category": "ui-icon",
+      "loadPolicy": "component-inline",
+      "firstLoad": true,
+      "rules": [
+        "Decorative glyph;visible/accessible button label fromcopy.",
+        "44pxminimumhitarea belongs to button,not24pximage."
+      ]
+    },
+    {
+      "id": "icon.stop",
+      "path": "ui-kit/icons/stop.svg",
+      "width": 24,
+      "height": 24,
+      "bytes": 228,
+      "category": "ui-icon",
+      "loadPolicy": "component-inline",
+      "firstLoad": true,
+      "rules": [
+        "Decorative glyph;visible/accessible button label fromcopy.",
+        "44pxminimumhitarea belongs to button,not24pximage."
+      ]
+    },
+    {
+      "id": "icon.sound",
+      "path": "ui-kit/icons/sound.svg",
+      "width": 24,
+      "height": 24,
+      "bytes": 254,
+      "category": "ui-icon",
+      "loadPolicy": "component-inline",
+      "firstLoad": true,
+      "rules": [
+        "Decorative glyph;visible/accessible button label fromcopy.",
+        "44pxminimumhitarea belongs to button,not24pximage."
+      ]
+    },
+    {
+      "id": "icon.mute",
+      "path": "ui-kit/icons/mute.svg",
+      "width": 24,
+      "height": 24,
+      "bytes": 259,
+      "category": "ui-icon",
+      "loadPolicy": "component-inline",
+      "firstLoad": true,
+      "rules": [
+        "Decorative glyph;visible/accessible button label fromcopy.",
+        "44pxminimumhitarea belongs to button,not24pximage."
+      ]
+    },
+    {
+      "id": "icon.captions",
+      "path": "ui-kit/icons/captions.svg",
+      "width": 24,
+      "height": 24,
+      "bytes": 257,
+      "category": "ui-icon",
+      "loadPolicy": "component-inline",
+      "firstLoad": true,
+      "rules": [
+        "Decorative glyph;visible/accessible button label fromcopy.",
+        "44pxminimumhitarea belongs to button,not24pximage."
+      ]
+    },
+    {
+      "id": "icon.reduced-motion",
+      "path": "ui-kit/icons/reduced-motion.svg",
+      "width": 24,
+      "height": 24,
+      "bytes": 254,
+      "category": "ui-icon",
+      "loadPolicy": "component-inline",
+      "firstLoad": true,
+      "rules": [
+        "Decorative glyph;visible/accessible button label fromcopy.",
+        "44pxminimumhitarea belongs to button,not24pximage."
+      ]
+    },
+    {
+      "id": "icon.settings",
+      "path": "ui-kit/icons/settings.svg",
+      "width": 24,
+      "height": 24,
+      "bytes": 302,
+      "category": "ui-icon",
+      "loadPolicy": "component-inline",
+      "firstLoad": true,
+      "rules": [
+        "Decorative glyph;visible/accessible button label fromcopy.",
+        "44pxminimumhitarea belongs to button,not24pximage."
+      ]
+    },
+    {
+      "id": "icon.mail",
+      "path": "ui-kit/icons/mail.svg",
+      "width": 24,
+      "height": 24,
+      "bytes": 243,
+      "category": "ui-icon",
+      "loadPolicy": "component-inline",
+      "firstLoad": true,
+      "rules": [
+        "Decorative glyph;visible/accessible button label fromcopy.",
+        "44pxminimumhitarea belongs to button,not24pximage."
+      ]
+    },
+    {
+      "id": "icon.bell",
+      "path": "ui-kit/icons/bell.svg",
+      "width": 24,
+      "height": 24,
+      "bytes": 260,
+      "category": "ui-icon",
+      "loadPolicy": "component-inline",
+      "firstLoad": true,
+      "rules": [
+        "Decorative glyph;visible/accessible button label fromcopy.",
+        "44pxminimumhitarea belongs to button,not24pximage."
+      ]
+    },
+    {
+      "id": "icon.calendar",
+      "path": "ui-kit/icons/calendar.svg",
+      "width": 24,
+      "height": 24,
+      "bytes": 249,
+      "category": "ui-icon",
+      "loadPolicy": "component-inline",
+      "firstLoad": true,
+      "rules": [
+        "Decorative glyph;visible/accessible button label fromcopy.",
+        "44pxminimumhitarea belongs to button,not24pximage."
+      ]
+    },
+    {
+      "id": "icon.clock",
+      "path": "ui-kit/icons/clock.svg",
+      "width": 24,
+      "height": 24,
+      "bytes": 265,
+      "category": "ui-icon",
+      "loadPolicy": "component-inline",
+      "firstLoad": true,
+      "rules": [
+        "Decorative glyph;visible/accessible button label fromcopy.",
+        "44pxminimumhitarea belongs to button,not24pximage."
+      ]
+    },
+    {
+      "id": "icon.wallet",
+      "path": "ui-kit/icons/wallet.svg",
+      "width": 24,
+      "height": 24,
+      "bytes": 268,
+      "category": "ui-icon",
+      "loadPolicy": "component-inline",
+      "firstLoad": true,
+      "rules": [
+        "Decorative glyph;visible/accessible button label fromcopy.",
+        "44pxminimumhitarea belongs to button,not24pximage."
+      ]
+    },
+    {
+      "id": "icon.fuel",
+      "path": "ui-kit/icons/fuel.svg",
+      "width": 24,
+      "height": 24,
+      "bytes": 272,
+      "category": "ui-icon",
+      "loadPolicy": "component-inline",
+      "firstLoad": true,
+      "rules": [
+        "Decorative glyph;visible/accessible button label fromcopy.",
+        "44pxminimumhitarea belongs to button,not24pximage."
+      ]
+    },
+    {
+      "id": "icon.heart",
+      "path": "ui-kit/icons/heart.svg",
+      "width": 24,
+      "height": 24,
+      "bytes": 254,
+      "category": "ui-icon",
+      "loadPolicy": "component-inline",
+      "firstLoad": true,
+      "rules": [
+        "Decorative glyph;visible/accessible button label fromcopy.",
+        "44pxminimumhitarea belongs to button,not24pximage."
+      ]
+    },
+    {
+      "id": "icon.star",
+      "path": "ui-kit/icons/star.svg",
+      "width": 24,
+      "height": 24,
+      "bytes": 267,
+      "category": "ui-icon",
+      "loadPolicy": "component-inline",
+      "firstLoad": true,
+      "rules": [
+        "Decorative glyph;visible/accessible button label fromcopy.",
+        "44pxminimumhitarea belongs to button,not24pximage."
+      ]
+    },
+    {
+      "id": "icon.shield",
+      "path": "ui-kit/icons/shield.svg",
+      "width": 24,
+      "height": 24,
+      "bytes": 269,
+      "category": "ui-icon",
+      "loadPolicy": "component-inline",
+      "firstLoad": true,
+      "rules": [
+        "Decorative glyph;visible/accessible button label fromcopy.",
+        "44pxminimumhitarea belongs to button,not24pximage."
+      ]
+    },
+    {
+      "id": "icon.chart",
+      "path": "ui-kit/icons/chart.svg",
+      "width": 24,
+      "height": 24,
+      "bytes": 247,
+      "category": "ui-icon",
+      "loadPolicy": "component-inline",
+      "firstLoad": true,
+      "rules": [
+        "Decorative glyph;visible/accessible button label fromcopy.",
+        "44pxminimumhitarea belongs to button,not24pximage."
+      ]
+    },
+    {
+      "id": "icon.table",
+      "path": "ui-kit/icons/table.svg",
+      "width": 24,
+      "height": 24,
+      "bytes": 250,
+      "category": "ui-icon",
+      "loadPolicy": "component-inline",
+      "firstLoad": true,
+      "rules": [
+        "Decorative glyph;visible/accessible button label fromcopy.",
+        "44pxminimumhitarea belongs to button,not24pximage."
+      ]
+    },
+    {
+      "id": "icon.phone",
+      "path": "ui-kit/icons/phone.svg",
+      "width": 24,
+      "height": 24,
+      "bytes": 268,
+      "category": "ui-icon",
+      "loadPolicy": "component-inline",
+      "firstLoad": true,
+      "rules": [
+        "Decorative glyph;visible/accessible button label fromcopy.",
+        "44pxminimumhitarea belongs to button,not24pximage."
+      ]
+    },
+    {
+      "id": "icon.eye",
+      "path": "ui-kit/icons/eye.svg",
+      "width": 24,
+      "height": 24,
+      "bytes": 279,
+      "category": "ui-icon",
+      "loadPolicy": "component-inline",
+      "firstLoad": true,
+      "rules": [
+        "Decorative glyph;visible/accessible button label fromcopy.",
+        "44pxminimumhitarea belongs to button,not24pximage."
+      ]
+    },
+    {
+      "id": "icon.eye-off",
+      "path": "ui-kit/icons/eye-off.svg",
+      "width": 24,
+      "height": 24,
+      "bytes": 257,
+      "category": "ui-icon",
+      "loadPolicy": "component-inline",
+      "firstLoad": true,
+      "rules": [
+        "Decorative glyph;visible/accessible button label fromcopy.",
+        "44pxminimumhitarea belongs to button,not24pximage."
+      ]
+    },
+    {
+      "id": "icon.user",
+      "path": "ui-kit/icons/user.svg",
+      "width": 24,
+      "height": 24,
+      "bytes": 285,
+      "category": "ui-icon",
+      "loadPolicy": "component-inline",
+      "firstLoad": true,
+      "rules": [
+        "Decorative glyph;visible/accessible button label fromcopy.",
+        "44pxminimumhitarea belongs to button,not24pximage."
+      ]
+    },
+    {
+      "id": "icon.logout",
+      "path": "ui-kit/icons/logout.svg",
+      "width": 24,
+      "height": 24,
+      "bytes": 253,
+      "category": "ui-icon",
+      "loadPolicy": "component-inline",
+      "firstLoad": true,
+      "rules": [
+        "Decorative glyph;visible/accessible button label fromcopy.",
+        "44pxminimumhitarea belongs to button,not24pximage."
+      ]
+    },
+    {
+      "id": "icon.retry",
+      "path": "ui-kit/icons/retry.svg",
+      "width": 24,
+      "height": 24,
+      "bytes": 244,
+      "category": "ui-icon",
+      "loadPolicy": "component-inline",
+      "firstLoad": true,
+      "rules": [
+        "Decorative glyph;visible/accessible button label fromcopy.",
+        "44pxminimumhitarea belongs to button,not24pximage."
+      ]
+    },
+    {
+      "id": "icon.offline",
+      "path": "ui-kit/icons/offline.svg",
+      "width": 24,
+      "height": 24,
+      "bytes": 284,
+      "category": "ui-icon",
+      "loadPolicy": "component-inline",
+      "firstLoad": true,
+      "rules": [
+        "Decorative glyph;visible/accessible button label fromcopy.",
+        "44pxminimumhitarea belongs to button,not24pximage."
+      ]
+    },
+    {
+      "id": "icon.cloud",
+      "path": "ui-kit/icons/cloud.svg",
+      "width": 24,
+      "height": 24,
+      "bytes": 267,
+      "category": "ui-icon",
+      "loadPolicy": "component-inline",
+      "firstLoad": true,
+      "rules": [
+        "Decorative glyph;visible/accessible button label fromcopy.",
+        "44pxminimumhitarea belongs to button,not24pximage."
+      ]
+    },
+    {
+      "id": "icon.save",
+      "path": "ui-kit/icons/save.svg",
+      "width": 24,
+      "height": 24,
+      "bytes": 258,
+      "category": "ui-icon",
+      "loadPolicy": "component-inline",
+      "firstLoad": true,
+      "rules": [
+        "Decorative glyph;visible/accessible button label fromcopy.",
+        "44pxminimumhitarea belongs to button,not24pximage."
+      ]
+    },
+    {
+      "id": "icon.lock",
+      "path": "ui-kit/icons/lock.svg",
+      "width": 24,
+      "height": 24,
+      "bytes": 254,
+      "category": "ui-icon",
+      "loadPolicy": "component-inline",
+      "firstLoad": true,
+      "rules": [
+        "Decorative glyph;visible/accessible button label fromcopy.",
+        "44pxminimumhitarea belongs to button,not24pximage."
+      ]
+    },
+    {
+      "id": "icon.unlock",
+      "path": "ui-kit/icons/unlock.svg",
+      "width": 24,
+      "height": 24,
+      "bytes": 251,
+      "category": "ui-icon",
+      "loadPolicy": "component-inline",
+      "firstLoad": true,
+      "rules": [
+        "Decorative glyph;visible/accessible button label fromcopy.",
+        "44pxminimumhitarea belongs to button,not24pximage."
+      ]
+    },
+    {
+      "id": "icon.send",
+      "path": "ui-kit/icons/send.svg",
+      "width": 24,
+      "height": 24,
+      "bytes": 249,
+      "category": "ui-icon",
+      "loadPolicy": "component-inline",
+      "firstLoad": true,
+      "rules": [
+        "Decorative glyph;visible/accessible button label fromcopy.",
+        "44pxminimumhitarea belongs to button,not24pximage."
+      ]
+    },
+    {
+      "id": "icon.microphone",
+      "path": "ui-kit/icons/microphone.svg",
+      "width": 24,
+      "height": 24,
+      "bytes": 277,
+      "category": "ui-icon",
+      "loadPolicy": "component-inline",
+      "firstLoad": true,
+      "rules": [
+        "Decorative glyph;visible/accessible button label fromcopy.",
+        "44pxminimumhitarea belongs to button,not24pximage."
+      ]
+    },
+    {
+      "id": "icon.help",
+      "path": "ui-kit/icons/help.svg",
+      "width": 24,
+      "height": 24,
+      "bytes": 258,
+      "category": "ui-icon",
+      "loadPolicy": "component-inline",
+      "firstLoad": true,
+      "rules": [
+        "Decorative glyph;visible/accessible button label fromcopy.",
+        "44pxminimumhitarea belongs to button,not24pximage."
+      ]
+    },
+    {
+      "id": "icon.rotate-device",
+      "path": "ui-kit/icons/rotate-device.svg",
+      "width": 24,
+      "height": 24,
+      "bytes": 263,
+      "category": "ui-icon",
+      "loadPolicy": "component-inline",
+      "firstLoad": true,
+      "rules": [
+        "Decorative glyph;visible/accessible button label fromcopy.",
+        "44pxminimumhitarea belongs to button,not24pximage."
+      ]
+    },
+    {
+      "id": "badge.pilot",
+      "path": "ui-kit/badges/pilot.svg",
+      "bytes": 422,
+      "width": 80,
+      "height": 80,
+      "category": "badge",
+      "loadPolicy": "on-scene-demand",
+      "firstLoad": false
+    },
+    {
+      "id": "badge.liquidity",
+      "path": "ui-kit/badges/liquidity.svg",
+      "bytes": 402,
+      "width": 80,
+      "height": 80,
+      "category": "badge",
+      "loadPolicy": "on-scene-demand",
+      "firstLoad": false
+    },
+    {
+      "id": "badge.relations",
+      "path": "ui-kit/badges/relations.svg",
+      "bytes": 409,
+      "width": 80,
+      "height": 80,
+      "category": "badge",
+      "loadPolicy": "on-scene-demand",
+      "firstLoad": false
+    },
+    {
+      "id": "badge.verification",
+      "path": "ui-kit/badges/verification.svg",
+      "bytes": 423,
+      "width": 80,
+      "height": 80,
+      "category": "badge",
+      "loadPolicy": "on-scene-demand",
+      "firstLoad": false
+    },
+    {
+      "id": "badge.survival",
+      "path": "ui-kit/badges/survival.svg",
+      "bytes": 424,
+      "width": 80,
+      "height": 80,
+      "category": "badge",
+      "loadPolicy": "on-scene-demand",
+      "firstLoad": false
+    },
+    {
+      "id": "badge.planning",
+      "path": "ui-kit/badges/planning.svg",
+      "bytes": 404,
+      "width": 80,
+      "height": 80,
+      "category": "badge",
+      "loadPolicy": "on-scene-demand",
+      "firstLoad": false
+    },
+    {
+      "id": "badge.economy",
+      "path": "ui-kit/badges/economy.svg",
+      "bytes": 423,
+      "width": 80,
+      "height": 80,
+      "category": "badge",
+      "loadPolicy": "on-scene-demand",
+      "firstLoad": false
+    },
+    {
+      "id": "badge.ai",
+      "path": "ui-kit/badges/ai.svg",
+      "bytes": 413,
+      "width": 80,
+      "height": 80,
+      "category": "badge",
+      "loadPolicy": "on-scene-demand",
+      "firstLoad": false
+    },
+    {
+      "id": "font.Inter-Regular",
+      "path": "fonts/Inter-Regular.woff2",
+      "bytes": 111268,
+      "category": "font",
+      "loadPolicy": "theme",
+      "firstLoad": true
+    },
+    {
+      "id": "font.Inter-SemiBold",
+      "path": "fonts/Inter-SemiBold.woff2",
+      "bytes": 114812,
+      "category": "font",
+      "loadPolicy": "theme",
+      "firstLoad": true
+    },
+    {
+      "id": "font.Inter-Bold",
+      "path": "fonts/Inter-Bold.woff2",
+      "bytes": 114840,
+      "category": "font",
+      "loadPolicy": "theme",
+      "firstLoad": true
+    },
+    {
+      "id": "font.Inter-ExtraBoldItalic",
+      "path": "fonts/Inter-ExtraBoldItalic.woff2",
+      "bytes": 121516,
+      "category": "font",
+      "loadPolicy": "theme",
+      "firstLoad": true
+    },
+    {
+      "id": "identity.wordmark-light",
+      "path": "identity/wordmark-light.svg",
+      "bytes": 6548,
+      "category": "identity",
+      "loadPolicy": "theme",
+      "firstLoad": false
+    },
+    {
+      "id": "identity.wordmark-dark",
+      "path": "identity/wordmark-dark.svg",
+      "bytes": 6548,
+      "category": "identity",
+      "loadPolicy": "theme",
+      "firstLoad": true
+    },
+    {
+      "id": "identity.favicon",
+      "path": "identity/favicon.svg",
+      "bytes": 445,
+      "category": "identity",
+      "loadPolicy": "theme",
+      "firstLoad": true
+    },
+    {
+      "id": "motion.M01-plane-hover",
+      "path": "motion/webp/M01-plane-hover.webp",
+      "bytes": 138758,
+      "width": 384,
+      "height": 240,
+      "category": "motion",
+      "loadPolicy": "lazy-after-first-paint",
+      "firstLoad": false,
+      "durationMs": 2400,
+      "loop": true,
+      "fallback": "motion/stills-webp/M01-plane-hover.webp",
+      "referenceOnly": "motion/apng/M01-plane-hover.png",
+      "trigger": "scene.visible"
+    },
+    {
+      "id": "motion.M02-plane-travel",
+      "path": "motion/webp/M02-plane-travel.webp",
+      "bytes": 26440,
+      "width": 640,
+      "height": 240,
+      "category": "motion",
+      "loadPolicy": "lazy-after-first-paint",
+      "firstLoad": false,
+      "durationMs": 240,
+      "loop": false,
+      "fallback": "motion/stills-webp/M02-plane-travel.webp",
+      "referenceOnly": "motion/apng/M02-plane-travel.png",
+      "trigger": "week.resolved"
+    },
+    {
+      "id": "motion.M03-storm-forming",
+      "path": "motion/webp/M03-storm-forming.webp",
+      "bytes": 92380,
+      "width": 384,
+      "height": 256,
+      "category": "motion",
+      "loadPolicy": "lazy-after-first-paint",
+      "firstLoad": false,
+      "durationMs": 280,
+      "loop": false,
+      "fallback": "motion/stills-webp/M03-storm-forming.webp",
+      "referenceOnly": "motion/apng/M03-storm-forming.png",
+      "trigger": "forecast.risk-revealed"
+    },
+    {
+      "id": "motion.M04-storm-active",
+      "path": "motion/webp/M04-storm-active.webp",
+      "bytes": 547486,
+      "width": 384,
+      "height": 256,
+      "category": "motion",
+      "loadPolicy": "lazy-after-first-paint",
+      "firstLoad": false,
+      "durationMs": 2400,
+      "loop": true,
+      "fallback": "motion/stills-webp/M04-storm-active.webp",
+      "referenceOnly": "motion/apng/M04-storm-active.png",
+      "trigger": "storm.visible"
+    },
+    {
+      "id": "motion.M05-storm-dissolve",
+      "path": "motion/webp/M05-storm-dissolve.webp",
+      "bytes": 65722,
+      "width": 384,
+      "height": 256,
+      "category": "motion",
+      "loadPolicy": "lazy-after-first-paint",
+      "firstLoad": false,
+      "durationMs": 280,
+      "loop": false,
+      "fallback": "motion/stills-webp/M05-storm-dissolve.webp",
+      "referenceOnly": "motion/apng/M05-storm-dissolve.png",
+      "trigger": "risk.resolved"
+    },
+    {
+      "id": "motion.M06-card-select",
+      "path": "motion/webp/M06-card-select.webp",
+      "bytes": 5878,
+      "width": 384,
+      "height": 280,
+      "category": "motion",
+      "loadPolicy": "lazy-after-first-paint",
+      "firstLoad": false,
+      "durationMs": 180,
+      "loop": false,
+      "fallback": "motion/stills-webp/M06-card-select.webp",
+      "referenceOnly": "motion/apng/M06-card-select.png",
+      "trigger": "card.preview-opened"
+    },
+    {
+      "id": "motion.M07-card-play",
+      "path": "motion/webp/M07-card-play.webp",
+      "bytes": 5924,
+      "width": 384,
+      "height": 280,
+      "category": "motion",
+      "loadPolicy": "lazy-after-first-paint",
+      "firstLoad": false,
+      "durationMs": 240,
+      "loop": false,
+      "fallback": "motion/stills-webp/M07-card-play.webp",
+      "referenceOnly": "motion/apng/M07-card-play.png",
+      "trigger": "card.committed"
+    },
+    {
+      "id": "motion.M08-single-star-award",
+      "path": "motion/webp/M08-single-star-award.webp",
+      "bytes": 30514,
+      "width": 320,
+      "height": 240,
+      "category": "motion",
+      "loadPolicy": "lazy-after-first-paint",
+      "firstLoad": false,
+      "durationMs": 600,
+      "loop": false,
+      "fallback": "motion/stills-webp/M08-single-star-award.webp",
+      "referenceOnly": "motion/apng/M08-single-star-award.png",
+      "trigger": "star.awarded"
+    },
+    {
+      "id": "motion.M09-soft-crash",
+      "path": "motion/webp/M09-soft-crash.webp",
+      "bytes": 28322,
+      "width": 384,
+      "height": 256,
+      "category": "motion",
+      "loadPolicy": "lazy-after-first-paint",
+      "firstLoad": false,
+      "durationMs": 280,
+      "loop": false,
+      "fallback": "motion/stills-webp/M09-soft-crash.webp",
+      "referenceOnly": "motion/apng/M09-soft-crash.png",
+      "trigger": "payment.rejected"
+    },
+    {
+      "id": "motion.M10-rewind",
+      "path": "motion/webp/M10-rewind.webp",
+      "bytes": 164126,
+      "width": 384,
+      "height": 320,
+      "category": "motion",
+      "loadPolicy": "lazy-after-first-paint",
+      "firstLoad": false,
+      "durationMs": 280,
+      "loop": false,
+      "fallback": "motion/stills-webp/M10-rewind.webp",
+      "referenceOnly": "motion/apng/M10-rewind.png",
+      "trigger": "rewind.confirmed"
+    },
+    {
+      "id": "motion.M11-loader",
+      "path": "motion/webp/M11-loader.webp",
+      "bytes": 24440,
+      "width": 256,
+      "height": 192,
+      "category": "motion",
+      "loadPolicy": "lazy-after-first-paint",
+      "firstLoad": false,
+      "durationMs": 1600,
+      "loop": true,
+      "fallback": "motion/stills-webp/M11-loader.webp",
+      "referenceOnly": "motion/apng/M11-loader.png",
+      "trigger": "pending.visible-after-threshold"
+    },
+    {
+      "id": "motion.M12-save-confirmed",
+      "path": "motion/webp/M12-save-confirmed.webp",
+      "bytes": 2700,
+      "width": 256,
+      "height": 192,
+      "category": "motion",
+      "loadPolicy": "lazy-after-first-paint",
+      "firstLoad": false,
+      "durationMs": 240,
+      "loop": false,
+      "fallback": "motion/stills-webp/M12-save-confirmed.webp",
+      "referenceOnly": "motion/apng/M12-save-confirmed.png",
+      "trigger": "plan.persisted"
+    },
+    {
+      "id": "motion.M13-level-unlock",
+      "path": "motion/webp/M13-level-unlock.webp",
+      "bytes": 98186,
+      "width": 384,
+      "height": 384,
+      "category": "motion",
+      "loadPolicy": "lazy-after-first-paint",
+      "firstLoad": false,
+      "durationMs": 480,
+      "loop": false,
+      "fallback": "motion/stills-webp/M13-level-unlock.webp",
+      "referenceOnly": "motion/apng/M13-level-unlock.png",
+      "trigger": "level.unlocked"
+    },
+    {
+      "id": "motion.M14-notification-arrival",
+      "path": "motion/webp/M14-notification-arrival.webp",
+      "bytes": 9180,
+      "width": 384,
+      "height": 192,
+      "category": "motion",
+      "loadPolicy": "lazy-after-first-paint",
+      "firstLoad": false,
+      "durationMs": 280,
+      "loop": false,
+      "fallback": "motion/stills-webp/M14-notification-arrival.webp",
+      "referenceOnly": "motion/apng/M14-notification-arrival.png",
+      "trigger": "inbox.item-received"
+    },
+    {
+      "id": "motion.M15-return-banner",
+      "path": "motion/webp/M15-return-banner.webp",
+      "bytes": 12018,
+      "width": 640,
+      "height": 160,
+      "category": "motion",
+      "loadPolicy": "lazy-after-first-paint",
+      "firstLoad": false,
+      "durationMs": 180,
+      "loop": false,
+      "fallback": "motion/stills-webp/M15-return-banner.webp",
+      "referenceOnly": "motion/apng/M15-return-banner.png",
+      "trigger": "run.restored"
+    },
+    {
+      "id": "motion.M16-narrator-female-idle",
+      "path": "motion/webp/M16-narrator-female-idle.webp",
+      "bytes": 265462,
+      "width": 320,
+      "height": 320,
+      "category": "motion",
+      "loadPolicy": "lazy-after-first-paint",
+      "firstLoad": false,
+      "durationMs": 2400,
+      "loop": true,
+      "fallback": "motion/stills-webp/M16-narrator-female-idle.webp",
+      "referenceOnly": "motion/apng/M16-narrator-female-idle.png",
+      "trigger": "narrator.visible"
+    },
+    {
+      "id": "motion.M17-narrator-female-reaction",
+      "path": "motion/webp/M17-narrator-female-reaction.webp",
+      "bytes": 125022,
+      "width": 320,
+      "height": 320,
+      "category": "motion",
+      "loadPolicy": "lazy-after-first-paint",
+      "firstLoad": false,
+      "durationMs": 180,
+      "loop": false,
+      "fallback": "motion/stills-webp/M17-narrator-female-reaction.webp",
+      "referenceOnly": "motion/apng/M17-narrator-female-reaction.png",
+      "trigger": "competence.confirmed"
+    },
+    {
+      "id": "motion.M16-narrator-male-idle",
+      "path": "motion/webp/M16-narrator-male-idle.webp",
+      "bytes": 331352,
+      "width": 320,
+      "height": 320,
+      "category": "motion",
+      "loadPolicy": "lazy-after-first-paint",
+      "firstLoad": false,
+      "durationMs": 2400,
+      "loop": true,
+      "fallback": "motion/stills-webp/M16-narrator-male-idle.webp",
+      "referenceOnly": "motion/apng/M16-narrator-male-idle.png",
+      "trigger": "narrator.visible"
+    },
+    {
+      "id": "motion.M17-narrator-male-reaction",
+      "path": "motion/webp/M17-narrator-male-reaction.webp",
+      "bytes": 147566,
+      "width": 320,
+      "height": 320,
+      "category": "motion",
+      "loadPolicy": "lazy-after-first-paint",
+      "firstLoad": false,
+      "durationMs": 180,
+      "loop": false,
+      "fallback": "motion/stills-webp/M17-narrator-male-reaction.webp",
+      "referenceOnly": "motion/apng/M17-narrator-male-reaction.png",
+      "trigger": "competence.confirmed"
+    },
+    {
+      "id": "motion.M18-dialog-enter",
+      "path": "motion/webp/M18-dialog-enter.webp",
+      "bytes": 7474,
+      "width": 640,
+      "height": 280,
+      "category": "motion",
+      "loadPolicy": "lazy-after-first-paint",
+      "firstLoad": false,
+      "durationMs": 180,
+      "loop": false,
+      "fallback": "motion/stills-webp/M18-dialog-enter.webp",
+      "referenceOnly": "motion/apng/M18-dialog-enter.png",
+      "trigger": "overlay.opened"
+    },
+    {
+      "id": "week-ticket.default",
+      "path": "ui-kit/week-ticket-default.svg",
+      "bytes": 330,
+      "width": 124,
+      "height": 162,
+      "category": "ui-art",
+      "loadPolicy": "on-scene-demand",
+      "firstLoad": false
+    },
+    {
+      "id": "week-ticket.selected",
+      "path": "ui-kit/week-ticket-selected.svg",
+      "bytes": 330,
+      "width": 124,
+      "height": 162,
+      "category": "ui-art",
+      "loadPolicy": "on-scene-demand",
+      "firstLoad": false
+    },
+    {
+      "id": "week-ticket.disabled",
+      "path": "ui-kit/week-ticket-disabled.svg",
+      "bytes": 330,
+      "width": 124,
+      "height": 162,
+      "category": "ui-art",
+      "loadPolicy": "on-scene-demand",
+      "firstLoad": false
+    },
+    {
+      "id": "sfx.click",
+      "path": "audio/sfx/click.wav",
+      "bytes": 3132,
+      "category": "sfx",
+      "loadPolicy": "after-user-audio-optin-and-on-demand",
+      "firstLoad": false
+    },
+    {
+      "id": "sfx.card-play",
+      "path": "audio/sfx/card-play.wav",
+      "bytes": 7100,
+      "category": "sfx",
+      "loadPolicy": "after-user-audio-optin-and-on-demand",
+      "firstLoad": false
+    },
+    {
+      "id": "sfx.whoosh",
+      "path": "audio/sfx/whoosh.wav",
+      "bytes": 12392,
+      "category": "sfx",
+      "loadPolicy": "after-user-audio-optin-and-on-demand",
+      "firstLoad": false
+    },
+    {
+      "id": "sfx.storm",
+      "path": "audio/sfx/storm.wav",
+      "bytes": 26504,
+      "category": "sfx",
+      "loadPolicy": "after-user-audio-optin-and-on-demand",
+      "firstLoad": false
+    },
+    {
+      "id": "sfx.success",
+      "path": "audio/sfx/success.wav",
+      "bytes": 18566,
+      "category": "sfx",
+      "loadPolicy": "after-user-audio-optin-and-on-demand",
+      "firstLoad": false
+    },
+    {
+      "id": "sfx.failure",
+      "path": "audio/sfx/failure.wav",
+      "bytes": 10628,
+      "category": "sfx",
+      "loadPolicy": "after-user-audio-optin-and-on-demand",
+      "firstLoad": false
+    },
+    {
+      "id": "sfx.unlock",
+      "path": "audio/sfx/unlock.wav",
+      "bytes": 22094,
+      "category": "sfx",
+      "loadPolicy": "after-user-audio-optin-and-on-demand",
+      "firstLoad": false
+    },
+    {
+      "id": "sfx.notification",
+      "path": "audio/sfx/notification.wav",
+      "bytes": 9746,
+      "category": "sfx",
+      "loadPolicy": "after-user-audio-optin-and-on-demand",
+      "firstLoad": false
+    },
+    {
+      "id": "sfx.panel-open",
+      "path": "audio/sfx/panel-open.wav",
+      "bytes": 6660,
+      "category": "sfx",
+      "loadPolicy": "after-user-audio-optin-and-on-demand",
+      "firstLoad": false
+    },
+    {
+      "id": "sfx.panel-close",
+      "path": "audio/sfx/panel-close.wav",
+      "bytes": 5776,
+      "category": "sfx",
+      "loadPolicy": "after-user-audio-optin-and-on-demand",
+      "firstLoad": false
+    },
+    {
+      "id": "sfx.ui-back",
+      "path": "audio/sfx/ui-back.wav",
+      "bytes": 4012,
+      "category": "sfx",
+      "loadPolicy": "after-user-audio-optin-and-on-demand",
+      "firstLoad": false
+    },
+    {
+      "id": "sfx.toggle-on",
+      "path": "audio/sfx/toggle-on.wav",
+      "bytes": 4454,
+      "category": "sfx",
+      "loadPolicy": "after-user-audio-optin-and-on-demand",
+      "firstLoad": false
+    },
+    {
+      "id": "sfx.toggle-off",
+      "path": "audio/sfx/toggle-off.wav",
+      "bytes": 4454,
+      "category": "sfx",
+      "loadPolicy": "after-user-audio-optin-and-on-demand",
+      "firstLoad": false
+    },
+    {
+      "id": "sfx.action-unavailable",
+      "path": "audio/sfx/action-unavailable.wav",
+      "bytes": 6660,
+      "category": "sfx",
+      "loadPolicy": "after-user-audio-optin-and-on-demand",
+      "firstLoad": false
+    },
+    {
+      "id": "sfx.card-select",
+      "path": "audio/sfx/card-select.wav",
+      "bytes": 5336,
+      "category": "sfx",
+      "loadPolicy": "after-user-audio-optin-and-on-demand",
+      "firstLoad": false
+    },
+    {
+      "id": "sfx.plane-launch",
+      "path": "audio/sfx/plane-launch.wav",
+      "bytes": 15920,
+      "category": "sfx",
+      "loadPolicy": "after-user-audio-optin-and-on-demand",
+      "firstLoad": false
+    },
+    {
+      "id": "sfx.plane-flyby",
+      "path": "audio/sfx/plane-flyby.wav",
+      "bytes": 22976,
+      "category": "sfx",
+      "loadPolicy": "after-user-audio-optin-and-on-demand",
+      "firstLoad": false
+    },
+    {
+      "id": "sfx.plane-land",
+      "path": "audio/sfx/plane-land.wav",
+      "bytes": 11510,
+      "category": "sfx",
+      "loadPolicy": "after-user-audio-optin-and-on-demand",
+      "firstLoad": false
+    },
+    {
+      "id": "sfx.lock-open",
+      "path": "audio/sfx/lock-open.wav",
+      "bytes": 21212,
+      "category": "sfx",
+      "loadPolicy": "after-user-audio-optin-and-on-demand",
+      "firstLoad": false
+    },
+    {
+      "id": "sfx.rewind-tick",
+      "path": "audio/sfx/rewind-tick.wav",
+      "bytes": 3352,
+      "category": "sfx",
+      "loadPolicy": "after-user-audio-optin-and-on-demand",
+      "firstLoad": false
+    },
+    {
+      "id": "sfx.rewind-confirm",
+      "path": "audio/sfx/rewind-confirm.wav",
+      "bytes": 12392,
+      "category": "sfx",
+      "loadPolicy": "after-user-audio-optin-and-on-demand",
+      "firstLoad": false
+    },
+    {
+      "id": "sfx.message-send",
+      "path": "audio/sfx/message-send.wav",
+      "bytes": 11510,
+      "category": "sfx",
+      "loadPolicy": "after-user-audio-optin-and-on-demand",
+      "firstLoad": false
+    },
+    {
+      "id": "sfx.message-received",
+      "path": "audio/sfx/message-received.wav",
+      "bytes": 8864,
+      "category": "sfx",
+      "loadPolicy": "after-user-audio-optin-and-on-demand",
+      "firstLoad": false
+    },
+    {
+      "id": "sfx.negotiation-accepted",
+      "path": "audio/sfx/negotiation-accepted.wav",
+      "bytes": 13274,
+      "category": "sfx",
+      "loadPolicy": "after-user-audio-optin-and-on-demand",
+      "firstLoad": false
+    },
+    {
+      "id": "sfx.counteroffer",
+      "path": "audio/sfx/counteroffer.wav",
+      "bytes": 7982,
+      "category": "sfx",
+      "loadPolicy": "after-user-audio-optin-and-on-demand",
+      "firstLoad": false
+    },
+    {
+      "id": "sfx.save-confirmed",
+      "path": "audio/sfx/save-confirmed.wav",
+      "bytes": 10628,
+      "category": "sfx",
+      "loadPolicy": "after-user-audio-optin-and-on-demand",
+      "firstLoad": false
+    },
+    {
+      "id": "sfx.save-error",
+      "path": "audio/sfx/save-error.wav",
+      "bytes": 10628,
+      "category": "sfx",
+      "loadPolicy": "after-user-audio-optin-and-on-demand",
+      "firstLoad": false
+    },
+    {
+      "id": "sfx.week-complete",
+      "path": "audio/sfx/week-complete.wav",
+      "bytes": 12392,
+      "category": "sfx",
+      "loadPolicy": "after-user-audio-optin-and-on-demand",
+      "firstLoad": false
+    },
+    {
+      "id": "sfx.star-award",
+      "path": "audio/sfx/star-award.wav",
+      "bytes": 15920,
+      "category": "sfx",
+      "loadPolicy": "after-user-audio-optin-and-on-demand",
+      "firstLoad": false
+    },
+    {
+      "id": "sfx.competence-up",
+      "path": "audio/sfx/competence-up.wav",
+      "bytes": 19448,
+      "category": "sfx",
+      "loadPolicy": "after-user-audio-optin-and-on-demand",
+      "firstLoad": false
+    },
+    {
+      "id": "sfx.risk-reveal",
+      "path": "audio/sfx/risk-reveal.wav",
+      "bytes": 14156,
+      "category": "sfx",
+      "loadPolicy": "after-user-audio-optin-and-on-demand",
+      "firstLoad": false
+    },
+    {
+      "id": "sfx.storm-clear",
+      "path": "audio/sfx/storm-clear.wav",
+      "bytes": 17684,
+      "category": "sfx",
+      "loadPolicy": "after-user-audio-optin-and-on-demand",
+      "firstLoad": false
+    },
+    {
+      "id": "sfx.reminder-scheduled",
+      "path": "audio/sfx/reminder-scheduled.wav",
+      "bytes": 9746,
+      "category": "sfx",
+      "loadPolicy": "after-user-audio-optin-and-on-demand",
+      "firstLoad": false
+    },
+    {
+      "id": "sfx.pause",
+      "path": "audio/sfx/pause.wav",
+      "bytes": 5776,
+      "category": "sfx",
+      "loadPolicy": "after-user-audio-optin-and-on-demand",
+      "firstLoad": false
+    },
+    {
+      "id": "sfx.resume",
+      "path": "audio/sfx/resume.wav",
+      "bytes": 5776,
+      "category": "sfx",
+      "loadPolicy": "after-user-audio-optin-and-on-demand",
+      "firstLoad": false
+    }
+  ],
+  "entryPoint": "contracts/scene-catalog.json",
+  "bindings": "contracts/scene-asset-bindings.json",
+  "firstLoad": "first-load-manifest.json",
+  "canonicalVariant": "Listedpathispreferred;doNOTchoosebetweenauthoringPNG/atlas/APNGbyguessing.",
+  "authoringExcluded": [
+    "assets/illustrations/*PNG",
+    "motion/apng",
+    "concept",
+    "delivery"
+  ],
+  "narrationAudioReady": false
+}

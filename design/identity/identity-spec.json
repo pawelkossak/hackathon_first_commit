@@ -1,0 +1,13 @@
+{
+  "name": "Pilot P\u0142ynno\u015bci",
+  "wordmarks": [
+    "wordmark-light.svg",
+    "wordmark-dark.svg"
+  ],
+  "favicon": "favicon.svg",
+  "clearSpace": 24,
+  "minimumWordmarkWidth": 184,
+  "minimumFavicon": 16,
+  "fontNote": "Artwork uses locally available Arial bold italic; do not bundle system font binaries.",
+  "source": "Original vector design, no bank identity."
+}

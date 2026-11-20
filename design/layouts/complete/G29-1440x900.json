@@ -1,0 +1,80 @@
+{
+  "screen": "G29",
+  "viewport": {
+    "width": 1440,
+    "height": 900
+  },
+  "safeArea": {
+    "left": 48,
+    "right": 48,
+    "top": 24,
+    "bottom": 36
+  },
+  "font": {
+    "body": 16,
+    "caption": 12,
+    "title": 40,
+    "minAction": 15
+  },
+  "boxes": [
+    {
+      "name": "header",
+      "x": 48,
+      "y": 24,
+      "width": 1344,
+      "height": 44,
+      "interactive": false,
+      "layer": 40,
+      "purpose": "Wordmark/title/provenance"
+    },
+    {
+      "name": "primary",
+      "x": 1052,
+      "y": 816,
+      "width": 340,
+      "height": 48,
+      "interactive": true,
+      "layer": 60,
+      "purpose": "Explicit primaryaction;neveronanimationend"
+    },
+    {
+      "name": "narrator",
+      "x": 48,
+      "y": 240,
+      "width": 340,
+      "height": 420,
+      "interactive": false,
+      "layer": 30,
+      "purpose": "Selected narratorportrait;emotionfromeventbinding"
+    },
+    {
+      "name": "card-detail",
+      "x": 460,
+      "y": 150,
+      "width": 932,
+      "height": 575,
+      "interactive": false,
+      "layer": 50,
+      "purpose": "Art+livecost/timing/reason;choicescommitonlyonclick",
+      "scroll": "vertical"
+    }
+  ],
+  "rules": [
+    "CSSpixelsat1x;addbrowsernotchinsetstooutermargins.",
+    "Scrollcontentwithinpanel;neveroverlapfixedprimarycontrol.",
+    "Engineupdatesstatebeforedecorativemotion;alllabelsandnumberslive.",
+    "Focusonopenerrestoredonclose;keyboardtargetminimum44px."
+  ],
+  "title": "Faktoring: podgląd",
+  "template": "cards",
+  "surface": "game",
+  "states": [
+    "eligible",
+    "too-late",
+    "invoice-paid",
+    "discount-exclusive",
+    "request-pending",
+    "payout-confirmed"
+  ],
+  "textMode": "Livecopybindings;previewtextnotfinancialtruth"
+}

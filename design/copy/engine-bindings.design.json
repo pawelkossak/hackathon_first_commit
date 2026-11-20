@@ -1,0 +1,468 @@
+{
+  "format": "design-fixtures/v1",
+  "warning": "Canonical design examples, not application forecast code or a live quote.",
+  "fixtures": {
+    "cash.start": {
+      "value": 38000,
+      "display": "38 000 zł",
+      "spoken": "trzydzieści osiem tysięcy złotych",
+      "source": "GAME-DESIGN.md §6 / SYNTHETIC-DATA.md §3",
+      "use": "Design example; replace from engine at runtime"
+    },
+    "runway.start": {
+      "value": 42,
+      "display": "42 dni",
+      "spoken": "czterdzieści dwa dni",
+      "source": "GAME-DESIGN.md §6 / SYNTHETIC-DATA.md §3",
+      "use": "Design example; replace from engine at runtime"
+    },
+    "relations.start": {
+      "value": 5,
+      "display": "5/5",
+      "spoken": "pięć na pięć",
+      "source": "GAME-DESIGN.md §6 / SYNTHETIC-DATA.md §3",
+      "use": "Design example; replace from engine at runtime"
+    },
+    "money.zero": {
+      "value": 0,
+      "display": "0 zł",
+      "spoken": "zero złotych",
+      "source": "GAME-DESIGN.md §6 / SYNTHETIC-DATA.md §3",
+      "use": "Design example; replace from engine at runtime"
+    },
+    "forecast.baselineLow": {
+      "value": -12395,
+      "display": "−12 395 zł",
+      "spoken": "minus dwanaście tysięcy trzysta dziewięćdziesiąt pięć złotych",
+      "source": "GAME-DESIGN.md §6 / SYNTHETIC-DATA.md §3",
+      "use": "Design example; replace from engine at runtime"
+    },
+    "forecast.lowDate": {
+      "value": "2026-12-28",
+      "display": "28 XII",
+      "spoken": "dwudziestego ósmego grudnia",
+      "source": "GAME-DESIGN.md §6 / SYNTHETIC-DATA.md §3",
+      "use": "Design example; replace from engine at runtime"
+    },
+    "advance.amount": {
+      "value": 15000,
+      "display": "15 000 zł",
+      "spoken": "piętnaście tysięcy złotych",
+      "source": "GAME-DESIGN.md §6 / SYNTHETIC-DATA.md §3",
+      "use": "Design example; replace from engine at runtime"
+    },
+    "advance.percent": {
+      "value": 30,
+      "display": "30%",
+      "spoken": "trzydzieści procent",
+      "source": "GAME-DESIGN.md §6 / SYNTHETIC-DATA.md §3",
+      "use": "Design example; replace from engine at runtime"
+    },
+    "advance.requestedPercent": {
+      "value": 50,
+      "display": "50%",
+      "spoken": "pięćdziesiąt procent",
+      "source": "GAME-DESIGN.md §6 / SYNTHETIC-DATA.md §3",
+      "use": "Design example; replace from engine at runtime"
+    },
+    "advance.date": {
+      "value": "2026-12-03",
+      "display": "3 XII",
+      "spoken": "trzeciego grudnia",
+      "source": "GAME-DESIGN.md §6 / SYNTHETIC-DATA.md §3",
+      "use": "Design example; replace from engine at runtime"
+    },
+    "advance.deadline": {
+      "value": "2026-12-04",
+      "display": "4 XII",
+      "spoken": "czwartego grudnia",
+      "source": "GAME-DESIGN.md §6 / SYNTHETIC-DATA.md §3",
+      "use": "Design example; replace from engine at runtime"
+    },
+    "advance.low": {
+      "value": 2605,
+      "display": "+2 605 zł",
+      "spoken": "dwa tysiące sześćset pięć złotych",
+      "source": "GAME-DESIGN.md §6 / SYNTHETIC-DATA.md §3",
+      "use": "Design example; replace from engine at runtime"
+    },
+    "advance.avoided": {
+      "value": 2400,
+      "display": "2 400 zł",
+      "spoken": "dwa tysiące czterysta złotych",
+      "source": "GAME-DESIGN.md §6 / SYNTHETIC-DATA.md §3",
+      "use": "Design example; replace from engine at runtime"
+    },
+    "advance.lapEnd": {
+      "value": 9985,
+      "display": "9 985 zł",
+      "spoken": "dziewięć tysięcy dziewięćset osiemdziesiąt pięć złotych",
+      "source": "GAME-DESIGN.md §6 / SYNTHETIC-DATA.md §3",
+      "use": "Design example; replace from engine at runtime"
+    },
+    "advance.tolerance": {
+      "value": 10,
+      "display": "±10%",
+      "spoken": "plus lub minus dziesięć procent",
+      "source": "GAME-DESIGN.md §6 / SYNTHETIC-DATA.md §3",
+      "use": "Design example; replace from engine at runtime"
+    },
+    "invoice.amount": {
+      "value": 20295,
+      "display": "20 295 zł",
+      "spoken": "dwadzieścia tysięcy dwieście dziewięćdziesiąt pięć złotych",
+      "source": "GAME-DESIGN.md §6 / SYNTHETIC-DATA.md §3",
+      "use": "Design example; replace from engine at runtime"
+    },
+    "discount.percent": {
+      "value": 2,
+      "display": "2%",
+      "spoken": "dwa procent",
+      "source": "GAME-DESIGN.md §6 / SYNTHETIC-DATA.md §3",
+      "use": "Design example; replace from engine at runtime"
+    },
+    "discount.receipt": {
+      "value": 19889,
+      "display": "19 889 zł",
+      "spoken": "dziewiętnaście tysięcy osiemset osiemdziesiąt dziewięć złotych",
+      "source": "GAME-DESIGN.md §6 / SYNTHETIC-DATA.md §3",
+      "use": "Design example; replace from engine at runtime"
+    },
+    "discount.cost": {
+      "value": 406,
+      "display": "406 zł",
+      "spoken": "czterysta sześć złotych",
+      "source": "GAME-DESIGN.md §6 / SYNTHETIC-DATA.md §3",
+      "use": "Design example; replace from engine at runtime"
+    },
+    "discount.low": {
+      "value": 7494,
+      "display": "+7 494 zł",
+      "spoken": "siedem tysięcy czterysta dziewięćdziesiąt cztery złote",
+      "source": "GAME-DESIGN.md §6 / SYNTHETIC-DATA.md §3",
+      "use": "Design example; replace from engine at runtime"
+    },
+    "discount.avoided": {
+      "value": 1994,
+      "display": "1 994 zł",
+      "spoken": "tysiąc dziewięćset dziewięćdziesiąt cztery złote",
+      "source": "GAME-DESIGN.md §6 / SYNTHETIC-DATA.md §3",
+      "use": "Design example; replace from engine at runtime"
+    },
+    "supplier.amount": {
+      "value": 35700,
+      "display": "35 700 zł",
+      "spoken": "trzydzieści pięć tysięcy siedemset złotych",
+      "source": "GAME-DESIGN.md §6 / SYNTHETIC-DATA.md §3",
+      "use": "Design example; replace from engine at runtime"
+    },
+    "supplier.newDate": {
+      "value": "2027-01-08",
+      "display": "8 I",
+      "spoken": "ósmego stycznia",
+      "source": "GAME-DESIGN.md §6 / SYNTHETIC-DATA.md §3",
+      "use": "Design example; replace from engine at runtime"
+    },
+    "relations.loss": {
+      "value": -2,
+      "display": "−2",
+      "spoken": "minus dwa",
+      "source": "GAME-DESIGN.md §6 / SYNTHETIC-DATA.md §3",
+      "use": "Design example; replace from engine at runtime"
+    },
+    "overdraft.amount": {
+      "value": 15000,
+      "display": "15 000 zł",
+      "spoken": "piętnaście tysięcy złotych",
+      "source": "GAME-DESIGN.md §6 / SYNTHETIC-DATA.md §3",
+      "use": "Design example; replace from engine at runtime"
+    },
+    "overdraft.costEstimate": {
+      "value": 194,
+      "display": "ok. 194 zł",
+      "spoken": "około stu dziewięćdziesięciu czterech złotych",
+      "source": "GAME-DESIGN.md §6 / SYNTHETIC-DATA.md §3",
+      "use": "Design example; replace from engine at runtime"
+    },
+    "loan.amount": {
+      "value": 15000,
+      "display": "15 000 zł",
+      "spoken": "piętnaście tysięcy złotych",
+      "source": "GAME-DESIGN.md §6 / SYNTHETIC-DATA.md §3",
+      "use": "Design example; replace from engine at runtime"
+    },
+    "loan.repayment": {
+      "value": 17400,
+      "display": "17 400 zł",
+      "spoken": "siedemnaście tysięcy czterysta złotych",
+      "source": "GAME-DESIGN.md §6 / SYNTHETIC-DATA.md §3",
+      "use": "Design example; replace from engine at runtime"
+    },
+    "loan.cost": {
+      "value": 2400,
+      "display": "2 400 zł",
+      "spoken": "dwa tysiące czterysta złotych",
+      "source": "GAME-DESIGN.md §6 / SYNTHETIC-DATA.md §3",
+      "use": "Design example; replace from engine at runtime"
+    },
+    "loan.dueDate": {
+      "value": "2027-01-20",
+      "display": "20 I",
+      "spoken": "dwudziestego stycznia",
+      "source": "GAME-DESIGN.md §6 / SYNTHETIC-DATA.md §3",
+      "use": "Design example; replace from engine at runtime"
+    },
+    "factoring.rate": {
+      "value": 1.5,
+      "display": "1,5%",
+      "spoken": "półtora procenta",
+      "source": "GAME-DESIGN.md §6 / SYNTHETIC-DATA.md §3",
+      "use": "Design example; replace from engine at runtime"
+    },
+    "factoring.fee": {
+      "value": 304,
+      "display": "304 zł",
+      "spoken": "trzysta cztery złote",
+      "source": "GAME-DESIGN.md §6 / SYNTHETIC-DATA.md §3",
+      "use": "Design example; replace from engine at runtime"
+    },
+    "factoring.receipt": {
+      "value": 19991,
+      "display": "19 991 zł",
+      "spoken": "dziewiętnaście tysięcy dziewięćset dziewięćdziesiąt jeden złotych",
+      "source": "GAME-DESIGN.md §6 / SYNTHETIC-DATA.md §3",
+      "use": "Design example; replace from engine at runtime"
+    },
+    "factoring.low": {
+      "value": 7596,
+      "display": "+7 596 zł",
+      "spoken": "siedem tysięcy pięćset dziewięćdziesiąt sześć złotych",
+      "source": "GAME-DESIGN.md §6 / SYNTHETIC-DATA.md §3",
+      "use": "Design example; replace from engine at runtime"
+    },
+    "factoring.avoided": {
+      "value": 2096,
+      "display": "2 096 zł",
+      "spoken": "dwa tysiące dziewięćdziesiąt sześć złotych",
+      "source": "GAME-DESIGN.md §6 / SYNTHETIC-DATA.md §3",
+      "use": "Design example; replace from engine at runtime"
+    },
+    "failure.shortfall": {
+      "value": 8095,
+      "display": "8 095 zł",
+      "spoken": "osiem tysięcy dziewięćdziesiąt pięć złotych",
+      "source": "GAME-DESIGN.md §6 / SYNTHETIC-DATA.md §3",
+      "use": "Design example; replace from engine at runtime"
+    },
+    "failure.date": {
+      "value": "2026-12-22",
+      "display": "22 XII",
+      "spoken": "dwudziestego drugiego grudnia",
+      "source": "GAME-DESIGN.md §6 / SYNTHETIC-DATA.md §3",
+      "use": "Design example; replace from engine at runtime"
+    },
+    "week1.end": {
+      "value": 33700,
+      "display": "33 700 zł",
+      "spoken": "trzydzieści trzy tysiące siedemset złotych",
+      "source": "GAME-DESIGN.md §6 / SYNTHETIC-DATA.md §3",
+      "use": "Design example; replace from engine at runtime"
+    },
+    "week1.delta": {
+      "value": -4300,
+      "display": "−4 300 zł",
+      "spoken": "minus cztery tysiące trzysta złotych",
+      "source": "GAME-DESIGN.md §6 / SYNTHETIC-DATA.md §3",
+      "use": "Design example; replace from engine at runtime"
+    },
+    "week2.end": {
+      "value": 56080,
+      "display": "56 080 zł",
+      "spoken": "pięćdziesiąt sześć tysięcy osiemdziesiąt złotych",
+      "source": "GAME-DESIGN.md §6 / SYNTHETIC-DATA.md §3",
+      "use": "Design example; replace from engine at runtime"
+    },
+    "week2.delta": {
+      "value": 22380,
+      "display": "+22 380 zł",
+      "spoken": "dwadzieścia dwa tysiące trzysta osiemdziesiąt złotych",
+      "source": "GAME-DESIGN.md §6 / SYNTHETIC-DATA.md §3",
+      "use": "Design example; replace from engine at runtime"
+    },
+    "newOrder.net": {
+      "value": 6000,
+      "display": "6 000 zł netto",
+      "spoken": "sześć tysięcy złotych netto",
+      "source": "GAME-DESIGN.md §6 / SYNTHETIC-DATA.md §3",
+      "use": "Design example; replace from engine at runtime"
+    },
+    "newOrder.supplier": {
+      "value": 3000,
+      "display": "3 000 zł",
+      "spoken": "trzy tysiące złotych",
+      "source": "GAME-DESIGN.md §6 / SYNTHETIC-DATA.md §3",
+      "use": "Design example; replace from engine at runtime"
+    },
+    "aiTool.cost": {
+      "value": 400,
+      "display": "400 zł",
+      "spoken": "czterysta złotych",
+      "source": "GAME-DESIGN.md §6 / SYNTHETIC-DATA.md §3",
+      "use": "Design example; replace from engine at runtime"
+    },
+    "aiTool.hours": {
+      "value": 10,
+      "display": "10 godzin",
+      "spoken": "dziesięć godzin",
+      "source": "GAME-DESIGN.md §6 / SYNTHETIC-DATA.md §3",
+      "use": "Design example; replace from engine at runtime"
+    },
+    "stars.cheapThreshold": {
+      "value": 500,
+      "display": "500 zł",
+      "spoken": "pięćset złotych",
+      "source": "GAME-DESIGN.md §6 / SYNTHETIC-DATA.md §3",
+      "use": "Design example; replace from engine at runtime"
+    },
+    "rewind.max": {
+      "value": 5,
+      "display": "5",
+      "spoken": "piątego",
+      "source": "GAME-DESIGN.md §6 / SYNTHETIC-DATA.md §3",
+      "use": "Design example; replace from engine at runtime"
+    },
+    "rewind.selected": {
+      "value": 1,
+      "display": "1",
+      "spoken": "pierwszego",
+      "source": "GAME-DESIGN.md §6 / SYNTHETIC-DATA.md §3",
+      "use": "Design example; replace from engine at runtime"
+    },
+    "transition.from": {
+      "value": 1,
+      "display": "1",
+      "spoken": "pierwszy",
+      "source": "GAME-DESIGN.md §6 / SYNTHETIC-DATA.md §3",
+      "use": "Design example; replace from engine at runtime"
+    },
+    "transition.to": {
+      "value": 2,
+      "display": "2",
+      "spoken": "drugi",
+      "source": "GAME-DESIGN.md §6 / SYNTHETIC-DATA.md §3",
+      "use": "Design example; replace from engine at runtime"
+    },
+    "forecast.scenarioName": {
+      "value": "advance",
+      "display": "Zaliczka",
+      "spoken": "zaliczka",
+      "source": "GAME-DESIGN.md §6 / SYNTHETIC-DATA.md §3",
+      "use": "Design example; replace from engine at runtime"
+    },
+    "forecast.currentLow": {
+      "value": 2605,
+      "display": "+2 605 zł",
+      "spoken": "dwa tysiące sześćset pięć złotych",
+      "source": "GAME-DESIGN.md §6 / SYNTHETIC-DATA.md §3",
+      "use": "Design example; replace from engine at runtime"
+    },
+    "week.endBalance": {
+      "value": 33700,
+      "display": "33 700 zł",
+      "spoken": "trzydzieści trzy tysiące siedemset złotych",
+      "source": "GAME-DESIGN.md §6 / SYNTHETIC-DATA.md §3",
+      "use": "Design example; replace from engine at runtime"
+    },
+    "week.delta": {
+      "value": -4300,
+      "display": "−4 300 zł",
+      "spoken": "minus cztery tysiące trzysta złotych",
+      "source": "GAME-DESIGN.md §6 / SYNTHETIC-DATA.md §3",
+      "use": "Design example; replace from engine at runtime"
+    },
+    "tax.vat": {
+      "value": 4300,
+      "display": "4 300 zł",
+      "spoken": "cztery tysiące trzysta złotych",
+      "source": "GAME-DESIGN.md §6 / SYNTHETIC-DATA.md §3",
+      "use": "Design example; replace from engine at runtime"
+    },
+    "account.start": {
+      "value": "2026-11-21",
+      "display": "21 XI",
+      "spoken": "dwudziestego pierwszego listopada",
+      "source": "GAME-DESIGN.md §6 / SYNTHETIC-DATA.md §3",
+      "use": "Design example; replace from engine at runtime"
+    },
+    "account.replayEnd": {
+      "value": "2026-12-05",
+      "display": "5 XII",
+      "spoken": "piątego grudnia",
+      "source": "GAME-DESIGN.md §6 / SYNTHETIC-DATA.md §3",
+      "use": "Design example; replace from engine at runtime"
+    },
+    "week.current": {
+      "value": 3,
+      "display": "3",
+      "spoken": "trzy",
+      "source": "game engine current week",
+      "use": "Synthetic design example only; bind to current saved game/plan/scheduler at runtime"
+    },
+    "week.total": {
+      "value": 7,
+      "display": "7",
+      "spoken": "siedem",
+      "source": "level configuration week count;game engine",
+      "use": "Design fixture;bind to selected level total."
+    },
+    "chat.remaining": {
+      "value": 3,
+      "display": "3",
+      "spoken": "trzy",
+      "source": "GAME-DESIGN.md §4",
+      "use": "Design example"
+    },
+    "level.next": {
+      "value": 2,
+      "display": "2",
+      "spoken": "dwa",
+      "source": "progress unlocked level",
+      "use": "Synthetic design example only; bind to current saved game/plan/scheduler at runtime"
+    },
+    "deadline.display": {
+      "value": "jutro",
+      "display": "jutro",
+      "spoken": "jutro",
+      "source": "saved plan due time, player timezone",
+      "use": "Synthetic design example only; bind to current saved game/plan/scheduler at runtime"
+    },
+    "deadline.days": {
+      "value": 3,
+      "display": "3",
+      "spoken": "trzy",
+      "source": "scheduler actual calendar-day difference at send time; never a hard-coded 3 when trigger uses business days",
+      "use": "Synthetic design example only; bind to current saved game/plan/scheduler at runtime"
+    },
+    "digest.decisions": {
+      "value": 1,
+      "display": "1",
+      "spoken": "jeden",
+      "source": "progress available decision count",
+      "use": "Synthetic design example only; bind to current saved game/plan/scheduler at runtime"
+    },
+    "digest.stars": {
+      "value": 2,
+      "display": "2",
+      "spoken": "dwa",
+      "source": "progress achievable star count",
+      "use": "Synthetic design example only; bind to current saved game/plan/scheduler at runtime"
+    },
+    "demo.delaySeconds": {
+      "value": 30,
+      "display": "30",
+      "spoken": "trzydzieści",
+      "source": "D-14 demo reminder configuration",
+      "use": "Stage-test fixture;bind to acknowledged scheduler delay."
+    }
+  }
+}

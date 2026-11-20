@@ -1,0 +1,889 @@
+{
+  "format": "sound-cues/v1",
+  "assetsManifest": "audio/sfx/sfx-manifest.json",
+  "cues": [
+    {
+      "id": "cue.click",
+      "assetId": "sfx.click",
+      "scenes": [
+        "G05",
+        "G06",
+        "G07",
+        "G08",
+        "G09",
+        "G24",
+        "G36"
+      ],
+      "trigger": "ui.validControlActivated",
+      "sync": "after activation accepted; omit if a semantic cue follows",
+      "offsetMs": 0,
+      "gain": 0.45,
+      "priority": 30,
+      "group": "ui",
+      "cooldownMs": 90,
+      "loop": false,
+      "durationMs": 70,
+      "cancelOn": [
+        "scene.disposed",
+        "game.paused",
+        "audio.muted"
+      ],
+      "guard": "audio.userGestureUnlocked && audio.sfxEnabled && audio.masterVolume > 0 && document.visible",
+      "deduplicateBy": "semantic event id; re-render is never a new event"
+    },
+    {
+      "id": "cue.panel-open",
+      "assetId": "sfx.panel-open",
+      "scenes": [
+        "G12",
+        "G13",
+        "G14",
+        "G15",
+        "G16",
+        "G20",
+        "G24",
+        "G33",
+        "G34",
+        "G36"
+      ],
+      "trigger": "ui.panelOpened",
+      "sync": "panel entrance start",
+      "offsetMs": 0,
+      "gain": 0.45,
+      "priority": 30,
+      "group": "ui",
+      "cooldownMs": 400,
+      "loop": false,
+      "durationMs": 150,
+      "cancelOn": [
+        "scene.disposed",
+        "game.paused",
+        "audio.muted"
+      ],
+      "guard": "audio.userGestureUnlocked && audio.sfxEnabled && audio.masterVolume > 0 && document.visible",
+      "deduplicateBy": "semantic event id; re-render is never a new event"
+    },
+    {
+      "id": "cue.panel-close",
+      "assetId": "sfx.panel-close",
+      "scenes": [
+        "G12",
+        "G13",
+        "G14",
+        "G15",
+        "G16",
+        "G20",
+        "G24",
+        "G33",
+        "G34",
+        "G36"
+      ],
+      "trigger": "ui.panelClosed",
+      "sync": "close accepted",
+      "offsetMs": 0,
+      "gain": 0.4,
+      "priority": 30,
+      "group": "ui",
+      "cooldownMs": 400,
+      "loop": false,
+      "durationMs": 130,
+      "cancelOn": [
+        "scene.disposed",
+        "game.paused",
+        "audio.muted"
+      ],
+      "guard": "audio.userGestureUnlocked && audio.sfxEnabled && audio.masterVolume > 0 && document.visible",
+      "deduplicateBy": "semantic event id; re-render is never a new event"
+    },
+    {
+      "id": "cue.ui-back",
+      "assetId": "sfx.ui-back",
+      "scenes": [
+        "G07",
+        "G08",
+        "G09",
+        "G21",
+        "G23"
+      ],
+      "trigger": "ui.back",
+      "sync": "navigation accepted",
+      "offsetMs": 0,
+      "gain": 0.4,
+      "priority": 30,
+      "group": "ui",
+      "cooldownMs": 400,
+      "loop": false,
+      "durationMs": 90,
+      "cancelOn": [
+        "scene.disposed",
+        "game.paused",
+        "audio.muted"
+      ],
+      "guard": "audio.userGestureUnlocked && audio.sfxEnabled && audio.masterVolume > 0 && document.visible",
+      "deduplicateBy": "semantic event id; re-render is never a new event"
+    },
+    {
+      "id": "cue.toggle-on",
+      "assetId": "sfx.toggle-on",
+      "scenes": [
+        "G24",
+        "G36"
+      ],
+      "trigger": "preferences.toggleEnabled",
+      "sync": "successful enabled toggle; no cue if muted",
+      "offsetMs": 0,
+      "gain": 0.4,
+      "priority": 30,
+      "group": "ui",
+      "cooldownMs": 400,
+      "loop": false,
+      "durationMs": 100,
+      "cancelOn": [
+        "scene.disposed",
+        "game.paused",
+        "audio.muted"
+      ],
+      "guard": "audio.userGestureUnlocked && audio.sfxEnabled && audio.masterVolume > 0 && document.visible",
+      "deduplicateBy": "semantic event id; re-render is never a new event"
+    },
+    {
+      "id": "cue.toggle-off",
+      "assetId": "sfx.toggle-off",
+      "scenes": [
+        "G24",
+        "G36"
+      ],
+      "trigger": "preferences.toggleDisabled",
+      "sync": "no cue when disabling master audio",
+      "offsetMs": 0,
+      "gain": 0.4,
+      "priority": 30,
+      "group": "ui",
+      "cooldownMs": 400,
+      "loop": false,
+      "durationMs": 100,
+      "cancelOn": [
+        "scene.disposed",
+        "game.paused",
+        "audio.muted"
+      ],
+      "guard": "audio.userGestureUnlocked && audio.sfxEnabled && audio.masterVolume > 0 && document.visible",
+      "deduplicateBy": "semantic event id; re-render is never a new event"
+    },
+    {
+      "id": "cue.action-unavailable",
+      "assetId": "sfx.action-unavailable",
+      "scenes": [
+        "G09",
+        "G13"
+      ],
+      "trigger": "ui.unavailableActionExplained",
+      "sync": "explicit activation only, not hover or keyboard focus",
+      "offsetMs": 0,
+      "gain": 0.35,
+      "priority": 30,
+      "group": "ui",
+      "cooldownMs": 400,
+      "loop": false,
+      "durationMs": 150,
+      "cancelOn": [
+        "scene.disposed",
+        "game.paused",
+        "audio.muted"
+      ],
+      "guard": "audio.userGestureUnlocked && audio.sfxEnabled && audio.masterVolume > 0 && document.visible",
+      "deduplicateBy": "semantic event id; re-render is never a new event"
+    },
+    {
+      "id": "cue.card-select",
+      "assetId": "sfx.card-select",
+      "scenes": [
+        "G13",
+        "G29",
+        "G31"
+      ],
+      "trigger": "card.previewOpened",
+      "sync": "preview state visible",
+      "offsetMs": 0,
+      "gain": 0.5,
+      "priority": 30,
+      "group": "ui",
+      "cooldownMs": 400,
+      "loop": false,
+      "durationMs": 120,
+      "cancelOn": [
+        "scene.disposed",
+        "game.paused",
+        "audio.muted"
+      ],
+      "guard": "audio.userGestureUnlocked && audio.sfxEnabled && audio.masterVolume > 0 && document.visible",
+      "deduplicateBy": "semantic event id; re-render is never a new event"
+    },
+    {
+      "id": "cue.card-play",
+      "assetId": "sfx.card-play",
+      "scenes": [
+        "G13",
+        "G32"
+      ],
+      "trigger": "card.committed",
+      "sync": "engine accepted card once",
+      "offsetMs": 0,
+      "gain": 0.6,
+      "priority": 30,
+      "group": "ui",
+      "cooldownMs": 400,
+      "loop": false,
+      "durationMs": 160,
+      "cancelOn": [
+        "scene.disposed",
+        "game.paused",
+        "audio.muted"
+      ],
+      "guard": "audio.userGestureUnlocked && audio.sfxEnabled && audio.masterVolume > 0 && document.visible",
+      "deduplicateBy": "semantic event id; re-render is never a new event"
+    },
+    {
+      "id": "cue.whoosh",
+      "assetId": "sfx.whoosh",
+      "scenes": [
+        "G26"
+      ],
+      "trigger": "scene.transitionStarted",
+      "sync": "generic scene transition when no flight cue applies",
+      "offsetMs": 0,
+      "gain": 0.4,
+      "priority": 30,
+      "group": "ui",
+      "cooldownMs": 400,
+      "loop": false,
+      "durationMs": 280,
+      "cancelOn": [
+        "scene.disposed",
+        "game.paused",
+        "audio.muted"
+      ],
+      "guard": "audio.userGestureUnlocked && audio.sfxEnabled && audio.masterVolume > 0 && document.visible",
+      "deduplicateBy": "semantic event id; re-render is never a new event"
+    },
+    {
+      "id": "cue.plane-launch",
+      "assetId": "sfx.plane-launch",
+      "scenes": [
+        "G09"
+      ],
+      "trigger": "level.started",
+      "sync": "level start confirmed",
+      "offsetMs": 0,
+      "gain": 0.5,
+      "priority": 30,
+      "group": "world",
+      "cooldownMs": 400,
+      "loop": false,
+      "durationMs": 360,
+      "cancelOn": [
+        "scene.disposed",
+        "game.paused",
+        "audio.muted"
+      ],
+      "guard": "audio.userGestureUnlocked && audio.sfxEnabled && audio.masterVolume > 0 && document.visible",
+      "deduplicateBy": "semantic event id; re-render is never a new event"
+    },
+    {
+      "id": "cue.plane-flyby",
+      "assetId": "sfx.plane-flyby",
+      "scenes": [
+        "G26"
+      ],
+      "trigger": "week.travelStarted",
+      "sync": "after week resolved, at plane motion start",
+      "offsetMs": 0,
+      "gain": 0.55,
+      "priority": 30,
+      "group": "world",
+      "cooldownMs": 400,
+      "loop": false,
+      "durationMs": 520,
+      "cancelOn": [
+        "scene.disposed",
+        "game.paused",
+        "audio.muted"
+      ],
+      "guard": "audio.userGestureUnlocked && audio.sfxEnabled && audio.masterVolume > 0 && document.visible",
+      "deduplicateBy": "semantic event id; re-render is never a new event"
+    },
+    {
+      "id": "cue.plane-land",
+      "assetId": "sfx.plane-land",
+      "scenes": [
+        "G10"
+      ],
+      "trigger": "week.travelArrived",
+      "sync": "route motion arrival; navigation only, never settle transactions",
+      "offsetMs": 0,
+      "gain": 0.45,
+      "priority": 30,
+      "group": "world",
+      "cooldownMs": 400,
+      "loop": false,
+      "durationMs": 260,
+      "cancelOn": [
+        "scene.disposed",
+        "game.paused",
+        "audio.muted"
+      ],
+      "guard": "audio.userGestureUnlocked && audio.sfxEnabled && audio.masterVolume > 0 && document.visible",
+      "deduplicateBy": "semantic event id; re-render is never a new event"
+    },
+    {
+      "id": "cue.lock-open",
+      "assetId": "sfx.lock-open",
+      "scenes": [
+        "G09",
+        "G18"
+      ],
+      "trigger": "level.unlocked",
+      "sync": "at unlock motion start after earned-star condition",
+      "offsetMs": 0,
+      "gain": 0.65,
+      "priority": 60,
+      "group": "world",
+      "cooldownMs": 400,
+      "loop": false,
+      "durationMs": 480,
+      "cancelOn": [
+        "scene.disposed",
+        "game.paused",
+        "audio.muted"
+      ],
+      "guard": "audio.userGestureUnlocked && audio.sfxEnabled && audio.masterVolume > 0 && document.visible",
+      "deduplicateBy": "semantic event id; re-render is never a new event"
+    },
+    {
+      "id": "cue.unlock",
+      "assetId": "sfx.unlock",
+      "scenes": [
+        "G09",
+        "G18"
+      ],
+      "trigger": "level.unlocked",
+      "sync": "offset240ms; reward accent after latch click",
+      "offsetMs": 240,
+      "gain": 0.45,
+      "priority": 75,
+      "group": "feedback",
+      "cooldownMs": 400,
+      "loop": false,
+      "durationMs": 500,
+      "cancelOn": [
+        "scene.disposed",
+        "game.paused",
+        "audio.muted"
+      ],
+      "guard": "audio.userGestureUnlocked && audio.sfxEnabled && audio.masterVolume > 0 && document.visible",
+      "deduplicateBy": "semantic event id; re-render is never a new event"
+    },
+    {
+      "id": "cue.rewind-tick",
+      "assetId": "sfx.rewind-tick",
+      "scenes": [
+        "G20"
+      ],
+      "trigger": "rewind.selectionChanged",
+      "sync": "one detent per newly selected valid week; throttled",
+      "offsetMs": 0,
+      "gain": 0.35,
+      "priority": 30,
+      "group": "ui",
+      "cooldownMs": 150,
+      "loop": false,
+      "durationMs": 75,
+      "cancelOn": [
+        "scene.disposed",
+        "game.paused",
+        "audio.muted"
+      ],
+      "guard": "audio.userGestureUnlocked && audio.sfxEnabled && audio.masterVolume > 0 && document.visible",
+      "deduplicateBy": "semantic event id; re-render is never a new event"
+    },
+    {
+      "id": "cue.rewind-confirm",
+      "assetId": "sfx.rewind-confirm",
+      "scenes": [
+        "G20"
+      ],
+      "trigger": "rewind.confirmed",
+      "sync": "snapshot restore succeeded, wheel rotation start",
+      "offsetMs": 0,
+      "gain": 0.6,
+      "priority": 30,
+      "group": "world",
+      "cooldownMs": 400,
+      "loop": false,
+      "durationMs": 280,
+      "cancelOn": [
+        "scene.disposed",
+        "game.paused",
+        "audio.muted"
+      ],
+      "guard": "audio.userGestureUnlocked && audio.sfxEnabled && audio.masterVolume > 0 && document.visible",
+      "deduplicateBy": "semantic event id; re-render is never a new event"
+    },
+    {
+      "id": "cue.message-send",
+      "assetId": "sfx.message-send",
+      "scenes": [
+        "G14",
+        "G16"
+      ],
+      "trigger": "dialogue.messageSubmitted",
+      "sync": "message locally accepted; not server delivery/read receipt",
+      "offsetMs": 0,
+      "gain": 0.45,
+      "priority": 30,
+      "group": "ui",
+      "cooldownMs": 400,
+      "loop": false,
+      "durationMs": 260,
+      "cancelOn": [
+        "scene.disposed",
+        "game.paused",
+        "audio.muted"
+      ],
+      "guard": "audio.userGestureUnlocked && audio.sfxEnabled && audio.masterVolume > 0 && document.visible",
+      "deduplicateBy": "semantic event id; re-render is never a new event"
+    },
+    {
+      "id": "cue.message-received",
+      "assetId": "sfx.message-received",
+      "scenes": [
+        "G14",
+        "G16"
+      ],
+      "trigger": "dialogue.replyReady",
+      "sync": "actual reply displayed",
+      "offsetMs": 0,
+      "gain": 0.4,
+      "priority": 30,
+      "group": "ui",
+      "cooldownMs": 400,
+      "loop": false,
+      "durationMs": 200,
+      "cancelOn": [
+        "scene.disposed",
+        "game.paused",
+        "audio.muted"
+      ],
+      "guard": "audio.userGestureUnlocked && audio.sfxEnabled && audio.masterVolume > 0 && document.visible",
+      "deduplicateBy": "semantic event id; re-render is never a new event"
+    },
+    {
+      "id": "cue.negotiation-accepted",
+      "assetId": "sfx.negotiation-accepted",
+      "scenes": [
+        "G14"
+      ],
+      "trigger": "dialogue.offerAccepted",
+      "sync": "engine acceptance confirmed, replaces generic received cue",
+      "offsetMs": 0,
+      "gain": 0.55,
+      "priority": 60,
+      "group": "feedback",
+      "cooldownMs": 400,
+      "loop": false,
+      "durationMs": 300,
+      "cancelOn": [
+        "scene.disposed",
+        "game.paused",
+        "audio.muted"
+      ],
+      "guard": "audio.userGestureUnlocked && audio.sfxEnabled && audio.masterVolume > 0 && document.visible",
+      "deduplicateBy": "semantic event id; re-render is never a new event"
+    },
+    {
+      "id": "cue.counteroffer",
+      "assetId": "sfx.counteroffer",
+      "scenes": [
+        "G14"
+      ],
+      "trigger": "dialogue.counterofferReady",
+      "sync": "counteroffer displayed; no card committed",
+      "offsetMs": 0,
+      "gain": 0.4,
+      "priority": 30,
+      "group": "ui",
+      "cooldownMs": 400,
+      "loop": false,
+      "durationMs": 180,
+      "cancelOn": [
+        "scene.disposed",
+        "game.paused",
+        "audio.muted"
+      ],
+      "guard": "audio.userGestureUnlocked && audio.sfxEnabled && audio.masterVolume > 0 && document.visible",
+      "deduplicateBy": "semantic event id; re-render is never a new event"
+    },
+    {
+      "id": "cue.save-confirmed",
+      "assetId": "sfx.save-confirmed",
+      "scenes": [
+        "G22",
+        "G28"
+      ],
+      "trigger": "plan.persisted",
+      "sync": "storage write succeeded; replaces generic click",
+      "offsetMs": 0,
+      "gain": 0.55,
+      "priority": 60,
+      "group": "feedback",
+      "cooldownMs": 400,
+      "loop": false,
+      "durationMs": 240,
+      "cancelOn": [
+        "scene.disposed",
+        "game.paused",
+        "audio.muted"
+      ],
+      "guard": "audio.userGestureUnlocked && audio.sfxEnabled && audio.masterVolume > 0 && document.visible",
+      "deduplicateBy": "semantic event id; re-render is never a new event"
+    },
+    {
+      "id": "cue.save-error",
+      "assetId": "sfx.save-error",
+      "scenes": [
+        "G22",
+        "G28"
+      ],
+      "trigger": "plan.persistFailed",
+      "sync": "real write failure shown; no success cue",
+      "offsetMs": 0,
+      "gain": 0.5,
+      "priority": 90,
+      "group": "feedback",
+      "cooldownMs": 400,
+      "loop": false,
+      "durationMs": 240,
+      "cancelOn": [
+        "scene.disposed",
+        "game.paused",
+        "audio.muted"
+      ],
+      "guard": "audio.userGestureUnlocked && audio.sfxEnabled && audio.masterVolume > 0 && document.visible",
+      "deduplicateBy": "semantic event id; re-render is never a new event"
+    },
+    {
+      "id": "cue.week-complete",
+      "assetId": "sfx.week-complete",
+      "scenes": [
+        "G17"
+      ],
+      "trigger": "week.resolved",
+      "sync": "week report ready, after engine resolution",
+      "offsetMs": 0,
+      "gain": 0.45,
+      "priority": 30,
+      "group": "ui",
+      "cooldownMs": 400,
+      "loop": false,
+      "durationMs": 280,
+      "cancelOn": [
+        "scene.disposed",
+        "game.paused",
+        "audio.muted"
+      ],
+      "guard": "audio.userGestureUnlocked && audio.sfxEnabled && audio.masterVolume > 0 && document.visible",
+      "deduplicateBy": "semantic event id; re-render is never a new event"
+    },
+    {
+      "id": "cue.star-award",
+      "assetId": "sfx.star-award",
+      "scenes": [
+        "G18"
+      ],
+      "trigger": "star.awarded",
+      "sync": "one earned star at a time; Pilot only after persistence",
+      "offsetMs": 0,
+      "gain": 0.5,
+      "priority": 75,
+      "group": "feedback",
+      "cooldownMs": 400,
+      "loop": false,
+      "durationMs": 360,
+      "cancelOn": [
+        "scene.disposed",
+        "game.paused",
+        "audio.muted"
+      ],
+      "guard": "audio.userGestureUnlocked && audio.sfxEnabled && audio.masterVolume > 0 && document.visible",
+      "deduplicateBy": "semantic event id; re-render is never a new event"
+    },
+    {
+      "id": "cue.competence-up",
+      "assetId": "sfx.competence-up",
+      "scenes": [
+        "G21",
+        "G23"
+      ],
+      "trigger": "competence.confirmed",
+      "sync": "real new competence milestone, never repeated on scene remount",
+      "offsetMs": 0,
+      "gain": 0.5,
+      "priority": 75,
+      "group": "feedback",
+      "cooldownMs": 400,
+      "loop": false,
+      "durationMs": 440,
+      "cancelOn": [
+        "scene.disposed",
+        "game.paused",
+        "audio.muted"
+      ],
+      "guard": "audio.userGestureUnlocked && audio.sfxEnabled && audio.masterVolume > 0 && document.visible",
+      "deduplicateBy": "semantic event id; re-render is never a new event"
+    },
+    {
+      "id": "cue.risk-reveal",
+      "assetId": "sfx.risk-reveal",
+      "scenes": [
+        "G10",
+        "G12"
+      ],
+      "trigger": "forecast.riskRevealed",
+      "sync": "newly revealed crash risk, not each forecast render",
+      "offsetMs": 0,
+      "gain": 0.45,
+      "priority": 30,
+      "group": "world",
+      "cooldownMs": 3000,
+      "loop": false,
+      "durationMs": 320,
+      "cancelOn": [
+        "scene.disposed",
+        "game.paused",
+        "audio.muted"
+      ],
+      "guard": "audio.userGestureUnlocked && audio.sfxEnabled && audio.masterVolume > 0 && document.visible",
+      "deduplicateBy": "semantic event id; re-render is never a new event"
+    },
+    {
+      "id": "cue.storm",
+      "assetId": "sfx.storm",
+      "scenes": [
+        "G10"
+      ],
+      "trigger": "storm.entered",
+      "sync": "once on entering visible storm state, never loop",
+      "offsetMs": 0,
+      "gain": 0.35,
+      "priority": 30,
+      "group": "world",
+      "cooldownMs": 3000,
+      "loop": false,
+      "durationMs": 600,
+      "cancelOn": [
+        "scene.disposed",
+        "game.paused",
+        "audio.muted"
+      ],
+      "guard": "audio.userGestureUnlocked && audio.sfxEnabled && audio.masterVolume > 0 && document.visible",
+      "deduplicateBy": "semantic event id; re-render is never a new event"
+    },
+    {
+      "id": "cue.storm-clear",
+      "assetId": "sfx.storm-clear",
+      "scenes": [
+        "G10"
+      ],
+      "trigger": "risk.resolved",
+      "sync": "engine forecast no longer crashes",
+      "offsetMs": 0,
+      "gain": 0.45,
+      "priority": 30,
+      "group": "world",
+      "cooldownMs": 400,
+      "loop": false,
+      "durationMs": 400,
+      "cancelOn": [
+        "scene.disposed",
+        "game.paused",
+        "audio.muted"
+      ],
+      "guard": "audio.userGestureUnlocked && audio.sfxEnabled && audio.masterVolume > 0 && document.visible",
+      "deduplicateBy": "semantic event id; re-render is never a new event"
+    },
+    {
+      "id": "cue.notification",
+      "assetId": "sfx.notification",
+      "scenes": [
+        "G33"
+      ],
+      "trigger": "inbox.itemReceived",
+      "sync": "foreground in-game inbox only; native push uses OS sound",
+      "offsetMs": 0,
+      "gain": 0.4,
+      "priority": 30,
+      "group": "ui",
+      "cooldownMs": 400,
+      "loop": false,
+      "durationMs": 220,
+      "cancelOn": [
+        "scene.disposed",
+        "game.paused",
+        "audio.muted"
+      ],
+      "guard": "audio.userGestureUnlocked && audio.sfxEnabled && audio.masterVolume > 0 && document.visible",
+      "deduplicateBy": "semantic event id; re-render is never a new event"
+    },
+    {
+      "id": "cue.reminder-scheduled",
+      "assetId": "sfx.reminder-scheduled",
+      "scenes": [
+        "G36"
+      ],
+      "trigger": "reminder.scheduleAcknowledged",
+      "sync": "scheduler ACK only; never claims delivered notification",
+      "offsetMs": 0,
+      "gain": 0.45,
+      "priority": 30,
+      "group": "ui",
+      "cooldownMs": 400,
+      "loop": false,
+      "durationMs": 220,
+      "cancelOn": [
+        "scene.disposed",
+        "game.paused",
+        "audio.muted"
+      ],
+      "guard": "audio.userGestureUnlocked && audio.sfxEnabled && audio.masterVolume > 0 && document.visible",
+      "deduplicateBy": "semantic event id; re-render is never a new event"
+    },
+    {
+      "id": "cue.pause",
+      "assetId": "sfx.pause",
+      "scenes": [
+        "G24"
+      ],
+      "trigger": "game.paused",
+      "sync": "explicit pause accepted",
+      "offsetMs": 0,
+      "gain": 0.35,
+      "priority": 30,
+      "group": "ui",
+      "cooldownMs": 400,
+      "loop": false,
+      "durationMs": 130,
+      "cancelOn": [
+        "scene.disposed",
+        "game.paused",
+        "audio.muted"
+      ],
+      "guard": "audio.userGestureUnlocked && audio.sfxEnabled && audio.masterVolume > 0 && document.visible",
+      "deduplicateBy": "semantic event id; re-render is never a new event"
+    },
+    {
+      "id": "cue.resume",
+      "assetId": "sfx.resume",
+      "scenes": [
+        "G10"
+      ],
+      "trigger": "game.resumed",
+      "sync": "explicit resume accepted",
+      "offsetMs": 0,
+      "gain": 0.35,
+      "priority": 30,
+      "group": "ui",
+      "cooldownMs": 400,
+      "loop": false,
+      "durationMs": 130,
+      "cancelOn": [
+        "scene.disposed",
+        "game.paused",
+        "audio.muted"
+      ],
+      "guard": "audio.userGestureUnlocked && audio.sfxEnabled && audio.masterVolume > 0 && document.visible",
+      "deduplicateBy": "semantic event id; re-render is never a new event"
+    },
+    {
+      "id": "cue.success",
+      "assetId": "sfx.success",
+      "scenes": [
+        "G18"
+      ],
+      "trigger": "lap.completed",
+      "sync": "successful lap, at summary entrance",
+      "offsetMs": 0,
+      "gain": 0.55,
+      "priority": 75,
+      "group": "feedback",
+      "cooldownMs": 400,
+      "loop": false,
+      "durationMs": 420,
+      "cancelOn": [
+        "scene.disposed",
+        "game.paused",
+        "audio.muted"
+      ],
+      "guard": "audio.userGestureUnlocked && audio.sfxEnabled && audio.masterVolume > 0 && document.visible",
+      "deduplicateBy": "semantic event id; re-render is never a new event"
+    },
+    {
+      "id": "cue.failure",
+      "assetId": "sfx.failure",
+      "scenes": [
+        "G19"
+      ],
+      "trigger": "payment.rejected",
+      "sync": "actual rejected transfer once; replaces generic error",
+      "offsetMs": 0,
+      "gain": 0.55,
+      "priority": 90,
+      "group": "feedback",
+      "cooldownMs": 400,
+      "loop": false,
+      "durationMs": 240,
+      "cancelOn": [
+        "scene.disposed",
+        "game.paused",
+        "audio.muted"
+      ],
+      "guard": "audio.userGestureUnlocked && audio.sfxEnabled && audio.masterVolume > 0 && document.visible",
+      "deduplicateBy": "semantic event id; re-render is never a new event"
+    }
+  ],
+  "mix": {
+    "masterSfxGain": 0.65,
+    "maxConcurrentSfx": 3,
+    "maxPerGroup": 1,
+    "narratorDuckingDb": -12,
+    "duckAttackMs": 35,
+    "duckReleaseMs": 180,
+    "rules": [
+      "No generic click when the same action has a semantic cue.",
+      "Higher priority interrupts lower priority within its group.",
+      "At unlock, mechanical opening starts at0ms and the chime at240ms; one event id, two authorised layers.",
+      "A voice line ducks sound effects; it never suppresses captions or blocks gameplay.",
+      "Stop and clear queued SFX on hide, pause, scene disposal, reset or mute.",
+      "Never queue missed sounds for replay on returning to a visible tab.",
+      "SFX is optional presentation and cannot commit a game state change."
+    ]
+  },
+  "explicitSilence": [
+    {
+      "actions": [
+        "pointer.hover",
+        "keyboard.focus",
+        "text.input",
+        "cashflow.scrub",
+        "forecast.recomputed",
+        "loader.loop",
+        "background.notification",
+        "email.opened",
+        "push.received",
+        "voice.skip",
+        "voice.mute"
+      ],
+      "reason": "Avoid repeated noise, autoplay and interference with narration; these actions retain visual and accessible feedback."
+    }
+  ],
+  "loopPolicy": "No ambient audio loops in the current game. Storm is a short once-only accent; loading is silent."
+}

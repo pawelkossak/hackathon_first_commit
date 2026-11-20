@@ -1,0 +1,7 @@
+[warmly, clearly] Możemy uruchomić limit w koncie do piętnastu tysięcy złotych. Sprawdź opłatę i odsetki w prognozie.
+[long pause]
+[warmly, clearly] Limit został przyznany, choć prognoza nie pokazuje dziś niedoboru.
+[long pause]
+[warmly, clearly] Nie zdążymy uruchomić limitu przed terminem tej płatności. Sprawdź inne rozwiązania.
+[long pause]
+[warmly, clearly] Przyjrzyjmy się dostępnym możliwościom. Pożyczka z wiadomości SMS nie jest ofertą naszego banku.

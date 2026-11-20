@@ -1,0 +1,2932 @@
+{
+  "format": "scene-catalog/v1",
+  "scenes": [
+    {
+      "id": "G01",
+      "title": "Firma czeka. Kawa też.",
+      "template": "account",
+      "states": [
+        "idle",
+        "busy",
+        "invalid",
+        "session-expired"
+      ],
+      "layouts": [
+        {
+          "scene": "G01",
+          "viewport": {
+            "width": 1440,
+            "height": 900
+          },
+          "layout": "layouts/complete/G01-1440x900.json",
+          "template": "account",
+          "surface": "game"
+        },
+        {
+          "scene": "G01",
+          "viewport": {
+            "width": 844,
+            "height": 390
+          },
+          "layout": "layouts/complete/G01-844x390.json",
+          "template": "account",
+          "surface": "game"
+        }
+      ],
+      "copyIds": [
+        "g01.title",
+        "g01.email",
+        "g01.password",
+        "g01.showPassword",
+        "g01.cta",
+        "g01.secondary",
+        "g01.forgot",
+        "g01.create",
+        "g01.invalid",
+        "g01.busy",
+        "g01.sessionExpired"
+      ],
+      "voiceIds": [],
+      "actions": [
+        {
+          "copyId": "g01.cta",
+          "command": "auth.signIn",
+          "guard": "matchestypedstate/capability;disabledshowsreason"
+        },
+        {
+          "copyId": "g01.secondary",
+          "command": "game.startGuest",
+          "guard": "matchestypedstate/capability;disabledshowsreason"
+        },
+        {
+          "copyId": "g01.forgot",
+          "command": "ui.openRecovery",
+          "guard": "matchestypedstate/capability;disabledshowsreason"
+        },
+        {
+          "copyId": "g01.create",
+          "command": "ui.openRegistration",
+          "guard": "matchestypedstate/capability;disabledshowsreason"
+        }
+      ],
+      "assets": [
+        "G01.001",
+        "G01.002",
+        "G01.003",
+        "G01.004",
+        "G01.005",
+        "G01.006",
+        "G01.007",
+        "G01.008",
+        "G01.450",
+        "G01.452",
+        "G01.464"
+      ],
+      "provenance": "GAMEDESIGNrulesandapprovedG01–G36inventory;templatesareexplicitlayoutdata,notappcode."
+    },
+    {
+      "id": "G02",
+      "title": "Zakładamy firmę",
+      "template": "account",
+      "states": [
+        "idle",
+        "busy",
+        "invalid-email",
+        "password-mismatch",
+        "existing-email"
+      ],
+      "layouts": [
+        {
+          "scene": "G02",
+          "viewport": {
+            "width": 1440,
+            "height": 900
+          },
+          "layout": "layouts/complete/G02-1440x900.json",
+          "template": "account",
+          "surface": "game"
+        },
+        {
+          "scene": "G02",
+          "viewport": {
+            "width": 844,
+            "height": 390
+          },
+          "layout": "layouts/complete/G02-844x390.json",
+          "template": "account",
+          "surface": "game"
+        }
+      ],
+      "copyIds": [
+        "g02.title",
+        "g02.email",
+        "g02.password",
+        "g02.repeatPassword",
+        "g02.cta",
+        "g02.back",
+        "g02.terms",
+        "g02.emailError",
+        "g02.passwordMismatch",
+        "g02.passwordRule",
+        "g02.existing",
+        "g02.busy"
+      ],
+      "voiceIds": [],
+      "actions": [
+        {
+          "copyId": "g02.cta",
+          "command": "auth.register",
+          "guard": "matchestypedstate/capability;disabledshowsreason"
+        },
+        {
+          "copyId": "g02.back",
+          "command": "ui.openLogin",
+          "guard": "matchestypedstate/capability;disabledshowsreason"
+        }
+      ],
+      "assets": [
+        "G02.009",
+        "G02.010",
+        "G02.011",
+        "G02.012",
+        "G02.013",
+        "G02.014",
+        "G02.015",
+        "G02.016",
+        "G02.451",
+        "G02.453"
+      ],
+      "provenance": "GAMEDESIGNrulesandapprovedG01–G36inventory;templatesareexplicitlayoutdata,notappcode."
+    },
+    {
+      "id": "G03",
+      "title": "Odzyskaj dostęp",
+      "template": "account",
+      "states": [
+        "idle",
+        "busy",
+        "neutral-sent",
+        "send-failed"
+      ],
+      "layouts": [
+        {
+          "scene": "G03",
+          "viewport": {
+            "width": 1440,
+            "height": 900
+          },
+          "layout": "layouts/complete/G03-1440x900.json",
+          "template": "account",
+          "surface": "game"
+        },
+        {
+          "scene": "G03",
+          "viewport": {
+            "width": 844,
+            "height": 390
+          },
+          "layout": "layouts/complete/G03-844x390.json",
+          "template": "account",
+          "surface": "game"
+        }
+      ],
+      "copyIds": [
+        "g03.title",
+        "g03.email",
+        "g03.cta",
+        "g03.back",
+        "g03.result",
+        "g03.retry",
+        "g03.busy"
+      ],
+      "voiceIds": [],
+      "actions": [
+        {
+          "copyId": "g03.cta",
+          "command": "auth.requestRecovery",
+          "guard": "matchestypedstate/capability;disabledshowsreason"
+        },
+        {
+          "copyId": "g03.back",
+          "command": "ui.openLogin",
+          "guard": "matchestypedstate/capability;disabledshowsreason"
+        }
+      ],
+      "assets": [
+        "G03.017",
+        "G03.018",
+        "G03.019",
+        "G03.020",
+        "G03.021",
+        "G03.022",
+        "G03.023",
+        "G03.024",
+        "G03.399"
+      ],
+      "provenance": "GAMEDESIGNrulesandapprovedG01–G36inventory;templatesareexplicitlayoutdata,notappcode."
+    },
+    {
+      "id": "G04",
+      "title": "Do zobaczenia na kolejnej turze",
+      "template": "dialog",
+      "states": [
+        "saved",
+        "save-unconfirmed",
+        "logout-confirmed"
+      ],
+      "layouts": [
+        {
+          "scene": "G04",
+          "viewport": {
+            "width": 1440,
+            "height": 900
+          },
+          "layout": "layouts/complete/G04-1440x900.json",
+          "template": "dialog",
+          "surface": "game"
+        },
+        {
+          "scene": "G04",
+          "viewport": {
+            "width": 844,
+            "height": 390
+          },
+          "layout": "layouts/complete/G04-844x390.json",
+          "template": "dialog",
+          "surface": "game"
+        }
+      ],
+      "copyIds": [
+        "g04.title",
+        "g04.saved",
+        "g04.pending",
+        "g04.cta",
+        "g04.secondary",
+        "g04.retrySave",
+        "g04.goodbye",
+        "g04.warning"
+      ],
+      "voiceIds": [
+        "logout.goodbye"
+      ],
+      "actions": [
+        {
+          "copyId": "g04.cta",
+          "command": "auth.logoutAfterSaveDecision",
+          "guard": "matchestypedstate/capability;disabledshowsreason"
+        },
+        {
+          "copyId": "g04.secondary",
+          "command": "ui.resume",
+          "guard": "matchestypedstate/capability;disabledshowsreason"
+        },
+        {
+          "copyId": "g04.retrySave",
+          "command": "plan.retrySave",
+          "guard": "matchestypedstate/capability;disabledshowsreason"
+        }
+      ],
+      "assets": [
+        "G04.025",
+        "G04.026",
+        "G04.027",
+        "G04.028",
+        "G04.029",
+        "G04.030",
+        "G04.031",
+        "G04.032",
+        "G04.456"
+      ],
+      "provenance": "GAMEDESIGNrulesandapprovedG01–G36inventory;templatesareexplicitlayoutdata,notappcode."
+    },
+    {
+      "id": "G05",
+      "title": "Witaj na pokładzie",
+      "template": "story",
+      "states": [
+        "first-entry",
+        "resume-intro",
+        "skip"
+      ],
+      "layouts": [
+        {
+          "scene": "G05",
+          "viewport": {
+            "width": 1440,
+            "height": 900
+          },
+          "layout": "layouts/complete/G05-1440x900.json",
+          "template": "story",
+          "surface": "game"
+        },
+        {
+          "scene": "G05",
+          "viewport": {
+            "width": 844,
+            "height": 390
+          },
+          "layout": "layouts/complete/G05-844x390.json",
+          "template": "story",
+          "surface": "game"
+        }
+      ],
+      "copyIds": [
+        "g05.title",
+        "g05.intro",
+        "g05.role",
+        "g05.cta",
+        "g05.skip",
+        "g05.replay",
+        "g05.captions",
+        "g05.voice"
+      ],
+      "voiceIds": [
+        "intro.owner",
+        "intro.role"
+      ],
+      "actions": [
+        {
+          "copyId": "g05.cta",
+          "command": "ui.openCharacterChoice",
+          "guard": "matchestypedstate/capability;disabledshowsreason"
+        },
+        {
+          "copyId": "g05.skip",
+          "command": "ui.openMission",
+          "guard": "matchestypedstate/capability;disabledshowsreason"
+        }
+      ],
+      "assets": [
+        "G05.033",
+        "G05.034",
+        "G05.035",
+        "G05.036",
+        "G05.037",
+        "G05.038",
+        "G05.039",
+        "G05.040",
+        "G05.041",
+        "G05.379",
+        "G05.383",
+        "G05.402"
+      ],
+      "provenance": "GAMEDESIGNrulesandapprovedG01–G36inventory;templatesareexplicitlayoutdata,notappcode."
+    },
+    {
+      "id": "G06",
+      "title": "Wybierz załogę",
+      "template": "selection",
+      "states": [
+        "female-female",
+        "female-male",
+        "male-female",
+        "male-male"
+      ],
+      "layouts": [
+        {
+          "scene": "G06",
+          "viewport": {
+            "width": 1440,
+            "height": 900
+          },
+          "layout": "layouts/complete/G06-1440x900.json",
+          "template": "selection",
+          "surface": "game"
+        },
+        {
+          "scene": "G06",
+          "viewport": {
+            "width": 844,
+            "height": 390
+          },
+          "layout": "layouts/complete/G06-844x390.json",
+          "template": "selection",
+          "surface": "game"
+        }
+      ],
+      "copyIds": [
+        "g06.title",
+        "g06.playerLabel",
+        "g06.playerWoman",
+        "g06.playerMan",
+        "g06.narratorLabel",
+        "g06.narratorWoman",
+        "g06.narratorMan",
+        "g06.note",
+        "g06.changeLater",
+        "g06.cta",
+        "g06.voicePreview",
+        "g06.selected",
+        "g06.previewUnavailable"
+      ],
+      "voiceIds": [],
+      "actions": [
+        {
+          "copyId": "g06.cta",
+          "command": "preferences.confirmIndependentCharacters",
+          "guard": "matchestypedstate/capability;disabledshowsreason"
+        },
+        {
+          "copyId": "g06.voicePreview",
+          "command": "voice.previewSelectedNarrator",
+          "guard": "matchestypedstate/capability;disabledshowsreason"
+        }
+      ],
+      "assets": [
+        "G06.042",
+        "G06.043",
+        "G06.044",
+        "G06.045",
+        "G06.046",
+        "G06.047",
+        "G06.048",
+        "G06.049",
+        "G06.050",
+        "G06.415",
+        "G06.454",
+        "G06.474"
+      ],
+      "provenance": "GAMEDESIGNrulesandapprovedG01–G36inventory;templatesareexplicitlayoutdata,notappcode."
+    },
+    {
+      "id": "G07",
+      "title": "Przetrwaj grudzień",
+      "template": "story",
+      "states": [
+        "mission-goal",
+        "continue",
+        "skip"
+      ],
+      "layouts": [
+        {
+          "scene": "G07",
+          "viewport": {
+            "width": 1440,
+            "height": 900
+          },
+          "layout": "layouts/complete/G07-1440x900.json",
+          "template": "story",
+          "surface": "game"
+        },
+        {
+          "scene": "G07",
+          "viewport": {
+            "width": 844,
+            "height": 390
+          },
+          "layout": "layouts/complete/G07-844x390.json",
+          "template": "story",
+          "surface": "game"
+        }
+      ],
+      "copyIds": [
+        "g07.title",
+        "g07.goal",
+        "g07.detail",
+        "g07.cta",
+        "g07.skip"
+      ],
+      "voiceIds": [
+        "intro.goal"
+      ],
+      "actions": [
+        {
+          "copyId": "g07.cta",
+          "command": "ui.openTutorial",
+          "guard": "matchestypedstate/capability;disabledshowsreason"
+        },
+        {
+          "copyId": "g07.skip",
+          "command": "ui.openMission",
+          "guard": "matchestypedstate/capability;disabledshowsreason"
+        }
+      ],
+      "assets": [
+        "G07.051",
+        "G07.052",
+        "G07.053",
+        "G07.054",
+        "G07.055",
+        "G07.056",
+        "G07.057",
+        "G07.058",
+        "G07.403"
+      ],
+      "provenance": "GAMEDESIGNrulesandapprovedG01–G36inventory;templatesareexplicitlayoutdata,notappcode."
+    },
+    {
+      "id": "G08",
+      "title": "Bezpieczna próba",
+      "template": "story",
+      "states": [
+        "tutorial",
+        "decision-preview",
+        "tutorial-complete"
+      ],
+      "layouts": [
+        {
+          "scene": "G08",
+          "viewport": {
+            "width": 1440,
+            "height": 900
+          },
+          "layout": "layouts/complete/G08-1440x900.json",
+          "template": "story",
+          "surface": "game"
+        },
+        {
+          "scene": "G08",
+          "viewport": {
+            "width": 844,
+            "height": 390
+          },
+          "layout": "layouts/complete/G08-844x390.json",
+          "template": "story",
+          "surface": "game"
+        }
+      ],
+      "copyIds": [
+        "g08.title",
+        "g08.loop",
+        "g08.safe",
+        "g08.cta",
+        "g08.help",
+        "g08.keyboard"
+      ],
+      "voiceIds": [
+        "intro.practice"
+      ],
+      "actions": [
+        {
+          "copyId": "g08.cta",
+          "command": "ui.openMission",
+          "guard": "matchestypedstate/capability;disabledshowsreason"
+        }
+      ],
+      "assets": [
+        "G08.059",
+        "G08.060",
+        "G08.061",
+        "G08.062",
+        "G08.063",
+        "G08.064",
+        "G08.065",
+        "G08.066",
+        "G08.067",
+        "G08.470"
+      ],
+      "provenance": "GAMEDESIGNrulesandapprovedG01–G36inventory;templatesareexplicitlayoutdata,notappcode."
+    },
+    {
+      "id": "G09",
+      "title": "Mapa przygody",
+      "template": "map",
+      "states": [
+        "new-run",
+        "resume",
+        "level-locked",
+        "level-unlocked"
+      ],
+      "layouts": [
+        {
+          "scene": "G09",
+          "viewport": {
+            "width": 1440,
+            "height": 900
+          },
+          "layout": "layouts/complete/G09-1440x900.json",
+          "template": "map",
+          "surface": "game"
+        },
+        {
+          "scene": "G09",
+          "viewport": {
+            "width": 844,
+            "height": 390
+          },
+          "layout": "layouts/complete/G09-844x390.json",
+          "template": "map",
+          "surface": "game"
+        }
+      ],
+      "copyIds": [
+        "g09.title",
+        "g09.level1",
+        "g09.level2",
+        "g09.level3",
+        "g09.level4",
+        "g09.soon",
+        "g09.locked",
+        "g09.cta",
+        "g09.resume",
+        "g09.note",
+        "notif.return.body",
+        "notif.return.progress"
+      ],
+      "voiceIds": [
+        "map.start"
+      ],
+      "actions": [
+        {
+          "copyId": "g09.cta",
+          "command": "game.startLevel",
+          "guard": "matchestypedstate/capability;disabledshowsreason"
+        },
+        {
+          "copyId": "g09.resume",
+          "command": "game.restoreRun",
+          "guard": "matchestypedstate/capability;disabledshowsreason"
+        }
+      ],
+      "assets": [
+        "G09.068",
+        "G09.069",
+        "G09.070",
+        "G09.071",
+        "G09.072",
+        "G09.073",
+        "G09.074",
+        "G09.075",
+        "G09.076",
+        "G09.077",
+        "G09.078",
+        "G09.079",
+        "G09.080",
+        "G09.081",
+        "G09.355",
+        "G09.375",
+        "G09.380",
+        "G09.384",
+        "G09.465",
+        "G09.466",
+        "G09.483",
+        "G09.489"
+      ],
+      "provenance": "GAMEDESIGNrulesandapprovedG01–G36inventory;templatesareexplicitlayoutdata,notappcode."
+    },
+    {
+      "id": "G10",
+      "title": "Przetrwaj grudzień",
+      "template": "world",
+      "states": [
+        "before-action",
+        "card-preview",
+        "card-committed",
+        "week-pending",
+        "week-resolved",
+        "action-spent"
+      ],
+      "layouts": [
+        {
+          "scene": "G10",
+          "viewport": {
+            "width": 1440,
+            "height": 900
+          },
+          "layout": "layouts/complete/G10-1440x900.json",
+          "template": "world",
+          "surface": "game"
+        },
+        {
+          "scene": "G10",
+          "viewport": {
+            "width": 844,
+            "height": 390
+          },
+          "layout": "layouts/complete/G10-844x390.json",
+          "template": "world",
+          "surface": "game"
+        }
+      ],
+      "copyIds": [
+        "g10.title",
+        "g10.cash",
+        "g10.runway",
+        "g10.resilience",
+        "g10.relations",
+        "g10.cost",
+        "g10.unknown",
+        "g10.week",
+        "g10.storm",
+        "g10.cta",
+        "g10.next",
+        "g10.cashflow",
+        "g10.cards",
+        "g10.oneAction",
+        "g10.alreadyPlayed",
+        "g10.synthetic",
+        "notif.return.body",
+        "notif.return.progress"
+      ],
+      "voiceIds": [
+        "mission.storm"
+      ],
+      "actions": [
+        {
+          "copyId": "g10.cta",
+          "command": "ui.openCardTray",
+          "guard": "matchestypedstate/capability;disabledshowsreason"
+        },
+        {
+          "copyId": "g10.next",
+          "command": "game.resolveCurrentWeek",
+          "guard": "matchestypedstate/capability;disabledshowsreason"
+        },
+        {
+          "copyId": "g10.cashflow",
+          "command": "ui.openCashFlow",
+          "guard": "matchestypedstate/capability;disabledshowsreason"
+        }
+      ],
+      "assets": [
+        "G10.082",
+        "G10.083",
+        "G10.084",
+        "G10.085",
+        "G10.086",
+        "G10.087",
+        "G10.088",
+        "G10.089",
+        "G10.090",
+        "G10.091",
+        "G10.092",
+        "G10.093",
+        "G10.094",
+        "G10.095",
+        "G10.096",
+        "G10.097",
+        "G10.098",
+        "G10.099",
+        "G10.100",
+        "G10.356",
+        "G10.358",
+        "G10.360",
+        "G10.361",
+        "G10.378",
+        "G10.381",
+        "G10.385",
+        "G10.414",
+        "G10.431",
+        "G10.437",
+        "G10.438",
+        "G10.439",
+        "G10.472",
+        "G10.480",
+        "G10.486",
+        "G10.487"
+      ],
+      "provenance": "GAMEDESIGNrulesandapprovedG01–G36inventory;templatesareexplicitlayoutdata,notappcode."
+    },
+    {
+      "id": "G11",
+      "title": "Wydarzenie na trasie",
+      "template": "event",
+      "states": [
+        "account-change",
+        "new-order",
+        "ai-tool",
+        "obligation",
+        "late-client",
+        "choice-resolved",
+        "conditional-event-skipped"
+      ],
+      "layouts": [
+        {
+          "scene": "G11",
+          "viewport": {
+            "width": 1440,
+            "height": 900
+          },
+          "layout": "layouts/complete/G11-1440x900.json",
+          "template": "event",
+          "surface": "game"
+        },
+        {
+          "scene": "G11",
+          "viewport": {
+            "width": 844,
+            "height": 390
+          },
+          "layout": "layouts/complete/G11-844x390.json",
+          "template": "event",
+          "surface": "game"
+        }
+      ],
+      "copyIds": [
+        "g11.title",
+        "g11.body",
+        "g11.joke",
+        "g11.choiceSafe",
+        "g11.choiceRisk",
+        "g11.safeResult",
+        "g11.riskResult",
+        "g11.cta",
+        "g11.hint",
+        "event.account.title",
+        "event.account.body",
+        "event.account.choiceA",
+        "event.account.choiceB",
+        "event.order.title",
+        "event.order.body",
+        "event.order.choiceA",
+        "event.order.choiceB",
+        "event.tool.title",
+        "event.tool.body",
+        "event.tool.choiceA",
+        "event.tool.choiceB",
+        "event.late.title",
+        "event.late.body",
+        "event.late.choiceA",
+        "event.sms.title",
+        "event.sms.body",
+        "event.sms.choiceA",
+        "event.sms.choiceB"
+      ],
+      "voiceIds": [
+        "event.account",
+        "event.account.joke",
+        "event.account.safe",
+        "event.order",
+        "event.tool",
+        "event.late",
+        "client.late.joke"
+      ],
+      "actions": [
+        {
+          "copyId": "g11.choiceSafe",
+          "command": "game.resolveEventSafe",
+          "guard": "matchestypedstate/capability;disabledshowsreason"
+        },
+        {
+          "copyId": "g11.choiceRisk",
+          "command": "game.resolveEventRisk",
+          "guard": "matchestypedstate/capability;disabledshowsreason"
+        },
+        {
+          "copyId": "g11.cta",
+          "command": "ui.returnToCurrentWeek",
+          "guard": "matchestypedstate/capability;disabledshowsreason"
+        }
+      ],
+      "assets": [
+        "G11.101",
+        "G11.102",
+        "G11.103",
+        "G11.104",
+        "G11.105",
+        "G11.106",
+        "G11.107",
+        "G11.108",
+        "G11.109",
+        "G11.110",
+        "G11.111",
+        "G11.112",
+        "G11.113",
+        "G11.405",
+        "G11.443",
+        "G11.449"
+      ],
+      "provenance": "GAMEDESIGNrulesandapprovedG01–G36inventory;templatesareexplicitlayoutdata,notappcode."
+    },
+    {
+      "id": "G12",
+      "title": "Prognoza: będzie bujać",
+      "template": "cashflow",
+      "states": [
+        "baseline",
+        "preview",
+        "committed",
+        "counterfactual"
+      ],
+      "layouts": [
+        {
+          "scene": "G12",
+          "viewport": {
+            "width": 1440,
+            "height": 900
+          },
+          "layout": "layouts/complete/G12-1440x900.json",
+          "template": "cashflow",
+          "surface": "game"
+        },
+        {
+          "scene": "G12",
+          "viewport": {
+            "width": 844,
+            "height": 390
+          },
+          "layout": "layouts/complete/G12-844x390.json",
+          "template": "cashflow",
+          "surface": "game"
+        }
+      ],
+      "copyIds": [
+        "g12.title",
+        "g12.joke",
+        "g12.baseline",
+        "g12.preview",
+        "g12.committed",
+        "g12.zero",
+        "g12.negative",
+        "g12.summary",
+        "g12.details",
+        "g12.back",
+        "g12.unavailable"
+      ],
+      "voiceIds": [
+        "cashflow.joke"
+      ],
+      "actions": [
+        {
+          "copyId": "g12.back",
+          "command": "ui.closeForecast",
+          "guard": "matchestypedstate/capability;disabledshowsreason"
+        }
+      ],
+      "assets": [
+        "G12.114",
+        "G12.115",
+        "G12.116",
+        "G12.117",
+        "G12.118",
+        "G12.119",
+        "G12.120",
+        "G12.121",
+        "G12.359",
+        "G12.396",
+        "G12.411",
+        "G12.445"
+      ],
+      "provenance": "GAMEDESIGNrulesandapprovedG01–G36inventory;templatesareexplicitlayoutdata,notappcode."
+    },
+    {
+      "id": "G13",
+      "title": "Wybierz manewr",
+      "template": "cards",
+      "states": [
+        "available",
+        "selected",
+        "unavailable-reason",
+        "played"
+      ],
+      "layouts": [
+        {
+          "scene": "G13",
+          "viewport": {
+            "width": 1440,
+            "height": 900
+          },
+          "layout": "layouts/complete/G13-1440x900.json",
+          "template": "cards",
+          "surface": "game"
+        },
+        {
+          "scene": "G13",
+          "viewport": {
+            "width": 844,
+            "height": 390
+          },
+          "layout": "layouts/complete/G13-844x390.json",
+          "template": "cards",
+          "surface": "game"
+        }
+      ],
+      "copyIds": [
+        "g13.title",
+        "g13.joke",
+        "g13.cta",
+        "g13.secondary",
+        "g13.cost",
+        "g13.effect",
+        "g13.timing",
+        "g13.played",
+        "g13.preview",
+        "g13.disabled",
+        "g13.noCost",
+        "card.advance.title",
+        "card.advance.body",
+        "card.advance.timing",
+        "card.advance.cost",
+        "card.advance.disabled",
+        "card.discount.title",
+        "card.discount.body",
+        "card.discount.timing",
+        "card.discount.cost",
+        "card.discount.disabled",
+        "card.postpone.title",
+        "card.postpone.body",
+        "card.postpone.timing",
+        "card.postpone.cost",
+        "card.postpone.disabled",
+        "card.overdraft.title",
+        "card.overdraft.body",
+        "card.overdraft.timing",
+        "card.overdraft.cost",
+        "card.overdraft.disabled",
+        "card.loan.title",
+        "card.loan.body",
+        "card.loan.timing",
+        "card.loan.cost",
+        "card.loan.disabled",
+        "card.factoring.title",
+        "card.factoring.body",
+        "card.factoring.timing",
+        "card.factoring.cost",
+        "card.factoring.disabled"
+      ],
+      "voiceIds": [
+        "advance.joke",
+        "bank.limit",
+        "bank.limit.cost"
+      ],
+      "actions": [
+        {
+          "copyId": "g13.cta",
+          "command": "game.commitSelectedCard",
+          "guard": "matchestypedstate/capability;disabledshowsreason"
+        },
+        {
+          "copyId": "g13.secondary",
+          "command": "ui.cancelPreview",
+          "guard": "matchestypedstate/capability;disabledshowsreason"
+        }
+      ],
+      "assets": [
+        "G13.122",
+        "G13.123",
+        "G13.124",
+        "G13.125",
+        "G13.126",
+        "G13.127",
+        "G13.128",
+        "G13.129",
+        "G13.130",
+        "G13.131",
+        "G13.132",
+        "G13.133",
+        "G13.134",
+        "G13.135",
+        "G13.136",
+        "G13.137",
+        "G13.362",
+        "G13.364",
+        "G13.387",
+        "G13.400",
+        "G13.475",
+        "G13.477"
+      ],
+      "provenance": "GAMEDESIGNrulesandapprovedG01–G36inventory;templatesareexplicitlayoutdata,notappcode."
+    },
+    {
+      "id": "G14",
+      "title": "Porozmawiaj z Klientem A",
+      "template": "dialog",
+      "states": [
+        "offer",
+        "counteroffer",
+        "accepted",
+        "offline-cache",
+        "ai-timeout",
+        "guardrail-fallback"
+      ],
+      "layouts": [
+        {
+          "scene": "G14",
+          "viewport": {
+            "width": 1440,
+            "height": 900
+          },
+          "layout": "layouts/complete/G14-1440x900.json",
+          "template": "dialog",
+          "surface": "game"
+        },
+        {
+          "scene": "G14",
+          "viewport": {
+            "width": 844,
+            "height": 390
+          },
+          "layout": "layouts/complete/G14-844x390.json",
+          "template": "dialog",
+          "surface": "game"
+        }
+      ],
+      "copyIds": [
+        "g14.title",
+        "g14.playerAsk",
+        "g14.clientCounter",
+        "g14.pending",
+        "g14.choiceAccept",
+        "g14.choiceDiscount",
+        "g14.placeholder",
+        "g14.send",
+        "g14.typing",
+        "g14.confirmed",
+        "g14.refused",
+        "g14.limit",
+        "g14.offline",
+        "g14.back"
+      ],
+      "voiceIds": [
+        "client.counter",
+        "advance.confirmed",
+        "move.praise"
+      ],
+      "actions": [
+        {
+          "copyId": "g14.choiceAccept",
+          "command": "game.acceptAdvanceCounteroffer",
+          "guard": "matchestypedstate/capability;disabledshowsreason"
+        },
+        {
+          "copyId": "g14.choiceDiscount",
+          "command": "dialogue.requestDiscountPreview",
+          "guard": "matchestypedstate/capability;disabledshowsreason"
+        },
+        {
+          "copyId": "g14.back",
+          "command": "ui.returnToCards",
+          "guard": "matchestypedstate/capability;disabledshowsreason"
+        }
+      ],
+      "assets": [
+        "G14.138",
+        "G14.139",
+        "G14.140",
+        "G14.141",
+        "G14.142",
+        "G14.143",
+        "G14.144",
+        "G14.145",
+        "G14.146",
+        "G14.147",
+        "G14.148",
+        "G14.388",
+        "G14.467"
+      ],
+      "provenance": "GAMEDESIGNrulesandapprovedG01–G36inventory;templatesareexplicitlayoutdata,notappcode."
+    },
+    {
+      "id": "G15",
+      "title": "Wsparcie AI-CFO",
+      "template": "dialog",
+      "states": [
+        "hint-available",
+        "hint-used",
+        "self-directed",
+        "delegated",
+        "no-legal-action"
+      ],
+      "layouts": [
+        {
+          "scene": "G15",
+          "viewport": {
+            "width": 1440,
+            "height": 900
+          },
+          "layout": "layouts/complete/G15-1440x900.json",
+          "template": "dialog",
+          "surface": "game"
+        },
+        {
+          "scene": "G15",
+          "viewport": {
+            "width": 844,
+            "height": 390
+          },
+          "layout": "layouts/complete/G15-844x390.json",
+          "template": "dialog",
+          "surface": "game"
+        }
+      ],
+      "copyIds": [
+        "g15.title",
+        "g15.risk",
+        "g15.optionAdvance",
+        "g15.optionDiscount",
+        "g15.cta",
+        "g15.secondary",
+        "g15.note",
+        "g15.result",
+        "g15.hintUsed"
+      ],
+      "voiceIds": [
+        "hint.options"
+      ],
+      "actions": [
+        {
+          "copyId": "g15.cta",
+          "command": "ui.closeHint",
+          "guard": "matchestypedstate/capability;disabledshowsreason"
+        },
+        {
+          "copyId": "g15.secondary",
+          "command": "game.delegateCheapestLegalAction",
+          "guard": "matchestypedstate/capability;disabledshowsreason"
+        }
+      ],
+      "assets": [
+        "G15.149",
+        "G15.150",
+        "G15.151",
+        "G15.152",
+        "G15.153",
+        "G15.154",
+        "G15.155",
+        "G15.156",
+        "G15.157",
+        "G15.158",
+        "G15.159",
+        "G15.389",
+        "G15.412",
+        "G15.471"
+      ],
+      "provenance": "GAMEDESIGNrulesandapprovedG01–G36inventory;templatesareexplicitlayoutdata,notappcode."
+    },
+    {
+      "id": "G16",
+      "title": "SMS firmy pożyczkowej",
+      "template": "event",
+      "states": [
+        "sms-offer",
+        "full-cost",
+        "inspected",
+        "rejected",
+        "loan-committed"
+      ],
+      "layouts": [
+        {
+          "scene": "G16",
+          "viewport": {
+            "width": 1440,
+            "height": 900
+          },
+          "layout": "layouts/complete/G16-1440x900.json",
+          "template": "event",
+          "surface": "game"
+        },
+        {
+          "scene": "G16",
+          "viewport": {
+            "width": 844,
+            "height": 390
+          },
+          "layout": "layouts/complete/G16-844x390.json",
+          "template": "event",
+          "surface": "game"
+        }
+      ],
+      "copyIds": [
+        "g16.title",
+        "g16.source",
+        "g16.sender",
+        "g16.sms",
+        "g16.joke",
+        "g16.explanation",
+        "g16.cost",
+        "g16.repay",
+        "g16.cta",
+        "g16.back"
+      ],
+      "voiceIds": [
+        "loan.source",
+        "loan.repayment",
+        "loan.joke",
+        "loan.cost"
+      ],
+      "actions": [
+        {
+          "copyId": "g16.cta",
+          "command": "ui.expandNonbankFullCost",
+          "guard": "matchestypedstate/capability;disabledshowsreason"
+        },
+        {
+          "copyId": "g16.back",
+          "command": "ui.returnToCards",
+          "guard": "matchestypedstate/capability;disabledshowsreason"
+        }
+      ],
+      "assets": [
+        "G16.160",
+        "G16.161",
+        "G16.162",
+        "G16.163",
+        "G16.164",
+        "G16.165",
+        "G16.166",
+        "G16.167",
+        "G16.168",
+        "G16.390",
+        "G16.408"
+      ],
+      "provenance": "GAMEDESIGNrulesandapprovedG01–G36inventory;templatesareexplicitlayoutdata,notappcode."
+    },
+    {
+      "id": "G17",
+      "title": "Tydzień za nami",
+      "template": "result",
+      "states": [
+        "positive-week",
+        "negative-week",
+        "quiet-week"
+      ],
+      "layouts": [
+        {
+          "scene": "G17",
+          "viewport": {
+            "width": 1440,
+            "height": 900
+          },
+          "layout": "layouts/complete/G17-1440x900.json",
+          "template": "result",
+          "surface": "game"
+        },
+        {
+          "scene": "G17",
+          "viewport": {
+            "width": 844,
+            "height": 390
+          },
+          "layout": "layouts/complete/G17-844x390.json",
+          "template": "result",
+          "surface": "game"
+        }
+      ],
+      "copyIds": [
+        "g17.title",
+        "g17.balance",
+        "g17.delta",
+        "g17.lesson",
+        "g17.joke",
+        "g17.cta",
+        "g17.quiet",
+        "g17.transactions"
+      ],
+      "voiceIds": [
+        "week.report",
+        "week.quiet"
+      ],
+      "actions": [
+        {
+          "copyId": "g17.cta",
+          "command": "ui.openEngineCurrentWeek",
+          "guard": "matchestypedstate/capability;disabledshowsreason"
+        }
+      ],
+      "assets": [
+        "G17.169",
+        "G17.170",
+        "G17.171",
+        "G17.172",
+        "G17.173",
+        "G17.174",
+        "G17.175",
+        "G17.176",
+        "G17.177",
+        "G17.404"
+      ],
+      "provenance": "GAMEDESIGNrulesandapprovedG01–G36inventory;templatesareexplicitlayoutdata,notappcode."
+    },
+    {
+      "id": "G18",
+      "title": "Grudzień dowieziony",
+      "template": "result",
+      "states": [
+        "two-stars-pilot-pending",
+        "plan-open",
+        "level-unlocked"
+      ],
+      "layouts": [
+        {
+          "scene": "G18",
+          "viewport": {
+            "width": 1440,
+            "height": 900
+          },
+          "layout": "layouts/complete/G18-1440x900.json",
+          "template": "result",
+          "surface": "game"
+        },
+        {
+          "scene": "G18",
+          "viewport": {
+            "width": 844,
+            "height": 390
+          },
+          "layout": "layouts/complete/G18-844x390.json",
+          "template": "result",
+          "surface": "game"
+        }
+      ],
+      "copyIds": [
+        "g18.title",
+        "g18.joke",
+        "g18.min",
+        "g18.avoided",
+        "g18.survival",
+        "g18.cheap",
+        "g18.pilotPending",
+        "g18.pilotEarned",
+        "g18.cta",
+        "g18.secondary",
+        "g18.notEarned"
+      ],
+      "voiceIds": [
+        "success.joke",
+        "success.avoided",
+        "success.pending"
+      ],
+      "actions": [
+        {
+          "copyId": "g18.cta",
+          "command": "plan.saveWinningPlan",
+          "guard": "matchestypedstate/capability;disabledshowsreason"
+        },
+        {
+          "copyId": "g18.secondary",
+          "command": "ui.openLapDetails",
+          "guard": "matchestypedstate/capability;disabledshowsreason"
+        }
+      ],
+      "assets": [
+        "G18.178",
+        "G18.179",
+        "G18.180",
+        "G18.181",
+        "G18.182",
+        "G18.183",
+        "G18.184",
+        "G18.185",
+        "G18.186",
+        "G18.366",
+        "G18.376",
+        "G18.440",
+        "G18.481",
+        "G18.484",
+        "G18.488"
+      ],
+      "provenance": "GAMEDESIGNrulesandapprovedG01–G36inventory;templatesareexplicitlayoutdata,notappcode."
+    },
+    {
+      "id": "G19",
+      "title": "Przelew nie wystartował",
+      "template": "result",
+      "states": [
+        "liquidity-crash",
+        "fraud-crash",
+        "cause-expanded",
+        "supportive-reaction"
+      ],
+      "layouts": [
+        {
+          "scene": "G19",
+          "viewport": {
+            "width": 1440,
+            "height": 900
+          },
+          "layout": "layouts/complete/G19-1440x900.json",
+          "template": "result",
+          "surface": "game"
+        },
+        {
+          "scene": "G19",
+          "viewport": {
+            "width": 844,
+            "height": 390
+          },
+          "layout": "layouts/complete/G19-844x390.json",
+          "template": "result",
+          "surface": "game"
+        }
+      ],
+      "copyIds": [
+        "g19.title",
+        "g19.week",
+        "g19.cause",
+        "g19.joke",
+        "g19.support",
+        "g19.cta",
+        "g19.secondary",
+        "g19.noLives"
+      ],
+      "voiceIds": [
+        "failure.cause",
+        "failure.joke",
+        "failure.support"
+      ],
+      "actions": [
+        {
+          "copyId": "g19.cta",
+          "command": "ui.openRewindSelector",
+          "guard": "matchestypedstate/capability;disabledshowsreason"
+        },
+        {
+          "copyId": "g19.secondary",
+          "command": "ui.expandCrashCause",
+          "guard": "matchestypedstate/capability;disabledshowsreason"
+        }
+      ],
+      "assets": [
+        "G19.187",
+        "G19.188",
+        "G19.189",
+        "G19.190",
+        "G19.191",
+        "G19.192",
+        "G19.193",
+        "G19.194",
+        "G19.195",
+        "G19.196",
+        "G19.368",
+        "G19.409",
+        "G19.482"
+      ],
+      "provenance": "GAMEDESIGNrulesandapprovedG01–G36inventory;templatesareexplicitlayoutdata,notappcode."
+    },
+    {
+      "id": "G20",
+      "title": "Czas na drugi manewr",
+      "template": "rewind",
+      "states": [
+        "select-previous-week",
+        "selection-changed",
+        "cancelled",
+        "restore-confirmed"
+      ],
+      "layouts": [
+        {
+          "scene": "G20",
+          "viewport": {
+            "width": 1440,
+            "height": 900
+          },
+          "layout": "layouts/complete/G20-1440x900.json",
+          "template": "rewind",
+          "surface": "game"
+        },
+        {
+          "scene": "G20",
+          "viewport": {
+            "width": 844,
+            "height": 390
+          },
+          "layout": "layouts/complete/G20-844x390.json",
+          "template": "rewind",
+          "surface": "game"
+        }
+      ],
+      "copyIds": [
+        "g20.title",
+        "g20.body",
+        "g20.selector",
+        "g20.cta",
+        "g20.state",
+        "g20.back"
+      ],
+      "voiceIds": [
+        "rewind.help"
+      ],
+      "actions": [
+        {
+          "copyId": "g20.cta",
+          "command": "game.restoreSelectedSnapshot",
+          "guard": "matchestypedstate/capability;disabledshowsreason"
+        },
+        {
+          "copyId": "g20.back",
+          "command": "ui.closeRewind",
+          "guard": "matchestypedstate/capability;disabledshowsreason"
+        }
+      ],
+      "assets": [
+        "G20.197",
+        "G20.198",
+        "G20.199",
+        "G20.200",
+        "G20.201",
+        "G20.202",
+        "G20.203",
+        "G20.204",
+        "G20.205",
+        "G20.206",
+        "G20.207",
+        "G20.208",
+        "G20.369",
+        "G20.391",
+        "G20.401",
+        "G20.432"
+      ],
+      "provenance": "GAMEDESIGNrulesandapprovedG01–G36inventory;templatesareexplicitlayoutdata,notappcode."
+    },
+    {
+      "id": "G21",
+      "title": "Twoje kompetencje",
+      "template": "achievements",
+      "states": [
+        "empty",
+        "progress",
+        "earned-reason"
+      ],
+      "layouts": [
+        {
+          "scene": "G21",
+          "viewport": {
+            "width": 1440,
+            "height": 900
+          },
+          "layout": "layouts/complete/G21-1440x900.json",
+          "template": "achievements",
+          "surface": "game"
+        },
+        {
+          "scene": "G21",
+          "viewport": {
+            "width": 844,
+            "height": 390
+          },
+          "layout": "layouts/complete/G21-844x390.json",
+          "template": "achievements",
+          "surface": "game"
+        }
+      ],
+      "copyIds": [
+        "g21.title",
+        "g21.advanceBadge",
+        "g21.decemberBadge",
+        "g21.safetyBadge",
+        "g21.joke",
+        "g21.milestone1",
+        "g21.milestone2",
+        "g21.milestone3",
+        "g21.empty",
+        "g21.cta",
+        "g21.detail"
+      ],
+      "voiceIds": [],
+      "actions": [
+        {
+          "copyId": "g21.cta",
+          "command": "ui.openMap",
+          "guard": "matchestypedstate/capability;disabledshowsreason"
+        }
+      ],
+      "assets": [
+        "G21.209",
+        "G21.210",
+        "G21.211",
+        "G21.212",
+        "G21.213",
+        "G21.214",
+        "G21.215",
+        "G21.216",
+        "G21.217",
+        "G21.218",
+        "G21.219",
+        "G21.220",
+        "G21.221",
+        "G21.222",
+        "G21.223",
+        "G21.224",
+        "G21.441",
+        "G21.444"
+      ],
+      "provenance": "GAMEDESIGNrulesandapprovedG01–G36inventory;templatesareexplicitlayoutdata,notappcode."
+    },
+    {
+      "id": "G22",
+      "title": "Zapisz swój plan",
+      "template": "plan",
+      "states": [
+        "editing",
+        "saving",
+        "persisted",
+        "save-failed"
+      ],
+      "layouts": [
+        {
+          "scene": "G22",
+          "viewport": {
+            "width": 1440,
+            "height": 900
+          },
+          "layout": "layouts/complete/G22-1440x900.json",
+          "template": "plan",
+          "surface": "game"
+        },
+        {
+          "scene": "G22",
+          "viewport": {
+            "width": 844,
+            "height": 390
+          },
+          "layout": "layouts/complete/G22-844x390.json",
+          "template": "plan",
+          "surface": "game"
+        }
+      ],
+      "copyIds": [
+        "g22.title",
+        "g22.plan",
+        "g22.saved",
+        "g22.joke",
+        "g22.cta",
+        "g22.synthetic",
+        "g22.pending",
+        "g22.retry",
+        "g22.save"
+      ],
+      "voiceIds": [
+        "plan.saved",
+        "plan.goal"
+      ],
+      "actions": [
+        {
+          "copyId": "g22.save",
+          "command": "plan.saveWinningPlan",
+          "guard": "matchestypedstate/capability;disabledshowsreason"
+        },
+        {
+          "copyId": "g22.cta",
+          "command": "account.advanceSyntheticClockTwoWeeks",
+          "guard": "matchestypedstate/capability;disabledshowsreason"
+        },
+        {
+          "copyId": "g22.retry",
+          "command": "plan.retrySave",
+          "guard": "matchestypedstate/capability;disabledshowsreason"
+        }
+      ],
+      "assets": [
+        "G22.225",
+        "G22.226",
+        "G22.227",
+        "G22.228",
+        "G22.229",
+        "G22.230",
+        "G22.231",
+        "G22.232",
+        "G22.233",
+        "G22.367",
+        "G22.373",
+        "G22.406",
+        "G22.426",
+        "G22.433",
+        "G22.442",
+        "G22.462"
+      ],
+      "provenance": "GAMEDESIGNrulesandapprovedG01–G36inventory;templatesareexplicitlayoutdata,notappcode."
+    },
+    {
+      "id": "G23",
+      "title": "Sprawdź swój plan",
+      "template": "result",
+      "states": [
+        "pending",
+        "met",
+        "missed",
+        "competence-upgraded"
+      ],
+      "layouts": [
+        {
+          "scene": "G23",
+          "viewport": {
+            "width": 1440,
+            "height": 900
+          },
+          "layout": "layouts/complete/G23-1440x900.json",
+          "template": "result",
+          "surface": "game"
+        },
+        {
+          "scene": "G23",
+          "viewport": {
+            "width": 844,
+            "height": 390
+          },
+          "layout": "layouts/complete/G23-844x390.json",
+          "template": "result",
+          "surface": "game"
+        }
+      ],
+      "copyIds": [
+        "g23.title",
+        "g23.received",
+        "g23.clock",
+        "g23.competence",
+        "g23.unlock",
+        "g23.cta",
+        "g23.details",
+        "g23.missed",
+        "g23.secondary"
+      ],
+      "voiceIds": [
+        "plan.met",
+        "plan.missed",
+        "close.pitch"
+      ],
+      "actions": [
+        {
+          "copyId": "g23.cta",
+          "command": "ui.openMap",
+          "guard": "matchestypedstate/capability;disabledshowsreason"
+        },
+        {
+          "copyId": "g23.secondary",
+          "command": "ui.openCardComparison",
+          "guard": "matchestypedstate/capability;disabledshowsreason"
+        }
+      ],
+      "assets": [
+        "G23.234",
+        "G23.235",
+        "G23.236",
+        "G23.237",
+        "G23.238",
+        "G23.239",
+        "G23.240",
+        "G23.241",
+        "G23.242",
+        "G23.243",
+        "G23.382",
+        "G23.386",
+        "G23.407",
+        "G23.490"
+      ],
+      "provenance": "GAMEDESIGNrulesandapprovedG01–G36inventory;templatesareexplicitlayoutdata,notappcode."
+    },
+    {
+      "id": "G24",
+      "title": "Przerwa w locie",
+      "template": "settings",
+      "states": [
+        "paused",
+        "sound-muted",
+        "captions-on",
+        "reduced-motion",
+        "narrator-changed",
+        "logout",
+        "reset-confirmation"
+      ],
+      "layouts": [
+        {
+          "scene": "G24",
+          "viewport": {
+            "width": 1440,
+            "height": 900
+          },
+          "layout": "layouts/complete/G24-1440x900.json",
+          "template": "settings",
+          "surface": "game"
+        },
+        {
+          "scene": "G24",
+          "viewport": {
+            "width": 844,
+            "height": 390
+          },
+          "layout": "layouts/complete/G24-844x390.json",
+          "template": "settings",
+          "surface": "game"
+        }
+      ],
+      "copyIds": [
+        "g24.title",
+        "g24.joke",
+        "g24.player",
+        "g24.narrator",
+        "g24.voice",
+        "g24.captions",
+        "g24.motion",
+        "g24.narratorRemarks",
+        "g24.cta",
+        "g24.logout",
+        "g24.reset",
+        "g24.resetConfirm",
+        "g24.choiceConfirm",
+        "g24.choiceCancel",
+        "g24.soundEffects",
+        "g24.volume"
+      ],
+      "voiceIds": [],
+      "actions": [
+        {
+          "copyId": "g24.cta",
+          "command": "ui.resume",
+          "guard": "matchestypedstate/capability;disabledshowsreason"
+        },
+        {
+          "copyId": "g24.logout",
+          "command": "ui.confirmLogout",
+          "guard": "matchestypedstate/capability;disabledshowsreason"
+        },
+        {
+          "copyId": "g24.reset",
+          "command": "ui.confirmReset",
+          "guard": "matchestypedstate/capability;disabledshowsreason"
+        },
+        {
+          "copyId": "g24.choiceConfirm",
+          "command": "game.resetConfirmedDemo",
+          "guard": "matchestypedstate/capability;disabledshowsreason"
+        },
+        {
+          "copyId": "g24.choiceCancel",
+          "command": "ui.cancelReset",
+          "guard": "matchestypedstate/capability;disabledshowsreason"
+        }
+      ],
+      "assets": [
+        "G24.244",
+        "G24.245",
+        "G24.246",
+        "G24.247",
+        "G24.248",
+        "G24.249",
+        "G24.250",
+        "G24.251",
+        "G24.392",
+        "G24.416",
+        "G24.417",
+        "G24.420",
+        "G24.421",
+        "G24.422",
+        "G24.423",
+        "G24.424",
+        "G24.455",
+        "G24.457",
+        "G24.473",
+        "G24.476"
+      ],
+      "provenance": "GAMEDESIGNrulesandapprovedG01–G36inventory;templatesareexplicitlayoutdata,notappcode."
+    },
+    {
+      "id": "G25",
+      "title": "Przygotowujemy trasę",
+      "template": "loading",
+      "states": [
+        "loading",
+        "slow-load",
+        "load-failed"
+      ],
+      "layouts": [
+        {
+          "scene": "G25",
+          "viewport": {
+            "width": 1440,
+            "height": 900
+          },
+          "layout": "layouts/complete/G25-1440x900.json",
+          "template": "loading",
+          "surface": "game"
+        },
+        {
+          "scene": "G25",
+          "viewport": {
+            "width": 844,
+            "height": 390
+          },
+          "layout": "layouts/complete/G25-844x390.json",
+          "template": "loading",
+          "surface": "game"
+        }
+      ],
+      "copyIds": [
+        "g25.title",
+        "g25.joke",
+        "g25.voice",
+        "g25.skip",
+        "g25.error",
+        "g25.retry"
+      ],
+      "voiceIds": [
+        "loader.start"
+      ],
+      "actions": [
+        {
+          "copyId": "g25.skip",
+          "command": "voice.skip",
+          "guard": "matchestypedstate/capability;disabledshowsreason"
+        },
+        {
+          "copyId": "g25.retry",
+          "command": "assets.retryLoad",
+          "guard": "matchestypedstate/capability;disabledshowsreason"
+        }
+      ],
+      "assets": [
+        "G25.252",
+        "G25.253",
+        "G25.254",
+        "G25.255",
+        "G25.256",
+        "G25.257",
+        "G25.258",
+        "G25.259",
+        "G25.260",
+        "G25.370",
+        "G25.458"
+      ],
+      "provenance": "GAMEDESIGNrulesandapprovedG01–G36inventory;templatesareexplicitlayoutdata,notappcode."
+    },
+    {
+      "id": "G26",
+      "title": "Lecimy dalej",
+      "template": "loading",
+      "states": [
+        "week-confirmed",
+        "travel",
+        "arrived"
+      ],
+      "layouts": [
+        {
+          "scene": "G26",
+          "viewport": {
+            "width": 1440,
+            "height": 900
+          },
+          "layout": "layouts/complete/G26-1440x900.json",
+          "template": "loading",
+          "surface": "game"
+        },
+        {
+          "scene": "G26",
+          "viewport": {
+            "width": 844,
+            "height": 390
+          },
+          "layout": "layouts/complete/G26-844x390.json",
+          "template": "loading",
+          "surface": "game"
+        }
+      ],
+      "copyIds": [
+        "g26.title",
+        "g26.joke",
+        "g26.from",
+        "g26.to",
+        "g26.status"
+      ],
+      "voiceIds": [
+        "turn.travel"
+      ],
+      "actions": [],
+      "assets": [
+        "G26.261",
+        "G26.262",
+        "G26.263",
+        "G26.264",
+        "G26.265",
+        "G26.266",
+        "G26.267",
+        "G26.268",
+        "G26.269",
+        "G26.357",
+        "G26.435",
+        "G26.479"
+      ],
+      "provenance": "GAMEDESIGNrulesandapprovedG01–G36inventory;templatesareexplicitlayoutdata,notappcode."
+    },
+    {
+      "id": "G27",
+      "title": "Chwila na odpowiedź",
+      "template": "loading",
+      "states": [
+        "ai-pending",
+        "voice-pending",
+        "timeout",
+        "continue-without-audio",
+        "cached-choice"
+      ],
+      "layouts": [
+        {
+          "scene": "G27",
+          "viewport": {
+            "width": 1440,
+            "height": 900
+          },
+          "layout": "layouts/complete/G27-1440x900.json",
+          "template": "loading",
+          "surface": "game"
+        },
+        {
+          "scene": "G27",
+          "viewport": {
+            "width": 844,
+            "height": 390
+          },
+          "layout": "layouts/complete/G27-844x390.json",
+          "template": "loading",
+          "surface": "game"
+        }
+      ],
+      "copyIds": [
+        "g27.title",
+        "g27.audio",
+        "g27.cta",
+        "g27.offline",
+        "g27.record",
+        "g27.recording",
+        "g27.transcript",
+        "g27.micDenied",
+        "g27.cancel"
+      ],
+      "voiceIds": [],
+      "actions": [
+        {
+          "copyId": "g27.cta",
+          "command": "voice.skipAndContinue",
+          "guard": "matchestypedstate/capability;disabledshowsreason"
+        },
+        {
+          "copyId": "g27.cancel",
+          "command": "voice.cancelRecording",
+          "guard": "matchestypedstate/capability;disabledshowsreason"
+        }
+      ],
+      "assets": [
+        "G27.270",
+        "G27.271",
+        "G27.272",
+        "G27.273",
+        "G27.274",
+        "G27.275",
+        "G27.276",
+        "G27.277",
+        "G27.278",
+        "G27.371",
+        "G27.418",
+        "G27.419",
+        "G27.469"
+      ],
+      "provenance": "GAMEDESIGNrulesandapprovedG01–G36inventory;templatesareexplicitlayoutdata,notappcode."
+    },
+    {
+      "id": "G28",
+      "title": "Internet poszedł po kawę",
+      "template": "recovery",
+      "states": [
+        "offline",
+        "local-save-confirmed",
+        "cloud-save-unconfirmed",
+        "save-failed",
+        "retrying"
+      ],
+      "layouts": [
+        {
+          "scene": "G28",
+          "viewport": {
+            "width": 1440,
+            "height": 900
+          },
+          "layout": "layouts/complete/G28-1440x900.json",
+          "template": "recovery",
+          "surface": "game"
+        },
+        {
+          "scene": "G28",
+          "viewport": {
+            "width": 844,
+            "height": 390
+          },
+          "layout": "layouts/complete/G28-844x390.json",
+          "template": "recovery",
+          "surface": "game"
+        }
+      ],
+      "copyIds": [
+        "g28.title",
+        "g28.saveError",
+        "g28.joke",
+        "g28.cta",
+        "g28.secondary",
+        "g28.aiOnly",
+        "g28.savedLocal"
+      ],
+      "voiceIds": [
+        "offline.joke"
+      ],
+      "actions": [
+        {
+          "copyId": "g28.cta",
+          "command": "plan.retrySave",
+          "guard": "matchestypedstate/capability;disabledshowsreason"
+        },
+        {
+          "copyId": "g28.secondary",
+          "command": "ui.stayInGame",
+          "guard": "matchestypedstate/capability;disabledshowsreason"
+        }
+      ],
+      "assets": [
+        "G28.279",
+        "G28.280",
+        "G28.281",
+        "G28.282",
+        "G28.283",
+        "G28.284",
+        "G28.285",
+        "G28.286",
+        "G28.372",
+        "G28.374",
+        "G28.410",
+        "G28.459",
+        "G28.460",
+        "G28.461",
+        "G28.463"
+      ],
+      "provenance": "GAMEDESIGNrulesandapprovedG01–G36inventory;templatesareexplicitlayoutdata,notappcode."
+    },
+    {
+      "id": "G29",
+      "title": "Faktoring: podgląd",
+      "template": "cards",
+      "states": [
+        "eligible",
+        "too-late",
+        "invoice-paid",
+        "discount-exclusive",
+        "request-pending",
+        "payout-confirmed"
+      ],
+      "layouts": [
+        {
+          "scene": "G29",
+          "viewport": {
+            "width": 1440,
+            "height": 900
+          },
+          "layout": "layouts/complete/G29-1440x900.json",
+          "template": "cards",
+          "surface": "game"
+        },
+        {
+          "scene": "G29",
+          "viewport": {
+            "width": 844,
+            "height": 390
+          },
+          "layout": "layouts/complete/G29-844x390.json",
+          "template": "cards",
+          "surface": "game"
+        }
+      ],
+      "copyIds": [
+        "g29.title",
+        "g29.rate",
+        "g29.fee",
+        "g29.receipt",
+        "g29.low",
+        "g29.joke",
+        "g29.cta",
+        "g29.scenario",
+        "g29.timing",
+        "g29.exclusive"
+      ],
+      "voiceIds": [
+        "factoring.joke",
+        "factoring.fee",
+        "factoring.receipt"
+      ],
+      "actions": [
+        {
+          "copyId": "g29.cta",
+          "command": "ui.previewFactoring",
+          "guard": "matchestypedstate/capability;disabledshowsreason"
+        }
+      ],
+      "assets": [
+        "G29.287",
+        "G29.288",
+        "G29.289",
+        "G29.290",
+        "G29.291",
+        "G29.292",
+        "G29.293",
+        "G29.294",
+        "G29.295",
+        "G29.363"
+      ],
+      "provenance": "GAMEDESIGNrulesandapprovedG01–G36inventory;templatesareexplicitlayoutdata,notappcode."
+    },
+    {
+      "id": "G30",
+      "title": "Cash Flow",
+      "template": "cashflow",
+      "states": [
+        "date-selected",
+        "baseline",
+        "preview",
+        "committed",
+        "counterfactual",
+        "table-view"
+      ],
+      "layouts": [
+        {
+          "scene": "G30",
+          "viewport": {
+            "width": 1440,
+            "height": 900
+          },
+          "layout": "layouts/complete/G30-1440x900.json",
+          "template": "cashflow",
+          "surface": "game"
+        },
+        {
+          "scene": "G30",
+          "viewport": {
+            "width": 844,
+            "height": 390
+          },
+          "layout": "layouts/complete/G30-844x390.json",
+          "template": "cashflow",
+          "surface": "game"
+        }
+      ],
+      "copyIds": [
+        "g30.title",
+        "g30.cashflowDate",
+        "g30.baseline",
+        "g30.preview",
+        "g30.committed",
+        "g30.transactions",
+        "g30.amount",
+        "g30.counterparty",
+        "g30.date",
+        "g30.zero",
+        "g30.cta",
+        "g30.close",
+        "g30.empty",
+        "g30.loading",
+        "g30.error",
+        "g30.summary",
+        "g30.free"
+      ],
+      "voiceIds": [
+        "cashflow.explain"
+      ],
+      "actions": [
+        {
+          "copyId": "g30.cta",
+          "command": "ui.openCashFlow",
+          "guard": "matchestypedstate/capability;disabledshowsreason"
+        },
+        {
+          "copyId": "g30.close",
+          "command": "ui.closeCashFlow",
+          "guard": "matchestypedstate/capability;disabledshowsreason"
+        }
+      ],
+      "assets": [
+        "G30.296",
+        "G30.297",
+        "G30.298",
+        "G30.299",
+        "G30.300",
+        "G30.301",
+        "G30.302",
+        "G30.397",
+        "G30.446",
+        "G30.448"
+      ],
+      "provenance": "GAMEDESIGNrulesandapprovedG01–G36inventory;templatesareexplicitlayoutdata,notappcode."
+    },
+    {
+      "id": "G31",
+      "title": "Porównaj trzy manewry",
+      "template": "cashflow",
+      "states": [
+        "advance",
+        "discount",
+        "factoring",
+        "inspect-only"
+      ],
+      "layouts": [
+        {
+          "scene": "G31",
+          "viewport": {
+            "width": 1440,
+            "height": 900
+          },
+          "layout": "layouts/complete/G31-1440x900.json",
+          "template": "cashflow",
+          "surface": "game"
+        },
+        {
+          "scene": "G31",
+          "viewport": {
+            "width": 844,
+            "height": 390
+          },
+          "layout": "layouts/complete/G31-844x390.json",
+          "template": "cashflow",
+          "surface": "game"
+        }
+      ],
+      "copyIds": [
+        "g31.title",
+        "g31.joke",
+        "g31.advance",
+        "g31.discount",
+        "g31.factoring",
+        "g31.timing",
+        "g31.cta",
+        "g31.back",
+        "g31.ethics"
+      ],
+      "voiceIds": [
+        "compare.ethics"
+      ],
+      "actions": [
+        {
+          "copyId": "g31.cta",
+          "command": "ui.compareComputedCashFlow",
+          "guard": "matchestypedstate/capability;disabledshowsreason"
+        },
+        {
+          "copyId": "g31.back",
+          "command": "ui.returnToCards",
+          "guard": "matchestypedstate/capability;disabledshowsreason"
+        }
+      ],
+      "assets": [
+        "G31.303",
+        "G31.304",
+        "G31.305",
+        "G31.306",
+        "G31.307",
+        "G31.308",
+        "G31.309",
+        "G31.310",
+        "G31.311",
+        "G31.312",
+        "G31.413",
+        "G31.447"
+      ],
+      "provenance": "GAMEDESIGNrulesandapprovedG01–G36inventory;templatesareexplicitlayoutdata,notappcode."
+    },
+    {
+      "id": "G32",
+      "title": "Faktoring i przepływy",
+      "template": "cashflow",
+      "states": [
+        "preview",
+        "ineligible",
+        "confirm",
+        "inspect-cashflow"
+      ],
+      "layouts": [
+        {
+          "scene": "G32",
+          "viewport": {
+            "width": 1440,
+            "height": 900
+          },
+          "layout": "layouts/complete/G32-1440x900.json",
+          "template": "cashflow",
+          "surface": "game"
+        },
+        {
+          "scene": "G32",
+          "viewport": {
+            "width": 844,
+            "height": 390
+          },
+          "layout": "layouts/complete/G32-844x390.json",
+          "template": "cashflow",
+          "surface": "game"
+        }
+      ],
+      "copyIds": [
+        "g32.title",
+        "g32.joke",
+        "g32.before",
+        "g32.after",
+        "g32.factoring",
+        "g32.cta",
+        "g32.secondary",
+        "g32.free",
+        "g32.cashflow"
+      ],
+      "voiceIds": [
+        "factoring.low"
+      ],
+      "actions": [
+        {
+          "copyId": "g32.cta",
+          "command": "game.commitFactoring",
+          "guard": "matchestypedstate/capability;disabledshowsreason"
+        },
+        {
+          "copyId": "g32.secondary",
+          "command": "ui.returnToCards",
+          "guard": "matchestypedstate/capability;disabledshowsreason"
+        },
+        {
+          "copyId": "g32.cashflow",
+          "command": "ui.openCashFlow",
+          "guard": "matchestypedstate/capability;disabledshowsreason"
+        }
+      ],
+      "assets": [
+        "G32.313",
+        "G32.314",
+        "G32.315",
+        "G32.316",
+        "G32.317",
+        "G32.318",
+        "G32.319",
+        "G32.320",
+        "G32.321",
+        "G32.365",
+        "G32.478"
+      ],
+      "provenance": "GAMEDESIGNrulesandapprovedG01–G36inventory;templatesareexplicitlayoutdata,notappcode."
+    },
+    {
+      "id": "G33",
+      "title": "Twoja poczta",
+      "template": "notification",
+      "states": [
+        "empty",
+        "unread",
+        "read",
+        "stale-item"
+      ],
+      "layouts": [
+        {
+          "scene": "G33",
+          "viewport": {
+            "width": 1440,
+            "height": 900
+          },
+          "layout": "layouts/complete/G33-1440x900.json",
+          "template": "notification",
+          "surface": "game"
+        },
+        {
+          "scene": "G33",
+          "viewport": {
+            "width": 844,
+            "height": 390
+          },
+          "layout": "layouts/complete/G33-844x390.json",
+          "template": "notification",
+          "surface": "game"
+        }
+      ],
+      "copyIds": [
+        "notif.N-01.paused.push.title",
+        "notif.N-01.paused.push.body",
+        "notif.N-01.paused.cta",
+        "notif.N-02.plan-unsaved.push.title",
+        "notif.N-02.plan-unsaved.push.body",
+        "notif.N-02.plan-unsaved.cta",
+        "notif.N-03.level-unstarted.push.title",
+        "notif.N-03.level-unstarted.push.body",
+        "notif.N-03.level-unstarted.cta",
+        "notif.N-04.retry-pending.push.title",
+        "notif.N-04.retry-pending.push.body",
+        "notif.N-04.retry-pending.cta",
+        "notif.N-05.plan-due.push.title",
+        "notif.N-05.plan-due.push.body",
+        "notif.N-05.plan-due.cta",
+        "notif.N-06.met.push.title",
+        "notif.N-06.met.push.body",
+        "notif.N-06.met.cta",
+        "notif.N-06.missed.push.title",
+        "notif.N-06.missed.push.body",
+        "notif.N-06.missed.cta",
+        "notif.N-07.obligation.push.title",
+        "notif.N-07.obligation.push.body",
+        "notif.N-07.obligation.cta",
+        "notif.N-08.digest.push.title",
+        "notif.N-08.digest.push.body",
+        "notif.N-08.digest.cta",
+        "notif.return.body",
+        "notif.unsubscribe",
+        "notif.preferences",
+        "notif.email.greeting",
+        "notif.email.signature",
+        "notif.email.reason",
+        "notif.inbox.empty"
+      ],
+      "voiceIds": [],
+      "actions": [
+        {
+          "copyId": "notif.unsubscribe",
+          "command": "notifications.unsubscribeEmailLanding",
+          "guard": "matchestypedstate/capability;disabledshowsreason"
+        },
+        {
+          "copyId": "notif.preferences",
+          "command": "ui.openNotificationPreferences",
+          "guard": "matchestypedstate/capability;disabledshowsreason"
+        }
+      ],
+      "assets": [
+        "G33.322",
+        "G33.323",
+        "G33.324",
+        "G33.325",
+        "G33.326",
+        "G33.327",
+        "G33.328",
+        "G33.329",
+        "G33.377",
+        "G33.393",
+        "G33.398",
+        "G33.427",
+        "G33.485"
+      ],
+      "provenance": "GAMEDESIGNrulesandapprovedG01–G36inventory;templatesareexplicitlayoutdata,notappcode."
+    },
+    {
+      "id": "G34",
+      "title": "Kiedy wracamy za stery?",
+      "template": "notification",
+      "states": [
+        "deferred",
+        "browser-selected",
+        "email-unverified",
+        "permission-pending",
+        "permission-denied",
+        "unsupported",
+        "demo-scheduled",
+        "demo-failed"
+      ],
+      "layouts": [
+        {
+          "scene": "G34",
+          "viewport": {
+            "width": 1440,
+            "height": 900
+          },
+          "layout": "layouts/complete/G34-1440x900.json",
+          "template": "notification",
+          "surface": "game"
+        },
+        {
+          "scene": "G34",
+          "viewport": {
+            "width": 844,
+            "height": 390
+          },
+          "layout": "layouts/complete/G34-844x390.json",
+          "template": "notification",
+          "surface": "game"
+        }
+      ],
+      "copyIds": [
+        "notif.optin.title",
+        "notif.optin.body",
+        "notif.optin.accept",
+        "notif.optin.later"
+      ],
+      "voiceIds": [],
+      "actions": [
+        {
+          "copyId": "notif.optin.accept",
+          "command": "preferences.saveExternalConsent",
+          "guard": "matchestypedstate/capability;disabledshowsreason"
+        },
+        {
+          "copyId": "notif.optin.later",
+          "command": "ui.deferConsent",
+          "guard": "matchestypedstate/capability;disabledshowsreason"
+        }
+      ],
+      "assets": [
+        "G34.330",
+        "G34.331",
+        "G34.332",
+        "G34.333",
+        "G34.334",
+        "G34.335",
+        "G34.336",
+        "G34.337",
+        "G34.394",
+        "G34.429"
+      ],
+      "provenance": "GAMEDESIGNrulesandapprovedG01–G36inventory;templatesareexplicitlayoutdata,notappcode."
+    },
+    {
+      "id": "G35",
+      "title": "Wiadomość do gracza",
+      "template": "email",
+      "states": [
+        "N-01",
+        "N-02",
+        "N-03",
+        "N-04",
+        "N-05",
+        "N-06-met",
+        "N-06-missed",
+        "N-07",
+        "N-08"
+      ],
+      "layouts": [
+        {
+          "scene": "G35",
+          "viewport": {
+            "width": 600,
+            "height": 960
+          },
+          "layout": "layouts/complete/G35-600x960.json",
+          "template": "email",
+          "surface": "email"
+        },
+        {
+          "scene": "G35",
+          "viewport": {
+            "width": 375,
+            "height": 1030
+          },
+          "layout": "layouts/complete/G35-375x1030.json",
+          "template": "email",
+          "surface": "email"
+        }
+      ],
+      "copyIds": [
+        "notif.N-01.paused.email.subject",
+        "notif.N-01.paused.email.preheader",
+        "notif.N-01.paused.email.heading",
+        "notif.N-01.paused.email.body",
+        "notif.N-02.plan-unsaved.email.subject",
+        "notif.N-02.plan-unsaved.email.preheader",
+        "notif.N-02.plan-unsaved.email.heading",
+        "notif.N-02.plan-unsaved.email.body",
+        "notif.N-03.level-unstarted.email.subject",
+        "notif.N-03.level-unstarted.email.preheader",
+        "notif.N-03.level-unstarted.email.heading",
+        "notif.N-03.level-unstarted.email.body",
+        "notif.N-04.retry-pending.email.subject",
+        "notif.N-04.retry-pending.email.preheader",
+        "notif.N-04.retry-pending.email.heading",
+        "notif.N-04.retry-pending.email.body",
+        "notif.N-05.plan-due.email.subject",
+        "notif.N-05.plan-due.email.preheader",
+        "notif.N-05.plan-due.email.heading",
+        "notif.N-05.plan-due.email.body",
+        "notif.N-06.met.email.subject",
+        "notif.N-06.met.email.preheader",
+        "notif.N-06.met.email.heading",
+        "notif.N-06.met.email.body",
+        "notif.N-06.missed.email.subject",
+        "notif.N-06.missed.email.preheader",
+        "notif.N-06.missed.email.heading",
+        "notif.N-06.missed.email.body",
+        "notif.N-07.obligation.email.subject",
+        "notif.N-07.obligation.email.preheader",
+        "notif.N-07.obligation.email.heading",
+        "notif.N-07.obligation.email.body",
+        "notif.N-08.digest.email.subject",
+        "notif.N-08.digest.email.preheader",
+        "notif.N-08.digest.email.heading",
+        "notif.N-08.digest.email.body",
+        "notif.unsubscribe",
+        "notif.preferences",
+        "notif.email.greeting",
+        "notif.email.signature",
+        "notif.email.reason",
+        "notif.email.unverified"
+      ],
+      "voiceIds": [],
+      "actions": [
+        {
+          "copyId": "notif.unsubscribe",
+          "command": "notifications.unsubscribeEmailLanding",
+          "guard": "matchestypedstate/capability;disabledshowsreason"
+        },
+        {
+          "copyId": "notif.preferences",
+          "command": "ui.openNotificationPreferences",
+          "guard": "matchestypedstate/capability;disabledshowsreason"
+        }
+      ],
+      "assets": [
+        "G35.338",
+        "G35.339",
+        "G35.340",
+        "G35.341",
+        "G35.342",
+        "G35.343",
+        "G35.344",
+        "G35.345",
+        "G35.346",
+        "G35.428"
+      ],
+      "provenance": "GAMEDESIGNrulesandapprovedG01–G36inventory;templatesareexplicitlayoutdata,notappcode."
+    },
+    {
+      "id": "G36",
+      "title": "Przypomnienia",
+      "template": "notification",
+      "states": [
+        "off",
+        "pending",
+        "on",
+        "denied",
+        "unsupported",
+        "email-unverified",
+        "save-failed",
+        "invalid-time",
+        "invalid-timezone",
+        "demo-scheduled"
+      ],
+      "layouts": [
+        {
+          "scene": "G36",
+          "viewport": {
+            "width": 1440,
+            "height": 900
+          },
+          "layout": "layouts/complete/G36-1440x900.json",
+          "template": "notification",
+          "surface": "game"
+        },
+        {
+          "scene": "G36",
+          "viewport": {
+            "width": 844,
+            "height": 390
+          },
+          "layout": "layouts/complete/G36-844x390.json",
+          "template": "notification",
+          "surface": "game"
+        }
+      ],
+      "copyIds": [
+        "notif.unsubscribe",
+        "notif.preferences",
+        "notif.email.greeting",
+        "notif.email.signature",
+        "notif.email.reason",
+        "notif.demo.send",
+        "notif.demo.scheduled",
+        "notif.demo.pending",
+        "notif.demo.requirePermission",
+        "notif.demo.failed",
+        "notif.demo.accepted",
+        "notif.demo.fallback",
+        "notif.channel.browser",
+        "notif.channel.email",
+        "notif.channel.inbox",
+        "notif.permission.denied",
+        "notif.permission.unsupported",
+        "notif.email.unverified",
+        "notif.category.progress",
+        "notif.category.plans",
+        "notif.category.digest",
+        "notif.quiet.label",
+        "notif.quiet.from",
+        "notif.quiet.to",
+        "notif.timezone.label",
+        "notif.settings.save",
+        "notif.settings.saved",
+        "notif.settings.failed",
+        "notif.quiet.invalid",
+        "notif.timezone.invalid"
+      ],
+      "voiceIds": [],
+      "actions": [
+        {
+          "copyId": "notif.demo.send",
+          "command": "notifications.scheduleConsentedDemo",
+          "guard": "matchestypedstate/capability;disabledshowsreason"
+        },
+        {
+          "copyId": "notif.settings.save",
+          "command": "preferences.persist",
+          "guard": "matchestypedstate/capability;disabledshowsreason"
+        },
+        {
+          "copyId": "notif.unsubscribe",
+          "command": "notifications.unsubscribeEmailLanding",
+          "guard": "matchestypedstate/capability;disabledshowsreason"
+        },
+        {
+          "copyId": "notif.preferences",
+          "command": "ui.openNotificationPreferences",
+          "guard": "matchestypedstate/capability;disabledshowsreason"
+        }
+      ],
+      "assets": [
+        "G36.347",
+        "G36.348",
+        "G36.349",
+        "G36.350",
+        "G36.351",
+        "G36.352",
+        "G36.353",
+        "G36.354",
+        "G36.395",
+        "G36.425",
+        "G36.430",
+        "G36.434",
+        "G36.436",
+        "G36.468"
+      ],
+      "provenance": "GAMEDESIGNrulesandapprovedG01–G36inventory;templatesareexplicitlayoutdata,notappcode."
+    }
+  ]
+}

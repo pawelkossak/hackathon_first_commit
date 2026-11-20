@@ -1,0 +1,25 @@
+{
+  "checked": "2026-11-17",
+  "bundledThirdPartySamples": 0,
+  "sources": [
+    {
+      "name": "Kenney Interface Sounds",
+      "url": "https://kenney.nl/assets/interface-sounds",
+      "licence": "CC0",
+      "files": 100,
+      "status": "verified official page; not downloaded"
+    },
+    {
+      "name": "Freesound",
+      "url": "https://freesound.org/help/faq/",
+      "licence": "per recording; select and retain source metadata",
+      "status": "verified official FAQ; no recording selected or downloaded"
+    },
+    {
+      "name": "Sonniss GameAudioGDC",
+      "url": "https://sonniss.com/gdc-bundle-license/",
+      "licence": "custom royalty-free project licence, v2 effective2026-08-27; standalone sample-pack redistribution restricted",
+      "status": "verified official terms; not downloaded"
+    }
+  ]
+}

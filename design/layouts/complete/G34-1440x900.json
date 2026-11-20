@@ -1,0 +1,81 @@
+{
+  "screen": "G34",
+  "viewport": {
+    "width": 1440,
+    "height": 900
+  },
+  "boxes": [
+    {
+      "name": "dialog",
+      "x": 290,
+      "y": 210,
+      "width": 860,
+      "height": 480,
+      "interactive": false,
+      "layer": 50
+    },
+    {
+      "name": "narrator",
+      "x": 314,
+      "y": 330,
+      "width": 220,
+      "height": 285,
+      "interactive": false,
+      "sprite": "boss.female.relaxed",
+      "maleSprite": "boss.male.relaxed",
+      "layer": 30
+    },
+    {
+      "name": "channel-0",
+      "x": 558,
+      "y": 365,
+      "width": 510,
+      "height": 44,
+      "interactive": true,
+      "layer": 50
+    },
+    {
+      "name": "channel-1",
+      "x": 558,
+      "y": 419,
+      "width": 510,
+      "height": 44,
+      "interactive": true,
+      "layer": 50
+    },
+    {
+      "name": "save-opt-in",
+      "x": 558,
+      "y": 600,
+      "width": 250,
+      "height": 48,
+      "interactive": true,
+      "layer": 50
+    },
+    {
+      "name": "defer",
+      "x": 824,
+      "y": 600,
+      "width": 250,
+      "height": 48,
+      "interactive": true,
+      "layer": 50
+    }
+  ],
+  "origin": "notifications/layout-specs.json",
+  "referenceSvg": "notifications/G34-opt-in-1440x900.svg",
+  "title": "Kiedy wracamy za stery?",
+  "template": "notification",
+  "surface": "game",
+  "states": [
+    "deferred",
+    "browser-selected",
+    "email-unverified",
+    "permission-pending",
+    "permission-denied",
+    "unsupported",
+    "demo-scheduled",
+    "demo-failed"
+  ],
+  "textMode": "Livecopybindings;previewtextnotfinancialtruth"
+}

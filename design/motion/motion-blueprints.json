@@ -1,0 +1,594 @@
+{
+  "format": "motion-blueprint/v1",
+  "applicationCode": false,
+  "units": "CSS px and ms",
+  "resolveBindings": "Substitute values from engine/state/layout before adapting keyframes;JSON is not executable by itself.",
+  "defaults": {
+    "cancelOnUnmount": true,
+    "pauseWhenHidden": true,
+    "oneNarratorReactionAtATime": true,
+    "neverCommitOnAnimationEnd": true,
+    "alwaysAllowSkip": true,
+    "reducedMotion": "Use PNG stills andzero-duration state transitions."
+  },
+  "transitions": [
+    {
+      "id": "scene-enter",
+      "target": "scene",
+      "trigger": "scene.ready",
+      "durationMs": 180,
+      "easing": "cubic-bezier(0.2,0,0,1)",
+      "keyframes": [
+        {
+          "opacity": 0
+        },
+        {
+          "opacity": 1
+        }
+      ],
+      "fill": "both",
+      "reducedMotion": {
+        "durationMs": 0,
+        "keyframes": [
+          {
+            "opacity": 1
+          }
+        ]
+      },
+      "cancelOn": [
+        "scene.disposed",
+        "newer-event-with-same-key"
+      ],
+      "mutatesGameState": false
+    },
+    {
+      "id": "scene-exit",
+      "target": "scene",
+      "trigger": "navigation.confirmed",
+      "durationMs": 120,
+      "easing": "cubic-bezier(0.2,0,0,1)",
+      "keyframes": [
+        {
+          "opacity": 1
+        },
+        {
+          "opacity": 0
+        }
+      ],
+      "fill": "both",
+      "reducedMotion": {
+        "durationMs": 0,
+        "keyframes": [
+          {
+            "opacity": 0
+          }
+        ]
+      },
+      "cancelOn": [
+        "scene.disposed",
+        "newer-event-with-same-key"
+      ],
+      "mutatesGameState": false
+    },
+    {
+      "id": "panel-enter",
+      "target": "panel",
+      "trigger": "overlay.opened",
+      "durationMs": 180,
+      "easing": "cubic-bezier(0.2,0,0,1)",
+      "keyframes": [
+        {
+          "opacity": 0,
+          "transform": "translateY(12px)"
+        },
+        {
+          "opacity": 1,
+          "transform": "translateY(0px)"
+        }
+      ],
+      "fill": "both",
+      "reducedMotion": {
+        "durationMs": 0,
+        "keyframes": [
+          {
+            "opacity": 1,
+            "transform": "translateY(0px)"
+          }
+        ]
+      },
+      "cancelOn": [
+        "scene.disposed",
+        "newer-event-with-same-key"
+      ],
+      "mutatesGameState": false
+    },
+    {
+      "id": "panel-exit",
+      "target": "panel",
+      "trigger": "overlay.closed",
+      "durationMs": 120,
+      "easing": "cubic-bezier(0.2,0,0,1)",
+      "keyframes": [
+        {
+          "opacity": 1
+        },
+        {
+          "opacity": 0
+        }
+      ],
+      "fill": "both",
+      "reducedMotion": {
+        "durationMs": 0,
+        "keyframes": [
+          {
+            "opacity": 0
+          }
+        ]
+      },
+      "cancelOn": [
+        "scene.disposed",
+        "newer-event-with-same-key"
+      ],
+      "mutatesGameState": false,
+      "focus": "Restore opener after close;no financial action."
+    },
+    {
+      "id": "card-preview",
+      "target": "card",
+      "trigger": "card.preview-opened",
+      "durationMs": 180,
+      "easing": "cubic-bezier(0.2,0,0,1)",
+      "keyframes": [
+        {
+          "transform": "scale(1)"
+        },
+        {
+          "transform": "scale(1.04)"
+        },
+        {
+          "transform": "scale(1)"
+        }
+      ],
+      "fill": "both",
+      "reducedMotion": {
+        "durationMs": 0,
+        "keyframes": [
+          {
+            "transform": "scale(1)"
+          }
+        ]
+      },
+      "cancelOn": [
+        "scene.disposed",
+        "newer-event-with-same-key"
+      ],
+      "mutatesGameState": false,
+      "spendsAction": false
+    },
+    {
+      "id": "card-commit",
+      "target": "card",
+      "trigger": "card.committed",
+      "durationMs": 240,
+      "easing": "cubic-bezier(0.2,0,0,1)",
+      "keyframes": [
+        {
+          "opacity": 1,
+          "transform": "translateY(0)"
+        },
+        {
+          "opacity": 0,
+          "transform": "translateY(-24px)"
+        }
+      ],
+      "fill": "both",
+      "reducedMotion": {
+        "durationMs": 0,
+        "keyframes": [
+          {
+            "opacity": 0,
+            "transform": "translateY(-24px)"
+          }
+        ]
+      },
+      "cancelOn": [
+        "scene.disposed",
+        "newer-event-with-same-key"
+      ],
+      "mutatesGameState": false,
+      "guard": "Only after engine accepts action;reject retains card and displays reason."
+    },
+    {
+      "id": "route-flight",
+      "target": "plane",
+      "trigger": "week.resolved",
+      "durationMs": 240,
+      "easing": "cubic-bezier(0.2,0,0,1)",
+      "keyframes": [
+        {
+          "offset": 0,
+          "transform": "translate({fromX}px,{fromY}px)"
+        },
+        {
+          "offset": 1,
+          "transform": "translate({toX}px,{toY}px)"
+        }
+      ],
+      "fill": "both",
+      "reducedMotion": {
+        "durationMs": 0,
+        "keyframes": [
+          {
+            "offset": 1,
+            "transform": "translate({toX}px,{toY}px)"
+          }
+        ]
+      },
+      "cancelOn": [
+        "scene.disposed",
+        "newer-event-with-same-key"
+      ],
+      "mutatesGameState": false,
+      "bindings": [
+        "fromX",
+        "fromY",
+        "toX",
+        "toY"
+      ],
+      "guard": "Coordinates from active viewport route nodes;do not use a fixed horizontal clip as actual game position."
+    },
+    {
+      "id": "narrator-enter",
+      "target": "narrator",
+      "trigger": "narrator.speaker-changed",
+      "durationMs": 180,
+      "easing": "cubic-bezier(0.2,0,0,1)",
+      "keyframes": [
+        {
+          "opacity": 0,
+          "transform": "translateY(8px)"
+        },
+        {
+          "opacity": 1,
+          "transform": "translateY(0px)"
+        }
+      ],
+      "fill": "both",
+      "reducedMotion": {
+        "durationMs": 0,
+        "keyframes": [
+          {
+            "opacity": 1,
+            "transform": "translateY(0px)"
+          }
+        ]
+      },
+      "cancelOn": [
+        "scene.disposed",
+        "newer-event-with-same-key"
+      ],
+      "mutatesGameState": false,
+      "bindings": [
+        "selectedNarratorGender",
+        "emotionPose"
+      ]
+    },
+    {
+      "id": "emotion-crossfade",
+      "target": "narrator-pose",
+      "trigger": "reaction.confirmed",
+      "durationMs": 120,
+      "easing": "cubic-bezier(0.2,0,0,1)",
+      "keyframes": [
+        {
+          "opacity": 0
+        },
+        {
+          "opacity": 1
+        }
+      ],
+      "fill": "both",
+      "reducedMotion": {
+        "durationMs": 0,
+        "keyframes": [
+          {
+            "opacity": 1
+          }
+        ]
+      },
+      "cancelOn": [
+        "scene.disposed",
+        "newer-event-with-same-key"
+      ],
+      "mutatesGameState": false,
+      "guard": "Same character/anchor;never switch chosen narrator gender."
+    },
+    {
+      "id": "star-award",
+      "target": "star",
+      "trigger": "star.awarded",
+      "durationMs": 250,
+      "easing": "cubic-bezier(0.2,0,0,1)",
+      "keyframes": [
+        {
+          "opacity": 0,
+          "transform": "scale(.7)"
+        },
+        {
+          "opacity": 1,
+          "transform": "scale(1)"
+        }
+      ],
+      "fill": "both",
+      "reducedMotion": {
+        "durationMs": 0,
+        "keyframes": [
+          {
+            "opacity": 1,
+            "transform": "scale(1)"
+          }
+        ]
+      },
+      "cancelOn": [
+        "scene.disposed",
+        "newer-event-with-same-key"
+      ],
+      "mutatesGameState": false,
+      "guard": "Instantiate only confirmed stars;third Pilot star on plan.saved,not merely lap.won.",
+      "staggerMs": 250
+    },
+    {
+      "id": "level-unlock",
+      "target": "level-node",
+      "trigger": "level.unlocked",
+      "durationMs": 480,
+      "easing": "cubic-bezier(0.2,0,0,1)",
+      "keyframes": [
+        {
+          "opacity": 0.6,
+          "transform": "scale(.96)"
+        },
+        {
+          "opacity": 1,
+          "transform": "scale(1)"
+        }
+      ],
+      "fill": "both",
+      "reducedMotion": {
+        "durationMs": 0,
+        "keyframes": [
+          {
+            "opacity": 1,
+            "transform": "scale(1)"
+          }
+        ]
+      },
+      "cancelOn": [
+        "scene.disposed",
+        "newer-event-with-same-key"
+      ],
+      "mutatesGameState": false,
+      "blocksInput": false
+    },
+    {
+      "id": "toast-enter",
+      "target": "toast",
+      "trigger": "notification.acknowledged",
+      "durationMs": 180,
+      "easing": "cubic-bezier(0.2,0,0,1)",
+      "keyframes": [
+        {
+          "opacity": 0,
+          "transform": "translateY(8px)"
+        },
+        {
+          "opacity": 1,
+          "transform": "translateY(0px)"
+        }
+      ],
+      "fill": "both",
+      "reducedMotion": {
+        "durationMs": 0,
+        "keyframes": [
+          {
+            "opacity": 1,
+            "transform": "translateY(0px)"
+          }
+        ]
+      },
+      "cancelOn": [
+        "scene.disposed",
+        "newer-event-with-same-key"
+      ],
+      "mutatesGameState": false,
+      "guard": "Demo scheduled toast only after scheduler ACK;sent does not mean displayed/read."
+    },
+    {
+      "id": "return-banner",
+      "target": "banner",
+      "trigger": "run.restored",
+      "durationMs": 180,
+      "easing": "cubic-bezier(0.2,0,0,1)",
+      "keyframes": [
+        {
+          "opacity": 0
+        },
+        {
+          "opacity": 1
+        }
+      ],
+      "fill": "both",
+      "reducedMotion": {
+        "durationMs": 0,
+        "keyframes": [
+          {
+            "opacity": 1
+          }
+        ]
+      },
+      "cancelOn": [
+        "scene.disposed",
+        "newer-event-with-same-key"
+      ],
+      "mutatesGameState": false,
+      "bindings": [
+        "week.current",
+        "week.total",
+        "player.returned"
+      ],
+      "guard": "No automatic card play or week advancement."
+    },
+    {
+      "id": "save-complete",
+      "target": "save-status",
+      "trigger": "plan.persisted",
+      "durationMs": 180,
+      "easing": "cubic-bezier(0.2,0,0,1)",
+      "keyframes": [
+        {
+          "opacity": 0
+        },
+        {
+          "opacity": 1
+        }
+      ],
+      "fill": "both",
+      "reducedMotion": {
+        "durationMs": 0,
+        "keyframes": [
+          {
+            "opacity": 1
+          }
+        ]
+      },
+      "cancelOn": [
+        "scene.disposed",
+        "newer-event-with-same-key"
+      ],
+      "mutatesGameState": false,
+      "guard": "Confirmed persistence only;pending and failed states stay distinct."
+    },
+    {
+      "id": "cashflow-preview",
+      "target": "scenario-line",
+      "trigger": "forecast.computed",
+      "durationMs": 180,
+      "easing": "cubic-bezier(0.2,0,0,1)",
+      "keyframes": [
+        {
+          "opacity": 0
+        },
+        {
+          "opacity": 1
+        }
+      ],
+      "fill": "both",
+      "reducedMotion": {
+        "durationMs": 0,
+        "keyframes": [
+          {
+            "opacity": 1
+          }
+        ]
+      },
+      "cancelOn": [
+        "scene.disposed",
+        "newer-event-with-same-key"
+      ],
+      "mutatesGameState": false,
+      "guard": "Swap computed truthful series;no morph of balance numbers,zero-line or axes;table available immediately."
+    },
+    {
+      "id": "focus-ring",
+      "target": "focus",
+      "trigger": "keyboard.focus",
+      "durationMs": 0,
+      "easing": "cubic-bezier(0.2,0,0,1)",
+      "keyframes": [
+        {
+          "opacity": 1
+        }
+      ],
+      "fill": "both",
+      "reducedMotion": {
+        "durationMs": 0,
+        "keyframes": [
+          {
+            "opacity": 1
+          }
+        ]
+      },
+      "cancelOn": [
+        "scene.disposed",
+        "newer-event-with-same-key"
+      ],
+      "mutatesGameState": false,
+      "guard": "Immediate focus,not delayed by animation."
+    },
+    {
+      "id": "loading",
+      "target": "loader",
+      "trigger": "pending.threshold-passed",
+      "durationMs": 1600,
+      "easing": "cubic-bezier(0.2,0,0,1)",
+      "keyframes": [
+        {
+          "transform": "rotate(0deg)"
+        },
+        {
+          "transform": "rotate(360deg)"
+        }
+      ],
+      "fill": "both",
+      "reducedMotion": {
+        "durationMs": 0,
+        "keyframes": [
+          {
+            "transform": "rotate(360deg)"
+          }
+        ]
+      },
+      "cancelOn": [
+        "scene.disposed",
+        "newer-event-with-same-key"
+      ],
+      "mutatesGameState": false,
+      "iterations": "infinite",
+      "guard": "Show only while operation pending;do not delay fast operations to display animation."
+    },
+    {
+      "id": "weather-active",
+      "target": "cloud",
+      "trigger": "storm.visible",
+      "durationMs": 2400,
+      "easing": "cubic-bezier(0.2,0,0,1)",
+      "keyframes": [
+        {
+          "opacity": 0.9
+        },
+        {
+          "opacity": 0.98
+        },
+        {
+          "opacity": 0.9
+        }
+      ],
+      "fill": "both",
+      "reducedMotion": {
+        "durationMs": 0,
+        "keyframes": [
+          {
+            "opacity": 0.9
+          }
+        ]
+      },
+      "cancelOn": [
+        "scene.disposed",
+        "newer-event-with-same-key"
+      ],
+      "mutatesGameState": false,
+      "iterations": "infinite",
+      "decorative": true
+    }
+  ]
+}

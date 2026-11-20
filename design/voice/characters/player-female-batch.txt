@@ -1,0 +1,7 @@
+[friendly] Czy możemy ustalić pięćdziesiąt procent zaliczki?
+[long pause]
+[friendly] Akceptuję trzydzieści procent.
+[long pause]
+[friendly] Czy skonto dwa procent przyspieszy płatność?
+[long pause]
+[friendly] Czy możemy uruchomić limit w koncie?

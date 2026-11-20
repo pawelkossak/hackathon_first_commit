@@ -1,0 +1,52 @@
+{
+  "format": "card-frame-design/v1",
+  "desktop": {
+    "frame": [
+      150,
+      208
+    ],
+    "illustrationSlot": [
+      12,
+      40,
+      126,
+      88
+    ],
+    "titleSlot": [
+      12,
+      12,
+      126,
+      28
+    ],
+    "costSlot": [
+      12,
+      139,
+      126,
+      26
+    ],
+    "timingSlot": [
+      12,
+      169,
+      126,
+      26
+    ]
+  },
+  "detail": {
+    "frame": [
+      360,
+      520
+    ],
+    "illustrationSlot": [
+      24,
+      76,
+      312,
+      180
+    ]
+  },
+  "rules": [
+    "Title,cost,timing,availability are live text; illustration carries no financial text.",
+    "Full card click target;48px primary confirmation in detail.",
+    "Preview never commits an action;disabled reason explicit;played state prevents second action.",
+    "Mobile carousel keeps150px minimum card width with horizontal scroll;no text shrink below15px.",
+    "Card frame uses semantic game tokens and AA colours."
+  ]
+}

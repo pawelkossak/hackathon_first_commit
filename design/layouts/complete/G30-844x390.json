@@ -1,0 +1,81 @@
+{
+  "screen": "G30",
+  "viewport": {
+    "width": 844,
+    "height": 390
+  },
+  "safeArea": {
+    "left": 24,
+    "right": 24,
+    "top": 12,
+    "bottom": 12
+  },
+  "font": {
+    "body": 16,
+    "caption": 12,
+    "title": 24,
+    "minAction": 15
+  },
+  "boxes": [
+    {
+      "name": "header",
+      "x": 24,
+      "y": 12,
+      "width": 796,
+      "height": 40,
+      "purpose": "Title, provenance and pause",
+      "interactive": false,
+      "layer": 50
+    },
+    {
+      "name": "chart",
+      "x": 42,
+      "y": 110,
+      "width": 470,
+      "height": 194,
+      "purpose": "Dates,zero,baseline and preview",
+      "interactive": false,
+      "layer": 50
+    },
+    {
+      "name": "transactions",
+      "x": 536,
+      "y": 110,
+      "width": 266,
+      "height": 194,
+      "purpose": "Selected-point transaction list",
+      "interactive": false,
+      "layer": 50
+    },
+    {
+      "name": "close",
+      "x": 760,
+      "y": 58,
+      "width": 44,
+      "height": 44,
+      "purpose": "Close and return focus",
+      "interactive": true,
+      "layer": 50
+    }
+  ],
+  "rules": [
+    "Coordinates are CSS px at1x; browser safe-area insets add to outer margins.",
+    "Mobile keyboard: content scrolls; never keep hidden submit behind keyboard.",
+    "No nested modal: card detail/chat/Cash Flow replace the active overlay.",
+    "G30 receives daily series and transactions from engine; opening never spends action.",
+    "Characters are separate alpha sprites, no narrator switching inside a play sequence."
+  ],
+  "origin": "ExistingapprovedA5spec",
+  "title": "Cash Flow",
+  "template": "cashflow",
+  "surface": "game",
+  "states": [
+    "date-selected",
+    "baseline",
+    "preview",
+    "committed",
+    "counterfactual",
+    "table-view"
+  ],
+  "textMode": "Livecopybindings;previewtextnotfinancialtruth"
+}

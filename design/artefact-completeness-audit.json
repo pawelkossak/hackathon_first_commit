@@ -1,0 +1,63 @@
+{
+  "scope": "A1–A11 plusmotionandG33–G36",
+  "readyVisualAssets": true,
+  "allMediaReady": false,
+  "missingMedia": [],
+  "evidence": [
+    "handoff-qa.json",
+    "motion/motion-qa.json",
+    "notifications/notification-qa.json",
+    "assets/sprites/sprite-manifest.json",
+    "audio/sfx/sfx-manifest.json"
+  ],
+  "counts": {
+    "animationClips": 20,
+    "decodedFramesChecked": 234,
+    "renderSourcePixelEquality": "all frames passed during export",
+    "animationDurationLoopAlpha": "passed",
+    "staticReducedMotionPosters": 20,
+    "animatedSvg": 5,
+    "svgReducedMotionAndNoScripts": "passed",
+    "transitionBlueprints": 18,
+    "waveFiles": 8,
+    "waveDecodePeaksFormat": "passed",
+    "previewMp4Decode": "passed",
+    "previewSeconds": 20,
+    "individualSpritePairs": 64,
+    "notificationLayouts": 12,
+    "notificationTemplates": 98,
+    "mainCopyEntriesPerVariant": 480,
+    "reviewFixes": "all4review findings and3Mikecorrections applied;board09visuallyreviewed",
+    "lighterFemaleIntroArtBytes": 320958,
+    "narrationAudioFiles": 170,
+    "remaining": [
+      "Four-variant voice-on browser smoke",
+      "Full human listening pass of each edited clip",
+      "Organiser Q-06 eligibility answer"
+    ],
+    "applicationCodeCreated": true
+  },
+  "currentEvidence": "current-contract-qa.json",
+  "currentUpdated": "2026-11-17",
+  "applicationCodeCreated": true,
+  "updated": "2026-11-17",
+  "narrationAudio": {
+    "status": "Both approved voices recorded and decoded",
+    "uniqueClips": 170,
+    "gameClips": 158,
+    "trailerClips": 12,
+    "runtimeBindings": 312,
+    "runtimeTests": "86 unit tests passed; tsc passed",
+    "browserVerification": "Current four-variant E2E could not start: sandbox denies local server port (EPERM). Earlier Ania desktop/mobile smoke passed; male path needs browser run.",
+    "evidence": [
+      "voice/production/ania-audio-qa.json",
+      "voice/production/szef-audio-qa.json",
+      "voice/production/audio-manifest.json"
+    ]
+  },
+  "remainingMediaChecks": [
+    "Four-variant voice-on browser smoke",
+    "Full human listening pass of each edited clip",
+    "Organiser Q-06 eligibility answer"
+  ]
+}
