@@ -9,3 +9,8 @@ export {
   type NarratorReaction,
   type ReactionStep,
 } from "./reactions";
+export {
+  useVoicePlayerStore,
+  type VoiceLine,
+  type VoicePlayerState,
+} from "./voice-player-store";
