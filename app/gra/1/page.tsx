@@ -6,6 +6,7 @@ import { Hud } from "@/components/play/Hud";
 import { WorldRoute } from "@/components/scenes/WorldRoute";
 import { CardHand } from "@/components/play/CardHand";
 import { EventCard } from "@/components/play/EventCard";
+import { WeekResolutionModal } from "@/components/play/WeekResolutionModal";
 
 interface PageProps {
   searchParams?: Promise<{ seed?: string; resume?: string }>;
@@ -104,6 +105,9 @@ function GameLevel1Content(props: PageProps) {
           </button>
         )}
       </section>
+
+      {/* Week Resolution Modal (G17) */}
+      <WeekResolutionModal />
     </div>
   );
 }
