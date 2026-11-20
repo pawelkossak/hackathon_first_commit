@@ -189,7 +189,8 @@ export const EventEffectSchema = z.discriminatedUnion("type", [
     counterpartyId: CounterpartyIdSchema,
     title: z.string().min(1),
   }),
-  z.object({ type: z.literal("reveal"), date: IsoDateSchema, what: z.literal("fraud") }),
+  // Fraud reveal (E1 pay_as_is): the ledger payment that went to the changed account, reported on `date`.
+  z.object({ type: z.literal("reveal"), date: IsoDateSchema, what: z.literal("fraud"), ledgerId: LedgerIdSchema }),
   z.object({ type: z.literal("reveal_card"), cardId: CardIdSchema }),
   z.object({
     type: z.literal("move_invoice"),

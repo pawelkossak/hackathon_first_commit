@@ -10,6 +10,7 @@
 import { dateRange, toBusinessDay } from "./calendar";
 import { gameData } from "./data";
 import { RuleError } from "./errors";
+import { deckFor, eventCard } from "./seed";
 import type {
   BalanceAt,
   CardId,
@@ -115,40 +116,73 @@ export const cardOverlay: ForecastOverlay = (txs, { core }) => {
   return out;
 };
 
-function applyEventChoice(txs: Transaction[], ev: EventCard, choiceId: string, core: GameCore): Transaction[] {
+function eventTx(ev: EventCard, e: { id: string; date: string; amount: number } & Pick<Transaction, "counterpartyId" | "title">): Transaction {
+  return {
+    id: e.id,
+    date: e.date,
+    amount: e.amount,
+    counterpartyId: e.counterpartyId,
+    title: e.title,
+    source: "event",
+    kind: null,
+    cardId: null,
+    eventId: ev.id,
+  };
+}
+
+/**
+ * The money effects of one event choice, in data order:
+ * - `transaction` books a new row (E1 re-payment, E2 subcontractor and inflow, E3 tool);
+ * - `reveal` marks the ledger payment that went to the changed account (E1: L08) with the event id.
+ *   In the known-ledger view (`includeFutureEvents: false`) the effects after a reveal stay hidden
+ *   until the reveal date lies before the current week: the player cannot know about the fraud earlier;
+ * - `move_invoice` moves the invoice receipt while the invoice is still in the required state (E6);
+ * - `reveal_card` has no money effect (E5 only shows the C5 terms).
+ */
+function applyEventChoice(txs: Transaction[], ev: EventCard, choiceId: string, ctx: OverlayContext): Transaction[] {
   const choice = ev.choices.find((c) => c.id === choiceId);
-  if (!choice) return txs;
+  if (!choice) throw new RuleError("invalid_choice", `${ev.id}: ${choiceId}`);
+  const { core, includeFutureEvents } = ctx;
+  const weekStart = level1.weeks[core.week - 1].start;
   let out = txs;
   for (const effect of choice.effects) {
-    if (effect.type === "move_invoice") {
-      if (core.invoiceState !== effect.requiresInvoiceState) continue;
-      out = out.map((t) =>
-        t.id === effect.ledgerId ? { ...t, date: effect.newDate, eventId: ev.id } : t,
-      );
+    switch (effect.type) {
+      case "transaction":
+        out = [...out, eventTx(ev, effect)];
+        break;
+      case "reveal":
+        out = out.map((t) => (t.id === effect.ledgerId ? { ...t, eventId: ev.id } : t));
+        if (!includeFutureEvents && effect.date >= weekStart) return out;
+        break;
+      case "move_invoice":
+        if (core.invoiceState !== effect.requiresInvoiceState) break;
+        out = out.map((t) => (t.id === effect.ledgerId ? { ...t, date: effect.newDate, eventId: ev.id } : t));
+        break;
+      case "reveal_card":
+        break;
     }
-    // Transaction, reveal and reveal_card effects are booked by the event module (E-04).
   }
   return out;
 }
 
 /**
- * Event effects. A resolved event applies its chosen effects. With `includeFutureEvents`,
- * a forced event of the seed deck that is not yet resolved (E6 in the demo seed) applies its
- * only choice as the scripted future. E6 has no effect unless INV-A1 is still `pending` (ET-E08).
+ * Event effects. A resolved event applies its chosen effects (in resolve order). With
+ * `includeFutureEvents`, a forced event of the seed deck that is not yet resolved (E6 in the demo
+ * seed) applies its only choice as the scripted future. E6 has no effect unless INV-A1 is still
+ * `pending` (ET-E08).
  */
-export const eventOverlay: ForecastOverlay = (txs, { core, includeFutureEvents }) => {
+export const eventOverlay: ForecastOverlay = (txs, ctx) => {
+  const { core, includeFutureEvents } = ctx;
   let out = [...txs];
   for (const r of core.eventsResolved) {
-    const ev = level1.events.find((e) => e.id === r.eventId);
-    if (ev) out = applyEventChoice(out, ev, r.choiceId, core);
+    out = applyEventChoice(out, eventCard(r.eventId), r.choiceId, ctx);
   }
   if (includeFutureEvents) {
-    const deck = level1.seeds[core.seed] ?? level1.seeds.demo;
-    for (const slot of deck) {
+    for (const slot of deckFor(core.seed)) {
       if (core.eventsResolved.some((r) => r.eventId === slot.eventId)) continue;
-      const ev = level1.events.find((e) => e.id === slot.eventId);
-      if (!ev || ev.condition !== "forced" || ev.choices.length !== 1) continue;
-      out = applyEventChoice(out, ev, ev.choices[0].id, core);
+      const ev = eventCard(slot.eventId);
+      if (ev.condition !== "forced" || ev.choices.length !== 1) continue;
+      out = applyEventChoice(out, ev, ev.choices[0].id, ctx);
     }
   }
   return out;

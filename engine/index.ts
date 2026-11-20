@@ -1,13 +1,15 @@
 // Public engine API (RUNTIME-ENGINE-CONTRACT.md). UI and narrative code import only from here.
 // E-01: final signatures. E-02: real forecast (forecast.ts). E-03: action cards (cards.ts).
-// Other bodies are fixtures until E-04…E-09.
+// E-04: seeded event deck (seed.ts, events.ts). Other bodies are fixtures until E-05…E-09.
 import { isValidIsoDate } from "./calendar";
 import { gameData } from "./data";
 import { RuleError } from "./errors";
 import { initialState } from "./fixture";
 import { applyCard, cardCost, cardDef, disabledReason, safeCards } from "./cards";
 import { computeForecast, weekOf } from "./forecast";
+import { applyEventChoice, currentEventView, shownEvent, shownEventSignals } from "./events";
 import { lapScore } from "./score";
+import { assertSeed } from "./seed";
 import type {
   AgentId,
   AgentIntent,
@@ -43,29 +45,27 @@ function withCore(state: GameState, core: GameCore, emitted: EngineEvent[] = [])
   return { ...state, core, emitted };
 }
 
-function deckFor(seed: string) {
-  return level1.seeds[seed] ?? level1.seeds[DEMO_SEED];
+function eventPending(state: GameState): boolean {
+  return shownEvent(state) !== null;
 }
 
-function eventForWeek(core: GameCore) {
-  const slot = deckFor(core.seed).find((s) => s.week === core.week);
-  if (!slot) return null;
-  return level1.events.find((e) => e.id === slot.eventId) ?? null;
+function newLap(seed: string): GameState {
+  assertSeed(seed);
+  const state = initialState(seed);
+  return { ...state, emitted: [...state.emitted, ...shownEventSignals(state)] };
 }
 
-function eventPending(core: GameCore): boolean {
-  const ev = eventForWeek(core);
-  return ev !== null && !core.eventsResolved.some((r) => r.eventId === ev.id);
-}
-
-/** Start a new lap. Fixture: the initial state from data (this is already the final initial state). */
+/**
+ * Start a new lap with the seeded event deck. Level 1 defines only the demo seed; any other seed
+ * throws RuleError("unknown_seed") (no silent fallback).
+ */
 export function createGame(seed: string = DEMO_SEED): GameState {
-  return initialState(seed);
+  return newLap(seed);
 }
 
 /** Reset: a fresh state with both clocks cleared. The caller also clears persisted application state. */
 export function resetGame(seed: string = DEMO_SEED): GameState {
-  return initialState(seed);
+  return newLap(seed);
 }
 
 /**
@@ -132,53 +132,28 @@ export function playCard(state: GameState, cardId: CardId, delegated: boolean = 
   return applyCard(state, cardId, delegated);
 }
 
-/** The event card of the current week, or null when none or already resolved. Fixture: E5 condition not yet checked. */
+/**
+ * The event card of the current week: dealt by the seed, its condition holds (E5: the known-ledger
+ * forecast still crashes), not yet resolved. Null otherwise. No event consumes the card action.
+ */
 export function getCurrentEvent(state: GameState): CurrentEvent | null {
-  if (state.core.status !== "playing" || !eventPending(state.core)) return null;
-  const ev = eventForWeek(state.core);
-  if (!ev) return null;
-  return {
-    id: ev.id,
-    week: ev.week,
-    title: ev.title,
-    choices: ev.choices.map((c) => ({ id: c.id, label: c.label })),
-  };
+  return currentEventView(state);
 }
 
-/** Resolve the current event. E6 uses `acknowledge`. Does not consume the week's card action. */
+/**
+ * Resolve the current event (E6: `acknowledge`). Own or delegated competence milestone; the money
+ * effect is applied by the forecast event overlay. Does not consume the week's card action.
+ * Emits nothing: the event's narration signal was emitted when the card became current.
+ */
 export function resolveEvent(state: GameState, choiceId: EventChoiceId, delegated: boolean = false): GameState {
-  const core = state.core;
-  if (core.status !== "playing") throw new RuleError("not_playing");
-  const ev = eventForWeek(core);
-  if (!ev || !eventPending(core)) throw new RuleError("no_event");
-  const choice = ev.choices.find((c) => c.id === choiceId);
-  if (!choice) throw new RuleError("invalid_choice", `${ev.id}: ${choiceId}`);
-  const competences = { ...core.competences };
-  if (choice.competence) {
-    const level = delegated ? choice.competence.delegated : choice.competence.own;
-    competences[choice.competence.id] = Math.max(competences[choice.competence.id], level) as typeof level;
-  }
-  const emitted: EngineEvent[] = [];
-  if (ev.id === "E2") emitted.push({ type: "bigProject", week: core.week, eventId: "E2" });
-  if (ev.id === "E5") emitted.push({ type: "loanOffered", week: core.week, via: "E5" });
-  if (ev.id === "E6") emitted.push({ type: "lateClient", week: core.week, eventId: "E6", newDate: null });
-  return withCore(
-    state,
-    {
-      ...core,
-      eventsResolved: [...core.eventsResolved, { eventId: ev.id, week: core.week, choiceId, delegated }],
-      competences,
-      loanTermsShown: core.loanTermsShown || choiceId === "show_cost",
-    },
-    emitted,
-  );
+  return applyEventChoice(state, choiceId, delegated);
 }
 
 /** Settle the current week exactly once. Throws RuleError("event_unresolved") while the event is open. */
 export function resolveWeek(state: GameState): WeekResolution {
   const core = state.core;
   if (core.status !== "playing") throw new RuleError("not_playing");
-  if (eventPending(core)) throw new RuleError("event_unresolved");
+  if (eventPending(state)) throw new RuleError("event_unresolved");
   const f = forecast(state);
   const week = core.week;
   const { start, end } = level1.weeks[week - 1];
@@ -222,15 +197,22 @@ export function resolveWeek(state: GameState): WeekResolution {
           bank: { ...next.negotiation.bank, messagesThisWeek: 0 },
         },
       };
-      if (transactions.length === 0 && eventForWeek(core) === null) events.push({ type: "quietWeek", week });
+      if (transactions.length === 0 && !core.eventsResolved.some((r) => r.week === week)) {
+        events.push({ type: "quietWeek", week });
+      }
     }
   }
   const snapshots = next.status === "playing" ? { ...state.snapshots, [next.week]: next } : state.snapshots;
-  const newState: GameState = { ...state, core: next, snapshots, emitted: events };
+  const settled: GameState = { ...state, core: next, snapshots, emitted: [] };
+  events.push(...shownEventSignals(settled));
+  const newState: GameState = { ...settled, emitted: events };
   return { state: newState, week, transactions, endBalance, crash, events };
 }
 
-/** Restore the snapshot of `week`. Keeps the account clock and saved plans. */
+/**
+ * Restore the snapshot of `week`. Keeps the account clock and saved plans. The restored week's
+ * event card is current again, so its narration signal is emitted again.
+ */
 export function rewind(state: GameState, week: WeekNumber): GameState {
   const snap = state.snapshots[week];
   if (!snap) throw new RuleError("no_snapshot", `no snapshot for week ${week}`);
@@ -239,7 +221,8 @@ export function rewind(state: GameState, week: WeekNumber): GameState {
     const s = state.snapshots[w];
     if (s && w <= week) snapshots[w] = s;
   }
-  return { ...state, core: snap, snapshots, emitted: [] };
+  const restored: GameState = { ...state, core: snap, snapshots, emitted: [] };
+  return { ...restored, emitted: shownEventSignals(restored) };
 }
 
 /** Draft the plan of a played decision (not yet saved). Fixture: C1 template, else built from the card. */

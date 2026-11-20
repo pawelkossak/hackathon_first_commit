@@ -85,13 +85,17 @@ export function checkReferences(data: GameData): string[] {
       for (const eff of ch.effects) {
         if (eff.type === "transaction" && !cpIds.has(eff.counterpartyId)) problems.push(`event ${ev.id}: unknown counterparty`);
         if (eff.type === "reveal_card" && !cardIds.has(eff.cardId)) problems.push(`event ${ev.id}: unknown card`);
+        if (eff.type === "reveal" && !ledgerIds.has(eff.ledgerId)) problems.push(`event ${ev.id}: unknown ledger ${eff.ledgerId}`);
       }
     }
   }
+  if (!("demo" in data.level1.seeds)) problems.push("level1: the demo seed is missing");
   for (const [seed, deck] of Object.entries(data.level1.seeds)) {
+    if (new Set(deck.map((s) => s.week)).size !== deck.length) problems.push(`seed ${seed}: two events in one week`);
     for (const slot of deck) {
       const ev = data.level1.events.find((e) => e.id === slot.eventId);
       if (!ev) problems.push(`seed ${seed}: unknown event ${slot.eventId}`);
+      else if (ev.week !== slot.week) problems.push(`seed ${seed}: ${slot.eventId} in week ${slot.week}, card says ${ev.week}`);
     }
   }
   for (const agent of [data.agents.klient_a, data.agents.bank]) {
