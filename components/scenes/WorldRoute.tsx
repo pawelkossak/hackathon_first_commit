@@ -66,11 +66,17 @@ export function WorldRoute({ onSelectWeekNode, className = "" }: WorldRouteProps
             });
 
             return (
-              <div
+              <button
+                type="button"
                 key={w.week}
                 data-testid={`route-node-w${w.week}`}
                 onClick={() => onSelectWeekNode?.(w.week)}
-                className={`relative flex flex-col items-center group z-10 cursor-pointer transition transform hover:-translate-y-1 ${
+                aria-label={`Tydzień ${w.week}: ${weekStartDateFormatted}${
+                  isWeek6
+                    ? `, ostrzeżenie o sztormie: minimalne saldo ${forecast.minimum.balance.toLocaleString("pl-PL")} zł`
+                    : ""
+                }`}
+                className={`relative flex flex-col items-center group z-10 cursor-pointer transition transform hover:-translate-y-1 min-w-[44px] min-h-[44px] focus:outline-none focus:ring-2 focus:ring-amber-400 rounded-2xl ${
                   isCurrent ? "scale-105" : ""
                 }`}
               >
@@ -140,7 +146,7 @@ export function WorldRoute({ onSelectWeekNode, className = "" }: WorldRouteProps
                     </span>
                   ))}
                 </div>
-              </div>
+              </button>
             );
           })}
 

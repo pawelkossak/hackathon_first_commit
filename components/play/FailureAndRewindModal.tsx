@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { useGameStore } from "@/lib/ui/game-store";
 import { GameAsset } from "@/lib/ui/assets";
 import type { WeekNumber } from "../../engine";
@@ -9,9 +9,56 @@ export function FailureAndRewindModal() {
   const state = useGameStore((s) => s.state);
   const rewindToWeek = useGameStore((s) => s.rewindToWeek);
   const [showSelector, setShowSelector] = useState(false);
+  const modalRef = useRef<HTMLDivElement>(null);
+  const previousActiveElement = useRef<HTMLElement | null>(null);
 
   const crash = state.core.crash;
   const isCrashed = state.core.status === "crashed" || crash !== null;
+
+  useEffect(() => {
+    if (!isCrashed) return;
+
+    previousActiveElement.current = document.activeElement as HTMLElement | null;
+
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === "Escape") {
+        if (showSelector) {
+          e.preventDefault();
+          setShowSelector(false);
+        }
+        return;
+      }
+
+      if (e.key === "Tab" && modalRef.current) {
+        const focusable = modalRef.current.querySelectorAll<HTMLElement>(
+          'button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])'
+        );
+        if (focusable.length === 0) return;
+
+        const first = focusable[0];
+        const last = focusable[focusable.length - 1];
+
+        if (e.shiftKey && document.activeElement === first) {
+          e.preventDefault();
+          last.focus();
+        } else if (!e.shiftKey && document.activeElement === last) {
+          e.preventDefault();
+          first.focus();
+        }
+      }
+    };
+
+    window.addEventListener("keydown", handleKeyDown);
+
+    // Initial focus on action button
+    const btn = modalRef.current?.querySelector<HTMLElement>("button");
+    btn?.focus();
+
+    return () => {
+      window.removeEventListener("keydown", handleKeyDown);
+      previousActiveElement.current?.focus();
+    };
+  }, [isCrashed, showSelector]);
 
   if (!isCrashed || !crash) return null;
 
@@ -28,6 +75,7 @@ export function FailureAndRewindModal() {
 
   return (
     <div
+      ref={modalRef}
       role="dialog"
       aria-modal="true"
       aria-labelledby="failure-title"

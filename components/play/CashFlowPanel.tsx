@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState, useId } from "react";
+import React, { useState, useId, useEffect, useRef } from "react";
 import { useGameStore } from "@/lib/ui/game-store";
 import type { ForecastPoint, CashFlowTask } from "../../engine";
 
@@ -17,6 +17,52 @@ export function CashFlowPanel({ isOpen, onClose, initialWeek }: CashFlowPanelPro
   const [selectedDate, setSelectedDate] = useState<string | null>(null);
 
   const titleId = useId();
+  const modalRef = useRef<HTMLDivElement>(null);
+  const previousActiveElement = useRef<HTMLElement | null>(null);
+
+  // Focus trap and Escape key listener
+  useEffect(() => {
+    if (!isOpen) return;
+
+    previousActiveElement.current = document.activeElement as HTMLElement | null;
+
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === "Escape") {
+        e.preventDefault();
+        onClose();
+        return;
+      }
+
+      if (e.key === "Tab" && modalRef.current) {
+        const focusable = modalRef.current.querySelectorAll<HTMLElement>(
+          'button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])'
+        );
+        if (focusable.length === 0) return;
+
+        const first = focusable[0];
+        const last = focusable[focusable.length - 1];
+
+        if (e.shiftKey && document.activeElement === first) {
+          e.preventDefault();
+          last.focus();
+        } else if (!e.shiftKey && document.activeElement === last) {
+          e.preventDefault();
+          first.focus();
+        }
+      }
+    };
+
+    window.addEventListener("keydown", handleKeyDown);
+
+    // Initial focus on dialog container or close button
+    const closeBtn = modalRef.current?.querySelector<HTMLElement>('[data-testid="close-cashflow-button"]');
+    closeBtn?.focus();
+
+    return () => {
+      window.removeEventListener("keydown", handleKeyDown);
+      previousActiveElement.current?.focus();
+    };
+  }, [isOpen, onClose]);
 
   if (!isOpen) return null;
 
@@ -77,6 +123,7 @@ export function CashFlowPanel({ isOpen, onClose, initialWeek }: CashFlowPanelPro
 
   return (
     <div
+      ref={modalRef}
       role="dialog"
       aria-modal="true"
       aria-labelledby={titleId}
@@ -101,11 +148,15 @@ export function CashFlowPanel({ isOpen, onClose, initialWeek }: CashFlowPanelPro
           </div>
 
           <div className="flex items-center gap-2">
-            <div className="bg-slate-950 p-1 rounded-xl border border-slate-800 flex">
+            <div role="tablist" aria-label="Widoki Cash Flow" className="bg-slate-950 p-1 rounded-xl border border-slate-800 flex">
               <button
                 type="button"
+                role="tab"
+                id="tab-chart"
+                aria-selected={activeTab === "chart"}
+                aria-controls="panel-chart"
                 onClick={() => setActiveTab("chart")}
-                className={`px-3 py-1.5 rounded-lg text-xs font-bold transition ${
+                className={`min-h-[44px] px-3.5 py-2 rounded-lg text-xs font-bold transition flex items-center ${
                   activeTab === "chart"
                     ? "bg-indigo-600 text-white"
                     : "text-slate-400 hover:text-white"
@@ -115,8 +166,12 @@ export function CashFlowPanel({ isOpen, onClose, initialWeek }: CashFlowPanelPro
               </button>
               <button
                 type="button"
+                role="tab"
+                id="tab-tasks"
+                aria-selected={activeTab === "tasks"}
+                aria-controls="panel-tasks"
                 onClick={() => setActiveTab("tasks")}
-                className={`px-3 py-1.5 rounded-lg text-xs font-bold transition ${
+                className={`min-h-[44px] px-3.5 py-2 rounded-lg text-xs font-bold transition flex items-center ${
                   activeTab === "tasks"
                     ? "bg-indigo-600 text-white"
                     : "text-slate-400 hover:text-white"
@@ -129,7 +184,8 @@ export function CashFlowPanel({ isOpen, onClose, initialWeek }: CashFlowPanelPro
             <button
               onClick={onClose}
               data-testid="close-cashflow-button"
-              className="px-3.5 py-1.5 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-300 hover:text-white text-xs font-bold transition cursor-pointer border border-slate-700"
+              aria-label="Zamknij podgląd Cash Flow (Escape)"
+              className="min-h-[44px] min-w-[44px] px-4 py-2 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-300 hover:text-white text-xs font-bold transition cursor-pointer border border-slate-700 flex items-center justify-center focus:ring-2 focus:ring-indigo-400 focus:outline-none"
             >
               Zamknij (Esc)
             </button>
@@ -139,7 +195,7 @@ export function CashFlowPanel({ isOpen, onClose, initialWeek }: CashFlowPanelPro
         {/* Content Tabs */}
         <div className="flex-1 overflow-y-auto space-y-6">
           {activeTab === "chart" ? (
-            <div className="space-y-4">
+            <div id="panel-chart" role="tabpanel" aria-labelledby="tab-chart" className="space-y-4">
               {/* Chart Legend & 28 XII headline */}
               <div className="flex flex-wrap items-center justify-between gap-3 text-xs">
                 <div className="flex flex-wrap items-center gap-4">
@@ -265,8 +321,18 @@ export function CashFlowPanel({ isOpen, onClose, initialWeek }: CashFlowPanelPro
                     return (
                       <g
                         key={p.date}
-                        className="cursor-pointer"
+                        role="button"
+                        tabIndex={0}
+                        aria-label={`Dzień ${formatShortDate(p.date)}, saldo ${p.balance.toLocaleString("pl-PL")} zł${isStorm ? ', punkt sztormu 28 XII' : ''}`}
+                        aria-pressed={isSelected}
+                        className="cursor-pointer focus:outline-none"
                         onClick={() => setSelectedDate(p.date)}
+                        onKeyDown={(e) => {
+                          if (e.key === "Enter" || e.key === " ") {
+                            e.preventDefault();
+                            setSelectedDate(p.date);
+                          }
+                        }}
                       >
                         {isStorm && (
                           <circle
@@ -400,7 +466,13 @@ export function CashFlowPanel({ isOpen, onClose, initialWeek }: CashFlowPanelPro
             </div>
           ) : (
             /* TAB 2: Zadania View (GM-19 / E-07) */
-            <div data-testid="tasks-view" className="space-y-3">
+            <div
+              id="panel-tasks"
+              role="tabpanel"
+              aria-labelledby="tab-tasks"
+              data-testid="tasks-view"
+              className="space-y-3"
+            >
               <div className="text-xs text-slate-400">
                 Pełna lista operacji w kolejności księgowania z bieżącym saldem po każdej transakcji.
               </div>

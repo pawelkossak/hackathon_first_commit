@@ -87,7 +87,8 @@ export function Hud({ onOpenCashFlow, className = "" }: HudProps) {
           <button
             onClick={onOpenCashFlow}
             data-testid="hud-open-cashflow"
-            className="px-4 py-2 rounded-xl bg-indigo-600 hover:bg-indigo-500 text-white font-bold text-xs transition shadow-md shadow-indigo-600/20 cursor-pointer"
+            aria-label="Pokaż prognozę przepływów pieniężnych (Cash Flow)"
+            className="min-h-[44px] px-4 py-2.5 rounded-xl bg-indigo-600 hover:bg-indigo-500 text-white font-bold text-xs transition shadow-md shadow-indigo-600/20 cursor-pointer focus:outline-none focus:ring-2 focus:ring-indigo-400"
           >
             Pokaż przepływy (G12)
           </button>

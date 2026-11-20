@@ -1,6 +1,6 @@
 "use client";
 
-import React from "react";
+import React, { useEffect, useRef } from "react";
 import { useGameStore } from "@/lib/ui/game-store";
 
 const LESSONS: Record<number, string> = {
@@ -16,18 +16,64 @@ const LESSONS: Record<number, string> = {
 export function WeekResolutionModal() {
   const lastResolution = useGameStore((s) => s.lastResolution);
   const rewindToWeek = useGameStore((s) => s.rewindToWeek);
-
-  if (!lastResolution) return null;
+  const modalRef = useRef<HTMLDivElement>(null);
+  const previousActiveElement = useRef<HTMLElement | null>(null);
 
   const handleClose = () => {
     useGameStore.setState({ lastResolution: null });
   };
+
+  useEffect(() => {
+    if (!lastResolution) return;
+
+    previousActiveElement.current = document.activeElement as HTMLElement | null;
+
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === "Escape") {
+        e.preventDefault();
+        handleClose();
+        return;
+      }
+
+      if (e.key === "Tab" && modalRef.current) {
+        const focusable = modalRef.current.querySelectorAll<HTMLElement>(
+          'button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])'
+        );
+        if (focusable.length === 0) return;
+
+        const first = focusable[0];
+        const last = focusable[focusable.length - 1];
+
+        if (e.shiftKey && document.activeElement === first) {
+          e.preventDefault();
+          last.focus();
+        } else if (!e.shiftKey && document.activeElement === last) {
+          e.preventDefault();
+          first.focus();
+        }
+      }
+    };
+
+    window.addEventListener("keydown", handleKeyDown);
+
+    // Initial focus on action button
+    const btn = modalRef.current?.querySelector<HTMLElement>("button");
+    btn?.focus();
+
+    return () => {
+      window.removeEventListener("keydown", handleKeyDown);
+      previousActiveElement.current?.focus();
+    };
+  }, [lastResolution]);
+
+  if (!lastResolution) return null;
 
   const isCrashed = lastResolution.crash !== null;
   const lesson = LESSONS[lastResolution.week] ?? "Zarządzanie płynnością wymaga codziennej kontroli salda.";
 
   return (
     <div
+      ref={modalRef}
       role="dialog"
       aria-modal="true"
       aria-labelledby="resolution-title"
