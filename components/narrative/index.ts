@@ -13,3 +13,7 @@ export {
   type IntroSettings,
   type IntroStep,
 } from "./IntroFlow";
+export {
+  NegotiationDialogue,
+  type NegotiationDialogueProps,
+} from "./NegotiationDialogue";

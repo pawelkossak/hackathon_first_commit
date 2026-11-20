@@ -6,3 +6,5 @@ export {
   validateNumberGuardrail,
   applyGuardrailOrFallback,
 } from "./guardrail";
+export { classifyIntent, getQuickReplies } from "./classifier";
+export { processAgentNegotiation } from "./agent-service";
