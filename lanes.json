@@ -1,0 +1,23 @@
+{
+  "integration": "develop",
+  "rule": "A file belongs to the lane with the longest matching path prefix. Files outside every lane are shared and change only on a coordinator branch (not lane/*).",
+  "lanes": {
+    "engine": {
+      "branch": "lane/engine",
+      "owner": "Person A (coordinator, Claude Code)",
+      "paths": ["engine/", "data/"]
+    },
+    "ui": {
+      "branch": "lane/ui",
+      "owner": "Person B (Antigravity)",
+      "paths": ["app/", "components/", "public/", "lib/ui/", "lib/generated/", "scripts/build-assets.ts", "design/"]
+    },
+    "narrative": {
+      "branch": "lane/narrative",
+      "owner": "Person C (Antigravity)",
+      "paths": ["narrative/", "components/narrative/", "lib/ai/", "lib/reminders/", "app/api/", "public/sw.js", "e2e/", "playwright.config.ts"]
+    }
+  },
+  "everyLane": ["docs/team/handoffs/"],
+  "neverCommit": [".env", ".env.local", ".env.development", ".env.production", ".env.test"]
+}

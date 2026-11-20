@@ -1,0 +1,4 @@
+#!/bin/sh
+# Lane guard: blocks a commit on lane/* that touches another lane, a shared file or a secrets file.
+# Enabled once per clone by `pnpm install` (script "prepare") or `git config core.hooksPath .githooks`.
+exec node scripts/lane-check.mjs

@@ -52,9 +52,9 @@ Clock: coding starts Fri 20 XI 11:00, submission Sun 22 XI 10:00 (≈ 47 h).
 |---|---|---|---|
 | **E — Engine and data** | Person A | `engine/`, `data/`, `engine/*.test.ts` | the engine API of RUNTIME-ENGINE-CONTRACT.md |
 | **U — Game UI and art** | Person B | `app/` (pages, layout, styles), `components/`, `public/`, `scripts/build-assets.ts`, `lib/ui/`, `lib/generated/` (generated) | the screens of the demo path |
-| **N — Narrative, voice, AI, reminders, tests** | Person C | `narrative/`, `lib/ai/`, `lib/reminders/`, `app/api/`, `public/sw.js`, `e2e/` | copy, reactions, voice player, `/api/*`, the demo-path e2e |
+| **N — Narrative, voice, AI, reminders, tests** | Person C | `narrative/`, `components/narrative/`, `lib/ai/`, `lib/reminders/`, `app/api/`, `public/sw.js`, `e2e/` | copy, reactions, voice player, `/api/*`, the demo-path e2e |
 
-Shared files (`package.json`, `pnpm-lock.yaml`, `tsconfig.json`, configs, `README.md`) change only through the coordinator (Person A), one small commit at a time.
+Shared files (`package.json`, `pnpm-lock.yaml`, `tsconfig.json`, configs, `README.md`, `AGENTS.md`, `docs/specification/`) change only through the coordinator (Person A), one small commit at a time. The narrative lane builds its screens (intro, dialogue, negotiation, voice player, settings) in `components/narrative/`; the ui lane mounts them in its pages.
 
 ### 3.1 Interfaces that make the lanes independent
 
@@ -67,9 +67,10 @@ A change to any of these four interfaces is announced in the team chat and commi
 
 ## 4. Git workflow
 
-- Branches: `main` is the integration branch; each person works on `lane/engine`, `lane/ui`, `lane/narrative`.
+- Branches: `develop` is the integration branch; each person works on `lane/engine`, `lane/ui`, `lane/narrative`. `main` receives only the final version, on the coordinator’s decision.
 - Small commits with one topic: `feat:`, `fix:`, `test:`, `chore:`, `docs:`.
-- Integration: pull request into `main`, merged by the coordinator after `pnpm check` is green on the branch. Rebase your lane on `main` after every merge.
+- Integration: pull request into `develop`, merged by the coordinator after `pnpm check`, `node scripts/lane-check.mjs --range develop...lane/<name>` and the qa review are green. After every merge each lane runs `git pull origin develop` (merge, no rebase of pushed work).
+- Lane paths are machine-checked: `lanes.json`, the pre-commit hook `.githooks/pre-commit` and, in Claude Code, `.claude/hooks/lane-guard.mjs`.
 - Never commit `.env*`, keys or tokens. Secrets are names in `.env.example` only.
 
 ## 5. Tasks

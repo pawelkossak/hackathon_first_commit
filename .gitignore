@@ -43,6 +43,10 @@ lerna-debug.log*
 
 # env files (can opt-in for committing if needed)
 .env*
+!.env.example
+
+# local agent settings
+.claude/settings.local.json
 
 # vercel
 .vercel
