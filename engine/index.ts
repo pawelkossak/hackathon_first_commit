@@ -1,10 +1,13 @@
 // Public engine API (RUNTIME-ENGINE-CONTRACT.md). UI and narrative code import only from here.
-// E-01: final signatures. E-02: real forecast (forecast.ts). Other bodies are fixtures until E-03…E-09.
+// E-01: final signatures. E-02: real forecast (forecast.ts). E-03: action cards (cards.ts).
+// Other bodies are fixtures until E-04…E-09.
 import { isValidIsoDate } from "./calendar";
 import { gameData } from "./data";
 import { RuleError } from "./errors";
 import { initialState } from "./fixture";
+import { applyCard, cardCost, cardDef, disabledReason, safeCards } from "./cards";
 import { computeForecast, weekOf } from "./forecast";
+import { lapScore } from "./score";
 import type {
   AgentId,
   AgentIntent,
@@ -13,7 +16,6 @@ import type {
   CardView,
   CfoHint,
   CurrentEvent,
-  DisabledReason,
   EngineEvent,
   EventChoiceId,
   Forecast,
@@ -23,7 +25,6 @@ import type {
   IsoDate,
   NegotiationResult,
   Plan,
-  StarId,
   WeekNumber,
   WeekResolution,
 } from "./types";
@@ -42,12 +43,6 @@ function withCore(state: GameState, core: GameCore, emitted: EngineEvent[] = [])
   return { ...state, core, emitted };
 }
 
-function cardDef(cardId: CardId) {
-  const card = level1.cards.find((c) => c.id === cardId);
-  if (!card) throw new RuleError("unknown_card", `unknown card ${cardId}`);
-  return card;
-}
-
 function deckFor(seed: string) {
   return level1.seeds[seed] ?? level1.seeds[DEMO_SEED];
 }
@@ -61,23 +56,6 @@ function eventForWeek(core: GameCore) {
 function eventPending(core: GameCore): boolean {
   const ev = eventForWeek(core);
   return ev !== null && !core.eventsResolved.some((r) => r.eventId === ev.id);
-}
-
-function disabledReasonFor(core: GameCore, cardId: CardId): DisabledReason | null {
-  const card = cardDef(cardId);
-  const text = (key: keyof typeof level1.disabledReasons) => level1.disabledReasons[key];
-  if (core.status !== "playing") return { code: "not_playing", text: null };
-  if (core.played.some((p) => p.cardId === cardId)) return { code: "already_played", text: text("already_played") };
-  if (core.week > card.window.to) {
-    if (card.afterWindowReason) return { code: card.afterWindowReason, text: text(card.afterWindowReason) };
-    return { code: "outside_window", text: null };
-  }
-  if (core.week < card.window.from) return { code: "outside_window", text: null };
-  if (cardId === "C2" && core.invoiceState === "factored") return { code: "invoice_financed", text: text("invoice_financed") };
-  if (cardId === "C6" && core.invoiceState === "discounted") return { code: "invoice_paid", text: text("invoice_paid") };
-  if (cardId === "C4" && core.overdraftLimit > 0) return { code: "overdraft_active", text: null };
-  if (core.weekActionUsed) return { code: "week_action_used", text: null };
-  return null;
 }
 
 /** Start a new lap. Fixture: the initial state from data (this is already the final initial state). */
@@ -99,10 +77,10 @@ export function forecast(state: GameState, options: ForecastOptions = {}): Forec
   return computeForecast(state, options);
 }
 
-/** All six cards with engine-owned playability and disabled reasons. Fixture: window/played/exclusivity only. */
+/** All six cards with engine-owned playability, disabled reasons and cost (C4 incl. the interest estimate). */
 export function getAvailableCards(state: GameState): CardView[] {
   return level1.cards.map((card) => {
-    const reason = disabledReasonFor(state.core, card.id);
+    const reason = disabledReason(state.core, card.id);
     return {
       id: card.id,
       key: card.key,
@@ -113,7 +91,7 @@ export function getAvailableCards(state: GameState): CardView[] {
       playable: reason === null,
       disabledReason: reason,
       tooLate: card.tooLateFrom !== null && state.core.week >= card.tooLateFrom,
-      cost: card.cost.fixed,
+      cost: cardCost(state, card.id),
       costIsEstimate: card.cost.overdraftInterest,
       relationsDelta: card.relationsDelta,
       competenceId: card.competence?.id ?? null,
@@ -122,11 +100,18 @@ export function getAvailableCards(state: GameState): CardView[] {
   });
 }
 
-/** Simulate a card without committing it. `after` is the forecast of the simulated state (card money overlay of E-02). */
+/**
+ * Simulate a card without committing it. `after` is the forecast of the simulated state.
+ * `simulated.emitted` carries the events the play would emit; previewing a playable C5 adds
+ * `loanOffered` with `via: "C5_preview"`.
+ */
 export function previewCard(state: GameState, cardId: CardId): CardPreview {
   const card = cardDef(cardId);
-  const reason = disabledReasonFor(state.core, cardId);
-  const simulated = reason === null ? playCard(state, cardId, false) : state;
+  const reason = disabledReason(state.core, cardId);
+  const played = reason === null ? applyCard(state, cardId, false) : { ...state, emitted: [] };
+  const loanOffered: EngineEvent[] =
+    reason === null && card.effect.type === "loan" ? [{ type: "loanOffered", week: state.core.week, via: "C5_preview" }] : [];
+  const simulated: GameState = { ...played, emitted: [...played.emitted, ...loanOffered] };
   return {
     cardId,
     playable: reason === null,
@@ -134,35 +119,17 @@ export function previewCard(state: GameState, cardId: CardId): CardPreview {
     before: forecast(state),
     after: forecast(simulated),
     simulated,
-    cost: card.cost.fixed,
+    cost: cardCost(state, cardId),
     relationsDelta: card.relationsDelta,
   };
 }
 
-/** Play a card as the week's one action. Throws RuleError("card_unavailable") when disabled. Its money effect is applied by the forecast overlay. */
+/**
+ * Play a card as the week's one action (once per lap, C2 ↔ C6 exclusive). Throws RuleError("card_unavailable")
+ * when disabled. Its money effect is applied by the forecast overlay; no transaction is resolved here.
+ */
 export function playCard(state: GameState, cardId: CardId, delegated: boolean = false): GameState {
-  const card = cardDef(cardId);
-  const reason = disabledReasonFor(state.core, cardId);
-  if (reason) throw new RuleError("card_unavailable", `${cardId}: ${reason.code}`);
-  const core = state.core;
-  const competences = { ...core.competences };
-  if (card.competence) {
-    const level = delegated ? card.competence.delegated : card.competence.own;
-    competences[card.competence.id] = Math.max(competences[card.competence.id], level) as typeof level;
-  }
-  let invoiceState = core.invoiceState;
-  if (card.effect.type === "discount" || card.effect.type === "factoring") invoiceState = card.effect.invoiceStateAfter;
-  return withCore(state, {
-    ...core,
-    hand: core.hand.filter((id) => id !== cardId),
-    played: [...core.played, { cardId, week: core.week, delegated, cost: card.cost.fixed }],
-    weekActionUsed: true,
-    invoiceState,
-    overdraftLimit: card.effect.type === "overdraft" ? card.effect.limit : core.overdraftLimit,
-    relations: core.relations + card.relationsDelta,
-    costOfMoney: core.costOfMoney + card.cost.fixed,
-    competences,
-  });
+  return applyCard(state, cardId, delegated);
 }
 
 /** The event card of the current week, or null when none or already resolved. Fixture: E5 condition not yet checked. */
@@ -223,22 +190,25 @@ export function resolveWeek(state: GameState): WeekResolution {
   let next: GameCore = { ...core, weeksResolved: [...core.weeksResolved, week] };
 
   if (crash) {
-    next = { ...next, status: "crashed", crash };
+    const score = lapScore(next, f, false);
+    next = { ...next, status: "crashed", crash, stars: score.stars, level2Unlocked: false };
     events.push({ type: "crash", week, crash });
   } else {
     const balance = endBalance ?? core.balance;
     if (week === 7) {
-      const tanio = next.costOfMoney <= 500 && next.relations === level1.rules.relationsStart;
-      const stars = { przetrwanie: "earned", tanio: tanio ? "earned" : "missed", pilot: "pending" } as const;
-      const earned: StarId[] = (Object.keys(stars) as StarId[]).filter((k) => stars[k] === "earned");
+      const planSaved = state.account.plans.some((p) => p.savedAt !== null && core.played.some((c) => c.cardId === p.cardId));
+      const score = lapScore(next, f, planSaved);
       next = {
         ...next,
         status: "completed",
         balance,
-        stars,
-        avoidedCost: level1.rules.defaultCostOfMoney - next.costOfMoney,
-        level2Unlocked: earned.length >= level1.unlock.minStars,
+        stars: score.stars,
+        costOfMoney: score.costOfMoney,
+        avoidedCost: score.avoidedCost,
+        lowestBalance: f.low,
+        level2Unlocked: score.level2Unlocked,
       };
+      const earned = level1.stars.map((st) => st.id).filter((id) => score.stars[id] === "earned");
       events.push({ type: "lapWon", week, stars: earned });
     } else {
       const nextWeek = (week + 1) as WeekNumber;
@@ -348,16 +318,18 @@ export function negotiate(state: GameState, agent: AgentId, intent: AgentIntent,
   };
 }
 
-/** AI-CFO hint: earliest future crash and the two cheapest playable safe cards. Fixture: risk only, no options yet. */
+/** AI-CFO hint: earliest future crash and the two cheapest playable cards that remove it (none without risk). */
 export function getCfoHint(state: GameState): CfoHint {
-  return { week: state.core.week, risk: forecast(state).crash, options: [] };
+  const risk = forecast(state).crash;
+  return { week: state.core.week, risk, options: risk ? safeCards(state).slice(0, 2) : [] };
 }
 
-/** Play the cheapest safe card as a delegated decision. Fixture: the cheapest playable card. */
+/**
+ * Play the cheapest safe card (playable, no crash after it) as a delegated decision: competence
+ * milestone 1 for its competence, none for a product. Throws RuleError("no_safe_card") when none is safe.
+ */
 export function delegateBestCard(state: GameState): GameState {
-  const playable = getAvailableCards(state)
-    .filter((c) => c.playable)
-    .sort((a, b) => a.cost - b.cost);
-  if (playable.length === 0) throw new RuleError("no_safe_card");
-  return playCard(state, playable[0].id, true);
+  const best = safeCards(state)[0];
+  if (!best) throw new RuleError("no_safe_card");
+  return applyCard(state, best.cardId, true);
 }

@@ -63,6 +63,22 @@ export function checkReferences(data: GameData): string[] {
     const e = card.effect;
     if ("counterpartyId" in e && !cpIds.has(e.counterpartyId)) problems.push(`card ${card.id}: unknown counterparty`);
     if (e.type === "move_ledger" && !ledgerIds.has(e.ledgerId)) problems.push(`card ${card.id}: unknown ledger`);
+    if (e.type === "discount" || e.type === "factoring") {
+      const inv = data.persona.invoices.find((i) => i.id === e.invoiceId);
+      if (!inv) {
+        problems.push(`card ${card.id}: unknown invoice ${e.invoiceId}`);
+      } else if (e.type === "factoring") {
+        // D-11: fee = round(1.5 % × gross), payout = gross − fee, cost = fee.
+        const fee = Math.round(e.feeRate * inv.gross);
+        if (e.fee !== fee) problems.push(`card ${card.id}: fee ${e.fee} is not round(rate × gross) ${fee}`);
+        if (e.amount !== inv.gross - e.fee) problems.push(`card ${card.id}: payout is not gross − fee`);
+        if (card.cost.fixed !== e.fee) problems.push(`card ${card.id}: cost is not the fee`);
+      } else {
+        const payout = Math.round((inv.gross * (100 - e.discountPct)) / 100);
+        if (e.amount !== payout) problems.push(`card ${card.id}: payout ${e.amount} is not gross less discount ${payout}`);
+        if (card.cost.fixed !== inv.gross - e.amount) problems.push(`card ${card.id}: cost is not gross − payout`);
+      }
+    }
   }
   for (const ev of data.level1.events) {
     for (const ch of ev.choices) {

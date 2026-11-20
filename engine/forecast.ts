@@ -205,8 +205,10 @@ export function computeForecast(state: GameState, options: ForecastOptions = {})
         crash = { week: weekOf(date) ?? 1, date, transactionId: t.id, shortfall: -limit - balance };
       }
     }
-    points.push({ date, balance, transactions: today, counterfactual: crash !== null && date > crash.date });
-    interestBase += Math.max(0, -balance);
+    const counterfactual = crash !== null && date > crash.date;
+    points.push({ date, balance, transactions: today, counterfactual });
+    // The lap stops at a crash: interest counts real days only (through the crash date), never counterfactual ones.
+    if (!counterfactual) interestBase += Math.max(0, -balance);
   }
 
   const lapPoints = points.filter((p) => p.date >= level1.lap.start);
