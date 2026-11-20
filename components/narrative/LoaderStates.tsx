@@ -1,14 +1,27 @@
 "use client";
 
+// G25–G28 loaders and the honest save failure notice. Every sentence comes from getCopy; the AI wait
+// shows the client AI timeout budget (hard rule 4), not a typed-in number.
 import React from "react";
+import type { WeekNumber } from "../../engine";
+import { getCopy, type NarratorGender, type PlayerGender } from "../../narrative";
+import { AGENT_CLIENT_TIMEOUT_MS } from "./agent-client";
+
+interface GenderProps {
+  playerGender?: PlayerGender;
+  narratorGender?: NarratorGender;
+}
 
 /**
  * G25 Initial load: loading assets honestly without fake percentages.
  */
 export function InitialLoader({
-  message = "Przygotowywanie studia graficznego...",
-}: {
-  message?: string;
+  messageKey = "ui.loader.initial",
+  playerGender = "female",
+  narratorGender = "female",
+}: GenderProps & {
+  /** Copy key of the main message. */
+  messageKey?: string;
 }) {
   return (
     <div
@@ -17,21 +30,28 @@ export function InitialLoader({
       className="flex flex-col items-center justify-center p-8 bg-neutral-900/90 border border-neutral-700/80 rounded-2xl max-w-sm mx-auto shadow-2xl text-center"
     >
       <div className="w-10 h-10 border-4 border-amber-400 border-t-transparent rounded-full animate-spin mb-4" />
-      <span className="text-sm font-semibold text-neutral-100">{message}</span>
-      <span className="text-xs text-neutral-400 mt-1">Uruchamianie silnika finansowego</span>
+      <span className="text-base font-semibold text-neutral-100">
+        {getCopy(messageKey, undefined, playerGender, narratorGender)}
+      </span>
+      <span className="text-base text-neutral-400 mt-1">
+        {getCopy("ui.loader.engine", undefined, playerGender, narratorGender)}
+      </span>
     </div>
   );
 }
 
 /**
- * G26 Between-week transition.
+ * G26 Between-week transition. `week` is the engine week (state.core.week).
  */
 export function WeekTransitionLoader({
   week,
-  message = "Podsumowywanie transakcji tygodnia...",
-}: {
-  week: number;
-  message?: string;
+  messageKey = "ui.loader.week_summary",
+  playerGender = "female",
+  narratorGender = "female",
+}: GenderProps & {
+  week: WeekNumber;
+  /** Copy key of the message under the week. */
+  messageKey?: string;
 }) {
   return (
     <div
@@ -39,23 +59,27 @@ export function WeekTransitionLoader({
       aria-live="polite"
       className="flex flex-col items-center justify-center p-6 bg-neutral-900/90 border border-neutral-700/80 rounded-2xl max-w-sm mx-auto shadow-2xl text-center"
     >
-      <div className="text-amber-400 text-2xl font-bold mb-2">Tydzień {week}</div>
+      <div className="text-amber-400 text-2xl font-bold mb-2">
+        {getCopy("ui.hud.week", undefined, playerGender, narratorGender, { week })}
+      </div>
       <div className="w-8 h-8 border-3 border-cyan-400 border-t-transparent rounded-full animate-spin mb-3" />
-      <span className="text-xs text-neutral-300">{message}</span>
+      <span className="text-base text-neutral-300">{getCopy(messageKey, undefined, playerGender, narratorGender)}</span>
     </div>
   );
 }
 
 /**
  * G27 Waiting for AI reply or audio with "Czytaj dalej bez głosu" bypass (GM-22).
+ * The shown budget is the client AI budget AGENT_CLIENT_TIMEOUT_MS (agent-client.ts).
  */
 export function AiWaitingLoader({
   onSkipVoice,
-  timeoutSeconds = 3,
-}: {
+  playerGender = "female",
+  narratorGender = "female",
+}: GenderProps & {
   onSkipVoice?: () => void;
-  timeoutSeconds?: number;
 }) {
+  const seconds = Math.round(AGENT_CLIENT_TIMEOUT_MS / 1000);
   return (
     <div
       role="status"
@@ -64,8 +88,8 @@ export function AiWaitingLoader({
     >
       <div className="flex items-center gap-3">
         <div className="w-5 h-5 border-2 border-amber-400 border-t-transparent rounded-full animate-spin" />
-        <span className="text-xs">
-          Oczekiwanie na odpowiedź (maks. {timeoutSeconds} s)...
+        <span className="text-base">
+          {getCopy("ui.loader.ai_wait", undefined, playerGender, narratorGender, { seconds })}
         </span>
       </div>
 
@@ -73,9 +97,9 @@ export function AiWaitingLoader({
         <button
           type="button"
           onClick={onSkipVoice}
-          className="min-h-[44px] px-3 py-1.5 text-xs text-amber-300 hover:text-white bg-neutral-800 hover:bg-neutral-700 rounded-lg border border-neutral-700 transition-colors focus:outline-none focus:ring-2 focus:ring-amber-400"
+          className="min-h-[44px] px-3 py-1.5 text-base text-amber-300 hover:text-white bg-neutral-800 hover:bg-neutral-700 rounded-lg border border-neutral-700 transition-colors focus:outline-none focus:ring-2 focus:ring-amber-400"
         >
-          Czytaj dalej bez głosu
+          {getCopy("ui.loader.skip_voice", undefined, playerGender, narratorGender)}
         </button>
       )}
     </div>
@@ -89,42 +113,39 @@ export function AiWaitingLoader({
 export function SaveFailureNotice({
   onRetry,
   onContinueOffline,
-}: {
+  playerGender = "female",
+  narratorGender = "female",
+}: GenderProps & {
   onRetry?: () => void;
   onContinueOffline?: () => void;
 }) {
+  const copy = (id: string) => getCopy(id, undefined, playerGender, narratorGender);
   return (
     <aside
       role="alert"
       className="p-5 bg-red-950/90 border-2 border-red-600 rounded-2xl max-w-md mx-auto shadow-2xl text-neutral-100"
     >
-      <div className="flex items-center gap-2 mb-2 text-red-400 font-bold text-sm">
-        <span>⚠️</span>
-        <h3>Błąd zapisu stanu gry (G28)</h3>
-      </div>
+      <h3 className="mb-2 text-red-400 font-bold text-lg">{copy("ui.save_failure.title")}</h3>
 
-      <p className="text-xs text-neutral-300 leading-relaxed mb-4">
-        Nie udało się potwierdzić zapisu stanu gry w pamięci podręcznej przeglądarki.
-        Twój aktualny postęp jest aktywny w tej sesji, ale może nie zostać przywrócony po zamknięciu karty.
-      </p>
+      <p className="text-base text-neutral-300 leading-relaxed mb-4">{copy("ui.save_failure.body")}</p>
 
       <div className="flex gap-2 justify-end">
         {onContinueOffline && (
           <button
             type="button"
             onClick={onContinueOffline}
-            className="min-h-[44px] px-3.5 py-1.5 text-xs text-neutral-300 hover:text-white bg-neutral-800 rounded-lg border border-neutral-700 transition-colors"
+            className="min-h-[44px] px-3.5 py-1.5 text-base text-neutral-300 hover:text-white bg-neutral-800 rounded-lg border border-neutral-700 transition-colors"
           >
-            Kontynuuj bez zapisu
+            {copy("ui.save_failure.continue")}
           </button>
         )}
         {onRetry && (
           <button
             type="button"
             onClick={onRetry}
-            className="min-h-[44px] px-4 py-1.5 text-xs font-semibold text-neutral-950 bg-amber-400 hover:bg-amber-300 rounded-lg shadow transition-colors"
+            className="min-h-[44px] px-4 py-1.5 text-base font-semibold text-neutral-950 bg-amber-400 hover:bg-amber-300 rounded-lg shadow transition-colors"
           >
-            Spróbuj zapisać ponownie
+            {copy("ui.save_failure.retry")}
           </button>
         )}
       </div>

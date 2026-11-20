@@ -32,7 +32,7 @@ export function IntroFlow({
     initialSettings?.narratorGender ?? "female"
   );
 
-  const speakerName = narratorGender === "female" ? "Szefowa" : "Szef";
+  const speakerName = getCopy("ui.narrator.speaker", undefined, playerGender, narratorGender);
 
   const handleSkip = () => {
     onComplete({ playerGender, narratorGender });

@@ -8,12 +8,17 @@ import {
   registerServiceWorker,
   scheduleDemoReminder,
 } from '../../lib/reminders/push-client';
+import type { WeekNumber } from '../../engine';
+import { DEMO_REMINDER } from '../../lib/reminders/push-config';
+import { getCopy } from '../../narrative';
 import { useSettingsStore } from '../../narrative/settings-store';
 
 export interface PushOptInProps {
   onDismiss: () => void;
   onAccepted?: (channel: 'browser' | 'email') => void;
   onDemoTriggered?: (delaySeconds: number) => void;
+  /** Week the reminder returns to: the engine week (state.core.week); the push config otherwise. */
+  targetWeek?: WeekNumber;
   className?: string;
 }
 
@@ -21,9 +26,13 @@ export function PushOptIn({
   onDismiss,
   onAccepted,
   onDemoTriggered,
+  targetWeek = DEMO_REMINDER.targetWeek,
   className = '',
 }: PushOptInProps) {
-  const { narratorGender } = useSettingsStore();
+  const { playerGender, narratorGender } = useSettingsStore();
+  const copy = (id: string, extra?: Record<string, string | number>) =>
+    getCopy(id, undefined, playerGender, narratorGender, extra);
+  const delaySeconds = DEMO_REMINDER.delaySeconds;
   const [browserChannel, setBrowserChannel] = useState(true);
   const [emailChannel, setEmailChannel] = useState(false);
   const [permissionState, setPermissionState] = useState<NotificationPermission | 'unsupported'>(() => getNotificationPermission());
@@ -48,6 +57,7 @@ export function PushOptIn({
   }, [onDismiss]);
 
   const isCountingDown = countdown !== null;
+  const arrivedText = copy('ui.push.status.arrived');
   useEffect(() => {
     if (!isCountingDown) return;
 
@@ -56,7 +66,7 @@ export function PushOptIn({
         if (prev === null) return null;
         if (prev <= 1) {
           clearInterval(interval);
-          setDemoStatus('Przypomnienie dotarło!');
+          setDemoStatus(arrivedText);
           return null;
         }
         return prev - 1;
@@ -64,11 +74,11 @@ export function PushOptIn({
     }, 1000);
 
     return () => clearInterval(interval);
-  }, [isCountingDown]);
+  }, [isCountingDown, arrivedText]);
 
   const handleSavePreferences = async () => {
     if (!browserChannel && !emailChannel) {
-      setDemoStatus('Wybierz kanał albo wróć do gry.');
+      setDemoStatus(copy('ui.push.status.choose_channel'));
       return;
     }
 
@@ -81,7 +91,7 @@ export function PushOptIn({
         return;
       }
       if (perm === 'denied') {
-        setDemoStatus('Przeglądarka blokuje powiadomienia. Baner powrotu nadal działa w grze.');
+        setDemoStatus(copy('ui.push.status.denied'));
         return;
       }
     }
@@ -91,7 +101,7 @@ export function PushOptIn({
 
   const handleTriggerDemo = async () => {
     setIsScheduling(true);
-    setDemoStatus('Planujemy próbne przypomnienie…');
+    setDemoStatus(copy('ui.push.status.planning'));
 
     let perm = getNotificationPermission();
     if (perm === 'default') {
@@ -101,10 +111,10 @@ export function PushOptIn({
 
     try {
       const res = await scheduleDemoReminder({
-        delaySeconds: 30,
-        targetWeek: 3,
+        delaySeconds,
+        targetWeek,
         onFallbackTrigger: () => {
-          setDemoStatus('Tydzień 3 czeka. Baner powrotu został aktywowany w grze!');
+          setDemoStatus(copy('ui.push.status.fallback', { week: targetWeek }));
         },
       });
 
@@ -114,11 +124,11 @@ export function PushOptIn({
       onDemoTriggered?.(res.delaySeconds);
     } catch {
       setIsScheduling(false);
-      setDemoStatus('Nie udało się zaplanować próby. Baner powrotu nadal działa w grze.');
+      setDemoStatus(copy('ui.push.status.failed'));
     }
   };
 
-  const narratorTitle = narratorGender === 'female' ? 'Ania · Szefowa studia' : 'Szef studia';
+  const narratorTitle = copy('ui.push.narrator');
 
   return (
     <div
@@ -130,15 +140,15 @@ export function PushOptIn({
       <div className="relative w-full max-w-2xl rounded-2xl border border-indigo-900/60 bg-slate-900 p-6 text-slate-100 shadow-2xl md:p-8">
         {/* Header with Narrator Avatar badge */}
         <div className="flex items-center gap-4 border-b border-slate-800 pb-4">
-          <div className="flex h-14 w-14 flex-shrink-0 items-center justify-center rounded-full bg-gradient-to-br from-indigo-500 to-purple-600 text-2xl font-bold shadow-md">
+          <div className="flex h-14 w-14 flex-shrink-0 items-center justify-center rounded-full bg-gradient-to-br from-indigo-500 to-purple-600 text-2xl font-bold shadow-md" aria-hidden="true">
             {narratorGender === 'female' ? '👩‍💼' : '👨‍💼'}
           </div>
           <div>
-            <div className="text-sm font-semibold tracking-wide text-indigo-400">
+            <div className="text-base font-semibold tracking-wide text-indigo-400">
               {narratorTitle}
             </div>
             <h2 id="optin-title" className="text-2xl font-bold text-white">
-              Kiedy wracamy za stery?
+              {copy('ui.push.title')}
             </h2>
           </div>
         </div>
@@ -146,13 +156,13 @@ export function PushOptIn({
         {/* Body content */}
         <div className="mt-4 space-y-4 text-base leading-relaxed text-slate-300">
           <p>
-            Możemy przypomnieć Ci o kolejnym ruchu, gdy gra będzie wymagała Twojej decyzji. Bez spamu, bez reklam produktów finansowych.
+            {copy('ui.push.body')}
           </p>
 
           {/* Channels Selection */}
           <div className="rounded-xl border border-slate-800 bg-slate-800/50 p-4 space-y-3">
-            <h3 className="text-sm font-semibold uppercase tracking-wider text-slate-400">
-              Dostępne kanały powiadomień
+            <h3 className="text-base font-semibold uppercase tracking-wider text-slate-400">
+              {copy('ui.push.channels')}
             </h3>
 
             <label className="flex min-h-[44px] cursor-pointer items-center gap-3 rounded-lg p-2 transition hover:bg-slate-800">
@@ -163,13 +173,15 @@ export function PushOptIn({
                 className="h-5 w-5 rounded border-slate-700 bg-slate-900 text-indigo-600 focus:ring-2 focus:ring-indigo-500"
               />
               <div className="flex-1">
-                <span className="font-medium text-white">Przeglądarka (Web Push)</span>
-                <span className="ml-2 text-xs text-slate-400">
-                  {permissionState === 'denied'
-                    ? '— blokowane w ustawieniach przeglądarki'
-                    : permissionState === 'granted'
-                    ? '— zgoda udzielona'
-                    : '— wymaga akceptacji'}
+                <span className="font-medium text-white">{copy('ui.push.browser')}</span>
+                <span className="ml-2 text-base text-slate-400">
+                  {copy(
+                    permissionState === 'denied'
+                      ? 'ui.push.permission.denied'
+                      : permissionState === 'granted'
+                      ? 'ui.push.permission.granted'
+                      : 'ui.push.permission.default'
+                  )}
                 </span>
               </div>
             </label>
@@ -183,9 +195,9 @@ export function PushOptIn({
                 className="h-5 w-5 rounded border-slate-700 bg-slate-900 text-indigo-600 focus:ring-2 focus:ring-indigo-500"
               />
               <div className="flex-1">
-                <span className="font-medium text-white">E-mail</span>
-                <span className="ml-2 text-xs text-amber-400/90">
-                  (Dostępne po zalogowaniu na konto — tryb gościa)
+                <span className="font-medium text-white">{copy('ui.push.email')}</span>
+                <span className="ml-2 text-base text-amber-400/90">
+                  {copy('ui.push.email.guest')}
                 </span>
               </div>
             </label>
@@ -195,24 +207,24 @@ export function PushOptIn({
           <div className="rounded-xl border border-indigo-900/40 bg-indigo-950/30 p-4">
             <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
               <div>
-                <div className="text-sm font-semibold text-indigo-300">
-                  Test na żywo (Demo pitch 30 s)
+                <div className="text-base font-semibold text-indigo-300">
+                  {copy('ui.push.demo.title', { seconds: delaySeconds })}
                 </div>
-                <div className="text-xs text-slate-400">
-                  Wyślij próbne powiadomienie z odliczaniem 30 sekund na prezentację.
+                <div className="text-base text-slate-400">
+                  {copy('ui.push.demo.body', { seconds: delaySeconds })}
                 </div>
               </div>
               <button
                 type="button"
                 onClick={handleTriggerDemo}
                 disabled={isScheduling}
-                className="min-h-[44px] rounded-lg bg-indigo-600 px-4 py-2 text-sm font-semibold text-white shadow-md transition hover:bg-indigo-500 disabled:opacity-50"
+                className="min-h-[44px] rounded-lg bg-indigo-600 px-4 py-2 text-base font-semibold text-white shadow-md transition hover:bg-indigo-500 disabled:opacity-50"
               >
                 {isScheduling
-                  ? 'Planowanie…'
+                  ? copy('ui.push.demo.scheduling')
                   : countdown !== null
-                  ? `Przypomnienie za ${countdown} s`
-                  : 'Wyślij próbę (30 s)'}
+                  ? copy('ui.push.demo.countdown', { seconds: countdown })
+                  : copy('ui.push.demo.send', { seconds: delaySeconds })}
               </button>
             </div>
 
@@ -220,7 +232,7 @@ export function PushOptIn({
               <div
                 role="status"
                 aria-live="polite"
-                className="mt-3 rounded-lg border border-indigo-800/60 bg-indigo-900/40 p-2.5 text-xs text-indigo-200"
+                className="mt-3 rounded-lg border border-indigo-800/60 bg-indigo-900/40 p-2.5 text-base text-indigo-200"
               >
                 {demoStatus}
               </div>
@@ -235,14 +247,14 @@ export function PushOptIn({
             onClick={onDismiss}
             className="min-h-[44px] min-w-[120px] rounded-xl border border-slate-700 bg-slate-800 px-5 py-2.5 text-base font-semibold text-slate-300 transition hover:bg-slate-700 focus:ring-2 focus:ring-slate-500"
           >
-            Może później
+            {copy('ui.push.later')}
           </button>
           <button
             type="button"
             onClick={handleSavePreferences}
             className="min-h-[44px] min-w-[160px] rounded-xl bg-gradient-to-r from-emerald-600 to-teal-600 px-6 py-2.5 text-base font-bold text-white shadow-lg transition hover:from-emerald-500 hover:to-teal-500 focus:ring-2 focus:ring-emerald-400"
           >
-            Ustaw przypomnienia
+            {copy('ui.push.save')}
           </button>
         </div>
       </div>

@@ -1,4 +1,7 @@
 // lib/reminders/push-client.ts - Client-side push & demo reminder management (N-11 / D-14)
+// Defaults come from push-config.ts; every fallback sentence comes from getCopy.
+import { getCopy, getLocale } from '../../narrative';
+import { DEMO_REMINDER, resumeLink } from './push-config';
 
 export interface DemoReminderResult {
   scheduled: boolean;
@@ -48,8 +51,11 @@ export async function scheduleDemoReminder(options?: {
   targetWeek?: number;
   onFallbackTrigger?: () => void;
 }): Promise<DemoReminderResult> {
-  const delaySeconds = options?.delaySeconds ?? 30;
-  const targetWeek = options?.targetWeek ?? 3;
+  const delaySeconds = options?.delaySeconds ?? DEMO_REMINDER.delaySeconds;
+  const targetWeek = options?.targetWeek ?? DEMO_REMINDER.targetWeek;
+  const locale = getLocale();
+  const copy = (id: string, extra?: Record<string, string | number>) =>
+    getCopy(id, undefined, 'female', 'female', extra, locale);
 
   let responseData: Partial<DemoReminderResult> = {};
 
@@ -57,7 +63,7 @@ export async function scheduleDemoReminder(options?: {
     const res = await fetch('/api/push/demo', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ delaySeconds, targetWeek }),
+      body: JSON.stringify({ delaySeconds, targetWeek, locale }),
     });
     if (res.ok) {
       responseData = await res.json();
@@ -69,11 +75,11 @@ export async function scheduleDemoReminder(options?: {
   const result: DemoReminderResult = {
     scheduled: true,
     delaySeconds,
-    title: responseData.title || 'Pilot Płynności',
-    body: responseData.body || `Tydzień ${targetWeek} czeka. Wrócisz za stery?`,
-    deepLink: responseData.deepLink || `/gra/1?resume=T${targetWeek}`,
-    message: responseData.message || `Próbne przypomnienie przyjdzie za ${delaySeconds} sekund.`,
-    fallbackNotice: 'Baner powrotu nadal działa w grze.',
+    title: responseData.title || copy('push.title'),
+    body: responseData.body || copy('push.body', { week: targetWeek }),
+    deepLink: responseData.deepLink || resumeLink(targetWeek),
+    message: responseData.message || copy('push.scheduled', { seconds: delaySeconds }),
+    fallbackNotice: copy('push.fallback_notice'),
   };
 
   // 1. If service worker is active, instruct it to show notification after delay

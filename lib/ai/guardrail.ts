@@ -1,6 +1,6 @@
 // Number guardrail for generated AI text (ARCHITECTURE.md §6, BUILD-PLAN.md §5 N-02).
 // Hard rule: Numbers come from the engine. Any generated text with a number not from the engine is rejected.
-import type { GameState } from "../../engine";
+import type { EngineEvent, GameState, IsoDate } from "../../engine";
 import { forecast, getAvailableCards } from "../../engine";
 import type { GuardrailOptions, GuardrailResult } from "./types";
 
@@ -28,17 +28,49 @@ export function extractNumbers(text: string): number[] {
   return numbers;
 }
 
+/** Day, month and year of an ISO date: a date the engine names may be written as „28 grudnia” or „28.12.2026”. */
+function addDateParts(allowed: Set<number>, date: IsoDate | null | undefined): void {
+  if (!date) return;
+  const [year, month, day] = date.split("-").map(Number);
+  for (const n of [year, month, day]) if (Number.isFinite(n)) allowed.add(n);
+}
+
 /**
- * Collect all permissible numbers from engine state, forecasts, available cards,
- * and ledger transactions.
+ * Numbers of one engine event payload (ENGINE-DATA-AND-TESTS.md §6): its week, amounts and dates.
+ */
+export function eventNumbers(event: EngineEvent): Set<number> {
+  const allowed = new Set<number>([event.week]);
+  switch (event.type) {
+    case "fraudRevealed":
+      allowed.add(event.amount);
+      allowed.add(Math.abs(event.amount));
+      addDateParts(allowed, event.date);
+      break;
+    case "lateClient":
+      addDateParts(allowed, event.newDate);
+      break;
+    case "crash":
+      allowed.add(event.crash.shortfall);
+      addDateParts(allowed, event.crash.date);
+      break;
+    default:
+      break;
+  }
+  return allowed;
+}
+
+/**
+ * Collect the numbers the engine states for `state`: week, balance, runway, overdraft, every forecast
+ * balance and transaction amount, the crash, the minimum and every card cost, plus the day, month and year
+ * of every dated engine value (transaction, crash, minimum, low). Nothing is allowed by default: no day
+ * range, no month or year constants. `extraAllowed` adds caller numbers that themselves come from the
+ * engine (NegotiationResult.numbers, eventNumbers()).
  */
 export function collectEngineNumbers(
   state: GameState,
   extraAllowed?: Iterable<number>
 ): Set<number> {
   const allowed = new Set<number>();
-
-  // Helper to add number and optionally its absolute value
   const addNum = (n: number | undefined | null) => {
     if (typeof n === "number" && !Number.isNaN(n)) {
       allowed.add(n);
@@ -46,55 +78,42 @@ export function collectEngineNumbers(
     }
   };
 
-  // 1. Core game numbers
   addNum(state.core.week);
   addNum(state.core.balance);
+  addNum(state.core.overdraftLimit);
 
-  // 2. Forecast numbers (all daily balances and transaction amounts)
-  try {
-    const fc = forecast(state);
-    for (const pt of fc.points) {
-      addNum(pt.balance);
-      for (const tx of pt.transactions) {
-        addNum(tx.amount);
-      }
+  const fc = forecast(state);
+  addNum(fc.runwayDays);
+  addNum(fc.overdraftLimit);
+  addNum(fc.overdraftInterest);
+  addNum(fc.endBalance);
+  for (const pt of fc.points) {
+    addNum(pt.balance);
+    for (const tx of pt.transactions) {
+      addNum(tx.amount);
+      addDateParts(allowed, tx.date);
     }
-    if (fc.counterfactual) {
-      addNum(fc.counterfactual.low.balance);
-      addNum(fc.counterfactual.endBalance);
-    }
-  } catch {
-    // Forecast might fail if state is crashed or invalid; continue with core numbers
+  }
+  addNum(fc.minimum.balance);
+  addDateParts(allowed, fc.minimum.date);
+  if (fc.low) {
+    addNum(fc.low.balance);
+    addDateParts(allowed, fc.low.date);
+  }
+  if (fc.crash) {
+    addNum(fc.crash.shortfall);
+    addDateParts(allowed, fc.crash.date);
+  }
+  if (fc.counterfactual) {
+    addNum(fc.counterfactual.low.balance);
+    addNum(fc.counterfactual.endBalance);
   }
 
-  // 3. Available card costs and parameters
-  try {
-    const cards = getAvailableCards(state);
-    for (const card of cards) {
-      addNum(card.cost);
-    }
-  } catch {
-    // Continue
-  }
+  for (const card of getAvailableCards(state)) addNum(card.cost);
 
-  // 4. Common rule parameters and dates (e.g. day numbers in current month)
-  for (let day = 1; day <= 31; day++) {
-    allowed.add(day);
-  }
-  // Standard months
-  allowed.add(11); // listopad
-  allowed.add(12); // grudzień
-  allowed.add(1);  // styczeń
-  allowed.add(2026);
-  allowed.add(2027);
-
-  // 5. Extra allowed numbers passed by caller
   if (extraAllowed) {
-    for (const n of extraAllowed) {
-      addNum(n);
-    }
+    for (const n of extraAllowed) addNum(n);
   }
-
   return allowed;
 }
 
