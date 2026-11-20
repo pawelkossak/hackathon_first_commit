@@ -7,6 +7,32 @@ export interface GameState {
   score: number;
   answered: string[];
   decisions: string[];
+  decisionHistory?: DecisionRecord[];
+}
+
+export interface Dilemma {
+  id: string;
+  week: number;
+  title: string;
+  prompt: string;
+  decisions: Decision[];
+}
+
+export interface Decision {
+  id: string;
+  label: string;
+  balanceChange: number;
+  scoreChange: number;
+  feedback: string;
+  outcome?: GameStatus;
+}
+
+export interface DecisionRecord {
+  dilemmaId: string;
+  decisionId: string;
+  week: number;
+  balanceChange: number;
+  scoreChange: number;
 }
 
 export interface Question {
@@ -14,13 +40,7 @@ export interface Question {
   week: number;
   title: string;
   prompt: string;
-  answers: Answer[];
+  answers: Decision[];
 }
 
-export interface Answer {
-  id: string;
-  label: string;
-  balanceChange: number;
-  scoreChange: number;
-  feedback: string;
-}
+export type Answer = Decision;
