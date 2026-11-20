@@ -4,9 +4,9 @@
 // E-06: score (score.ts), hidden fraud until its reveal, plans only from a winning lap.
 // E-07: Cash Flow drilldown fields on Forecast and CardPreview (cashflow.ts).
 // E-08: agent rules (agents.ts); the CFO hint and delegation offer a product last (D-17).
-// Other bodies are fixtures until E-09.
+// E-09: plan matcher and the synthetic account clock replaying data/future-script.json (matcher.ts).
+// E-10: one fraud-reveal rule for views and fraudRevealed; rewind keeps a validated plan's competence 3.
 import { negotiateWith } from "./agents";
-import { isValidIsoDate } from "./calendar";
 import { gameData } from "./data";
 import { RuleError } from "./errors";
 import { initialState } from "./fixture";
@@ -15,6 +15,7 @@ import { compareForecasts } from "./cashflow";
 import { computeForecast } from "./forecast";
 import { applyEventChoice, currentEventView, shownEventSignals } from "./events";
 import { coreAfterPlanSave, rewindTo, settleWeek } from "./turn";
+import { replayAccount } from "./matcher";
 import { assertSeed } from "./seed";
 import type {
   AgentId,
@@ -71,8 +72,9 @@ export function resetGame(seed: string = DEMO_SEED): GameState {
  * Default includes the scripted E6 delay; `includeFutureEvents: false` applies E6 only once resolved.
  * E-07: also carries the Cash Flow drilldown — `minimum`, the no-card `baseline`, `vsBaseline`, `tasks`
  * („Zadania”) and `afterLap`.
- * Neither view shows a hidden fraud (E1 „Zapłać jak jest”) before its 23 XII reveal has passed in game
- * time; resolveWeek still settles the true ledger.
+ * Neither view shows a hidden fraud (E1 „Zapłać jak jest”) before its reveal has happened in game time,
+ * i.e. before the week resolution that emitted `fraudRevealed` (23 XII, or the later day the payment
+ * really goes out); resolveWeek still settles the true ledger.
  */
 export function forecast(state: GameState, options: ForecastOptions = {}): Forecast {
   return computeForecast(state, options);
@@ -213,10 +215,15 @@ export function savePlan(state: GameState, cardId: CardId): GameState {
   return { ...state, core: coreAfterPlanSave(state.core), account: { ...state.account, plans }, emitted: [] };
 }
 
-/** Move the synthetic account clock (default 5 XII). Never changes game week, stars or unlock. Fixture: clock only. */
+/**
+ * Move the synthetic account clock (default 5 XII) and replay data/future-script.json up to `date`
+ * (matcher.ts): L01, L02 and, when C1 was played or its plan saved, the 3 XII advance. Every saved plan
+ * is re-checked (met / open / ask / missed); a plan that becomes met raises its card's competence to 3
+ * and emits `planValidated`. Never changes game week, status, stars, unlock or snapshots.
+ * Throws RuleError("invalid_date") for an invalid date or one before the account clock.
+ */
 export function advanceAccountClock(state: GameState, date: IsoDate = futureScript.accountClock.defaultTarget): GameState {
-  if (!isValidIsoDate(date) || date < state.account.clock) throw new RuleError("invalid_date", date);
-  return { ...state, account: { ...state.account, clock: date }, emitted: [] };
+  return replayAccount(state, date);
 }
 
 /**

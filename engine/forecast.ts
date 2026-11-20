@@ -18,11 +18,14 @@ import type {
   CashFlowSeries,
   Crash,
   EventCard,
+  EventId,
   Forecast,
   ForecastOptions,
   ForecastPoint,
   GameCore,
   GameState,
+  LedgerId,
+  Pln,
   Transaction,
   WeekEndBalance,
   WeekNumber,
@@ -39,6 +42,11 @@ export interface OverlayContext {
    * whatever the game time. False for every player-facing view (forecast, preview, hint, delegate).
    */
   groundTruth: boolean;
+  /**
+   * Player-facing views only: events whose fraud reveal has happened in game time (`revealedFrauds`).
+   * Their `reveal` effect and the effects after it are shown; any other reveal stays hidden.
+   */
+  revealed: readonly EventId[];
 }
 
 /** Internal forecast mode. Not part of the public `ForecastOptions`. */
@@ -148,17 +156,17 @@ function eventTx(ev: EventCard, e: { id: string; date: string; amount: number } 
  * - `transaction` books a new row (E1 re-payment, E2 subcontractor and inflow, E3 tool);
  * - `reveal` marks the ledger payment that went to the changed account (E1: L08) with the event id.
  *   In every player-facing view (both `includeFutureEvents` settings) the reveal and the effects
- *   after it stay hidden until the reveal date lies before the current week: the player cannot know
- *   about the fraud earlier, so neither the forecast nor the CFO hint may show it. Only the
- *   settlement (`groundTruth`) books them from the moment of the choice;
+ *   after it stay hidden until the reveal has happened in game time (`revealedFrauds`, the same rule
+ *   that emits `fraudRevealed`): the player cannot know about the fraud earlier, so neither the
+ *   forecast nor the CFO hint may show it. Only the settlement (`groundTruth`) books them from the
+ *   moment of the choice;
  * - `move_invoice` moves the invoice receipt while the invoice is still in the required state (E6);
  * - `reveal_card` has no money effect (E5 only shows the C5 terms).
  */
 function applyEventChoice(txs: Transaction[], ev: EventCard, choiceId: string, ctx: OverlayContext): Transaction[] {
   const choice = ev.choices.find((c) => c.id === choiceId);
   if (!choice) throw new RuleError("invalid_choice", `${ev.id}: ${choiceId}`);
-  const { core, groundTruth } = ctx;
-  const weekStart = level1.weeks[core.week - 1].start;
+  const { core, groundTruth, revealed } = ctx;
   let out = txs;
   for (const effect of choice.effects) {
     switch (effect.type) {
@@ -166,7 +174,7 @@ function applyEventChoice(txs: Transaction[], ev: EventCard, choiceId: string, c
         out = [...out, eventTx(ev, effect)];
         break;
       case "reveal":
-        if (!groundTruth && effect.date >= weekStart) return out;
+        if (!groundTruth && !revealed.includes(ev.id)) return out;
         out = out.map((t) => (t.id === effect.ledgerId ? { ...t, eventId: ev.id } : t));
         break;
       case "move_invoice":
@@ -221,13 +229,71 @@ export function sameDayOrder(txs: readonly Transaction[]): Transaction[] {
 
 /** All forecast transactions of a state, after overlays and the business-day shift (any date). */
 export function forecastTransactions(core: GameCore, options: ForecastOptions = {}, mode: ForecastMode = {}): Transaction[] {
+  const groundTruth = mode.groundTruth ?? false;
   const ctx: OverlayContext = {
     core,
     includeFutureEvents: options.includeFutureEvents ?? true,
-    groundTruth: mode.groundTruth ?? false,
+    groundTruth,
+    revealed: groundTruth ? [] : revealedFrauds(core).map((r) => r.eventId),
   };
   const overlaid = forecastOverlays.reduce<Transaction[]>((txs, overlay) => overlay(txs, ctx), ledgerTransactions());
   return shiftToBusinessDays(overlaid);
+}
+
+/** A fraud payment (E1 „Zapłać jak jest”) reported to the player, with the game date of the report. */
+export interface FraudReveal {
+  eventId: EventId;
+  ledgerId: LedgerId;
+  /** Signed amount of the payment that went to the changed account (an outflow, < 0). */
+  amount: Pln;
+  /** The report date: the data's reveal date, or the payment date when the payment goes out later (C3). */
+  date: string;
+  /** Lap week of `date`: the week resolution that reports it. */
+  week: WeekNumber;
+}
+
+/**
+ * The fraud reveals of a ground-truth series (the true ledger the settlement books). One rule for the
+ * `fraudRevealed` signal and for the player-facing views: a resolved `reveal` choice is reported only
+ * when its payment was really booked to the changed account (an own, non-counterfactual day, and not
+ * the rejected crash transaction). The report date is the later of the data's reveal date and the
+ * payment date; a lap that crashes before that date, or a date after the lap, reports nothing.
+ */
+export function fraudRevealsOf(core: GameCore, points: readonly ForecastPoint[], crash: Crash | null): FraudReveal[] {
+  const out: FraudReveal[] = [];
+  for (const r of core.eventsResolved) {
+    const ev = eventCard(r.eventId);
+    const choice = ev.choices.find((c) => c.id === r.choiceId);
+    for (const effect of choice?.effects ?? []) {
+      if (effect.type !== "reveal") continue;
+      let paid: { date: string; amount: Pln } | null = null;
+      for (const p of points) {
+        if (p.counterfactual) continue;
+        const t = p.transactions.find((tx) => tx.id === effect.ledgerId && tx.eventId === ev.id);
+        const rejected = crash !== null && crash.date === p.date && crash.transactionId === effect.ledgerId;
+        if (t && !rejected) paid = { date: p.date, amount: t.amount };
+      }
+      if (paid === null) continue;
+      const date = paid.date > effect.date ? paid.date : effect.date;
+      if (crash !== null && crash.date < date) continue;
+      const week = weekOf(date);
+      if (week === null) continue;
+      out.push({ eventId: ev.id, ledgerId: effect.ledgerId, amount: paid.amount, date, week });
+    }
+  }
+  return out;
+}
+
+/**
+ * The fraud reveals that have happened in game time: their report week is already settled. This is
+ * exactly the condition under which `resolveWeek` emitted `fraudRevealed`.
+ */
+export function revealedFrauds(core: GameCore): FraudReveal[] {
+  if (!core.eventsResolved.some((r) => eventCard(r.eventId).choices.some((c) => c.id === r.choiceId && c.effects.some((e) => e.type === "reveal")))) {
+    return [];
+  }
+  const { series } = runSeries(core, {}, { groundTruth: true });
+  return fraudRevealsOf(core, series.points, series.crash).filter((r) => core.weeksResolved.includes(r.week));
 }
 
 function lowest(points: readonly ForecastPoint[]): BalanceAt {

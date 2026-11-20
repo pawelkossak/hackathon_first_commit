@@ -76,7 +76,7 @@ export function lapScore(core: GameCore, f: Forecast, planSaved: boolean): LapSc
 /**
  * Competence after the plan of `cardId` is validated on the synthetic account (milestone 3).
  * A product card (no competence) changes nothing. Stars and unlock are never touched.
- * E-09 calls this from advanceAccountClock once the plan matcher confirms the plan (`met`).
+ * advanceAccountClock (matcher.ts) calls this once the plan matcher confirms the plan (`met`).
  */
 export function coreAfterValidation(core: GameCore, cardId: CardId): GameCore {
   const card = level1.cards.find((c) => c.id === cardId);
