@@ -2,153 +2,137 @@
 
 import React from "react";
 import Link from "next/link";
-import { useGameStore } from "@/lib/ui/game-store";
-import { GameAsset } from "@/lib/ui/assets";
+import { useGameStore } from "../../lib/ui/game-store";
+import { GameAsset } from "../../lib/ui/assets";
+import { dayMonth, pln, useCopy, type MissingLabelKey } from "../../lib/ui/copy";
+import { InitialLoader } from "../../components/narrative";
+import { gameData, type StarStatus } from "../../engine";
 
+const STAR_STATUS_LABEL: Record<StarStatus, MissingLabelKey> = {
+  earned: "ui.star.earned",
+  pending: "ui.star.pending",
+  missed: "ui.star.missed",
+  open: "ui.star.open",
+};
+
+/** G18 lap summary: the engine's final core of the lap (balance, low, stars, cost, avoided cost). */
 export default function PodsumowaniePage() {
-  const state = useGameStore((s) => s.state);
-  const { core } = state;
+  const hydrated = useGameStore((s) => s.hydrated);
+  const core = useGameStore((s) => s.state.core);
+  const { copy, label, narratorGender } = useCopy();
 
-  const avoidedCost = core.avoidedCost !== null ? core.avoidedCost : 2400 - core.costOfMoney;
+  if (!hydrated) {
+    return (
+      <div className="flex-1 flex items-center justify-center p-8">
+        <InitialLoader message={copy("loader.start")} />
+      </div>
+    );
+  }
+
+  if (core.status !== "completed") {
+    return (
+      <div className="flex-1 p-6 max-w-2xl mx-auto w-full flex flex-col justify-center" data-testid="lap-summary-not-completed">
+        <div className="bg-slate-900 border border-slate-800 p-8 rounded-3xl space-y-4">
+          <h1 className="text-2xl font-black text-white">{label("ui.summary.not_completed")}</h1>
+          <p className="text-base text-slate-200">{copy("ui.hud.week", { week: core.week })}</p>
+          <Link
+            href="/gra/1"
+            className="inline-flex min-h-[44px] items-center px-6 py-3 rounded-xl bg-amber-500 hover:bg-amber-400 text-slate-950 font-bold text-base"
+          >
+            {label("ui.summary.back_to_game")}
+          </Link>
+        </div>
+      </div>
+    );
+  }
 
   return (
     <div
       role="region"
-      aria-label="Podsumowanie etapu (G18)"
+      aria-label={copy("ui.success.title")}
       data-testid="lap-summary-g18"
       className="flex-1 p-4 sm:p-6 max-w-4xl mx-auto w-full flex flex-col justify-center"
     >
       <div className="bg-slate-900 border-2 border-amber-500/80 p-6 sm:p-8 rounded-3xl shadow-2xl space-y-6">
-        {/* Header */}
-        <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 border-b border-slate-800 pb-4">
-          <div>
-            <div className="flex items-center gap-2">
-              <span className="text-xs font-bold uppercase tracking-wider text-amber-400 bg-amber-950 px-2.5 py-1 rounded-full border border-amber-800">
-                Podsumowanie etapu (G18)
-              </span>
-              <span className="text-[11px] font-semibold text-emerald-400 bg-emerald-950 px-2 py-0.5 rounded border border-emerald-800">
-                Misja ukończona
-              </span>
-            </div>
-            <h1 className="text-3xl font-black text-white mt-2">
-              Zwycięstwo! Grudniowy sztorm pokonany
-            </h1>
-          </div>
+        <div className="flex items-center justify-between gap-3 border-b border-slate-800 pb-4">
+          <h1 className="text-3xl font-black text-white">{copy("ui.success.title")}</h1>
           <div className="w-16 h-16 flex-shrink-0">
-            <GameAsset id="sprite.boss.female.proud" width={64} height={64} alt="Szefowa duma" />
+            <GameAsset id={`sprite.boss.${narratorGender}.proud`} width={64} height={64} alt="" />
           </div>
         </div>
 
-        {/* Financial Metrics */}
         <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
           <div className="p-4 rounded-2xl bg-slate-950 border border-slate-800">
-            <div className="text-xs font-semibold text-slate-400">Końcowe saldo na 10 I</div>
-            <div
-              data-testid="summary-end-balance"
-              className="text-2xl font-black text-emerald-400 font-mono mt-1"
-            >
-              {core.balance.toLocaleString("pl-PL")} zł
+            <div className="text-base font-semibold text-slate-300">{label("ui.summary.end_balance")}</div>
+            <div data-testid="summary-end-balance" className="text-2xl font-black text-emerald-400 font-mono mt-1">
+              {pln(core.balance)}
             </div>
           </div>
-
+          {core.lowestBalance && (
+            <div className="p-4 rounded-2xl bg-slate-950 border border-slate-800">
+              <div className="text-base font-semibold text-slate-300">
+                {label("ui.summary.low")} · {dayMonth(core.lowestBalance.date)}
+              </div>
+              <div data-testid="summary-low" className="text-2xl font-black text-slate-100 font-mono mt-1">
+                {pln(core.lowestBalance.balance)}
+              </div>
+            </div>
+          )}
           <div className="p-4 rounded-2xl bg-slate-950 border border-slate-800">
-            <div className="text-xs font-semibold text-slate-400">Poniesiony koszt pieniądza</div>
-            <div
-              data-testid="summary-cost-of-money"
-              className="text-2xl font-black text-slate-200 font-mono mt-1"
-            >
-              {core.costOfMoney.toLocaleString("pl-PL")} zł
-            </div>
-          </div>
-
-          <div className="p-4 rounded-2xl bg-amber-950/40 border border-amber-700/60">
-            <div className="text-xs font-semibold text-amber-300">
-              Uniknięty koszt (vs pożyczka SMS)
-            </div>
-            <div
-              data-testid="summary-avoided-cost"
-              className="text-2xl font-black text-amber-400 font-mono mt-1"
-            >
-              +{avoidedCost.toLocaleString("pl-PL")} zł
+            <div className="text-base font-semibold text-slate-300">{label("ui.hud.cost_of_money")}</div>
+            <div data-testid="summary-cost-of-money" className="text-2xl font-black text-slate-100 font-mono mt-1">
+              {pln(core.costOfMoney)}
             </div>
           </div>
         </div>
 
-        {/* Stars Status Box (GM-07: Przetrwanie and Tanio final, Pilot pending until plan saved) */}
+        {core.avoidedCost !== null && (
+          <p data-testid="summary-avoided-cost" className="p-4 rounded-2xl bg-amber-950/40 border border-amber-700/60 text-lg font-bold text-amber-200">
+            {copy("g18.avoided", { "advance.avoided": pln(core.avoidedCost) })}
+          </p>
+        )}
+
         <div className="p-5 rounded-2xl bg-slate-950 border border-slate-800 space-y-3">
-          <h2 className="text-sm font-bold uppercase tracking-wider text-slate-300">
-            Gwiazdki kompetencji (GM-07)
-          </h2>
-
-          <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
-            <div className="p-3 rounded-xl bg-slate-900 border border-slate-800 flex items-center gap-3">
-              <span
-                data-testid="star-survival"
-                className={`text-2xl ${core.stars.przetrwanie === "earned" ? "text-amber-400" : "text-slate-600"}`}
-              >
-                ★
-              </span>
-              <div>
-                <div className="font-bold text-white text-xs">Przetrwanie</div>
-                <div className="text-[11px] text-slate-400">
-                  {core.stars.przetrwanie === "earned" ? "Zdobyta (bez deficytu)" : "Zablokowana"}
-                </div>
-              </div>
-            </div>
-
-            <div className="p-3 rounded-xl bg-slate-900 border border-slate-800 flex items-center gap-3">
-              <span
-                data-testid="star-cheap"
-                className={`text-2xl ${core.stars.tanio === "earned" ? "text-amber-400" : "text-slate-600"}`}
-              >
-                ★
-              </span>
-              <div>
-                <div className="font-bold text-white text-xs">Tanio</div>
-                <div className="text-[11px] text-slate-400">
-                  {core.stars.tanio === "earned" ? "Zdobyta (tani manewr)" : "Zablokowana"}
-                </div>
-              </div>
-            </div>
-
-            <div className="p-3 rounded-xl bg-slate-900 border border-slate-800 flex items-center gap-3">
-              <span
-                data-testid="star-pilot"
-                className={`text-2xl ${core.stars.pilot === "earned" ? "text-amber-400" : "text-amber-400/40"}`}
-              >
-                {core.stars.pilot === "earned" ? "★" : "☆"}
-              </span>
-              <div>
-                <div className="font-bold text-white text-xs">Pilot</div>
-                <div className="text-[11px] text-slate-400">
-                  {core.stars.pilot === "earned"
-                    ? "Zdobyta (plan zapisany)"
-                    : "Oczekuje na zapis planu"}
-                </div>
-              </div>
-            </div>
-          </div>
+          <h2 className="text-base font-bold text-slate-200">{label("ui.summary.stars")}</h2>
+          <ul className="grid grid-cols-1 sm:grid-cols-3 gap-3">
+            {gameData.level1.stars.map((star) => {
+              const status = core.stars[star.id];
+              return (
+                <li
+                  key={star.id}
+                  data-testid={`star-${star.id}`}
+                  data-status={status}
+                  className="p-3 rounded-xl bg-slate-900 border border-slate-800 flex items-center gap-3"
+                >
+                  <span aria-hidden="true" className={`text-2xl ${status === "earned" ? "text-amber-400" : "text-slate-500"}`}>
+                    {status === "earned" ? "★" : "☆"}
+                  </span>
+                  <span>
+                    <span className="block font-bold text-white text-base">{star.title}</span>
+                    <span className="block text-base text-slate-300">
+                      {star.id === "pilot" && status === "pending" ? copy("g18.pilotPending") : label(STAR_STATUS_LABEL[status])}
+                    </span>
+                  </span>
+                </li>
+              );
+            })}
+          </ul>
         </div>
 
-        {/* Narrative Boss conclusion */}
-        <div className="text-xs text-slate-300 bg-slate-950/80 p-4 rounded-xl border border-slate-800 italic">
-          „Świetna robota, pilocie! Obroniliśmy studio przed zatorami i uniknęliśmy lichwiarskich pożyczek. Teraz czas na utrwalenie tego sukcesu w realnym harmonogramie płatności.”
-        </div>
+        <p className="text-base text-slate-200 bg-slate-950/80 p-4 rounded-xl border border-slate-800">
+          {copy("success.pending")} {copy("g18.joke")}
+        </p>
 
-        {/* Action Buttons */}
         <div className="pt-2 flex flex-col sm:flex-row justify-between items-center gap-3 border-t border-slate-800">
-          <Link
-            href="/gra/1"
-            className="text-xs text-slate-400 hover:text-white transition"
-          >
-            ← Wróć na planszę trasy
+          <Link href="/gra/1" className="min-h-[44px] inline-flex items-center text-base text-slate-300 hover:text-white">
+            {label("ui.summary.back_to_game")}
           </Link>
           <Link
             href="/plan"
             data-testid="goto-plan-button"
-            className="px-6 py-3 rounded-xl bg-amber-500 hover:bg-amber-400 text-slate-950 font-black text-sm transition shadow-lg shadow-amber-500/20"
+            className="min-h-[44px] inline-flex items-center px-6 py-3 rounded-xl bg-amber-500 hover:bg-amber-400 text-slate-950 font-black text-base transition"
           >
-            Zapisz plan i zdobądź ★ Pilot (G22) →
+            {copy("ui.success.save_plan")}
           </Link>
         </div>
       </div>

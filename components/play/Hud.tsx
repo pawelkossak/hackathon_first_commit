@@ -1,7 +1,9 @@
 "use client";
 
 import React from "react";
-import { useGameStore } from "@/lib/ui/game-store";
+import { useGameStore } from "../../lib/ui/game-store";
+import { selectForecast } from "../../lib/ui/game-views";
+import { pln, useCopy } from "../../lib/ui/copy";
 
 export interface HudProps {
   onOpenCashFlow?: () => void;
@@ -9,88 +11,51 @@ export interface HudProps {
 }
 
 export function Hud({ onOpenCashFlow, className = "" }: HudProps) {
-  const state = useGameStore((s) => s.state);
-  const forecast = useGameStore((s) => s.getForecast());
-  const { core } = state;
+  const core = useGameStore((s) => s.state.core);
+  const forecast = useGameStore(selectForecast);
+  const { copy, label } = useCopy();
 
   return (
     <div
       role="region"
-      aria-label="Wskaźniki gry (HUD)"
+      aria-label={copy("ui.hud.week", { week: core.week })}
       data-testid="game-hud"
-      className={`w-full bg-slate-900/95 border border-slate-800 rounded-2xl p-4 shadow-xl backdrop-blur-sm flex flex-wrap items-center justify-between gap-4 ${className}`}
+      className={`w-full bg-slate-900/95 border border-slate-800 rounded-2xl p-4 shadow-xl flex flex-wrap items-center justify-between gap-4 ${className}`}
     >
-      {/* Metrics Row */}
       <div className="flex flex-wrap items-center gap-4 sm:gap-8">
-        {/* Gotówka */}
+        <div data-testid="hud-week" className="text-base font-bold text-white">
+          {copy("ui.hud.week", { week: core.week })}
+        </div>
+
         <div data-testid="hud-cash">
-          <div className="text-[11px] font-semibold uppercase tracking-wider text-slate-400">
-            Gotówka (konto)
-          </div>
-          <div className="text-2xl font-extrabold text-emerald-400 font-mono tracking-tight">
-            {core.balance.toLocaleString("pl-PL")} zł
-          </div>
+          <div className="text-sm font-semibold text-slate-300">{copy("ui.hud.balance")}</div>
+          <div className="text-2xl font-extrabold text-emerald-400 font-mono tracking-tight">{pln(core.balance)}</div>
         </div>
 
-        {/* Paliwo / Runway */}
-        <div data-testid="hud-fuel">
-          <div className="text-[11px] font-semibold uppercase tracking-wider text-slate-400">
-            Paliwo (rezerwa)
-          </div>
-          <div className="text-2xl font-extrabold text-sky-400 font-mono">
-            {forecast.runwayDays} <span className="text-xs font-sans font-medium text-slate-400">dni</span>
-          </div>
+        <div data-testid="hud-fuel" className="text-base font-bold text-sky-300">
+          {copy("ui.hud.runway", { days: forecast.runwayDays })}
         </div>
 
-        {/* Odporność */}
-        <div data-testid="hud-resilience">
-          <div className="text-[11px] font-semibold uppercase tracking-wider text-slate-400">
-            Odporność
-          </div>
-          <div className="text-2xl font-extrabold text-slate-300 font-mono">
-            —
-          </div>
-        </div>
-
-        {/* Relacje */}
         <div data-testid="hud-relations">
-          <div className="text-[11px] font-semibold uppercase tracking-wider text-slate-400">
-            Relacje
-          </div>
-          <div className="text-xl font-extrabold text-amber-400 font-mono flex items-center gap-1">
-            <span>{"♥".repeat(Math.max(0, Math.min(5, core.relations)))}</span>
-            <span className="text-xs text-slate-400 font-sans ml-1">({core.relations}/5)</span>
-          </div>
+          <div className="text-sm font-semibold text-slate-300">{label("ui.hud.relations")}</div>
+          <div className="text-xl font-extrabold text-amber-400 font-mono">{core.relations}/5</div>
         </div>
 
-        {/* Koszt pieniądza */}
         <div data-testid="hud-cost">
-          <div className="text-[11px] font-semibold uppercase tracking-wider text-slate-400">
-            Koszt pieniądza
-          </div>
-          <div className="text-xl font-extrabold text-slate-200 font-mono">
-            {core.costOfMoney.toLocaleString("pl-PL")} zł
-          </div>
+          <div className="text-sm font-semibold text-slate-300">{label("ui.hud.cost_of_money")}</div>
+          <div className="text-xl font-extrabold text-slate-200 font-mono">{pln(core.costOfMoney)}</div>
         </div>
       </div>
 
-      {/* Right controls */}
       <div className="flex items-center gap-3">
-        <span
-          className="text-xs font-semibold px-2.5 py-1 rounded-full bg-emerald-950 text-emerald-300 border border-emerald-700/60"
-          title="Zgodnie z wymaganiem GM-01: Dane syntetyczne"
-        >
-          Dane syntetyczne
-        </span>
-
         {onOpenCashFlow && (
           <button
+            type="button"
             onClick={onOpenCashFlow}
             data-testid="hud-open-cashflow"
-            aria-label="Pokaż prognozę przepływów pieniężnych (Cash Flow)"
-            className="min-h-[44px] px-4 py-2.5 rounded-xl bg-indigo-600 hover:bg-indigo-500 text-white font-bold text-xs transition shadow-md shadow-indigo-600/20 cursor-pointer focus:outline-none focus:ring-2 focus:ring-indigo-400"
+            className="min-h-[44px] px-4 py-2.5 rounded-xl bg-indigo-600 hover:bg-indigo-500 text-white font-bold text-base transition shadow-md cursor-pointer focus:outline-none focus:ring-2 focus:ring-indigo-400"
           >
-            Pokaż przepływy (G12)
+            {copy("ui.route.cashflow")}
           </button>
         )}
       </div>

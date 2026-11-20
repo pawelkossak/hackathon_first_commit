@@ -1,15 +1,22 @@
 "use client";
 
-import React, { useEffect, use, Suspense } from "react";
-import { useGameStore } from "@/lib/ui/game-store";
-import { Hud } from "@/components/play/Hud";
-import { WorldRoute } from "@/components/scenes/WorldRoute";
-import { WeekCardList } from "@/components/scenes/WeekCardList";
-import { CardHand } from "@/components/play/CardHand";
-import { EventCard } from "@/components/play/EventCard";
-import { WeekResolutionModal } from "@/components/play/WeekResolutionModal";
-import { CashFlowPanel } from "@/components/play/CashFlowPanel";
-import { FailureAndRewindModal } from "@/components/play/FailureAndRewindModal";
+import React, { useCallback, useEffect, use, Suspense, useState } from "react";
+import Link from "next/link";
+import { useGameStore } from "../../../lib/ui/game-store";
+import { selectCurrentEvent, selectForecast } from "../../../lib/ui/game-views";
+import { dayMonth, useCopy } from "../../../lib/ui/copy";
+import { Hud } from "../../../components/play/Hud";
+import { WorldRoute } from "../../../components/scenes/WorldRoute";
+import { WeekCardList } from "../../../components/scenes/WeekCardList";
+import { CardHand } from "../../../components/play/CardHand";
+import { EventCard } from "../../../components/play/EventCard";
+import { WeekResolutionModal } from "../../../components/play/WeekResolutionModal";
+import { CashFlowPanel } from "../../../components/play/CashFlowPanel";
+import { FailureAndRewindModal } from "../../../components/play/FailureAndRewindModal";
+import { BoardNarrator } from "../../../components/play/BoardNarrator";
+import { AdvisorDock } from "../../../components/play/AdvisorDock";
+import { InitialLoader, ReturnBanner, VoicePlayer } from "../../../components/narrative";
+import type { IsoDate, WeekNumber } from "../../../engine";
 
 interface PageProps {
   searchParams?: Promise<{ seed?: string; resume?: string; fallback?: string }>;
@@ -17,165 +24,157 @@ interface PageProps {
 
 function GameLevel1Content(props: PageProps) {
   const searchParams = props.searchParams ? use(props.searchParams) : undefined;
-  const state = useGameStore((s) => s.state);
+  const hydrated = useGameStore((s) => s.hydrated);
+  const core = useGameStore((s) => s.state.core);
+  const snapshots = useGameStore((s) => s.state.snapshots);
   const fallbackMode = useGameStore((s) => s.fallbackMode);
   const setFallbackMode = useGameStore((s) => s.setFallbackMode);
   const advanceWeek = useGameStore((s) => s.advanceWeek);
   const rewindToWeek = useGameStore((s) => s.rewindToWeek);
-  const getCurrentEvent = useGameStore((s) => s.getCurrentEvent);
-  const forecast = useGameStore((s) => s.getForecast());
   const init = useGameStore((s) => s.init);
+  const currentEvent = useGameStore(selectCurrentEvent);
+  const forecast = useGameStore(selectForecast);
+  const { copy, label, playerGender, narratorGender } = useCopy();
 
-  const [cashFlowOpen, setCashFlowOpen] = React.useState(false);
-  const [drilldownWeek, setDrilldownWeek] = React.useState<number | null>(null);
+  const [cashFlowOpen, setCashFlowOpen] = useState(false);
+  const [drilldownDate, setDrilldownDate] = useState<IsoDate | null>(null);
+  const closeCashFlow = useCallback(() => setCashFlowOpen(false), []);
 
+  const seed = searchParams?.seed;
+  const fallback = searchParams?.fallback;
   useEffect(() => {
-    if (searchParams?.seed) {
-      init(searchParams.seed);
-    }
-    if (searchParams?.fallback === "1") {
-      setFallbackMode(true);
-    }
-  }, [searchParams?.seed, searchParams?.fallback, init, setFallbackMode]);
+    if (seed) init(seed);
+    if (fallback === "1") setFallbackMode(true);
+  }, [seed, fallback, init, setFallbackMode]);
 
-  const handleOpenCashFlow = (week?: number) => {
-    setDrilldownWeek(week ?? null);
+  if (!hydrated) {
+    return (
+      <div className="flex-1 flex items-center justify-center p-8">
+        <InitialLoader message={copy("loader.start")} />
+      </div>
+    );
+  }
+
+  const openCashFlow = (date: IsoDate | null) => {
+    setDrilldownDate(date);
     setCashFlowOpen(true);
   };
 
-  const currentEvent = getCurrentEvent();
-  const { core } = state;
+  const previousWeek = core.week > 1 ? ((core.week - 1) as WeekNumber) : null;
+  const canRewindOne = previousWeek !== null && snapshots[previousWeek] !== undefined;
 
   return (
     <div className="flex-1 flex flex-col p-4 sm:p-6 max-w-7xl mx-auto w-full gap-6" data-testid="game-board-g10">
-      {/* Return banner if resuming from push/notification (N-08 / GM-16) */}
       {searchParams?.resume && (
-        <div
-          role="status"
-          className="bg-indigo-950/80 border border-indigo-700 text-indigo-200 px-4 py-2.5 rounded-xl text-sm flex items-center justify-between"
-        >
-          <span>Powrót do gry: Wznowiono {searchParams.resume === "T3" ? "Tydzień 3" : searchParams.resume}</span>
-          <span className="text-xs text-indigo-400">Stan zsynchronizowany</span>
-        </div>
+        <ReturnBanner
+          initialWeek={core.week}
+          playerGender={playerGender}
+          narratorGender={narratorGender}
+          onResume={() => undefined}
+        />
       )}
 
-      {/* HUD (G10): Gotówka 38 000 zł, Paliwo 42 dni, Odporność —, Relacje 5/5, Koszt pieniądza 0 zł, Dane syntetyczne */}
-      <Hud onOpenCashFlow={() => handleOpenCashFlow()} />
+      <Hud onOpenCashFlow={() => openCashFlow(null)} />
 
-      {/* Board Presentation: World Route (default) or Week-Card List (Fallback U-11) */}
-      <div className="flex items-center justify-between px-1">
-        <span className="text-xs text-slate-400">
-          Tryb prezentacji planszy:
-        </span>
-        <div className="flex items-center gap-2 bg-slate-900 p-1 rounded-xl border border-slate-800">
-          <button
-            type="button"
-            onClick={() => setFallbackMode(false)}
-            data-testid="view-toggle-route"
-            className={`px-3 py-1 rounded-lg text-xs font-semibold transition ${
-              !fallbackMode
-                ? "bg-amber-500 text-slate-950 font-bold"
-                : "text-slate-400 hover:text-white"
-            }`}
-          >
-            Trasa wysp (G10)
-          </button>
-          <button
-            type="button"
-            onClick={() => setFallbackMode(true)}
-            data-testid="view-toggle-fallback"
-            className={`px-3 py-1 rounded-lg text-xs font-semibold transition ${
-              fallbackMode
-                ? "bg-amber-500 text-slate-950 font-bold"
-                : "text-slate-400 hover:text-white"
-            }`}
-          >
-            Lista kart (U-11)
-          </button>
-        </div>
+      <div className="flex items-center justify-end gap-2" role="group" aria-label={copy("ui.route.title")}>
+        <button
+          type="button"
+          onClick={() => setFallbackMode(false)}
+          aria-pressed={!fallbackMode}
+          data-testid="view-toggle-route"
+          className={`min-h-[44px] px-4 py-2 rounded-xl text-base font-semibold transition ${
+            !fallbackMode ? "bg-amber-500 text-slate-950" : "bg-slate-900 text-slate-200 border border-slate-700"
+          }`}
+        >
+          {label("ui.route.view_map")}
+        </button>
+        <button
+          type="button"
+          onClick={() => setFallbackMode(true)}
+          aria-pressed={fallbackMode}
+          data-testid="view-toggle-fallback"
+          className={`min-h-[44px] px-4 py-2 rounded-xl text-base font-semibold transition ${
+            fallbackMode ? "bg-amber-500 text-slate-950" : "bg-slate-900 text-slate-200 border border-slate-700"
+          }`}
+        >
+          {label("ui.route.view_list")}
+        </button>
       </div>
 
-      {!fallbackMode ? (
-        <WorldRoute onSelectWeekNode={(w) => handleOpenCashFlow(w)} />
-      ) : (
-        <WeekCardList onSelectWeekNode={(w) => handleOpenCashFlow(w)} />
-      )}
+      {fallbackMode ? <WeekCardList onSelectDate={openCashFlow} /> : <WorldRoute onSelectDate={openCashFlow} />}
 
-      {/* Storm warning / Forecast insight (GM-01: Storm 28 XII -12 395 zł) */}
-      {forecast.crash && (
+      {forecast.crash && core.status === "playing" && (
         <div
           data-testid="storm-warning"
-          className="p-4 rounded-xl bg-purple-950/60 border border-purple-700/80 text-purple-200 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3"
+          role="status"
+          className="p-4 rounded-xl bg-purple-950/60 border border-purple-700/80 text-purple-100 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3"
         >
-          <div>
-            <div className="font-bold text-purple-100 flex items-center gap-2">
-              <span className="text-lg">⚡</span>
-              Sztorm płynnościowy na trasie: {forecast.crash.date} (deficyt gotówki: {forecast.crash.shortfall.toLocaleString("pl-PL")} zł)
-            </div>
-            <div className="text-xs text-purple-300 mt-0.5">
-              Najniższe prognozowane saldo: {forecast.minimum.balance.toLocaleString("pl-PL")} zł. Zagranie odpowiedniej karty może uratować płynność!
-            </div>
-          </div>
-          <div className="text-xs font-mono font-bold bg-purple-900/90 text-purple-200 px-3 py-1.5 rounded-lg border border-purple-600">
-            {forecast.minimum.balance.toLocaleString("pl-PL")} zł
-          </div>
+          <span className="text-base font-bold">{copy("g15.risk", { "forecast.lowDate": dayMonth(forecast.crash.date) })}</span>
         </div>
       )}
 
-      {/* Active Event (G11) & Fraud reveal alert (D-18) */}
+      <BoardNarrator />
+
       <EventCard />
 
-      {/* Six Action Cards Hand (G13) with preview & keyboard 1–6 */}
-      <CardHand />
+      {core.status === "playing" && <AdvisorDock />}
 
-      {/* Week End Action / Rewind */}
+      {core.status === "playing" && <CardHand />}
+
       <section className="flex flex-wrap items-center justify-between gap-4 pt-4 border-t border-slate-800">
-        <div className="flex items-center gap-3">
-          {core.week > 1 && (
+        <div>
+          {core.status === "playing" && canRewindOne && previousWeek !== null && (
             <button
-              onClick={() => rewindToWeek((core.week - 1) as 1 | 2 | 3 | 4 | 5 | 6 | 7)}
+              type="button"
+              onClick={() => rewindToWeek(previousWeek)}
               data-testid="rewind-button"
-              className="px-4 py-2 rounded-xl bg-slate-800 hover:bg-slate-700 text-amber-300 text-sm font-semibold border border-slate-700 transition cursor-pointer"
+              className="min-h-[44px] px-4 py-2 rounded-xl bg-slate-800 hover:bg-slate-700 text-amber-200 text-base font-semibold border border-slate-700 transition cursor-pointer"
             >
-              ⟲ Cofnij do Tygodnia {core.week - 1} (G20)
+              {copy("ui.btn.rewind_week")}
             </button>
           )}
         </div>
 
         {core.status === "playing" && (
           <button
+            type="button"
             onClick={() => advanceWeek()}
             disabled={currentEvent !== null}
             data-testid="advance-week-button"
-            className={`px-6 py-2.5 rounded-xl font-bold text-sm transition cursor-pointer ${
+            className={`min-h-[44px] px-6 py-2.5 rounded-xl font-bold text-base transition cursor-pointer ${
               currentEvent !== null
-                ? "bg-slate-800 text-slate-500 cursor-not-allowed"
-                : "bg-emerald-600 hover:bg-emerald-500 text-white shadow-lg shadow-emerald-600/20"
+                ? "bg-slate-800 text-slate-400 cursor-not-allowed"
+                : "bg-emerald-600 hover:bg-emerald-500 text-white shadow-lg"
             }`}
           >
-            Zakończ Tydzień {core.week} i leć dalej →
+            {copy("ui.btn.finish_week")} · {copy("ui.hud.week", { week: core.week })}
           </button>
+        )}
+
+        {core.status === "completed" && (
+          <Link
+            href="/podsumowanie"
+            data-testid="goto-summary-button"
+            className="min-h-[44px] px-6 py-3 rounded-xl bg-amber-500 hover:bg-amber-400 text-slate-950 font-black text-base transition"
+          >
+            {label("ui.week.to_summary")}
+          </Link>
         )}
       </section>
 
-      {/* Week Resolution Modal (G17) */}
       <WeekResolutionModal />
-
-      {/* Cash Flow Drilldown Panel (G12/G30/G32) */}
-      <CashFlowPanel
-        isOpen={cashFlowOpen}
-        onClose={() => setCashFlowOpen(false)}
-        initialWeek={drilldownWeek}
-      />
-      {/* Failure & Rewind Modal (G19 / G20) */}
+      {cashFlowOpen && (
+        <CashFlowPanel key={drilldownDate ?? "today"} isOpen onClose={closeCashFlow} initialDate={drilldownDate} />
+      )}
       <FailureAndRewindModal />
+      <VoicePlayer />
     </div>
   );
 }
 
 export default function GameLevel1Page(props: PageProps) {
   return (
-    <Suspense fallback={<div className="p-8 text-center text-slate-400">Ładowanie symulacji gry...</div>}>
+    <Suspense fallback={<div className="p-8" />}>
       <GameLevel1Content {...props} />
     </Suspense>
   );

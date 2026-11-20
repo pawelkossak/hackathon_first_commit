@@ -1,6 +1,6 @@
 "use client";
 
-import { CampaignMap } from "@/components/scenes/CampaignMap";
+import { CampaignMap } from "../../components/scenes/CampaignMap";
 
 export default function MapaPage() {
   return (

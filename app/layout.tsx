@@ -1,8 +1,9 @@
 import type { Metadata } from "next";
 import "./globals.css";
-import { AppHeader } from "@/components/ui/AppHeader";
-import { AppFooter } from "@/components/ui/AppFooter";
-import { RotatePrompt } from "@/components/ui/RotatePrompt";
+import { AppHeader } from "../components/ui/AppHeader";
+import { AppFooter } from "../components/ui/AppFooter";
+import { RotatePrompt } from "../components/ui/RotatePrompt";
+import { ClientBoot } from "../components/ui/ClientBoot";
 
 export const metadata: Metadata = {
   title: "Pilot Płynności — Gra edukacyjna o płynności finansowej",
@@ -23,6 +24,7 @@ export default function RootLayout({
         >
           Przejdź do głównej zawartości
         </a>
+        <ClientBoot />
         <AppHeader />
         <main id="main-content" tabIndex={-1} className="flex-1 flex flex-col focus:outline-none">
           {children}

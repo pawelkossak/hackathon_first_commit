@@ -2,7 +2,9 @@
 
 import React from "react";
 import type { CardView } from "../../engine";
-import { GameAsset } from "@/lib/ui/assets";
+import { disabledReasonText } from "../../narrative";
+import { GameAsset } from "../../lib/ui/assets";
+import { pln, useCopy } from "../../lib/ui/copy";
 
 export interface CardProps {
   card: CardView;
@@ -11,7 +13,7 @@ export interface CardProps {
   className?: string;
 }
 
-const SPRITE_MAP: Record<string, string> = {
+const SPRITE_MAP: Record<CardView["id"], string> = {
   C1: "sprite.action.advance",
   C2: "sprite.action.discount",
   C3: "sprite.action.postpone",
@@ -21,97 +23,79 @@ const SPRITE_MAP: Record<string, string> = {
 };
 
 export function Card({ card, isSelected, onSelect, className = "" }: CardProps) {
-  const spriteId = SPRITE_MAP[card.id] ?? "sprite.action.advance";
+  const { label, playerGender, narratorGender } = useCopy();
+  const reason = card.disabledReason ? disabledReasonText(card.disabledReason, playerGender, narratorGender) : null;
 
   return (
-    <div
-      role="button"
-      tabIndex={card.playable ? 0 : -1}
+    <button
+      type="button"
       aria-pressed={isSelected}
       aria-disabled={!card.playable}
       data-testid={`card-${card.id}`}
       onClick={() => onSelect(card.id)}
-      onKeyDown={(e) => {
-        if (e.key === "Enter" || e.key === " ") {
-          e.preventDefault();
-          onSelect(card.id);
-        }
-      }}
-      className={`rounded-2xl p-4 border transition-all flex flex-col justify-between select-none min-h-[220px] ${
+      className={`text-left rounded-2xl p-4 border transition-all flex flex-col justify-between select-none min-h-[220px] focus:outline-none focus:ring-2 focus:ring-amber-400 ${
         isSelected
-          ? "bg-slate-800 border-amber-400 ring-4 ring-amber-400/40 shadow-xl shadow-amber-500/10 -translate-y-1"
+          ? "bg-slate-800 border-amber-400 ring-4 ring-amber-400/40 shadow-xl -translate-y-1"
           : card.playable
-          ? "bg-slate-900/90 border-slate-700/80 hover:border-slate-500 hover:-translate-y-0.5 cursor-pointer shadow-md"
-          : "bg-slate-950/60 border-slate-800/80 opacity-55 cursor-not-allowed"
+          ? "bg-slate-900/90 border-slate-700/80 hover:border-slate-500 cursor-pointer shadow-md"
+          : "bg-slate-950/60 border-slate-800/80 cursor-pointer"
       } ${className}`}
     >
-      {/* Header: Key shortcut and Cost */}
-      <div>
-        <div className="flex items-center justify-between gap-2 mb-2">
-          <span className="flex items-center gap-1.5 font-mono text-xs font-bold text-amber-400">
-            <kbd className="px-1.5 py-0.5 bg-slate-800 rounded border border-slate-700 text-[11px] text-white">
-              {card.key}
-            </kbd>
-            <span>{card.id}</span>
-          </span>
-
+      <span className="block">
+        <span className="flex items-center justify-between gap-2 mb-2">
+          <kbd className="px-2 py-0.5 bg-slate-800 rounded border border-slate-700 text-base text-white font-mono">
+            {card.key}
+          </kbd>
           <span
-            className={`text-xs font-mono font-bold px-2 py-0.5 rounded-full ${
+            className={`text-base font-mono font-bold px-2 py-0.5 rounded-full ${
               card.cost === 0
                 ? "bg-emerald-950 text-emerald-300 border border-emerald-800"
                 : "bg-amber-950 text-amber-300 border border-amber-800"
             }`}
           >
-            {card.cost === 0 ? "Bezkosztowa" : `${card.cost.toLocaleString("pl-PL")} zł`}
-            {card.costIsEstimate && "*"}
+            {card.cost === 0 ? label("ui.card.cost_free") : pln(card.cost)}
+            {card.costIsEstimate && " *"}
           </span>
-        </div>
+        </span>
 
-        {/* Card Graphic & Title */}
-        <div className="flex items-center gap-3 my-2">
-          <div className="w-12 h-12 flex-shrink-0 flex items-center justify-center">
-            <GameAsset id={spriteId} width={48} height={48} alt={card.title} />
-          </div>
-          <div>
-            <h3 className="text-sm font-bold text-white leading-tight">{card.title}</h3>
+        <span className="flex items-center gap-3 my-2">
+          <span className="w-12 h-12 flex-shrink-0 flex items-center justify-center">
+            <GameAsset id={SPRITE_MAP[card.id]} width={48} height={48} alt="" />
+          </span>
+          <span className="block">
+            <span className="block text-base font-bold text-white leading-tight">{card.title}</span>
             {card.isProduct && (
-              <span className="inline-block mt-0.5 text-[10px] uppercase font-semibold text-sky-400">
-                Produkt finansowy
-              </span>
+              <span className="block mt-0.5 text-sm font-semibold text-sky-300">{label("ui.card.product")}</span>
             )}
-          </div>
-        </div>
+          </span>
+        </span>
 
-        {/* Labels / Tags */}
-        <div className="flex flex-wrap gap-1 mt-2">
+        <span className="flex flex-wrap gap-1 mt-2">
           {card.labels.map((lbl) => (
             <span
               key={lbl}
-              className="text-[10px] font-medium px-1.5 py-0.5 rounded bg-slate-800/80 text-slate-300 border border-slate-700/60"
+              className="text-sm font-medium px-1.5 py-0.5 rounded bg-slate-800/80 text-slate-200 border border-slate-700/60"
             >
               {lbl}
             </span>
           ))}
-        </div>
-      </div>
+        </span>
+      </span>
 
-      {/* Footer / Disabled reason */}
-      <div className="mt-3 pt-2 border-t border-slate-800">
-        {!card.playable && card.disabledReason ? (
-          <div
+      <span className="block mt-3 pt-2 border-t border-slate-800">
+        {reason ? (
+          <span
             data-testid={`card-disabled-${card.id}`}
-            className="text-[11px] text-red-300 bg-red-950/60 border border-red-900/60 p-1.5 rounded-lg flex items-center gap-1.5"
+            className="block text-sm text-red-200 bg-red-950/60 border border-red-900/60 p-1.5 rounded-lg"
           >
-            <span className="text-xs">⚠️</span>
-            <span className="truncate">{card.disabledReason.text ?? card.disabledReason.code}</span>
-          </div>
+            {reason}
+          </span>
         ) : (
-          <div className="text-[11px] text-slate-400 flex items-center justify-between">
-            <span>Dostępne: T{card.window.from}–T{card.window.to}</span>
-            {isSelected && <span className="text-amber-400 font-bold">Wybrana</span>}
-          </div>
+          <span className="block text-sm text-slate-300">
+            {label("ui.card.window")} {card.window.from}–{card.window.to}
+          </span>
         )}
-      </div>
-    </div>
+      </span>
+    </button>
   );
 }

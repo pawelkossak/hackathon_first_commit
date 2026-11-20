@@ -1,6 +1,8 @@
 "use client";
 
 import React, { useState, useEffect } from "react";
+import { getCopy } from "../../narrative";
+import { labelText } from "../../lib/ui/copy";
 
 export function RotatePrompt() {
   const [isPortraitMobile, setIsPortraitMobile] = useState(false);
@@ -42,11 +44,8 @@ export function RotatePrompt() {
         </div>
         <div>
           <h2 id="rotate-title" className="text-xl font-black">
-            Obróć telefon, lecimy w poziomie.
+            {labelText("ui.rotate.title")}
           </h2>
-          <p className="text-xs text-slate-300 mt-2">
-            Pilot Płynności został zaprojektowany do wygodnego lotu w orientacji poziomej (landscape 844×390).
-          </p>
         </div>
 
         <div className="pt-2">
@@ -54,9 +53,9 @@ export function RotatePrompt() {
             type="button"
             onClick={() => setDismissed(true)}
             data-testid="dismiss-rotate-prompt"
-            className="w-full min-h-[44px] px-4 py-2.5 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-200 text-xs font-bold transition border border-slate-700 cursor-pointer"
+            className="w-full min-h-[44px] px-4 py-2.5 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-200 text-base font-bold transition border border-slate-700 cursor-pointer"
           >
-            Kontynuuj w widoku tekstowym
+            {getCopy("ui.btn.close")}
           </button>
         </div>
       </div>
