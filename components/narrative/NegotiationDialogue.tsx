@@ -18,6 +18,7 @@ import {
   type QuickReply,
 } from "../../narrative";
 import { postAgentTurn } from "./agent-client";
+import { dialogueSync } from "./negotiation-sync";
 
 export interface MessageItem {
   id: string;
@@ -49,15 +50,29 @@ export function NegotiationDialogue({
     getCopy(id, state, playerGender, narratorGender, extra);
   const name = agentName(agent);
 
+  const greeting = (): MessageItem[] => [{ id: "init", sender: "agent", text: copy(`ui.negotiate.greeting.${agent}`) }];
   const [current, setCurrent] = useState<GameState>(state);
-  const [messages, setMessages] = useState<MessageItem[]>([
-    { id: "init", sender: "agent", text: copy(`ui.negotiate.greeting.${agent}`) },
-  ]);
+  const [synced, setSynced] = useState<GameState>(state);
+  const [messages, setMessages] = useState<MessageItem[]>(greeting);
   const [quickReplies, setQuickReplies] = useState<QuickReply[]>(() => quickRepliesFor(state, agent));
   const [inputVal, setInputVal] = useState("");
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [playedTitle, setPlayedTitle] = useState<string | null>(null);
   const messageIdRef = useRef(1);
+
+  // A new `state` prop (rewind, new week, reset) restarts the thread from it; the parent's echo of our
+  // own answer keeps it (negotiation-sync.ts). Adjusting state during render, not in an effect.
+  const sync = dialogueSync(state, synced, current);
+  if (sync !== "none") {
+    setSynced(state);
+    if (sync === "reset") {
+      setCurrent(state);
+      setMessages(greeting());
+      setQuickReplies(quickRepliesFor(state, agent));
+      setPlayedTitle(null);
+      setInputVal("");
+    }
+  }
 
   const maxMessages = maxMessagesPerWeek(agent);
   const used = current.core.negotiation[agent].messagesThisWeek;
@@ -111,17 +126,17 @@ export function NegotiationDialogue({
       <header className="flex items-center justify-between border-b border-neutral-800 pb-3 mb-4">
         <div>
           <h2 className="text-xl font-bold text-amber-400">{name}</h2>
-          <p className="text-sm text-neutral-400">{copy(`ui.negotiate.subtitle.${agent}`)}</p>
+          <p className="text-base text-neutral-400">{copy(`ui.negotiate.subtitle.${agent}`)}</p>
         </div>
         <div className="flex items-center gap-3">
-          <span className="text-sm bg-neutral-800 border border-neutral-700 px-2.5 py-1 rounded-full text-neutral-300">
+          <span className="text-base bg-neutral-800 border border-neutral-700 px-2.5 py-1 rounded-full text-neutral-300">
             {copy("ui.negotiate.messages", { used, max: maxMessages })}
           </span>
           {onClose && (
             <button
               type="button"
               onClick={onClose}
-              className="min-h-[44px] min-w-[44px] text-sm px-3 py-1 bg-neutral-800 hover:bg-neutral-700 rounded-lg text-neutral-300 transition-colors focus:outline-none focus:ring-2 focus:ring-amber-400"
+              className="min-h-[44px] min-w-[44px] text-base px-3 py-1 bg-neutral-800 hover:bg-neutral-700 rounded-lg text-neutral-300 transition-colors focus:outline-none focus:ring-2 focus:ring-amber-400"
             >
               {copy("ui.btn.close")}
             </button>
@@ -136,7 +151,7 @@ export function NegotiationDialogue({
       >
         {messages.map((m) => (
           <div key={m.id} className={`flex flex-col ${m.sender === "player" ? "items-end" : "items-start"}`}>
-            <span className="text-xs text-neutral-400 mb-1 px-1">
+            <span className="text-base text-neutral-400 mb-1 px-1">
               {m.sender === "player" ? copy("ui.negotiate.you") : name}
             </span>
             <div
@@ -163,7 +178,7 @@ export function NegotiationDialogue({
 
       {!isBlocked && quickReplies.length > 0 && (
         <div className="mb-4">
-          <span className="text-sm text-neutral-400 font-medium block mb-2">{copy("ui.negotiate.quick_replies")}</span>
+          <span className="text-base text-neutral-400 font-medium block mb-2">{copy("ui.negotiate.quick_replies")}</span>
           <div className="flex flex-wrap gap-2">
             {quickReplies.map((q) => {
               const label = copy(q.labelKey);

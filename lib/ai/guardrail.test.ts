@@ -1,8 +1,9 @@
 import { describe, expect, it } from "vitest";
-import { createGame } from "../../engine";
+import { createGame, forecast, negotiate } from "../../engine";
 import {
   applyGuardrailOrFallback,
   collectEngineNumbers,
+  eventNumbers,
   extractNumbers,
   validateNumberGuardrail,
 } from "./index";
@@ -55,20 +56,60 @@ describe("N-02 Number guardrail for generated text", () => {
   it("applies fallback text when guardrail rejects unauthorized numbers", () => {
     const state = createGame("demo");
     const allowed = collectEngineNumbers(state);
+    const fallback = "Zaproponuj zaliczkę albo skonto.";
 
-    const candidate = "Zgadzam się na 123 456 zł zaliczki.";
-    const fallback = "Zaproponuj 30% zaliczki albo skonto.";
+    expect(applyGuardrailOrFallback("Zgadzam się na 123 456 zł zaliczki.", allowed, fallback)).toBe(fallback);
+    const valid = "Na koncie mamy 38 000 zł.";
+    expect(applyGuardrailOrFallback(valid, allowed, fallback)).toBe(valid);
+  });
 
-    const output = applyGuardrailOrFallback(candidate, allowed, fallback);
-    expect(output).toBe(fallback);
+  it("allows no number by default: no day range, no month or year constants", () => {
+    const state = createGame("demo");
+    const allowed = collectEngineNumbers(state);
+    // Not stated by the engine for the demo start: no transaction, balance or cost uses them.
+    for (const n of [2, 4, 5, 13, 16, 31, 2025]) expect(allowed.has(n), String(n)).toBe(false);
+    expect(validateNumberGuardrail("Zapłać 5% do 13 grudnia.", allowed).valid).toBe(false);
+  });
 
-    // If candidate has valid engine numbers, it is accepted
-    const validCandidate = "Proponuję zaliczkę 30% na poczet zlecenia.";
-    const validOutput = applyGuardrailOrFallback(validCandidate, allowed, fallback, {
-      // allow 30
+  it("a date part is allowed only when an engine date has it (28 XII is the forecast minimum)", () => {
+    const state = createGame("demo");
+    const fc = forecast(state);
+    const allowed = collectEngineNumbers(state);
+    const [, month, day] = fc.minimum.date.split("-").map(Number);
+    expect(allowed.has(day)).toBe(true);
+    expect(allowed.has(month)).toBe(true);
+    expect(validateNumberGuardrail(`Burza ${day} grudnia.`, allowed).valid).toBe(true);
+  });
+
+  it('test: "28" not from the engine is rejected (negotiation numbers only)', () => {
+    const result = negotiate(createGame("demo"), "klient_a", "ask_advance", 50);
+    expect(result.counterPercent).toBe(30);
+    const allowed = new Set(result.numbers);
+    expect(validateNumberGuardrail("Mogę dać 30% — 15 000 zł do 3 grudnia.", allowed).valid).toBe(true);
+    const wrong = validateNumberGuardrail("Mogę dać 30% — 15 000 zł do 28 grudnia.", allowed);
+    expect(wrong.valid).toBe(false);
+    expect(wrong.unauthorizedNumbers).toEqual([28]);
+  });
+
+  it('test: "30%" not from the engine is rejected (bank offer numbers only)', () => {
+    const result = negotiate(createGame("demo"), "bank", "ask_overdraft");
+    const allowed = new Set(result.numbers);
+    expect(allowed.has(30)).toBe(false);
+    const wrong = validateNumberGuardrail("Limit w koncie z prowizją 30%.", allowed);
+    expect(wrong.valid).toBe(false);
+    expect(wrong.unauthorizedNumbers).toEqual([30]);
+  });
+
+  it("event payload numbers: the fraud amount and reveal date, nothing else", () => {
+    const allowed = eventNumbers({
+      type: "fraudRevealed",
+      week: 5,
+      eventId: "E1",
+      ledgerId: "L08",
+      amount: -35700,
+      date: "2026-12-23",
     });
-    // If 30 is in allowed (day 30 or extra), it is accepted
-    expect(allowed.has(30)).toBe(true);
-    expect(validOutput).toBe(validCandidate);
+    expect(validateNumberGuardrail("Przelew 35 700 zł z 23 grudnia był oszustwem.", allowed).valid).toBe(true);
+    expect(validateNumberGuardrail("Przelew 35 700 zł z 28 grudnia.", allowed).valid).toBe(false);
   });
 });

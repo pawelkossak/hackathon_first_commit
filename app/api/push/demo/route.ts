@@ -1,56 +1,59 @@
+// POST /api/push/demo (D-14, BACKEND-SERVICES.md §4.2): schedules the stage trial reminder.
+// Defaults come from lib/reminders/push-config.ts; every sentence of the payload comes from getCopy.
 import { NextRequest, NextResponse } from 'next/server';
 import { z } from 'zod';
+import { gameData } from '../../../../engine';
+import { getCopy } from '../../../../narrative';
+import {
+  DEMO_REMINDER,
+  DEMO_REMINDER_MAX_DELAY_SECONDS,
+  resumeLink,
+} from '../../../../lib/reminders/push-config';
 
 const DemoPushSchema = z.object({
   playerId: z.string().optional(),
-  delaySeconds: z.number().int().min(0).max(3600).default(30),
+  delaySeconds: z.number().int().min(0).max(DEMO_REMINDER_MAX_DELAY_SECONDS).default(DEMO_REMINDER.delaySeconds),
   variant: z.string().optional(),
-  targetWeek: z.number().int().min(1).max(7).default(3),
+  targetWeek: z.number().int().min(1).max(gameData.level1.weeks.length).default(DEMO_REMINDER.targetWeek),
+  locale: z.enum(['pl', 'en']).default('pl'),
 });
 
 export async function POST(req: NextRequest) {
+  let rawBody: unknown = {};
   try {
-    let rawBody = {};
-    try {
-      rawBody = await req.json();
-    } catch {
-      // Empty body allowed, defaults used
-    }
+    rawBody = await req.json();
+  } catch {
+    // An empty body is allowed: the defaults of push-config.ts are used.
+  }
 
-    const parsed = DemoPushSchema.safeParse(rawBody);
-    if (!parsed.success) {
-      return NextResponse.json(
-        { error: 'Invalid demo request', details: parsed.error.issues },
-        { status: 400 }
-      );
-    }
+  const parsed = DemoPushSchema.safeParse(rawBody);
+  if (!parsed.success) {
+    return NextResponse.json(
+      { error: getCopy('push.invalid'), details: parsed.error.issues },
+      { status: 400 }
+    );
+  }
 
-    const { delaySeconds, targetWeek } = parsed.data;
+  try {
+    const { delaySeconds, targetWeek, locale } = parsed.data;
+    const copy = (id: string, extra?: Record<string, string | number>) =>
+      getCopy(id, undefined, 'female', 'female', extra, locale);
     const now = new Date();
     const firesAt = new Date(now.getTime() + delaySeconds * 1000);
-
-    // Copy string matching N-01 in notification-copy.pl.json / BACKEND-SERVICES.md §4.2:
-    // "Tydzień {week.current} czeka. Wrócisz za stery?"
-    const title = 'Pilot Płynności';
-    const body = `Tydzień ${targetWeek} czeka. Wrócisz za stery?`;
-    const deepLink = `/gra/1?resume=T${targetWeek}`;
 
     return NextResponse.json({
       scheduled: true,
       delaySeconds,
       trigger: 'demo',
-      title,
-      body,
-      deepLink,
+      title: copy('push.title'),
+      body: copy('push.body', { week: targetWeek }),
+      deepLink: resumeLink(targetWeek),
       scheduledAt: now.toISOString(),
       firesAt: firesAt.toISOString(),
-      message: `Próbne przypomnienie przyjdzie za ${delaySeconds} sekund.`,
-      fallbackNotice: 'Baner powrotu nadal działa w grze.',
+      message: copy('push.scheduled', { seconds: delaySeconds }),
+      fallbackNotice: copy('push.fallback_notice'),
     });
   } catch {
-    return NextResponse.json(
-      { error: 'Failed to schedule demo reminder' },
-      { status: 500 }
-    );
+    return NextResponse.json({ error: getCopy('push.failed') }, { status: 500 });
   }
 }
