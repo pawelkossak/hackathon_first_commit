@@ -4,6 +4,7 @@ import React, { useEffect, use, Suspense } from "react";
 import { useGameStore } from "@/lib/ui/game-store";
 import { Hud } from "@/components/play/Hud";
 import { WorldRoute } from "@/components/scenes/WorldRoute";
+import { WeekCardList } from "@/components/scenes/WeekCardList";
 import { CardHand } from "@/components/play/CardHand";
 import { EventCard } from "@/components/play/EventCard";
 import { WeekResolutionModal } from "@/components/play/WeekResolutionModal";
@@ -11,12 +12,14 @@ import { CashFlowPanel } from "@/components/play/CashFlowPanel";
 import { FailureAndRewindModal } from "@/components/play/FailureAndRewindModal";
 
 interface PageProps {
-  searchParams?: Promise<{ seed?: string; resume?: string }>;
+  searchParams?: Promise<{ seed?: string; resume?: string; fallback?: string }>;
 }
 
 function GameLevel1Content(props: PageProps) {
   const searchParams = props.searchParams ? use(props.searchParams) : undefined;
   const state = useGameStore((s) => s.state);
+  const fallbackMode = useGameStore((s) => s.fallbackMode);
+  const setFallbackMode = useGameStore((s) => s.setFallbackMode);
   const advanceWeek = useGameStore((s) => s.advanceWeek);
   const rewindToWeek = useGameStore((s) => s.rewindToWeek);
   const getCurrentEvent = useGameStore((s) => s.getCurrentEvent);
@@ -30,7 +33,10 @@ function GameLevel1Content(props: PageProps) {
     if (searchParams?.seed) {
       init(searchParams.seed);
     }
-  }, [searchParams?.seed, init]);
+    if (searchParams?.fallback === "1") {
+      setFallbackMode(true);
+    }
+  }, [searchParams?.seed, searchParams?.fallback, init, setFallbackMode]);
 
   const handleOpenCashFlow = (week?: number) => {
     setDrilldownWeek(week ?? null);
@@ -56,8 +62,44 @@ function GameLevel1Content(props: PageProps) {
       {/* HUD (G10): Gotówka 38 000 zł, Paliwo 42 dni, Odporność —, Relacje 5/5, Koszt pieniądza 0 zł, Dane syntetyczne */}
       <Hud onOpenCashFlow={() => handleOpenCashFlow()} />
 
-      {/* World Route Board (G10): 7 week nodes + finish 10 I, markers 25 XI, 21 XII, 28 XII, storm on 28 XII, plane */}
-      <WorldRoute onSelectWeekNode={(w) => handleOpenCashFlow(w)} />
+      {/* Board Presentation: World Route (default) or Week-Card List (Fallback U-11) */}
+      <div className="flex items-center justify-between px-1">
+        <span className="text-xs text-slate-400">
+          Tryb prezentacji planszy:
+        </span>
+        <div className="flex items-center gap-2 bg-slate-900 p-1 rounded-xl border border-slate-800">
+          <button
+            type="button"
+            onClick={() => setFallbackMode(false)}
+            data-testid="view-toggle-route"
+            className={`px-3 py-1 rounded-lg text-xs font-semibold transition ${
+              !fallbackMode
+                ? "bg-amber-500 text-slate-950 font-bold"
+                : "text-slate-400 hover:text-white"
+            }`}
+          >
+            Trasa wysp (G10)
+          </button>
+          <button
+            type="button"
+            onClick={() => setFallbackMode(true)}
+            data-testid="view-toggle-fallback"
+            className={`px-3 py-1 rounded-lg text-xs font-semibold transition ${
+              fallbackMode
+                ? "bg-amber-500 text-slate-950 font-bold"
+                : "text-slate-400 hover:text-white"
+            }`}
+          >
+            Lista kart (U-11)
+          </button>
+        </div>
+      </div>
+
+      {!fallbackMode ? (
+        <WorldRoute onSelectWeekNode={(w) => handleOpenCashFlow(w)} />
+      ) : (
+        <WeekCardList onSelectWeekNode={(w) => handleOpenCashFlow(w)} />
+      )}
 
       {/* Storm warning / Forecast insight (GM-01: Storm 28 XII -12 395 zł) */}
       {forecast.crash && (
