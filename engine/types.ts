@@ -34,23 +34,38 @@ export interface CompanyState {
   isGameOver: boolean;
 }
 
-export interface EventChoiceResult {
-  statePatch: Partial<CompanyState>;
+export interface EventCondition {
+  minEmployees?: number;
+  minMonth?: number;
+  requiredFlag?: string;
+  forbiddenFlag?: string;
+}
+
+export interface EventEffect {
+  cashDelta?: number;
+  reputationDelta?: number;
+  moraleDelta?: number;
+  stressDelta?: number;
+  addFlag?: string;
   logMessage: string;
   logType?: LogEntry['type'];
-  scheduleEvent?: ScheduledEvent;
+  scheduleEvent?: {
+    eventId: string;
+    delayMonths: number;
+    chance: number;
+  };
 }
 
 export interface EventChoice {
   id: string;
   label: string;
-  effect: (state: CompanyState) => EventChoiceResult;
+  effect: EventEffect;
 }
 
 export interface GameEvent {
   id: string;
   title: string;
   description: string;
-  condition?: (state: CompanyState) => boolean;
+  condition?: EventCondition;
   choices: EventChoice[];
 }

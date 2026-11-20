@@ -1,24 +1,24 @@
 {
-  "title": "Pierwszy miesiąc firmy",
+  "title": "First Month in Business",
   "weeks": [
     {
       "id": "week-1",
-      "title": "Klient opóźnia płatność",
-      "prompt": "Co robisz?",
+      "title": "Client Delays Payment",
+      "prompt": "What do you do?",
       "answers": [
         {
           "id": "ask-advance",
-          "label": "Poproś o zaliczkę",
+          "label": "Ask for an advance payment",
           "balanceChange": 3000,
           "scoreChange": 2,
-          "feedback": "Zyskujesz płynność, ale klient może oczekiwać rabatu."
+          "feedback": "You gain cash flow, but the client might expect a discount."
         },
         {
           "id": "wait",
-          "label": "Poczekaj na przelew",
+          "label": "Wait for the transfer",
           "balanceChange": 0,
           "scoreChange": 0,
-          "feedback": "Ryzykujesz brak pieniędzy na najbliższe płatności."
+          "feedback": "You risk running out of money for upcoming payments."
         }
       ]
     }
