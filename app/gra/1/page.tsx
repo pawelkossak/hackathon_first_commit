@@ -8,6 +8,7 @@ import { CardHand } from "@/components/play/CardHand";
 import { EventCard } from "@/components/play/EventCard";
 import { WeekResolutionModal } from "@/components/play/WeekResolutionModal";
 import { CashFlowPanel } from "@/components/play/CashFlowPanel";
+import { FailureAndRewindModal } from "@/components/play/FailureAndRewindModal";
 
 interface PageProps {
   searchParams?: Promise<{ seed?: string; resume?: string }>;
@@ -124,6 +125,8 @@ function GameLevel1Content(props: PageProps) {
         onClose={() => setCashFlowOpen(false)}
         initialWeek={drilldownWeek}
       />
+      {/* Failure & Rewind Modal (G19 / G20) */}
+      <FailureAndRewindModal />
     </div>
   );
 }
