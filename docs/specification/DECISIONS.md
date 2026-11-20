@@ -131,3 +131,11 @@ Numbered D-01 …, never reused; a later decision that replaces one names it.
 - Who: The product owner
 - When: 2026-11-17
 - What it changed: Extends D-15: Szef Voice Design Voice1 / TTS Generation1 approved alongside Ania. Trailer becomes a two-character production; fixed offline audio remains the runtime default.
+
+## D-17 — The AI-CFO suggests a product card only as the last resort
+
+- Decided: `getCfoHint` lists only safe cards without a product (C1, C2, C3). A product card (C4 overdraft, C5 non-bank loan, C6 factoring) is suggested only when no card without a product removes the crash, and always with its engine cost. Every card stays playable from the hand.
+- Who: The product owner (coordinator)
+- When: 2026-11-20
+- Why: Hard rule 3, no bank-product bias. In T1 of the demo seed the hint showed the overdraft (194 zł) next to the free C1, which reads as the AI pushing a product.
+- What it changed: E-08 implements the rule in the engine with a test; N-09 shows a product hint only with its cost.
