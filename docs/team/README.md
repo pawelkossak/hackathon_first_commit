@@ -14,8 +14,8 @@ Trzy osoby, trzy tory (lanes), każdy pracuje niezależnie na swojej gałęzi. S
 ## Pierwsze uruchomienie (każdy, raz)
 
 ```bash
-git clone https://github.com/pawelkossak/hackaton_first_commit.git
-cd hackaton_first_commit
+git clone https://github.com/pawelkossak/hackathon_first_commit.git
+cd hackathon_first_commit
 git switch develop
 git switch lane/<twój-lane>          # lane/engine, lane/ui albo lane/narrative
 pnpm install                          # włącza też strażnika lanes (git hook)
@@ -70,4 +70,4 @@ git push -u origin lane/ui             # wypchnij swoją gałąź
 git stash / git stash pop              # odłóż / przywróć niezacommitowane zmiany
 ```
 
-W Claude Code przez `!` zawsze zaczynaj od `cd /c/Users/.../hackaton_first_commit && …` (ukośniki `/`, nie `\`).
+W Claude Code przez `!` zawsze zaczynaj od `cd /c/Users/.../hackathon_first_commit && …` (ukośniki `/`, nie `\`).
