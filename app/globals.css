@@ -52,3 +52,10 @@ body {
     scroll-behavior: auto !important;
   }
 }
+
+/* Mobile landscape viewports (844x390, 812x375, 932x430 - GM-16) */
+@media (max-height: 500px) and (orientation: landscape) {
+  :root {
+    --mobile-landscape: 1;
+  }
+}

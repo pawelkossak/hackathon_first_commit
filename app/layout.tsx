@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import "./globals.css";
 import { AppHeader } from "@/components/ui/AppHeader";
 import { AppFooter } from "@/components/ui/AppFooter";
+import { RotatePrompt } from "@/components/ui/RotatePrompt";
 
 export const metadata: Metadata = {
   title: "Pilot Płynności — Gra edukacyjna o płynności finansowej",
@@ -27,6 +28,7 @@ export default function RootLayout({
           {children}
         </main>
         <AppFooter />
+        <RotatePrompt />
       </body>
     </html>
   );
