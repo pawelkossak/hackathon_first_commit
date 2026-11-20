@@ -4,6 +4,7 @@ import React, { useEffect, use, Suspense } from "react";
 import { useGameStore } from "@/lib/ui/game-store";
 import { Hud } from "@/components/play/Hud";
 import { WorldRoute } from "@/components/scenes/WorldRoute";
+import { CardHand } from "@/components/play/CardHand";
 
 interface PageProps {
   searchParams?: Promise<{ seed?: string; resume?: string }>;
@@ -12,15 +13,11 @@ interface PageProps {
 function GameLevel1Content(props: PageProps) {
   const searchParams = props.searchParams ? use(props.searchParams) : undefined;
   const state = useGameStore((s) => s.state);
-  const selectedCardId = useGameStore((s) => s.selectedCardId);
-  const activePreview = useGameStore((s) => s.activePreview);
-  const selectCard = useGameStore((s) => s.selectCard);
-  const playSelectedCard = useGameStore((s) => s.playSelectedCard);
   const resolveCurrentEvent = useGameStore((s) => s.resolveCurrentEvent);
   const advanceWeek = useGameStore((s) => s.advanceWeek);
   const rewindToWeek = useGameStore((s) => s.rewindToWeek);
-  const getAvailableCards = useGameStore((s) => s.getAvailableCards);
   const getCurrentEvent = useGameStore((s) => s.getCurrentEvent);
+  const forecast = useGameStore((s) => s.getForecast());
   const init = useGameStore((s) => s.init);
 
   useEffect(() => {
@@ -29,9 +26,7 @@ function GameLevel1Content(props: PageProps) {
     }
   }, [searchParams?.seed, init]);
 
-  const cards = getAvailableCards();
   const currentEvent = getCurrentEvent();
-  const forecast = useGameStore((s) => s.getForecast());
   const { core } = state;
 
   return (
@@ -103,96 +98,8 @@ function GameLevel1Content(props: PageProps) {
         </section>
       )}
 
-      {/* Main interactive area: Action Cards (G13) */}
-      <section aria-label="Karty manewrów finansowych (G13)" className="space-y-3">
-        <div className="flex items-center justify-between">
-          <h2 className="text-lg font-bold text-white">Twoje karty manewrów (G13)</h2>
-          <span className="text-xs text-slate-400">Wybierz kartę, aby zobaczyć podgląd symulacji (Klawisze 1–6)</span>
-        </div>
-
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-          {cards.map((card) => {
-            const isSelected = selectedCardId === card.id;
-            return (
-              <div
-                key={card.id}
-                data-testid={`card-${card.id}`}
-                onClick={() => selectCard(isSelected ? null : card.id)}
-                className={`p-4 rounded-xl border transition cursor-pointer flex flex-col justify-between ${
-                  isSelected
-                    ? "bg-slate-800 border-amber-400 ring-2 ring-amber-400/40"
-                    : card.playable
-                    ? "bg-slate-900 border-slate-700 hover:border-slate-500"
-                    : "bg-slate-950/60 border-slate-800 opacity-50 cursor-not-allowed"
-                }`}
-              >
-                <div>
-                  <div className="flex items-center justify-between mb-2">
-                    <span className="text-xs font-mono font-bold text-amber-400">
-                      [{card.key}] {card.id}
-                    </span>
-                    <span className="text-xs px-2 py-0.5 rounded bg-slate-800 text-slate-300">
-                      Koszt: {card.cost.toLocaleString("pl-PL")} zł
-                    </span>
-                  </div>
-                  <h3 className="font-bold text-white text-base mb-1">{card.title}</h3>
-                  <div className="flex flex-wrap gap-1 mt-1 mb-2">
-                    {card.labels.map((l) => (
-                      <span key={l} className="text-[10px] bg-slate-800 text-slate-300 px-1.5 py-0.5 rounded">
-                        {l}
-                      </span>
-                    ))}
-                  </div>
-                </div>
-
-                {!card.playable && card.disabledReason && (
-                  <div className="text-xs text-red-400 font-medium bg-red-950/40 p-1.5 rounded border border-red-900/50 mt-2">
-                    {card.disabledReason.text ?? card.disabledReason.code}
-                  </div>
-                )}
-              </div>
-            );
-          })}
-        </div>
-
-        {/* Selected Card Preview & Play Action */}
-        {selectedCardId && (
-          <div
-            data-testid="card-preview-panel"
-            className="p-5 rounded-2xl bg-slate-900 border border-amber-500/60 space-y-3"
-          >
-            <div className="flex items-center justify-between">
-              <span className="text-xs font-bold uppercase text-amber-400">Podgląd manewru: {selectedCardId}</span>
-              <span className="text-xs text-slate-400">Podgląd nie zatwierdza ruchu do czasu kliknięcia</span>
-            </div>
-
-            {activePreview && (
-              <div className="text-sm text-slate-300">
-                Prognozowane najniższe saldo po zagraniu:{" "}
-                <span className="font-bold text-emerald-400">
-                  {activePreview.after.minimum.balance.toLocaleString("pl-PL")} zł
-                </span>{" "}
-                (koszt: {activePreview.cost.toLocaleString("pl-PL")} zł)
-              </div>
-            )}
-
-            <div className="flex gap-3">
-              <button
-                onClick={() => playSelectedCard(false)}
-                className="px-5 py-2.5 rounded-xl bg-amber-500 hover:bg-amber-400 text-slate-950 font-bold text-sm transition cursor-pointer"
-              >
-                Zagraj tę kartę
-              </button>
-              <button
-                onClick={() => selectCard(null)}
-                className="px-4 py-2.5 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-300 text-sm transition cursor-pointer"
-              >
-                Anuluj podgląd
-              </button>
-            </div>
-          </div>
-        )}
-      </section>
+      {/* Six Action Cards Hand (G13) with preview & keyboard 1–6 */}
+      <CardHand />
 
       {/* Week End Action / Rewind */}
       <section className="flex flex-wrap items-center justify-between gap-4 pt-4 border-t border-slate-800">
