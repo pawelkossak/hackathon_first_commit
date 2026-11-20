@@ -108,6 +108,16 @@ export interface ForecastPoint {
   transactions: Transaction[];
   /** True for every point after a crash ("Prognoza bez działania"). */
   counterfactual: boolean;
+  /** E-07: lap week of the date; null outside the lap (21–22 XI). */
+  week: WeekNumber | null;
+  /** E-07: balance before the day's transactions (previous end of day; 38 000 on 21 XI). */
+  openingBalance: Pln;
+  /** E-07: sum of the day's inflows (≥ 0). */
+  inflow: Pln;
+  /** E-07: sum of the day's outflows (≤ 0, signed). */
+  outflow: Pln;
+  /** E-07: inflow + outflow = balance − openingBalance. */
+  change: Pln;
 }
 
 export interface BalanceAt {
@@ -135,6 +145,70 @@ export interface ForecastOptions {
   includeFutureEvents?: boolean;
 }
 
+// ---------- Cash Flow drilldown (E-07, G12/G30/G32) ----------
+
+/** Lowest end-of-day balance over the lap (23 XI … 10 I), earliest date on a tie, crash or not. */
+export interface CashFlowMinimum extends BalanceAt {
+  /** True when the minimum lies after the crash (label „Prognoza bez działania”). */
+  counterfactual: boolean;
+}
+
+/** Headline numbers of one series. */
+export interface CashFlowSummary {
+  minimum: CashFlowMinimum;
+  crash: Crash | null;
+  /** Balance on 10 I; counterfactual when `crash` is set. */
+  endBalance: Pln;
+}
+
+/** A full daily series (used for the „Bez działania” baseline). */
+export interface CashFlowSeries extends CashFlowSummary {
+  points: ForecastPoint[];
+  weekEnds: WeekEndBalance[];
+  overdraftLimit: Pln;
+  /** Transactions dated after the last point (outside the chart). */
+  afterLap: Transaction[];
+}
+
+/** One date of a before/after comparison. */
+export interface CashFlowDay {
+  date: IsoDate;
+  week: WeekNumber | null;
+  before: Pln;
+  after: Pln;
+  /** after − before. */
+  delta: Pln;
+  beforeCounterfactual: boolean;
+  afterCounterfactual: boolean;
+}
+
+/** „Przed decyzją / Po decyzji”: the same dates, the two summaries and the transactions that differ. */
+export interface CashFlowComparison {
+  days: CashFlowDay[];
+  before: CashFlowSummary;
+  after: CashFlowSummary;
+  /** Transactions of `after` that `before` does not have (same id, date and amount), any date. */
+  added: Transaction[];
+  /** Transactions of `before` that `after` does not have, any date (a moved row is removed + added). */
+  removed: Transaction[];
+}
+
+/**
+ * Status of one row of the „Zadania” list:
+ * booked = in a week already settled · upcoming = not settled yet · rejected = the crash transaction ·
+ * stopped = after the crash (the lap stopped; counterfactual).
+ */
+export type CashFlowTaskStatus = "booked" | "upcoming" | "rejected" | "stopped";
+
+/** One dated transaction of the lap in booking order, with its running balance. */
+export interface CashFlowTask extends Transaction {
+  counterpartyName: string;
+  week: WeekNumber | null;
+  /** Running balance right after this transaction. */
+  balanceAfter: Pln;
+  status: CashFlowTaskStatus;
+}
+
 export interface Forecast {
   /** 21 XI 2026 (account today) … 10 I 2027. */
   from: IsoDate;
@@ -153,6 +227,18 @@ export interface Forecast {
   overdraftInterest: Pln;
   /** Paliwo: floor(max(0, balance at the start of the current week) / 900); 42 at the start. */
   runwayDays: number;
+  /** E-07: lowest lap balance whether or not the lap crashed (the storm marker). */
+  minimum: CashFlowMinimum;
+  /** E-07: cards whose effects this forecast includes (played order); empty = this forecast is the baseline. */
+  committedCards: CardId[];
+  /** E-07: „Bez działania” — the same state with no card played (events and choices kept). */
+  baseline: CashFlowSeries;
+  /** E-07: baseline (before) against this forecast (after, „Po zatwierdzeniu”). */
+  vsBaseline: CashFlowComparison;
+  /** E-07: „Zadania” — every transaction of the forecast range in booking order. */
+  tasks: CashFlowTask[];
+  /** E-07: transactions dated after `to` (e.g. C5-R on 20 I, Klient A moved to 22 I by E6). */
+  afterLap: Transaction[];
 }
 
 // ---------- cards ----------
@@ -207,6 +293,8 @@ export interface CardPreview {
   simulated: GameState;
   cost: Pln;
   relationsDelta: number;
+  /** E-07: `before` against `after` for G32 „Przed decyzją / Po decyzji”. */
+  comparison: CashFlowComparison;
 }
 
 // ---------- events ----------

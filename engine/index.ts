@@ -2,12 +2,14 @@
 // E-01: final signatures. E-02: real forecast (forecast.ts). E-03: action cards (cards.ts).
 // E-04: seeded event deck (seed.ts, events.ts). E-05: turn state machine (turn.ts).
 // E-06: score (score.ts), hidden fraud until its reveal, plans only from a winning lap.
+// E-07: Cash Flow drilldown fields on Forecast and CardPreview (cashflow.ts).
 // Other bodies are fixtures until E-07…E-09.
 import { isValidIsoDate } from "./calendar";
 import { gameData } from "./data";
 import { RuleError } from "./errors";
 import { initialState } from "./fixture";
 import { applyCard, cardCost, cardDef, disabledReason, safeCards } from "./cards";
+import { compareForecasts } from "./cashflow";
 import { computeForecast } from "./forecast";
 import { applyEventChoice, currentEventView, shownEventSignals } from "./events";
 import { coreAfterPlanSave, rewindTo, settleWeek } from "./turn";
@@ -70,6 +72,8 @@ export function resetGame(seed: string = DEMO_SEED): GameState {
  * Read-only daily forecast 21 XI … 10 I: ledger + played cards + events, business-day shift,
  * inflows before outflows, crash below −overdraft. Post-crash points are counterfactual.
  * Default includes the scripted E6 delay; `includeFutureEvents: false` applies E6 only once resolved.
+ * E-07: also carries the Cash Flow drilldown — `minimum`, the no-card `baseline`, `vsBaseline`, `tasks`
+ * („Zadania”) and `afterLap`.
  * Neither view shows a hidden fraud (E1 „Zapłać jak jest”) before its 23 XII reveal has passed in game
  * time; resolveWeek still settles the true ledger.
  */
@@ -101,7 +105,8 @@ export function getAvailableCards(state: GameState): CardView[] {
 }
 
 /**
- * Simulate a card without committing it. `after` is the forecast of the simulated state.
+ * Simulate a card without committing it. `after` is the forecast of the simulated state;
+ * `comparison` is before → after day by day (G32 „Przed decyzją / Po decyzji”).
  * `simulated.emitted` carries the events the play would emit; previewing a playable C5 adds
  * `loanOffered` with `via: "C5_preview"`.
  */
@@ -112,15 +117,18 @@ export function previewCard(state: GameState, cardId: CardId): CardPreview {
   const loanOffered: EngineEvent[] =
     reason === null && card.effect.type === "loan" ? [{ type: "loanOffered", week: state.core.week, via: "C5_preview" }] : [];
   const simulated: GameState = { ...played, emitted: [...played.emitted, ...loanOffered] };
+  const before = forecast(state);
+  const after = forecast(simulated);
   return {
     cardId,
     playable: reason === null,
     disabledReason: reason,
-    before: forecast(state),
-    after: forecast(simulated),
+    before,
+    after,
     simulated,
     cost: cardCost(state, cardId),
     relationsDelta: card.relationsDelta,
+    comparison: compareForecasts(before, after),
   };
 }
 

@@ -10,10 +10,12 @@
 import { dateRange, toBusinessDay } from "./calendar";
 import { gameData } from "./data";
 import { RuleError } from "./errors";
+import { baselineCore, buildTasks, compareSeries, seriesMinimum, settledThrough } from "./cashflow";
 import { deckFor, eventCard } from "./seed";
 import type {
   BalanceAt,
   CardId,
+  CashFlowSeries,
   Crash,
   EventCard,
   Forecast,
@@ -229,18 +231,18 @@ export function forecastTransactions(core: GameCore, options: ForecastOptions = 
 }
 
 function lowest(points: readonly ForecastPoint[]): BalanceAt {
-  return points.reduce<BalanceAt>(
-    (min, p) => (p.balance < min.balance ? { date: p.date, balance: p.balance } : min),
-    { date: points[0].date, balance: points[0].balance },
-  );
+  const { date, balance } = seriesMinimum(points);
+  return { date, balance };
 }
 
-/**
- * Daily forecast 21 XI 2026 … 10 I 2027 from the opening balance. Post-crash points are counterfactual.
- * `mode.groundTruth` is for the settlement only (see `OverlayContext`).
- */
-export function computeForecast(state: GameState, options: ForecastOptions = {}, mode: ForecastMode = {}): Forecast {
-  const core = state.core;
+interface SeriesRun {
+  series: CashFlowSeries;
+  /** Σ max(0, −EOD balance) over the real (non-counterfactual) days. */
+  interestBase: number;
+}
+
+/** The daily run of one core (no baseline, no comparison): points, week-ends, crash, minimum. */
+function runSeries(core: GameCore, options: ForecastOptions, mode: ForecastMode): SeriesRun {
   const limit = core.overdraftLimit;
   const from = level1.lap.forecastStart;
   const to = level1.lap.end;
@@ -253,6 +255,7 @@ export function computeForecast(state: GameState, options: ForecastOptions = {},
 
   for (const date of dateRange(from, to)) {
     const today = sameDayOrder(txs.filter((t) => t.date === date));
+    const openingBalance = balance;
     for (const t of today) {
       balance += t.amount;
       if (crash === null && balance < -limit) {
@@ -260,33 +263,75 @@ export function computeForecast(state: GameState, options: ForecastOptions = {},
       }
     }
     const counterfactual = crash !== null && date > crash.date;
-    points.push({ date, balance, transactions: today, counterfactual });
+    const inflow = today.reduce((sum, t) => (t.amount > 0 ? sum + t.amount : sum), 0);
+    const outflow = today.reduce((sum, t) => (t.amount < 0 ? sum + t.amount : sum), 0);
+    points.push({
+      date,
+      balance,
+      transactions: today,
+      counterfactual,
+      week: weekOf(date),
+      openingBalance,
+      inflow,
+      outflow,
+      change: balance - openingBalance,
+    });
     // The lap stops at a crash: interest counts real days only (through the crash date), never counterfactual ones.
     if (!counterfactual) interestBase += Math.max(0, -balance);
   }
 
-  const lapPoints = points.filter((p) => p.date >= level1.lap.start);
-  const endBalance = points[points.length - 1].balance;
   const weekEnds: WeekEndBalance[] = level1.weeks.map((w) => {
     const p = points.find((pt) => pt.date === w.end);
     const stopped = crash !== null && crash.date <= w.end;
     return { week: w.week, date: w.end, balance: stopped || !p ? null : p.balance };
   });
 
-  return {
-    from,
-    to,
+  const series: CashFlowSeries = {
     points,
     weekEnds,
     crash,
-    low: crash ? null : lowest(lapPoints),
+    minimum: seriesMinimum(points),
+    endBalance: points[points.length - 1].balance,
+    overdraftLimit: limit,
+    afterLap: txs.filter((t) => t.date > to),
+  };
+  return { series, interestBase };
+}
+
+/**
+ * Daily forecast 21 XI 2026 … 10 I 2027 from the opening balance. Post-crash points are counterfactual.
+ * E-07 adds the Cash Flow drilldown: the „Bez działania” baseline (same state, no card), the comparison
+ * against it, the „Zadania” list and the transactions after the lap.
+ * `mode.groundTruth` is for the settlement only (see `OverlayContext`).
+ */
+export function computeForecast(state: GameState, options: ForecastOptions = {}, mode: ForecastMode = {}): Forecast {
+  const core = state.core;
+  const { series: committed, interestBase } = runSeries(core, options, mode);
+  // Without a played card the forecast is its own baseline.
+  const base = core.played.length === 0 ? committed : runSeries(baselineCore(core), options, mode).series;
+  const { points, crash, endBalance } = committed;
+  const limit = core.overdraftLimit;
+
+  return {
+    from: level1.lap.forecastStart,
+    to: level1.lap.end,
+    points,
+    weekEnds: committed.weekEnds,
+    crash,
+    low: crash ? null : lowest(points),
     endBalance: crash ? null : endBalance,
-    counterfactual: crash ? { low: lowest(lapPoints), endBalance } : null,
+    counterfactual: crash ? { low: lowest(points), endBalance } : null,
     overdraftLimit: limit,
     overdraftInterest:
       limit > 0
         ? Math.round((interestBase * level1.rules.overdraftInterestRatePerYear) / level1.rules.daysInYear)
         : 0,
     runwayDays: Math.floor(Math.max(0, core.balance) / level1.rules.runwayDailyCost),
+    minimum: committed.minimum,
+    committedCards: core.played.map((p) => p.cardId),
+    baseline: base,
+    vsBaseline: compareSeries(base, committed),
+    tasks: buildTasks(points, crash, settledThrough(core)),
+    afterLap: committed.afterLap,
   };
 }

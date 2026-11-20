@@ -2,7 +2,7 @@
 // (and GAME-DESIGN.md §6.2, §6.5), never computed by the engine and pasted back.
 import { describe, expect, it } from "vitest";
 import { gameData } from "./data";
-import type { CardId, EngineEvent, EventChoiceId, EventId, GameState } from "./index";
+import type { CardId, EngineEvent, EventChoiceId, EventId, Forecast, GameState } from "./index";
 import {
   RuleError,
   createGame,
@@ -14,6 +14,14 @@ import {
   resolveWeek,
   rewind,
 } from "./index";
+
+/** The committed part of a forecast, without the E-07 no-card baseline and its comparison. */
+function committedView(f: Forecast): Omit<Forecast, "baseline" | "vsBaseline"> {
+  const { baseline, vsBaseline, ...rest } = f;
+  void baseline;
+  void vsBaseline;
+  return rest;
+}
 
 function errorCode(fn: () => unknown): string | null {
   try {
@@ -150,8 +158,12 @@ describe("E-04 event deck (ENGINE-DATA-AND-TESTS §7.3)", () => {
       expect(s.core.invoiceState).not.toBe("pending");
       expect(getCurrentEvent(s)?.id).toBe("E6");
       const resolved = resolveEvent(s, "acknowledge");
-      expect(forecast(resolved)).toEqual(forecast(s));
-      expect(forecast(resolved, { includeFutureEvents: false })).toEqual(forecast(s, { includeFutureEvents: false }));
+      // The committed forecast is unchanged. The E-07 „Bez działania” baseline (no card, so INV-A1
+      // pending) does see the delay once E6 is resolved, so it is left out of the comparison.
+      expect(committedView(forecast(resolved))).toEqual(committedView(forecast(s)));
+      expect(committedView(forecast(resolved, { includeFutureEvents: false }))).toEqual(
+        committedView(forecast(s, { includeFutureEvents: false })),
+      );
       expect(s.emitted).toContainEqual({ type: "lateClient", week: 6, eventId: "E6", newDate: null });
     }
   });
