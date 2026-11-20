@@ -249,3 +249,80 @@ describe("E-04 seeded deck, conditions and narration signals", () => {
     expect(s).toEqual(copy);
   });
 });
+
+describe("D-18 fraudRevealed (ENGINE-DATA-AND-TESTS §6)", () => {
+  // From the specification: the reveal is on 23 XII (D-18, §6), which lies in T5 = 21–27 XII (§1);
+  // the reported payment is L08, −35 700 on 22 XII (ET-F04).
+  const revealDate = "2026-12-23";
+  const revealWeek = 5;
+  const expected: EngineEvent = { type: "fraudRevealed", week: 5, eventId: "E1", ledgerId: "L08", amount: -35700, date: revealDate };
+
+  /** Settle from `s` to the end of the lap; returns every week's resolution events keyed by week. */
+  function settleFrom(start: GameState, choices: Partial<Record<EventId, EventChoiceId>>, plays: Partial<Record<number, CardId>> = {}) {
+    let s = start;
+    const byWeek: Partial<Record<number, EngineEvent[]>> = {};
+    while (s.core.status === "playing") {
+      const ev = getCurrentEvent(s);
+      if (ev) s = resolveEvent(s, choices[ev.id] ?? safe[ev.id]);
+      const card = plays[s.core.week];
+      if (card) s = playCard(s, card);
+      const r = resolveWeek(s);
+      expect(r.state.emitted).toEqual(r.events);
+      byWeek[r.week] = r.events;
+      s = r.state;
+    }
+    return { state: s, byWeek };
+  }
+
+  function fraudEvents(byWeek: Partial<Record<number, EngineEvent[]>>): { week: number; e: EngineEvent }[] {
+    return Object.entries(byWeek).flatMap(([w, es]) => (es ?? []).filter((e) => e.type === "fraudRevealed").map((e) => ({ week: Number(w), e })));
+  }
+
+  it("the reveal date and payment in the data match the specification", () => {
+    const e1 = gameData.level1.events.find((e) => e.id === "E1");
+    const reveal = e1?.choices.find((c) => c.id === "pay_as_is")?.effects.find((x) => x.type === "reveal");
+    expect(reveal).toEqual({ type: "reveal", date: revealDate, what: "fraud", ledgerId: "L08" });
+    const week = gameData.level1.weeks.find((w) => w.start <= revealDate && revealDate <= w.end);
+    expect(week?.week).toBe(revealWeek);
+  });
+
+  it("E1 pay_as_is + C1 (survives T5): fraudRevealed exactly once, in the T5 resolution, before the 8 I crash", () => {
+    const { state, byWeek } = settleFrom(createGame("demo"), { E1: "pay_as_is" }, { 1: "C1" });
+    expect(fraudEvents(byWeek)).toEqual([{ week: revealWeek, e: expected }]);
+    // ET-E02: the lap still crashes on 8 I at E1, short 25 715.
+    expect(state.core.crash).toMatchObject({ date: "2027-01-08", transactionId: "E1", shortfall: 25715 });
+  });
+
+  it("E1 pay_as_is, no card: the lap crashes on 22 XII, before the reveal, so no fraudRevealed", () => {
+    const { state, byWeek } = settleFrom(createGame("demo"), { E1: "pay_as_is" });
+    // ET-E01: crash 22 XII at L08, short 8 095.
+    expect(state.core.crash).toMatchObject({ date: "2026-12-22", transactionId: "L08", shortfall: 8095 });
+    expect(fraudEvents(byWeek)).toEqual([]);
+    expect(byWeek[revealWeek]?.map((e) => e.type)).toEqual(["crash"]);
+  });
+
+  it("E1 check and call: never fraudRevealed", () => {
+    for (const plays of [{}, { 1: "C1" as const }, { 1: "C6" as const }]) {
+      const { byWeek } = settleFrom(createGame("demo"), { E1: "check" }, plays);
+      expect(fraudEvents(byWeek)).toEqual([]);
+    }
+  });
+
+  it("E1 pay_as_is + C3: L08 is not paid by 23 XII (moved to 8 I), so there is no payment to report", () => {
+    const { byWeek } = settleFrom(createGame("demo"), { E1: "pay_as_is" }, { 1: "C3" });
+    expect(fraudEvents(byWeek)).toEqual([]);
+  });
+
+  it("rewind before the reveal and replay emits fraudRevealed again; a replay after it does not", () => {
+    const first = settleFrom(createGame("demo"), { E1: "pay_as_is" }, { 1: "C1" });
+    for (const w of [2, 3, 4, 5] as const) {
+      const replay = settleFrom(rewind(first.state, w), { E1: "pay_as_is" });
+      expect(fraudEvents(replay.byWeek)).toEqual([{ week: revealWeek, e: expected }]);
+    }
+    const after = settleFrom(rewind(first.state, 6), { E1: "pay_as_is" });
+    expect(fraudEvents(after.byWeek)).toEqual([]);
+    // Rewind to 1 and a different choice (check and call): no reveal.
+    const changed = settleFrom(rewind(first.state, 1), { E1: "check" }, { 1: "C1" });
+    expect(fraudEvents(changed.byWeek)).toEqual([]);
+  });
+});

@@ -357,6 +357,7 @@ export const EngineEventTypeSchema = z.enum([
   "negotiationOpen",
   "lateClient",
   "loanOffered",
+  "fraudRevealed",
   "goodMove",
   "crash",
   "quietWeek",

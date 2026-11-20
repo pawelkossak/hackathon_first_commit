@@ -228,7 +228,8 @@ describe("rewind, seed and reset (E-05)", () => {
       expect(getCurrentEvent(back)).toEqual(getCurrentEvent(start));
     }
     // Narration signals of the restored week's card (E-04): E2 bigProject, E5 loanOffered, E6 lateClient.
-    expect(rewind(lap.state, 1).emitted).toEqual([]);
+    // D-18: a rewind to week 1 starts the lap again and greets with lapStart (E1 itself has no signal).
+    expect(rewind(lap.state, 1).emitted).toEqual([{ type: "lapStart", week: 1 }]);
     expect(rewind(lap.state, 2).emitted).toEqual([{ type: "bigProject", week: 2, eventId: "E2" }]);
     expect(rewind(lap.state, 3).emitted).toEqual([]);
     const noCard = playLap();
@@ -236,6 +237,20 @@ describe("rewind, seed and reset (E-05)", () => {
     expect(rewind(lap.state, 6).emitted).toEqual([{ type: "lateClient", week: 6, eventId: "E6", newDate: "2027-01-22" }]);
     const factored = playLap({ 1: "C6" });
     expect(rewind(factored.state, 6).emitted).toEqual([{ type: "lateClient", week: 6, eventId: "E6", newDate: null }]);
+  });
+
+  it("D-18 rewind to week 1 emits lapStart from every status; other weeks never do", () => {
+    const crashed = playLap();
+    expect(crashed.state.core.status).toBe("crashed");
+    const won = playLap({ 1: "C1" });
+    expect(won.state.core.status).toBe("completed");
+    const midLap = resolveWeek(resolveEvent(createGame(), "check")).state;
+    for (const s of [crashed.state, won.state, midLap, createGame()]) {
+      expect(rewind(s, 1).emitted).toEqual([{ type: "lapStart", week: 1 }]);
+    }
+    for (const w of [2, 3, 4, 5, 6, 7] as const) {
+      expect(rewind(won.state, w).emitted.some((e) => e.type === "lapStart")).toBe(false);
+    }
   });
 
   it("rewind drops later snapshots, rejects weeks not reached and invalid weeks", () => {

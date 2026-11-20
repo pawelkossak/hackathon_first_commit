@@ -311,6 +311,11 @@ export type EngineEvent =
   | { type: "negotiationOpen"; week: WeekNumber; agent: AgentId }
   | { type: "lateClient"; week: WeekNumber; eventId: "E6"; newDate: IsoDate | null }
   | { type: "loanOffered"; week: WeekNumber; via: "E5" | "C5_preview" }
+  /**
+   * D-18: the payment to the changed account (E1 „Zapłać jak jest”) is reported as fraud.
+   * `ledgerId`/`amount` are the booked ledger row (signed, outflow < 0), `date` the reveal date.
+   */
+  | { type: "fraudRevealed"; week: WeekNumber; eventId: EventId; ledgerId: LedgerId; amount: Pln; date: IsoDate }
   | { type: "goodMove"; week: WeekNumber; cardId: CardId }
   | { type: "crash"; week: WeekNumber; crash: Crash }
   | { type: "quietWeek"; week: WeekNumber }
