@@ -7,6 +7,7 @@ import { WorldRoute } from "@/components/scenes/WorldRoute";
 import { CardHand } from "@/components/play/CardHand";
 import { EventCard } from "@/components/play/EventCard";
 import { WeekResolutionModal } from "@/components/play/WeekResolutionModal";
+import { CashFlowPanel } from "@/components/play/CashFlowPanel";
 
 interface PageProps {
   searchParams?: Promise<{ seed?: string; resume?: string }>;
@@ -21,11 +22,19 @@ function GameLevel1Content(props: PageProps) {
   const forecast = useGameStore((s) => s.getForecast());
   const init = useGameStore((s) => s.init);
 
+  const [cashFlowOpen, setCashFlowOpen] = React.useState(false);
+  const [drilldownWeek, setDrilldownWeek] = React.useState<number | null>(null);
+
   useEffect(() => {
     if (searchParams?.seed) {
       init(searchParams.seed);
     }
   }, [searchParams?.seed, init]);
+
+  const handleOpenCashFlow = (week?: number) => {
+    setDrilldownWeek(week ?? null);
+    setCashFlowOpen(true);
+  };
 
   const currentEvent = getCurrentEvent();
   const { core } = state;
@@ -44,10 +53,10 @@ function GameLevel1Content(props: PageProps) {
       )}
 
       {/* HUD (G10): Gotówka 38 000 zł, Paliwo 42 dni, Odporność —, Relacje 5/5, Koszt pieniądza 0 zł, Dane syntetyczne */}
-      <Hud />
+      <Hud onOpenCashFlow={() => handleOpenCashFlow()} />
 
       {/* World Route Board (G10): 7 week nodes + finish 10 I, markers 25 XI, 21 XII, 28 XII, storm on 28 XII, plane */}
-      <WorldRoute />
+      <WorldRoute onSelectWeekNode={(w) => handleOpenCashFlow(w)} />
 
       {/* Storm warning / Forecast insight (GM-01: Storm 28 XII -12 395 zł) */}
       {forecast.crash && (
@@ -108,6 +117,13 @@ function GameLevel1Content(props: PageProps) {
 
       {/* Week Resolution Modal (G17) */}
       <WeekResolutionModal />
+
+      {/* Cash Flow Drilldown Panel (G12/G30/G32) */}
+      <CashFlowPanel
+        isOpen={cashFlowOpen}
+        onClose={() => setCashFlowOpen(false)}
+        initialWeek={drilldownWeek}
+      />
     </div>
   );
 }
