@@ -21,3 +21,11 @@ export {
   ReturnBanner,
   type ReturnBannerProps,
 } from "./ReturnBanner";
+export {
+  CfoAdvisor,
+  type CfoAdvisorProps,
+} from "./CfoAdvisor";
+export {
+  BankAdvisorAndLoanReveal,
+  type BankAdvisorAndLoanRevealProps,
+} from "./BankAdvisorAndLoanReveal";
