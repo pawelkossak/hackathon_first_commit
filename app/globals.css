@@ -41,6 +41,37 @@ body {
   -webkit-font-smoothing: antialiased;
 }
 
+/* Motion & Transitions (U-17 / design/tokens.json) */
+@keyframes plane-float {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-4px);
+  }
+}
+
+@keyframes storm-glow {
+  0%, 100% {
+    opacity: 0.85;
+    filter: drop-shadow(0 0 6px rgba(168, 85, 247, 0.4));
+  }
+  50% {
+    opacity: 1;
+    filter: drop-shadow(0 0 14px rgba(168, 85, 247, 0.8));
+  }
+}
+
+.animate-plane-float {
+  animation: plane-float 2.4s ease-in-out infinite;
+  will-change: transform;
+}
+
+.animate-storm-glow {
+  animation: storm-glow 2s ease-in-out infinite;
+  will-change: opacity, filter;
+}
+
 /* Accessibility: Reduced motion query */
 @media (prefers-reduced-motion: reduce) {
   *,
@@ -50,6 +81,13 @@ body {
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
     scroll-behavior: auto !important;
+  }
+  .animate-plane-float,
+  .animate-storm-glow,
+  .animate-pulse,
+  .animate-bounce,
+  .animate-ping {
+    animation: none !important;
   }
 }
 

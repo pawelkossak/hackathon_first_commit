@@ -84,7 +84,7 @@ export function WorldRoute({ onSelectWeekNode, className = "" }: WorldRouteProps
                 {isCurrent && (
                   <div
                     data-testid="plane-marker"
-                    className="absolute -top-10 flex flex-col items-center animate-bounce"
+                    className="absolute -top-10 flex flex-col items-center animate-plane-float"
                   >
                     <div className="bg-emerald-500 text-slate-950 text-[10px] font-black px-2 py-0.5 rounded-full shadow-lg whitespace-nowrap">
                       Twój samolot
@@ -97,7 +97,7 @@ export function WorldRoute({ onSelectWeekNode, className = "" }: WorldRouteProps
                 {isWeek6 && (
                   <div
                     data-testid="route-storm-badge"
-                    className="absolute -top-12 flex flex-col items-center z-20"
+                    className="absolute -top-12 flex flex-col items-center z-20 animate-storm-glow"
                   >
                     <div className="bg-purple-900 border border-purple-500 text-purple-100 text-[11px] font-mono font-bold px-2.5 py-1 rounded-xl shadow-xl whitespace-nowrap flex items-center gap-1.5">
                       <span>⚡</span>
