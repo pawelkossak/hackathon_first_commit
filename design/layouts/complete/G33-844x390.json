@@ -1,0 +1,68 @@
+{
+  "screen": "G33",
+  "viewport": {
+    "width": 844,
+    "height": 390
+  },
+  "boxes": [
+    {
+      "name": "inbox",
+      "x": 290,
+      "y": 64,
+      "width": 530,
+      "height": 306,
+      "interactive": false,
+      "layer": 50
+    },
+    {
+      "name": "close",
+      "x": 760,
+      "y": 72,
+      "width": 44,
+      "height": 44,
+      "interactive": true,
+      "layer": 50
+    },
+    {
+      "name": "message-1",
+      "x": 306,
+      "y": 150,
+      "width": 498,
+      "height": 90,
+      "interactive": true,
+      "layer": 50
+    },
+    {
+      "name": "message-2",
+      "x": 306,
+      "y": 248,
+      "width": 498,
+      "height": 90,
+      "interactive": true,
+      "layer": 50
+    },
+    {
+      "name": "narrator",
+      "x": 32,
+      "y": 136,
+      "width": 226,
+      "height": 216,
+      "interactive": false,
+      "sprite": "boss.female.welcoming",
+      "maleSprite": "boss.male.welcoming",
+      "layer": 30
+    }
+  ],
+  "origin": "notifications/layout-specs.json",
+  "referenceSvg": "notifications/G33-inbox-844x390.svg",
+  "title": "Twoja poczta",
+  "template": "notification",
+  "surface": "game",
+  "states": [
+    "empty",
+    "unread",
+    "read",
+    "stale-item"
+  ],
+  "textMode": "Livecopybindings;previewtextnotfinancialtruth"
+}

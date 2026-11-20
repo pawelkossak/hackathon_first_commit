@@ -1,0 +1,529 @@
+{
+  "format": "offline-recording-plan/v1",
+  "speaker": "narrator-male",
+  "voiceId": "u3Dnxmjtuw3QrXOthMi5",
+  "model": "eleven_v4",
+  "status": "casting",
+  "lines": [
+    {
+      "id": "intro.owner",
+      "scene": "G05",
+      "speaker": "narrator-male",
+      "playerGender": "female",
+      "emotion": "welcoming",
+      "text": "Jestem właścicielem tego studia. Mam klientów, dobre pomysły i kawę na trzy dni. Z pieniędzmi bywa różnie.",
+      "acted": "[warmly, playful] Jestem właścicielem tego studia. Mam klientów, dobre pomysły i kawę na trzy dni. Z pieniędzmi bywa różnie.",
+      "status": "planned"
+    },
+    {
+      "id": "intro.role",
+      "scene": "G05",
+      "speaker": "narrator-male",
+      "playerGender": "female",
+      "emotion": "welcoming",
+      "text": "Zaprosiłem Cię, żeby pomóc przeprowadzić moje studio przez grudzień. Nie szukam pracownika. Szukam dobrego kursu.",
+      "acted": "[warmly, playful] Zaprosiłem Cię, żeby pomóc przeprowadzić moje studio przez grudzień. Nie szukam pracownika. Szukam dobrego kursu.",
+      "status": "planned"
+    },
+    {
+      "id": "intro.goal",
+      "scene": "G07",
+      "speaker": "narrator-male",
+      "playerGender": "female",
+      "emotion": "confident",
+      "text": "Przeprowadź firmę przez grudzień, zanim faktury zaczną gryźć.",
+      "acted": "[confident] Przeprowadź firmę przez grudzień, zanim faktury zaczną gryźć.",
+      "status": "planned"
+    },
+    {
+      "id": "intro.practice",
+      "scene": "G08",
+      "speaker": "narrator-male",
+      "playerGender": "female",
+      "emotion": "confident",
+      "text": "Negocjuj, sprawdzaj skutki i cofaj czas. Tutaj błędy można przećwiczyć.",
+      "acted": "[confident] Negocjuj, sprawdzaj skutki i cofaj czas. Tutaj błędy można przećwiczyć.",
+      "status": "planned"
+    },
+    {
+      "id": "map.start",
+      "scene": "G09",
+      "speaker": "narrator-male",
+      "playerGender": "female",
+      "emotion": "excited",
+      "text": "Pilnuj płatności, negocjuj terminy i dbaj o relacje. Firma jest moja, ale kurs wybieramy razem.",
+      "acted": "[excited] Pilnuj płatności, negocjuj terminy i dbaj o relacje. Firma jest moja, ale kurs wybieramy razem.",
+      "status": "planned"
+    },
+    {
+      "id": "mission.storm",
+      "scene": "G10",
+      "speaker": "narrator-male",
+      "playerGender": "female",
+      "emotion": "suspicious",
+      "text": "Grudzień ma dla nas kilka niespodzianek. Sprawdź na trasie, kiedy przelew może nie wystartować. Ja w tym czasie... zaparzę mocniejszą kawę.",
+      "acted": "[skeptical, curious] Grudzień ma dla nas kilka niespodzianek. Sprawdź na trasie, kiedy przelew może nie wystartować. Ja w tym czasie... zaparzę mocniejszą kawę.",
+      "status": "planned"
+    },
+    {
+      "id": "event.account",
+      "scene": "G11",
+      "speaker": "narrator-male",
+      "playerGender": "female",
+      "emotion": "suspicious",
+      "text": "Faktura na trzydzieści pięć tysięcy siedemset złotych ma inny numer konta niż zwykle.",
+      "acted": "[skeptical, curious] Faktura na trzydzieści pięć tysięcy siedemset złotych ma inny numer konta niż zwykle.",
+      "status": "planned"
+    },
+    {
+      "id": "event.account.joke",
+      "scene": "G11",
+      "speaker": "narrator-male",
+      "playerGender": "female",
+      "emotion": "suspicious",
+      "text": "Faktura ta sama. Konto jakby po liftingu.",
+      "acted": "[skeptical, curious] Faktura ta sama. Konto jakby po liftingu.",
+      "status": "planned"
+    },
+    {
+      "id": "event.account.safe",
+      "scene": "G11",
+      "speaker": "narrator-male",
+      "playerGender": "female",
+      "emotion": "proud",
+      "text": "Sprawdzone! Tak się robi bezpieczne przelewy. Podejrzliwość czasem świetnie się opłaca.",
+      "acted": "[delighted] Sprawdzone! Tak się robi bezpieczne przelewy. Podejrzliwość czasem świetnie się opłaca.",
+      "status": "planned"
+    },
+    {
+      "id": "advance.joke",
+      "scene": "G13",
+      "speaker": "narrator-male",
+      "playerGender": "female",
+      "emotion": "confident",
+      "text": "Podobno o pieniądzach się nie rozmawia. Na szczęście prowadzimy firmę.",
+      "acted": "[confident] Podobno o pieniądzach się nie rozmawia. Na szczęście prowadzimy firmę.",
+      "status": "planned"
+    },
+    {
+      "id": "advance.confirmed",
+      "scene": "G14",
+      "speaker": "narrator-male",
+      "playerGender": "female",
+      "emotion": "proud",
+      "text": "Mamy zaliczkę! Piętnaście tysięcy złotych do trzeciego grudnia. Teraz to jest kurs!",
+      "acted": "[delighted] Mamy zaliczkę! Piętnaście tysięcy złotych do trzeciego grudnia. Teraz to jest kurs!",
+      "status": "planned"
+    },
+    {
+      "id": "move.praise",
+      "scene": "G14",
+      "speaker": "narrator-male",
+      "playerGender": "female",
+      "emotion": "proud",
+      "text": "Świetny manewr. Poradziłaś sobie z tym jak trzeba.",
+      "acted": "[delighted] Świetny manewr. Poradziłaś sobie z tym jak trzeba.",
+      "status": "planned"
+    },
+    {
+      "id": "cashflow.explain",
+      "scene": "G30",
+      "speaker": "narrator-male",
+      "playerGender": "female",
+      "emotion": "confident",
+      "text": "Tu widać, co zrobią nasze pieniądze. Porównaj prognozę bez działania z wybraną decyzją. Same faktury nie utrzymają nas w powietrzu.",
+      "acted": "[confident] Tu widać, co zrobią nasze pieniądze. Porównaj prognozę bez działania z wybraną decyzją. Same faktury nie utrzymają nas w powietrzu.",
+      "status": "planned"
+    },
+    {
+      "id": "cashflow.joke",
+      "scene": "G12",
+      "speaker": "narrator-male",
+      "playerGender": "female",
+      "emotion": "relaxed",
+      "text": "To nie rollercoaster. To nasze przelewy.",
+      "acted": "[relaxed, amused] To nie rollercoaster. To nasze przelewy.",
+      "status": "planned"
+    },
+    {
+      "id": "event.order",
+      "scene": "G11",
+      "speaker": "narrator-male",
+      "playerGender": "female",
+      "emotion": "curious",
+      "text": "Nowe zlecenie: sześć tysięcy złotych netto. Podwykonawca potrzebuje trzech tysięcy już czternastego grudnia. Klient zapłaci pod koniec stycznia. Ładny zysk. Tylko za co wystartujemy?",
+      "acted": "[curious] Nowe zlecenie: sześć tysięcy złotych netto. Podwykonawca potrzebuje trzech tysięcy już czternastego grudnia. Klient zapłaci pod koniec stycznia. Ładny zysk. Tylko za co wystartujemy?",
+      "status": "planned"
+    },
+    {
+      "id": "event.tool",
+      "scene": "G11",
+      "speaker": "narrator-male",
+      "playerGender": "female",
+      "emotion": "curious",
+      "text": "Czterysta złotych miesięcznie. Około ośmiu godzin pracy mniej. Brzmi świetnie. Tylko czy właśnie teraz mamy na to paliwo?",
+      "acted": "[curious] Czterysta złotych miesięcznie. Około ośmiu godzin pracy mniej. Brzmi świetnie. Tylko czy właśnie teraz mamy na to paliwo?",
+      "status": "planned"
+    },
+    {
+      "id": "event.late",
+      "scene": "G11",
+      "speaker": "narrator-male",
+      "playerGender": "female",
+      "emotion": "exasperated",
+      "text": "Klient znowu gra na czas. Sprawdź, czy nasza wcześniejsza decyzja już zabezpieczyła tę fakturę. Ja w tym czasie policzę do dziesięciu.",
+      "acted": "[exasperated] Klient znowu gra na czas. Sprawdź, czy nasza wcześniejsza decyzja już zabezpieczyła tę fakturę. Ja w tym czasie policzę do dziesięciu.",
+      "status": "planned"
+    },
+    {
+      "id": "client.late.joke",
+      "scene": "G11",
+      "speaker": "narrator-male",
+      "playerGender": "female",
+      "emotion": "exasperated",
+      "text": "Klient zapewnia, że przelew już wyszedł. Chyba pieszo.",
+      "acted": "[exasperated] Klient zapewnia, że przelew już wyszedł. Chyba pieszo.",
+      "status": "planned"
+    },
+    {
+      "id": "loan.source",
+      "scene": "G16",
+      "speaker": "narrator-male",
+      "playerGender": "female",
+      "emotion": "suspicious",
+      "text": "To oferta pozabankowa z SMS-a. Doradca banku proponuje wyłącznie limit w koncie.",
+      "acted": "[skeptical, curious] To oferta pozabankowa z SMS-a. Doradca banku proponuje wyłącznie limit w koncie.",
+      "status": "planned"
+    },
+    {
+      "id": "loan.repayment",
+      "scene": "G16",
+      "speaker": "narrator-male",
+      "playerGender": "female",
+      "emotion": "suspicious",
+      "text": "piętnaście tysięcy złotych teraz. siedemnaście tysięcy czterysta złotych do oddania do dwudziestego stycznia.",
+      "acted": "[skeptical, curious] piętnaście tysięcy złotych teraz. siedemnaście tysięcy czterysta złotych do oddania do dwudziestego stycznia.",
+      "status": "planned"
+    },
+    {
+      "id": "loan.joke",
+      "scene": "G16",
+      "speaker": "narrator-male",
+      "playerGender": "female",
+      "emotion": "suspicious",
+      "text": "Szybko to ja robię kawę. Sprawdźmy koszt.",
+      "acted": "[skeptical, curious] Szybko to ja robię kawę. Sprawdźmy koszt.",
+      "status": "planned"
+    },
+    {
+      "id": "loan.cost",
+      "scene": "G16",
+      "speaker": "narrator-male",
+      "playerGender": "female",
+      "emotion": "confident",
+      "text": "Koszt wynosi dwa tysiące czterysta złotych. To szacunek w scenariuszu demonstracyjnym.",
+      "acted": "[confident] Koszt wynosi dwa tysiące czterysta złotych. To szacunek w scenariuszu demonstracyjnym.",
+      "status": "planned"
+    },
+    {
+      "id": "hint.options",
+      "scene": "G15",
+      "speaker": "narrator-male",
+      "playerGender": "female",
+      "emotion": "confident",
+      "text": "Sprawdźmy, co zdąży zadziałać przed płatnością. Porównanie pokazuje najtańsze dostępne rozwiązania. Ten kalendarz da się jeszcze przechytrzyć.",
+      "acted": "[confident] Sprawdźmy, co zdąży zadziałać przed płatnością. Porównanie pokazuje najtańsze dostępne rozwiązania. Ten kalendarz da się jeszcze przechytrzyć.",
+      "status": "planned"
+    },
+    {
+      "id": "week.report",
+      "scene": "G17",
+      "speaker": "narrator-male",
+      "playerGender": "female",
+      "emotion": "relaxed",
+      "text": "Podatek od towarów i usług został zapłacony na czas. Rachunek oddycha, ale patrzmy dalej niż dzisiejsze saldo.",
+      "acted": "[relaxed, amused] Podatek od towarów i usług został zapłacony na czas. Rachunek oddycha, ale patrzmy dalej niż dzisiejsze saldo.",
+      "status": "planned"
+    },
+    {
+      "id": "week.quiet",
+      "scene": "G17",
+      "speaker": "narrator-male",
+      "playerGender": "female",
+      "emotion": "relaxed",
+      "text": "Nic nie wybuchło. W biznesie to też jest wiadomość.",
+      "acted": "[relaxed, amused] Nic nie wybuchło. W biznesie to też jest wiadomość.",
+      "status": "planned"
+    },
+    {
+      "id": "turn.travel",
+      "scene": "G26",
+      "speaker": "narrator-male",
+      "playerGender": "female",
+      "emotion": "confident",
+      "text": "Proszę zapiąć terminy płatności.",
+      "acted": "[confident] Proszę zapiąć terminy płatności.",
+      "status": "planned"
+    },
+    {
+      "id": "success.joke",
+      "scene": "G18",
+      "speaker": "narrator-male",
+      "playerGender": "female",
+      "emotion": "proud",
+      "text": "Można spać. Najpierw zapiszmy, co zadziałało.",
+      "acted": "[delighted] Można spać. Najpierw zapiszmy, co zadziałało.",
+      "status": "planned"
+    },
+    {
+      "id": "success.avoided",
+      "scene": "G18",
+      "speaker": "narrator-male",
+      "playerGender": "female",
+      "emotion": "proud",
+      "text": "Grudzień za nami! Teraz porównaj koszt naszego manewru z pożyczką. Liczby też zasługują na szczęśliwe zakończenie.",
+      "acted": "[delighted] Grudzień za nami! Teraz porównaj koszt naszego manewru z pożyczką. Liczby też zasługują na szczęśliwe zakończenie.",
+      "status": "planned"
+    },
+    {
+      "id": "success.pending",
+      "scene": "G18",
+      "speaker": "narrator-male",
+      "playerGender": "female",
+      "emotion": "confident",
+      "text": "Sprawdź wynik. Każda gwiazdka ma tu konkretny powód. A dobry manewr warto zapisać.",
+      "acted": "[confident] Sprawdź wynik. Każda gwiazdka ma tu konkretny powód. A dobry manewr warto zapisać.",
+      "status": "planned"
+    },
+    {
+      "id": "failure.cause",
+      "scene": "G19",
+      "speaker": "narrator-male",
+      "playerGender": "female",
+      "emotion": "exasperated",
+      "text": "Przelew odrzucony. Tego właśnie chciałem uniknąć. Sprawdź, kiedy zabrakło pieniędzy i ile. Spokojnie... mamy pokrętło czasu.",
+      "acted": "[exasperated] Przelew odrzucony. Tego właśnie chciałem uniknąć. Sprawdź, kiedy zabrakło pieniędzy i ile. Spokojnie... mamy pokrętło czasu.",
+      "status": "planned"
+    },
+    {
+      "id": "failure.joke",
+      "scene": "G19",
+      "speaker": "narrator-male",
+      "playerGender": "female",
+      "emotion": "exasperated",
+      "text": "Mieliśmy negocjować termin, nie własną upadłość!",
+      "acted": "[exasperated] Mieliśmy negocjować termin, nie własną upadłość!",
+      "status": "planned"
+    },
+    {
+      "id": "failure.support",
+      "scene": "G19",
+      "speaker": "narrator-male",
+      "playerGender": "female",
+      "emotion": "reassuring",
+      "text": "To próba. Cofnijmy się i spróbujmy inaczej.",
+      "acted": "[warmly, encouraging] To próba. Cofnijmy się i spróbujmy inaczej.",
+      "status": "planned"
+    },
+    {
+      "id": "rewind.help",
+      "scene": "G20",
+      "speaker": "narrator-male",
+      "playerGender": "female",
+      "emotion": "reassuring",
+      "text": "Wybierz tydzień, do którego chcesz wrócić. Tym razem kalendarz niech pilnuje się nas.",
+      "acted": "[warmly, encouraging] Wybierz tydzień, do którego chcesz wrócić. Tym razem kalendarz niech pilnuje się nas.",
+      "status": "planned"
+    },
+    {
+      "id": "plan.saved",
+      "scene": "G22",
+      "speaker": "narrator-male",
+      "playerGender": "female",
+      "emotion": "proud",
+      "text": "Plan zapisany. Teraz nasz manewr ma ciąg dalszy!",
+      "acted": "[delighted] Plan zapisany. Teraz nasz manewr ma ciąg dalszy!",
+      "status": "planned"
+    },
+    {
+      "id": "plan.goal",
+      "scene": "G22",
+      "speaker": "narrator-male",
+      "playerGender": "female",
+      "emotion": "confident",
+      "text": "Wybierz decyzję, którą chcesz zapisać jako plan. Kwota i termin są na ekranie. Zobaczymy, jak nasz manewr sprawdzi się na koncie.",
+      "acted": "[confident] Wybierz decyzję, którą chcesz zapisać jako plan. Kwota i termin są na ekranie. Zobaczymy, jak nasz manewr sprawdzi się na koncie.",
+      "status": "planned"
+    },
+    {
+      "id": "plan.met",
+      "scene": "G23",
+      "speaker": "narrator-male",
+      "playerGender": "female",
+      "emotion": "proud",
+      "text": "Plan potwierdzony! Nasza decyzja właśnie spotkała się z kontem. I proszę... jednak można wyprzedzić kalendarz.",
+      "acted": "[delighted] Plan potwierdzony! Nasza decyzja właśnie spotkała się z kontem. I proszę... jednak można wyprzedzić kalendarz.",
+      "status": "planned"
+    },
+    {
+      "id": "plan.missed",
+      "scene": "G23",
+      "speaker": "narrator-male",
+      "playerGender": "female",
+      "emotion": "reassuring",
+      "text": "Plan potrzebuje poprawki. Zobacz szczegóły na koncie. Dobra wiadomość? Nadal uczymy się tutaj, zanim będzie naprawdę gorąco.",
+      "acted": "[warmly, encouraging] Plan potrzebuje poprawki. Zobacz szczegóły na koncie. Dobra wiadomość? Nadal uczymy się tutaj, zanim będzie naprawdę gorąco.",
+      "status": "planned"
+    },
+    {
+      "id": "close.pitch",
+      "scene": "G23",
+      "speaker": "narrator-male",
+      "playerGender": "female",
+      "emotion": "proud",
+      "text": "Przeszliśmy grudzień w grze, zanim przeszliśmy go na koncie.",
+      "acted": "[delighted] Przeszliśmy grudzień w grze, zanim przeszliśmy go na koncie.",
+      "status": "planned"
+    },
+    {
+      "id": "factoring.joke",
+      "scene": "G29",
+      "speaker": "narrator-male",
+      "playerGender": "female",
+      "emotion": "confident",
+      "text": "Faktura ma termin. My mamy poniedziałek.",
+      "acted": "[confident] Faktura ma termin. My mamy poniedziałek.",
+      "status": "planned"
+    },
+    {
+      "id": "factoring.fee",
+      "scene": "G29",
+      "speaker": "narrator-male",
+      "playerGender": "female",
+      "emotion": "confident",
+      "text": "Koszt scenariusza: trzysta cztery złote",
+      "acted": "[confident] Koszt scenariusza: trzysta cztery złote",
+      "status": "planned"
+    },
+    {
+      "id": "factoring.receipt",
+      "scene": "G29",
+      "speaker": "narrator-male",
+      "playerGender": "female",
+      "emotion": "confident",
+      "text": "Wpływ: dziewiętnaście tysięcy dziewięćset dziewięćdziesiąt jeden złotych",
+      "acted": "[confident] Wpływ: dziewiętnaście tysięcy dziewięćset dziewięćdziesiąt jeden złotych",
+      "status": "planned"
+    },
+    {
+      "id": "factoring.low",
+      "scene": "G32",
+      "speaker": "narrator-male",
+      "playerGender": "female",
+      "emotion": "confident",
+      "text": "Zobacz, jak finansowanie faktury zmienia najniższe saldo. I koniecznie porównaj koszt z pozostałymi manewrami.",
+      "acted": "[confident] Zobacz, jak finansowanie faktury zmienia najniższe saldo. I koniecznie porównaj koszt z pozostałymi manewrami.",
+      "status": "planned"
+    },
+    {
+      "id": "compare.ethics",
+      "scene": "G31",
+      "speaker": "narrator-male",
+      "playerGender": "female",
+      "emotion": "confident",
+      "text": "Szybciej nie zawsze znaczy taniej. Policzmy.",
+      "acted": "[confident] Szybciej nie zawsze znaczy taniej. Policzmy.",
+      "status": "planned"
+    },
+    {
+      "id": "loader.start",
+      "scene": "G25",
+      "speaker": "narrator-male",
+      "playerGender": "female",
+      "emotion": "relaxed",
+      "text": "Szef szuka kalkulatora. Kot wie, gdzie jest.",
+      "acted": "[relaxed, amused] Szef szuka kalkulatora. Kot wie, gdzie jest.",
+      "status": "planned"
+    },
+    {
+      "id": "offline.joke",
+      "scene": "G28",
+      "speaker": "narrator-male",
+      "playerGender": "female",
+      "emotion": "reassuring",
+      "text": "Internet poszedł po kawę.",
+      "acted": "[warmly, encouraging] Internet poszedł po kawę.",
+      "status": "planned"
+    },
+    {
+      "id": "logout.goodbye",
+      "scene": "G04",
+      "speaker": "narrator-male",
+      "playerGender": "female",
+      "emotion": "relaxed",
+      "text": "Do zobaczenia na kolejnej turze!",
+      "acted": "[relaxed, amused] Do zobaczenia na kolejnej turze!",
+      "status": "planned"
+    },
+    {
+      "id": "move.praise",
+      "scene": "G14",
+      "speaker": "narrator-male",
+      "playerGender": "male",
+      "emotion": "proud",
+      "text": "Świetny manewr. Poradziłeś sobie z tym jak trzeba.",
+      "acted": "[delighted] Świetny manewr. Poradziłeś sobie z tym jak trzeba.",
+      "status": "planned"
+    },
+    {
+      "id": "trailer.owner",
+      "scene": "TRAILER",
+      "speaker": "narrator-male",
+      "playerGender": "any",
+      "emotion": "playful",
+      "text": "Mam studio, wielkie plany i kawę na trzy dni. Pieniędzy? Na dziś wystarczy. I właśnie to jest podejrzane.",
+      "acted": "[playful] Mam studio, wielkie plany i kawę na trzy dni. Pieniędzy? Na dziś wystarczy. I właśnie to jest podejrzane.",
+      "status": "planned"
+    },
+    {
+      "id": "trailer.calendar",
+      "scene": "TRAILER",
+      "speaker": "narrator-male",
+      "playerGender": "any",
+      "emotion": "sarcastic",
+      "text": "Klient zapłaci w styczniu. Podwykonawcy chcą pieniędzy w grudniu. Uwielbiam, kiedy kalendarz gra przeciwko mnie.",
+      "acted": "[sarcastic] Klient zapłaci w styczniu. Podwykonawcy chcą pieniędzy w grudniu. Uwielbiam, kiedy kalendarz gra przeciwko mnie.",
+      "status": "planned"
+    },
+    {
+      "id": "trailer.quest",
+      "scene": "TRAILER",
+      "speaker": "narrator-male",
+      "playerGender": "any",
+      "emotion": "confident",
+      "text": "Twoja misja: przeprowadzić firmę przez grudzień. Negocjuj zaliczkę. Porównuj koszty. I sprawdzaj, komu naprawdę robisz przelew.",
+      "acted": "[confident] Twoja misja: przeprowadzić firmę przez grudzień. Negocjuj zaliczkę. Porównuj koszty. I sprawdzaj, komu naprawdę robisz przelew.",
+      "status": "planned"
+    },
+    {
+      "id": "trailer.rewind",
+      "scene": "TRAILER",
+      "speaker": "narrator-male",
+      "playerGender": "any",
+      "emotion": "mischievously",
+      "text": "Coś nie wyszło? Cofnij czas. W tej grze druga szansa nie nalicza odsetek.",
+      "acted": "[mischievously] Coś nie wyszło? Cofnij czas. W tej grze druga szansa nie nalicza odsetek.",
+      "status": "planned"
+    },
+    {
+      "id": "trailer.close",
+      "scene": "TRAILER",
+      "speaker": "narrator-male",
+      "playerGender": "any",
+      "emotion": "excited",
+      "text": "Pilot Płynności. Ogarnij firmę, zanim firma ogarnie ciebie. No dobra, pilotko... lecimy!",
+      "acted": "[excited] Pilot Płynności. Ogarnij firmę, zanim firma ogarnie ciebie. No dobra, pilotko... lecimy!",
+      "status": "planned"
+    }
+  ]
+}

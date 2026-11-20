@@ -1,0 +1,7 @@
+[clearly] Porównaj terminy wpływów i wydatków. Zysk na fakturze nie zastępuje pieniędzy na koncie.
+[long pause]
+[clearly] Na ekranie masz dozwolone manewry i ich koszt. Liczby pochodzą z silnika gry.
+[long pause]
+[clearly] Mogę wybrać najtańszy bezpieczny manewr. Decyzja samodzielna daje większy postęp kompetencji.
+[long pause]
+[clearly] Oznacz rezerwę podatkową. Saldo i środki dostępne do wydania to nie zawsze ta sama kwota.

@@ -1,0 +1,89 @@
+{
+  "screen": "G19",
+  "viewport": {
+    "width": 1440,
+    "height": 900
+  },
+  "safeArea": {
+    "left": 48,
+    "right": 48,
+    "top": 24,
+    "bottom": 36
+  },
+  "font": {
+    "body": 16,
+    "caption": 12,
+    "title": 40,
+    "minAction": 15
+  },
+  "boxes": [
+    {
+      "name": "header",
+      "x": 48,
+      "y": 24,
+      "width": 1344,
+      "height": 56,
+      "purpose": "Title, provenance and pause",
+      "interactive": false,
+      "layer": 50
+    },
+    {
+      "name": "primary",
+      "x": 1040,
+      "y": 816,
+      "width": 352,
+      "height": 48,
+      "purpose": "One primary decision",
+      "interactive": true,
+      "layer": 50
+    },
+    {
+      "name": "reaction",
+      "x": 48,
+      "y": 138,
+      "width": 560,
+      "height": 620,
+      "purpose": "Owner reaction",
+      "interactive": false,
+      "layer": 50
+    },
+    {
+      "name": "cause",
+      "x": 640,
+      "y": 138,
+      "width": 752,
+      "height": 620,
+      "purpose": "T5/date and8095 shortage; rewind",
+      "interactive": false,
+      "layer": 50
+    },
+    {
+      "name": "secondary",
+      "x": 640,
+      "y": 816,
+      "width": 360,
+      "height": 48,
+      "purpose": "Inspect cause",
+      "interactive": true,
+      "layer": 50
+    }
+  ],
+  "rules": [
+    "Coordinates are CSS px at1x; browser safe-area insets add to outer margins.",
+    "Mobile keyboard: content scrolls; never keep hidden submit behind keyboard.",
+    "No nested modal: card detail/chat/Cash Flow replace the active overlay.",
+    "G30 receives daily series and transactions from engine; opening never spends action.",
+    "Characters are separate alpha sprites, no narrator switching inside a play sequence."
+  ],
+  "origin": "ExistingapprovedA5spec",
+  "title": "Przelew nie wystartował",
+  "template": "result",
+  "surface": "game",
+  "states": [
+    "liquidity-crash",
+    "fraud-crash",
+    "cause-expanded",
+    "supportive-reaction"
+  ],
+  "textMode": "Livecopybindings;previewtextnotfinancialtruth"
+}

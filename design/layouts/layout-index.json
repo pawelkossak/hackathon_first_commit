@@ -1,0 +1,103 @@
+{
+  "layouts": [
+    {
+      "screen": "G06",
+      "viewport": {
+        "width": 1440,
+        "height": 900
+      }
+    },
+    {
+      "screen": "G10",
+      "viewport": {
+        "width": 1440,
+        "height": 900
+      }
+    },
+    {
+      "screen": "G13",
+      "viewport": {
+        "width": 1440,
+        "height": 900
+      }
+    },
+    {
+      "screen": "G14",
+      "viewport": {
+        "width": 1440,
+        "height": 900
+      }
+    },
+    {
+      "screen": "G18",
+      "viewport": {
+        "width": 1440,
+        "height": 900
+      }
+    },
+    {
+      "screen": "G19",
+      "viewport": {
+        "width": 1440,
+        "height": 900
+      }
+    },
+    {
+      "screen": "G30",
+      "viewport": {
+        "width": 1440,
+        "height": 900
+      }
+    },
+    {
+      "screen": "G06",
+      "viewport": {
+        "width": 844,
+        "height": 390
+      }
+    },
+    {
+      "screen": "G10",
+      "viewport": {
+        "width": 844,
+        "height": 390
+      }
+    },
+    {
+      "screen": "G13",
+      "viewport": {
+        "width": 844,
+        "height": 390
+      }
+    },
+    {
+      "screen": "G14",
+      "viewport": {
+        "width": 844,
+        "height": 390
+      }
+    },
+    {
+      "screen": "G18",
+      "viewport": {
+        "width": 844,
+        "height": 390
+      }
+    },
+    {
+      "screen": "G19",
+      "viewport": {
+        "width": 844,
+        "height": 390
+      }
+    },
+    {
+      "screen": "G30",
+      "viewport": {
+        "width": 844,
+        "height": 390
+      }
+    }
+  ],
+  "count": 14
+}

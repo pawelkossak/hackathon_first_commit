@@ -152,7 +152,7 @@ Each task fits ≤ 90 min. Acceptance names its check. Window = target clock tim
 
 ### Media generation (in the lanes, briefs: GENERATION-BRIEFS.md)
 
-Generated media go to the paths of GENERATION-BRIEFS.md. Generation runs in parallel to phase 1 and never blocks it.
+Generated media go to the paths of GENERATION-BRIEFS.md. Generation runs in parallel to phase 1 and never blocks it. Media reach every lane only through `develop`: the owning lane commits them separately, the coordinator merges them first, every lane pulls `develop`.
 
 | Id | Lane | Task | Window | Acceptance |
 |---|---|---|---|---|
@@ -162,7 +162,7 @@ Generated media go to the paths of GENERATION-BRIEFS.md. Generation runs in para
 | G-04 | narrative | Voice: Szefowa demo-path lines pre-rendered (ElevenLabs) | Sat 08–11 | one file per demo-path line; spoken numbers checked by ear |
 | G-05 | narrative | 8 sound effects with recorded sources | Sat 11–12 | `design/audio/sfx/SOURCE-AND-USAGE.md` lists each file |
 | G-06 | ui + narrative | SHOULD media: Szef, player man, supporting cast, campaign, Szef voice | Sat 14–18 | as above |
-| G-07 | coordinator | Media review: keep generated media or use the declared fallback (GENERATION-BRIEFS.md §Rule) | Sat 12:00 | `docs/team/handoffs/pre-event-assets.md` lists every fallback, or says none |
+| G-07 | coordinator | Media review: which demo-path media are in `develop`; a missing one stays a placeholder (GENERATION-BRIEFS.md §Rule) | Sat 12:00 | `docs/team/handoffs/G-07.md` lists every placeholder kept, or says none |
 
 ### Pitch (shared, led by Person C, all three present)
 

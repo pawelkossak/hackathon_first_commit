@@ -25,7 +25,7 @@ Start with **BUILD-PLAN.md** (scope, lanes, tasks, checkpoints). Then read the d
 | NOTIFICATION-DESIGN.md | reminders, return banner, opt-in | N |
 | MARKET-AND-ALTERNATIVES.md | market context for the pitch | pitch |
 | PITCH.md | the three-minute stage script | pitch |
-| GENERATION-BRIEFS.md | how art, voice and sound are generated at the event; fallback to the pre-event branch | U, N |
+| GENERATION-BRIEFS.md | how art, voice and sound are generated at the event; how media reach every lane through `develop` | U, N |
 
 Paths like `design/…` are where the media made at the event are stored (GENERATION-BRIEFS.md); until they exist, BUILD-PLAN.md §3.2 defines the placeholders. `data/…` is written from the tables of ENGINE-DATA-AND-TESTS.md and SYNTHETIC-DATA.md.
 
@@ -33,6 +33,5 @@ Paths like `design/…` are where the media made at the event are stored (GENERA
 
 The rules allow ideas, concepts and designs once the challenges are announced; coding starts Fri 20 XI 2026 11:00.
 This specification was prepared before the coding phase. All application code and the media (art, motion, voice,
-sound) are made during the event (GENERATION-BRIEFS.md); no code from earlier prototypes is used. If a design asset
-prepared before the event is used as a fallback, it is listed in `docs/team/handoffs/pre-event-assets.md` and in the
-submission.
+sound) are made during the event (GENERATION-BRIEFS.md); no code from earlier prototypes is used. Media live only in
+`design/` on `develop`; a missing asset stays a placeholder.

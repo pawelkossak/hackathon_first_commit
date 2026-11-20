@@ -1,0 +1,103 @@
+[warmly, playful] Jestem właścicielem tego studia. Mam klientów, dobre pomysły i kawę na trzy dni. Z pieniędzmi bywa różnie.
+[long pause]
+[warmly, playful] Zaprosiłem Cię, żeby pomóc przeprowadzić moje studio przez grudzień. Nie szukam pracownika. Szukam dobrego kursu.
+[long pause]
+[confident] Przeprowadź firmę przez grudzień, zanim faktury zaczną gryźć.
+[long pause]
+[confident] Negocjuj, sprawdzaj skutki i cofaj czas. Tutaj błędy można przećwiczyć.
+[long pause]
+[excited] Pilnuj płatności, negocjuj terminy i dbaj o relacje. Firma jest moja, ale kurs wybieramy razem.
+[long pause]
+[skeptical, curious] Grudzień ma dla nas kilka niespodzianek. Sprawdź na trasie, kiedy przelew może nie wystartować. Ja w tym czasie... zaparzę mocniejszą kawę.
+[long pause]
+[skeptical, curious] Faktura na trzydzieści pięć tysięcy siedemset złotych ma inny numer konta niż zwykle.
+[long pause]
+[skeptical, curious] Faktura ta sama. Konto jakby po liftingu.
+[long pause]
+[delighted] Sprawdzone! Tak się robi bezpieczne przelewy. Podejrzliwość czasem świetnie się opłaca.
+[long pause]
+[confident] Podobno o pieniądzach się nie rozmawia. Na szczęście prowadzimy firmę.
+[long pause]
+[delighted] Mamy zaliczkę! Piętnaście tysięcy złotych do trzeciego grudnia. Teraz to jest kurs!
+[long pause]
+[delighted] Świetny manewr. Poradziłaś sobie z tym jak trzeba.
+[long pause]
+[confident] Tu widać, co zrobią nasze pieniądze. Porównaj prognozę bez działania z wybraną decyzją. Same faktury nie utrzymają nas w powietrzu.
+[long pause]
+[relaxed, amused] To nie rollercoaster. To nasze przelewy.
+[long pause]
+[curious] Nowe zlecenie: sześć tysięcy złotych netto. Podwykonawca potrzebuje trzech tysięcy już czternastego grudnia. Klient zapłaci pod koniec stycznia. Ładny zysk. Tylko za co wystartujemy?
+[long pause]
+[curious] Czterysta złotych miesięcznie. Około ośmiu godzin pracy mniej. Brzmi świetnie. Tylko czy właśnie teraz mamy na to paliwo?
+[long pause]
+[exasperated] Klient znowu gra na czas. Sprawdź, czy nasza wcześniejsza decyzja już zabezpieczyła tę fakturę. Ja w tym czasie policzę do dziesięciu.
+[long pause]
+[exasperated] Klient zapewnia, że przelew już wyszedł. Chyba pieszo.
+[long pause]
+[skeptical, curious] To oferta pozabankowa z SMS-a. Doradca banku proponuje wyłącznie limit w koncie.
+[long pause]
+[skeptical, curious] piętnaście tysięcy złotych teraz. siedemnaście tysięcy czterysta złotych do oddania do dwudziestego stycznia.
+[long pause]
+[skeptical, curious] Szybko to ja robię kawę. Sprawdźmy koszt.
+[long pause]
+[confident] Koszt wynosi dwa tysiące czterysta złotych. To szacunek w scenariuszu demonstracyjnym.
+[long pause]
+[confident] Sprawdźmy, co zdąży zadziałać przed płatnością. Porównanie pokazuje najtańsze dostępne rozwiązania. Ten kalendarz da się jeszcze przechytrzyć.
+[long pause]
+[relaxed, amused] Podatek od towarów i usług został zapłacony na czas. Rachunek oddycha, ale patrzmy dalej niż dzisiejsze saldo.
+[long pause]
+[relaxed, amused] Nic nie wybuchło. W biznesie to też jest wiadomość.
+[long pause]
+[confident] Proszę zapiąć terminy płatności.
+[long pause]
+[delighted] Można spać. Najpierw zapiszmy, co zadziałało.
+[long pause]
+[delighted] Grudzień za nami! Teraz porównaj koszt naszego manewru z pożyczką. Liczby też zasługują na szczęśliwe zakończenie.
+[long pause]
+[confident] Sprawdź wynik. Każda gwiazdka ma tu konkretny powód. A dobry manewr warto zapisać.
+[long pause]
+[exasperated] Przelew odrzucony. Tego właśnie chciałem uniknąć. Sprawdź, kiedy zabrakło pieniędzy i ile. Spokojnie... mamy pokrętło czasu.
+[long pause]
+[exasperated] Mieliśmy negocjować termin, nie własną upadłość!
+[long pause]
+[warmly, encouraging] To próba. Cofnijmy się i spróbujmy inaczej.
+[long pause]
+[warmly, encouraging] Wybierz tydzień, do którego chcesz wrócić. Tym razem kalendarz niech pilnuje się nas.
+[long pause]
+[delighted] Plan zapisany. Teraz nasz manewr ma ciąg dalszy!
+[long pause]
+[confident] Wybierz decyzję, którą chcesz zapisać jako plan. Kwota i termin są na ekranie. Zobaczymy, jak nasz manewr sprawdzi się na koncie.
+[long pause]
+[delighted] Plan potwierdzony! Nasza decyzja właśnie spotkała się z kontem. I proszę... jednak można wyprzedzić kalendarz.
+[long pause]
+[warmly, encouraging] Plan potrzebuje poprawki. Zobacz szczegóły na koncie. Dobra wiadomość? Nadal uczymy się tutaj, zanim będzie naprawdę gorąco.
+[long pause]
+[delighted] Przeszliśmy grudzień w grze, zanim przeszliśmy go na koncie.
+[long pause]
+[confident] Faktura ma termin. My mamy poniedziałek.
+[long pause]
+[confident] Koszt scenariusza: trzysta cztery złote
+[long pause]
+[confident] Wpływ: dziewiętnaście tysięcy dziewięćset dziewięćdziesiąt jeden złotych
+[long pause]
+[confident] Zobacz, jak finansowanie faktury zmienia najniższe saldo. I koniecznie porównaj koszt z pozostałymi manewrami.
+[long pause]
+[confident] Szybciej nie zawsze znaczy taniej. Policzmy.
+[long pause]
+[relaxed, amused] Szef szuka kalkulatora. Kot wie, gdzie jest.
+[long pause]
+[warmly, encouraging] Internet poszedł po kawę.
+[long pause]
+[relaxed, amused] Do zobaczenia na kolejnej turze!
+[long pause]
+[delighted] Świetny manewr. Poradziłeś sobie z tym jak trzeba.
+[long pause]
+[playful] Mam studio, wielkie plany i kawę na trzy dni. Pieniędzy? Na dziś wystarczy. I właśnie to jest podejrzane.
+[long pause]
+[sarcastic] Klient zapłaci w styczniu. Podwykonawcy chcą pieniędzy w grudniu. Uwielbiam, kiedy kalendarz gra przeciwko mnie.
+[long pause]
+[confident] Twoja misja: przeprowadzić firmę przez grudzień. Negocjuj zaliczkę. Porównuj koszty. I sprawdzaj, komu naprawdę robisz przelew.
+[long pause]
+[mischievously] Coś nie wyszło? Cofnij czas. W tej grze druga szansa nie nalicza odsetek.
+[long pause]
+[excited] Pilot Płynności. Ogarnij firmę, zanim firma ogarnie ciebie. No dobra, pilotko... lecimy!

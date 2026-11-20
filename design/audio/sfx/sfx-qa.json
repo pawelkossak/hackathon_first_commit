@@ -1,0 +1,17 @@
+{
+  "updated": "2026-11-17",
+  "effects": 35,
+  "totalWavBytes": 398660,
+  "sampleRate": 22050,
+  "channels": 1,
+  "sampleWidthBits": 16,
+  "allDecode": true,
+  "clippedSamples": 0,
+  "zeroEndpoints": true,
+  "maxPeakAmplitude": 0.225135,
+  "cueMapCoverage": 35,
+  "source": "Original deterministic synthesis; no third-party samples",
+  "previewDecode": "passed",
+  "narrationAudioIncluded": false,
+  "subjectiveListeningReview": "Preview prepared; final speaker/headphone balancing still needs human listening."
+}

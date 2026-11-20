@@ -1,0 +1,31 @@
+{
+  "updated": "2026-11-17",
+  "runtimeAssets": 182,
+  "sceneAssetBindings": 567,
+  "completeLayoutViews": 72,
+  "scenes": 36,
+  "copyEntriesPerVariant": 485,
+  "notificationTemplates": 100,
+  "animatedWebPClips": 20,
+  "decodedWebPFrames": 212,
+  "decodedAPNGFrames": 234,
+  "firstLoadScenarios": 12,
+  "maxFirstLoadArtFontsIconsBytes": 1167718,
+  "budgetBytes": 1500000,
+  "missingAssetReferences": 0,
+  "firstLoadMotionOrAudio": false,
+  "geometryAndTargets": "passed",
+  "runtimeTests": "See design/delivery/validation.json; static media validation does not run unit/browser tests",
+  "readyVisualAssets": true,
+  "narratorRuntimeBindings": 312,
+  "characterClips": 22,
+  "approvedIntroPresent": true,
+  "allMediaReady": true,
+  "missingMedia": [],
+  "limits": [
+    "Browser application, deployed performance and reminder delivery require separate integration checks.",
+    "Email designs are not an inbox rendering certification.",
+    "Static layout bounds do not replace responsive interaction tests.",
+    "Spoken role batch segmentation is checked against authored input and pause boundaries, not a claimed human listening review."
+  ]
+}

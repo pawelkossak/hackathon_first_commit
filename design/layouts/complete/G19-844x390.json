@@ -1,0 +1,89 @@
+{
+  "screen": "G19",
+  "viewport": {
+    "width": 844,
+    "height": 390
+  },
+  "safeArea": {
+    "left": 24,
+    "right": 24,
+    "top": 12,
+    "bottom": 12
+  },
+  "font": {
+    "body": 16,
+    "caption": 12,
+    "title": 24,
+    "minAction": 15
+  },
+  "boxes": [
+    {
+      "name": "header",
+      "x": 24,
+      "y": 12,
+      "width": 796,
+      "height": 40,
+      "purpose": "Title, provenance and pause",
+      "interactive": false,
+      "layer": 50
+    },
+    {
+      "name": "primary",
+      "x": 580,
+      "y": 330,
+      "width": 240,
+      "height": 48,
+      "purpose": "One primary decision",
+      "interactive": true,
+      "layer": 50
+    },
+    {
+      "name": "reaction",
+      "x": 24,
+      "y": 72,
+      "width": 216,
+      "height": 226,
+      "purpose": "Selected narrator exasperated then supportive",
+      "interactive": false,
+      "layer": 50
+    },
+    {
+      "name": "cause",
+      "x": 260,
+      "y": 70,
+      "width": 560,
+      "height": 226,
+      "purpose": "Date, T5, shortfall and explanation",
+      "interactive": false,
+      "layer": 50
+    },
+    {
+      "name": "secondary",
+      "x": 260,
+      "y": 330,
+      "width": 296,
+      "height": 48,
+      "purpose": "Inspect cause",
+      "interactive": true,
+      "layer": 50
+    }
+  ],
+  "rules": [
+    "Coordinates are CSS px at1x; browser safe-area insets add to outer margins.",
+    "Mobile keyboard: content scrolls; never keep hidden submit behind keyboard.",
+    "No nested modal: card detail/chat/Cash Flow replace the active overlay.",
+    "G30 receives daily series and transactions from engine; opening never spends action.",
+    "Characters are separate alpha sprites, no narrator switching inside a play sequence."
+  ],
+  "origin": "ExistingapprovedA5spec",
+  "title": "Przelew nie wystartował",
+  "template": "result",
+  "surface": "game",
+  "states": [
+    "liquidity-crash",
+    "fraud-crash",
+    "cause-expanded",
+    "supportive-reaction"
+  ],
+  "textMode": "Livecopybindings;previewtextnotfinancialtruth"
+}

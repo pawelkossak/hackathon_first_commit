@@ -1,0 +1,149 @@
+{
+  "screen": "G36",
+  "viewport": {
+    "width": 844,
+    "height": 390
+  },
+  "boxes": [
+    {
+      "name": "settings",
+      "x": 16,
+      "y": 66,
+      "width": 812,
+      "height": 308,
+      "interactive": false,
+      "layer": 50
+    },
+    {
+      "name": "narrator",
+      "x": 24,
+      "y": 124,
+      "width": 120,
+      "height": 164,
+      "interactive": false,
+      "sprite": "boss.female.confident",
+      "maleSprite": "boss.male.confident",
+      "layer": 30
+    },
+    {
+      "name": "category-1",
+      "x": 160,
+      "y": 116,
+      "width": 244,
+      "height": 44,
+      "interactive": true,
+      "layer": 50
+    },
+    {
+      "name": "category-2",
+      "x": 160,
+      "y": 162,
+      "width": 244,
+      "height": 44,
+      "interactive": true,
+      "layer": 50
+    },
+    {
+      "name": "category-3",
+      "x": 160,
+      "y": 208,
+      "width": 244,
+      "height": 44,
+      "interactive": true,
+      "layer": 50
+    },
+    {
+      "name": "channel-browser",
+      "x": 438,
+      "y": 116,
+      "width": 360,
+      "height": 44,
+      "interactive": true,
+      "states": [
+        "off",
+        "pending",
+        "on",
+        "denied",
+        "unsupported"
+      ],
+      "layer": 50
+    },
+    {
+      "name": "channel-email",
+      "x": 438,
+      "y": 162,
+      "width": 360,
+      "height": 44,
+      "interactive": true,
+      "states": [
+        "off",
+        "unverified",
+        "on"
+      ],
+      "layer": 50
+    },
+    {
+      "name": "quiet-from",
+      "x": 502,
+      "y": 212,
+      "width": 94,
+      "height": 44,
+      "interactive": true,
+      "layer": 50
+    },
+    {
+      "name": "quiet-to",
+      "x": 608,
+      "y": 212,
+      "width": 94,
+      "height": 44,
+      "interactive": true,
+      "layer": 50
+    },
+    {
+      "name": "timezone",
+      "x": 438,
+      "y": 262,
+      "width": 360,
+      "height": 44,
+      "interactive": true,
+      "layer": 50
+    },
+    {
+      "name": "demo-send",
+      "x": 160,
+      "y": 314,
+      "width": 354,
+      "height": 48,
+      "interactive": true,
+      "layer": 50
+    },
+    {
+      "name": "save",
+      "x": 552,
+      "y": 314,
+      "width": 246,
+      "height": 48,
+      "interactive": true,
+      "layer": 50
+    }
+  ],
+  "origin": "notifications/layout-specs.json",
+  "referenceSvg": "notifications/G36-preferences-844x390.svg",
+  "title": "Przypomnienia",
+  "template": "notification",
+  "surface": "game",
+  "states": [
+    "off",
+    "pending",
+    "on",
+    "denied",
+    "unsupported",
+    "email-unverified",
+    "save-failed",
+    "invalid-time",
+    "invalid-timezone",
+    "demo-scheduled"
+  ],
+  "textMode": "Livecopybindings;previewtextnotfinancialtruth"
+}

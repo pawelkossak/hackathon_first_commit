@@ -1,0 +1,67 @@
+{
+  "screen": "G12",
+  "viewport": {
+    "width": 844,
+    "height": 390
+  },
+  "safeArea": {
+    "left": 24,
+    "right": 24,
+    "top": 12,
+    "bottom": 12
+  },
+  "font": {
+    "body": 16,
+    "caption": 12,
+    "title": 24,
+    "minAction": 15
+  },
+  "boxes": [
+    {
+      "name": "header",
+      "x": 24,
+      "y": 12,
+      "width": 796,
+      "height": 44,
+      "interactive": false,
+      "layer": 60,
+      "purpose": ""
+    },
+    {
+      "name": "cashflow-panel",
+      "x": 24,
+      "y": 66,
+      "width": 796,
+      "height": 306,
+      "interactive": false,
+      "layer": 50,
+      "purpose": "Chart+legend+transactiontable;financialvaluesfromengine"
+    },
+    {
+      "name": "close",
+      "x": 776,
+      "y": 70,
+      "width": 44,
+      "height": 44,
+      "interactive": true,
+      "layer": 60,
+      "purpose": "Close,restoreopenerfocus"
+    }
+  ],
+  "rules": [
+    "CSSpixelsat1x;addbrowsernotchinsetstooutermargins.",
+    "Scrollcontentwithinpanel;neveroverlapfixedprimarycontrol.",
+    "Engineupdatesstatebeforedecorativemotion;alllabelsandnumberslive.",
+    "Focusonopenerrestoredonclose;keyboardtargetminimum44px."
+  ],
+  "title": "Prognoza: będzie bujać",
+  "template": "cashflow",
+  "surface": "game",
+  "states": [
+    "baseline",
+    "preview",
+    "committed",
+    "counterfactual"
+  ],
+  "textMode": "Livecopybindings;previewtextnotfinancialtruth"
+}

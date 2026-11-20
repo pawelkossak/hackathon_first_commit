@@ -1,0 +1,779 @@
+{
+  "format": "szef-audio-qa/v1",
+  "clips": 85,
+  "gameClips": 79,
+  "trailerClips": 6,
+  "runtimeBindings": 156,
+  "allDecoded": true,
+  "allTranscriptTokensMatched": true,
+  "clippedSamples": 0,
+  "maxPeak": 0.839112,
+  "reviewLimit": "Automated decoding and transcript/boundary checks; character performance approved by Mike in ElevenLabs. No claim of individual human review of every cut.",
+  "rows": [
+    {
+      "lineId": "intro.owner",
+      "path": "voice/production/szef/intro.owner.mp3",
+      "durationMs": 7190,
+      "peak": 0.676706,
+      "rmsDb": -20.63,
+      "decoded": true,
+      "clippedSamples": 0
+    },
+    {
+      "lineId": "intro.role",
+      "path": "voice/production/szef/intro.role.mp3",
+      "durationMs": 6470,
+      "peak": 0.713692,
+      "rmsDb": -21.32,
+      "decoded": true,
+      "clippedSamples": 0
+    },
+    {
+      "lineId": "intro.goal",
+      "path": "voice/production/szef/intro.goal.mp3",
+      "durationMs": 3670,
+      "peak": 0.644478,
+      "rmsDb": -20.56,
+      "decoded": true,
+      "clippedSamples": 0
+    },
+    {
+      "lineId": "intro.practice",
+      "path": "voice/production/szef/intro.practice.mp3",
+      "durationMs": 5150,
+      "peak": 0.713526,
+      "rmsDb": -20.68,
+      "decoded": true,
+      "clippedSamples": 0
+    },
+    {
+      "lineId": "map.start",
+      "path": "voice/production/szef/map.start.mp3",
+      "durationMs": 6930,
+      "peak": 0.728861,
+      "rmsDb": -19.55,
+      "decoded": true,
+      "clippedSamples": 0
+    },
+    {
+      "lineId": "mission.storm",
+      "path": "voice/production/szef/mission.storm.mp3",
+      "durationMs": 8350,
+      "peak": 0.658544,
+      "rmsDb": -21.57,
+      "decoded": true,
+      "clippedSamples": 0
+    },
+    {
+      "lineId": "event.account",
+      "path": "voice/production/szef/event.account.mp3",
+      "durationMs": 4990,
+      "peak": 0.671319,
+      "rmsDb": -22.8,
+      "decoded": true,
+      "clippedSamples": 0
+    },
+    {
+      "lineId": "event.account.joke",
+      "path": "voice/production/szef/event.account.joke.mp3",
+      "durationMs": 3290,
+      "peak": 0.714168,
+      "rmsDb": -22.89,
+      "decoded": true,
+      "clippedSamples": 0
+    },
+    {
+      "lineId": "event.account.safe",
+      "path": "voice/production/szef/event.account.safe.mp3",
+      "durationMs": 5730,
+      "peak": 0.759509,
+      "rmsDb": -20.38,
+      "decoded": true,
+      "clippedSamples": 0
+    },
+    {
+      "lineId": "advance.joke",
+      "path": "voice/production/szef/advance.joke.mp3",
+      "durationMs": 4550,
+      "peak": 0.646464,
+      "rmsDb": -20.62,
+      "decoded": true,
+      "clippedSamples": 0
+    },
+    {
+      "lineId": "advance.confirmed",
+      "path": "voice/production/szef/advance.confirmed.mp3",
+      "durationMs": 5490,
+      "peak": 0.754961,
+      "rmsDb": -19.71,
+      "decoded": true,
+      "clippedSamples": 0
+    },
+    {
+      "lineId": "move.praise",
+      "path": "voice/production/szef/move.praise.mp3",
+      "durationMs": 3250,
+      "peak": 0.692459,
+      "rmsDb": -20.22,
+      "decoded": true,
+      "clippedSamples": 0
+    },
+    {
+      "lineId": "cashflow.explain",
+      "path": "voice/production/szef/cashflow.explain.mp3",
+      "durationMs": 8110,
+      "peak": 0.661615,
+      "rmsDb": -20.41,
+      "decoded": true,
+      "clippedSamples": 0
+    },
+    {
+      "lineId": "cashflow.joke",
+      "path": "voice/production/szef/cashflow.joke.mp3",
+      "durationMs": 2770,
+      "peak": 0.827319,
+      "rmsDb": -20.01,
+      "decoded": true,
+      "clippedSamples": 0
+    },
+    {
+      "lineId": "event.order",
+      "path": "voice/production/szef/event.order.mp3",
+      "durationMs": 11870,
+      "peak": 0.580394,
+      "rmsDb": -22.49,
+      "decoded": true,
+      "clippedSamples": 0
+    },
+    {
+      "lineId": "event.tool",
+      "path": "voice/production/szef/event.tool.mp3",
+      "durationMs": 7670,
+      "peak": 0.682163,
+      "rmsDb": -22.43,
+      "decoded": true,
+      "clippedSamples": 0
+    },
+    {
+      "lineId": "event.late",
+      "path": "voice/production/szef/event.late.mp3",
+      "durationMs": 7710,
+      "peak": 0.570784,
+      "rmsDb": -21.38,
+      "decoded": true,
+      "clippedSamples": 0
+    },
+    {
+      "lineId": "client.late.joke",
+      "path": "voice/production/szef/client.late.joke.mp3",
+      "durationMs": 3530,
+      "peak": 0.529824,
+      "rmsDb": -21.37,
+      "decoded": true,
+      "clippedSamples": 0
+    },
+    {
+      "lineId": "loan.source",
+      "path": "voice/production/szef/loan.source.mp3",
+      "durationMs": 5530,
+      "peak": 0.595123,
+      "rmsDb": -22.01,
+      "decoded": true,
+      "clippedSamples": 0
+    },
+    {
+      "lineId": "loan.repayment",
+      "path": "voice/production/szef/loan.repayment.mp3",
+      "durationMs": 6511,
+      "peak": 0.613104,
+      "rmsDb": -22.35,
+      "decoded": true,
+      "clippedSamples": 0
+    },
+    {
+      "lineId": "loan.joke",
+      "path": "voice/production/szef/loan.joke.mp3",
+      "durationMs": 2770,
+      "peak": 0.715194,
+      "rmsDb": -22.8,
+      "decoded": true,
+      "clippedSamples": 0
+    },
+    {
+      "lineId": "loan.cost",
+      "path": "voice/production/szef/loan.cost.mp3",
+      "durationMs": 5330,
+      "peak": 0.662547,
+      "rmsDb": -20.81,
+      "decoded": true,
+      "clippedSamples": 0
+    },
+    {
+      "lineId": "hint.options",
+      "path": "voice/production/szef/hint.options.mp3",
+      "durationMs": 8630,
+      "peak": 0.659553,
+      "rmsDb": -20.58,
+      "decoded": true,
+      "clippedSamples": 0
+    },
+    {
+      "lineId": "week.report",
+      "path": "voice/production/szef/week.report.mp3",
+      "durationMs": 7070,
+      "peak": 0.673993,
+      "rmsDb": -20.09,
+      "decoded": true,
+      "clippedSamples": 0
+    },
+    {
+      "lineId": "week.quiet",
+      "path": "voice/production/szef/week.quiet.mp3",
+      "durationMs": 3490,
+      "peak": 0.554798,
+      "rmsDb": -21.69,
+      "decoded": true,
+      "clippedSamples": 0
+    },
+    {
+      "lineId": "turn.travel",
+      "path": "voice/production/szef/turn.travel.mp3",
+      "durationMs": 2070,
+      "peak": 0.496221,
+      "rmsDb": -20.58,
+      "decoded": true,
+      "clippedSamples": 0
+    },
+    {
+      "lineId": "success.joke",
+      "path": "voice/production/szef/success.joke.mp3",
+      "durationMs": 3350,
+      "peak": 0.679885,
+      "rmsDb": -20.46,
+      "decoded": true,
+      "clippedSamples": 0
+    },
+    {
+      "lineId": "success.avoided",
+      "path": "voice/production/szef/success.avoided.mp3",
+      "durationMs": 6830,
+      "peak": 0.581095,
+      "rmsDb": -20.23,
+      "decoded": true,
+      "clippedSamples": 0
+    },
+    {
+      "lineId": "success.pending",
+      "path": "voice/production/szef/success.pending.mp3",
+      "durationMs": 5890,
+      "peak": 0.712604,
+      "rmsDb": -20.52,
+      "decoded": true,
+      "clippedSamples": 0
+    },
+    {
+      "lineId": "failure.cause",
+      "path": "voice/production/szef/failure.cause.mp3",
+      "durationMs": 8810,
+      "peak": 0.641441,
+      "rmsDb": -21.73,
+      "decoded": true,
+      "clippedSamples": 0
+    },
+    {
+      "lineId": "failure.joke",
+      "path": "voice/production/szef/failure.joke.mp3",
+      "durationMs": 3190,
+      "peak": 0.700989,
+      "rmsDb": -20.17,
+      "decoded": true,
+      "clippedSamples": 0
+    },
+    {
+      "lineId": "failure.support",
+      "path": "voice/production/szef/failure.support.mp3",
+      "durationMs": 3170,
+      "peak": 0.544657,
+      "rmsDb": -21.48,
+      "decoded": true,
+      "clippedSamples": 0
+    },
+    {
+      "lineId": "rewind.help",
+      "path": "voice/production/szef/rewind.help.mp3",
+      "durationMs": 4990,
+      "peak": 0.839112,
+      "rmsDb": -21.03,
+      "decoded": true,
+      "clippedSamples": 0
+    },
+    {
+      "lineId": "plan.saved",
+      "path": "voice/production/szef/plan.saved.mp3",
+      "durationMs": 3570,
+      "peak": 0.766659,
+      "rmsDb": -19.13,
+      "decoded": true,
+      "clippedSamples": 0
+    },
+    {
+      "lineId": "plan.goal",
+      "path": "voice/production/szef/plan.goal.mp3",
+      "durationMs": 7690,
+      "peak": 0.661245,
+      "rmsDb": -20.73,
+      "decoded": true,
+      "clippedSamples": 0
+    },
+    {
+      "lineId": "plan.met",
+      "path": "voice/production/szef/plan.met.mp3",
+      "durationMs": 7350,
+      "peak": 0.771998,
+      "rmsDb": -20.18,
+      "decoded": true,
+      "clippedSamples": 0
+    },
+    {
+      "lineId": "plan.missed",
+      "path": "voice/production/szef/plan.missed.mp3",
+      "durationMs": 7770,
+      "peak": 0.576216,
+      "rmsDb": -20.63,
+      "decoded": true,
+      "clippedSamples": 0
+    },
+    {
+      "lineId": "close.pitch",
+      "path": "voice/production/szef/close.pitch.mp3",
+      "durationMs": 3570,
+      "peak": 0.557357,
+      "rmsDb": -20.15,
+      "decoded": true,
+      "clippedSamples": 0
+    },
+    {
+      "lineId": "factoring.joke",
+      "path": "voice/production/szef/factoring.joke.mp3",
+      "durationMs": 2930,
+      "peak": 0.811129,
+      "rmsDb": -20.25,
+      "decoded": true,
+      "clippedSamples": 0
+    },
+    {
+      "lineId": "factoring.fee",
+      "path": "voice/production/szef/factoring.fee.mp3",
+      "durationMs": 2610,
+      "peak": 0.701866,
+      "rmsDb": -20.93,
+      "decoded": true,
+      "clippedSamples": 0
+    },
+    {
+      "lineId": "factoring.receipt",
+      "path": "voice/production/szef/factoring.receipt.mp3",
+      "durationMs": 4050,
+      "peak": 0.504115,
+      "rmsDb": -21.95,
+      "decoded": true,
+      "clippedSamples": 0
+    },
+    {
+      "lineId": "factoring.low",
+      "path": "voice/production/szef/factoring.low.mp3",
+      "durationMs": 6610,
+      "peak": 0.649041,
+      "rmsDb": -20.53,
+      "decoded": true,
+      "clippedSamples": 0
+    },
+    {
+      "lineId": "compare.ethics",
+      "path": "voice/production/szef/compare.ethics.mp3",
+      "durationMs": 2970,
+      "peak": 0.625256,
+      "rmsDb": -22.51,
+      "decoded": true,
+      "clippedSamples": 0
+    },
+    {
+      "lineId": "loader.start",
+      "path": "voice/production/szef/loader.start.mp3",
+      "durationMs": 3009,
+      "peak": 0.648616,
+      "rmsDb": -21.06,
+      "decoded": true,
+      "clippedSamples": 0
+    },
+    {
+      "lineId": "offline.joke",
+      "path": "voice/production/szef/offline.joke.mp3",
+      "durationMs": 1870,
+      "peak": 0.557593,
+      "rmsDb": -20.57,
+      "decoded": true,
+      "clippedSamples": 0
+    },
+    {
+      "lineId": "logout.goodbye",
+      "path": "voice/production/szef/logout.goodbye.mp3",
+      "durationMs": 1969,
+      "peak": 0.58007,
+      "rmsDb": -19.16,
+      "decoded": true,
+      "clippedSamples": 0
+    },
+    {
+      "lineId": "move.praise",
+      "path": "voice/production/szef/move.praise.player-male.mp3",
+      "durationMs": 3270,
+      "peak": 0.735797,
+      "rmsDb": -20.14,
+      "decoded": true,
+      "clippedSamples": 0
+    },
+    {
+      "lineId": "trailer.owner",
+      "path": "voice/production/trailer-szef/trailer.owner.mp3",
+      "durationMs": 7870,
+      "peak": 0.604811,
+      "rmsDb": -21.58,
+      "decoded": true,
+      "clippedSamples": 0
+    },
+    {
+      "lineId": "trailer.calendar",
+      "path": "voice/production/trailer-szef/trailer.calendar.mp3",
+      "durationMs": 6590,
+      "peak": 0.610362,
+      "rmsDb": -20.79,
+      "decoded": true,
+      "clippedSamples": 0
+    },
+    {
+      "lineId": "trailer.quest",
+      "path": "voice/production/trailer-szef/trailer.quest.mp3",
+      "durationMs": 8050,
+      "peak": 0.735661,
+      "rmsDb": -20.92,
+      "decoded": true,
+      "clippedSamples": 0
+    },
+    {
+      "lineId": "trailer.rewind",
+      "path": "voice/production/trailer-szef/trailer.rewind.mp3",
+      "durationMs": 4950,
+      "peak": 0.689605,
+      "rmsDb": -20.6,
+      "decoded": true,
+      "clippedSamples": 0
+    },
+    {
+      "lineId": "trailer.close",
+      "path": "voice/production/trailer-szef/trailer.close.mp3",
+      "durationMs": 6770,
+      "peak": 0.609229,
+      "rmsDb": -20.15,
+      "decoded": true,
+      "clippedSamples": 0
+    },
+    {
+      "lineId": "return.welcome",
+      "path": "voice/production/szef/return.welcome.mp3",
+      "durationMs": 6950,
+      "peak": 0.736455,
+      "rmsDb": -20.8,
+      "decoded": true,
+      "clippedSamples": 0
+    },
+    {
+      "lineId": "map.next",
+      "path": "voice/production/szef/map.next.mp3",
+      "durationMs": 5931,
+      "peak": 0.5935,
+      "rmsDb": -20.12,
+      "decoded": true,
+      "clippedSamples": 0
+    },
+    {
+      "lineId": "event.account.risky",
+      "path": "voice/production/szef/event.account.risky.mp3",
+      "durationMs": 4850,
+      "peak": 0.513437,
+      "rmsDb": -21.41,
+      "decoded": true,
+      "clippedSamples": 0
+    },
+    {
+      "lineId": "event.order.accept",
+      "path": "voice/production/szef/event.order.accept.mp3",
+      "durationMs": 7430,
+      "peak": 0.56218,
+      "rmsDb": -21.44,
+      "decoded": true,
+      "clippedSamples": 0
+    },
+    {
+      "lineId": "event.order.decline",
+      "path": "voice/production/szef/event.order.decline.mp3",
+      "durationMs": 5490,
+      "peak": 0.643598,
+      "rmsDb": -20.94,
+      "decoded": true,
+      "clippedSamples": 0
+    },
+    {
+      "lineId": "event.tool.now",
+      "path": "voice/production/szef/event.tool.now.mp3",
+      "durationMs": 5650,
+      "peak": 0.752937,
+      "rmsDb": -20.89,
+      "decoded": true,
+      "clippedSamples": 0
+    },
+    {
+      "lineId": "event.tool.later",
+      "path": "voice/production/szef/event.tool.later.mp3",
+      "durationMs": 4230,
+      "peak": 0.677691,
+      "rmsDb": -20.2,
+      "decoded": true,
+      "clippedSamples": 0
+    },
+    {
+      "lineId": "event.late.secured",
+      "path": "voice/production/szef/event.late.secured.mp3",
+      "durationMs": 6810,
+      "peak": 0.74028,
+      "rmsDb": -21.32,
+      "decoded": true,
+      "clippedSamples": 0
+    },
+    {
+      "lineId": "move.delegated",
+      "path": "voice/production/szef/move.delegated.mp3",
+      "durationMs": 6350,
+      "peak": 0.600458,
+      "rmsDb": -21.05,
+      "decoded": true,
+      "clippedSamples": 0
+    },
+    {
+      "lineId": "advance.closed",
+      "path": "voice/production/szef/advance.closed.mp3",
+      "durationMs": 7230,
+      "peak": 0.548549,
+      "rmsDb": -21.99,
+      "decoded": true,
+      "clippedSamples": 0
+    },
+    {
+      "lineId": "discount.confirmed",
+      "path": "voice/production/szef/discount.confirmed.mp3",
+      "durationMs": 6430,
+      "peak": 0.808805,
+      "rmsDb": -20.59,
+      "decoded": true,
+      "clippedSamples": 0
+    },
+    {
+      "lineId": "discount.too-late",
+      "path": "voice/production/szef/discount.too-late.mp3",
+      "durationMs": 6870,
+      "peak": 0.57074,
+      "rmsDb": -21.8,
+      "decoded": true,
+      "clippedSamples": 0
+    },
+    {
+      "lineId": "postpone.warning",
+      "path": "voice/production/szef/postpone.warning.mp3",
+      "durationMs": 6450,
+      "peak": 0.668203,
+      "rmsDb": -21.34,
+      "decoded": true,
+      "clippedSamples": 0
+    },
+    {
+      "lineId": "overdraft.confirmed",
+      "path": "voice/production/szef/overdraft.confirmed.mp3",
+      "durationMs": 6610,
+      "peak": 0.582994,
+      "rmsDb": -21.04,
+      "decoded": true,
+      "clippedSamples": 0
+    },
+    {
+      "lineId": "loan.confirmed",
+      "path": "voice/production/szef/loan.confirmed.mp3",
+      "durationMs": 7190,
+      "peak": 0.620141,
+      "rmsDb": -21.5,
+      "decoded": true,
+      "clippedSamples": 0
+    },
+    {
+      "lineId": "factoring.confirmed",
+      "path": "voice/production/szef/factoring.confirmed.mp3",
+      "durationMs": 5610,
+      "peak": 0.766639,
+      "rmsDb": -20.91,
+      "decoded": true,
+      "clippedSamples": 0
+    },
+    {
+      "lineId": "compare.free-option",
+      "path": "voice/production/szef/compare.free-option.mp3",
+      "durationMs": 6970,
+      "peak": 0.60212,
+      "rmsDb": -21.16,
+      "decoded": true,
+      "clippedSamples": 0
+    },
+    {
+      "lineId": "week.report.2",
+      "path": "voice/production/szef/week.report.2.mp3",
+      "durationMs": 5610,
+      "peak": 0.635181,
+      "rmsDb": -20.74,
+      "decoded": true,
+      "clippedSamples": 0
+    },
+    {
+      "lineId": "week.report.3",
+      "path": "voice/production/szef/week.report.3.mp3",
+      "durationMs": 6070,
+      "peak": 0.576853,
+      "rmsDb": -20.43,
+      "decoded": true,
+      "clippedSamples": 0
+    },
+    {
+      "lineId": "week.report.4",
+      "path": "voice/production/szef/week.report.4.mp3",
+      "durationMs": 6130,
+      "peak": 0.619991,
+      "rmsDb": -20.69,
+      "decoded": true,
+      "clippedSamples": 0
+    },
+    {
+      "lineId": "week.report.5",
+      "path": "voice/production/szef/week.report.5.mp3",
+      "durationMs": 5890,
+      "peak": 0.666271,
+      "rmsDb": -20.43,
+      "decoded": true,
+      "clippedSamples": 0
+    },
+    {
+      "lineId": "week.report.6",
+      "path": "voice/production/szef/week.report.6.mp3",
+      "durationMs": 5110,
+      "peak": 0.621283,
+      "rmsDb": -20.39,
+      "decoded": true,
+      "clippedSamples": 0
+    },
+    {
+      "lineId": "plan.open",
+      "path": "voice/production/szef/plan.open.mp3",
+      "durationMs": 5350,
+      "peak": 0.597692,
+      "rmsDb": -21.07,
+      "decoded": true,
+      "clippedSamples": 0
+    },
+    {
+      "lineId": "plan.ask",
+      "path": "voice/production/szef/plan.ask.mp3",
+      "durationMs": 7690,
+      "peak": 0.557814,
+      "rmsDb": -21.65,
+      "decoded": true,
+      "clippedSamples": 0
+    },
+    {
+      "lineId": "save.failed",
+      "path": "voice/production/szef/save.failed.mp3",
+      "durationMs": 7211,
+      "peak": 0.644589,
+      "rmsDb": -21.68,
+      "decoded": true,
+      "clippedSamples": 0
+    },
+    {
+      "lineId": "notification.intro",
+      "path": "voice/production/szef/notification.intro.mp3",
+      "durationMs": 5430,
+      "peak": 0.63981,
+      "rmsDb": -20.36,
+      "decoded": true,
+      "clippedSamples": 0
+    },
+    {
+      "lineId": "reminder.optin",
+      "path": "voice/production/szef/reminder.optin.mp3",
+      "durationMs": 7590,
+      "peak": 0.562911,
+      "rmsDb": -20.75,
+      "decoded": true,
+      "clippedSamples": 0
+    },
+    {
+      "lineId": "reminder.saved",
+      "path": "voice/production/szef/reminder.saved.mp3",
+      "durationMs": 6670,
+      "peak": 0.653878,
+      "rmsDb": -20.95,
+      "decoded": true,
+      "clippedSamples": 0
+    },
+    {
+      "lineId": "reminder.declined",
+      "path": "voice/production/szef/reminder.declined.mp3",
+      "durationMs": 3950,
+      "peak": 0.638431,
+      "rmsDb": -20.99,
+      "decoded": true,
+      "clippedSamples": 0
+    },
+    {
+      "lineId": "voice.preview",
+      "path": "voice/production/szef/voice.preview.mp3",
+      "durationMs": 6950,
+      "peak": 0.624628,
+      "rmsDb": -20.88,
+      "decoded": true,
+      "clippedSamples": 0
+    },
+    {
+      "lineId": "reset.confirm",
+      "path": "voice/production/szef/reset.confirm.mp3",
+      "durationMs": 6190,
+      "peak": 0.553727,
+      "rmsDb": -20.7,
+      "decoded": true,
+      "clippedSamples": 0
+    },
+    {
+      "lineId": "pause.return",
+      "path": "voice/production/szef/pause.return.mp3",
+      "durationMs": 4090,
+      "peak": 0.768484,
+      "rmsDb": -20.4,
+      "decoded": true,
+      "clippedSamples": 0
+    },
+    {
+      "lineId": "trailer.close.neutral",
+      "path": "voice/production/trailer-szef/trailer.close.neutral.mp3",
+      "durationMs": 6590,
+      "peak": 0.712835,
+      "rmsDb": -20.03,
+      "decoded": true,
+      "clippedSamples": 0
+    }
+  ]
+}

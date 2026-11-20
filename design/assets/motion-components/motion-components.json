@@ -1,0 +1,144 @@
+{
+  "format": "motion-components/v1",
+  "assets": [
+    {
+      "id": "painted-plane",
+      "png": "painted-plane.png",
+      "webp": "painted-plane.webp",
+      "source": "exec-b5dca93a-64cf-4364-a7d5-4a6b8890e8bf.png",
+      "sourceRegion": [
+        0,
+        0,
+        1536,
+        1024
+      ],
+      "opaqueComponentCrop": [
+        189,
+        155,
+        1346,
+        853
+      ],
+      "width": 768,
+      "height": 463,
+      "bytes": {
+        "png": 326371,
+        "webp": 57520
+      },
+      "alpha": true,
+      "style": "Painted warm game-world art;source pixels preserved within exported crop."
+    },
+    {
+      "id": "rewind-dial",
+      "png": "rewind-dial.png",
+      "webp": "rewind-dial.webp",
+      "source": "exec-77a535b6-5c9d-4196-93a4-e7ffb72be6e2.png",
+      "sourceRegion": [
+        0,
+        0,
+        1312,
+        1199
+      ],
+      "opaqueComponentCrop": [
+        141,
+        115,
+        1101,
+        1080
+      ],
+      "width": 764,
+      "height": 768,
+      "bytes": {
+        "png": 814955,
+        "webp": 150822
+      },
+      "alpha": true,
+      "style": "Painted warm game-world art;source pixels preserved within exported crop."
+    },
+    {
+      "id": "lock-body",
+      "png": "lock-body.png",
+      "webp": "lock-body.webp",
+      "source": "exec-60ae37c6-e403-40be-b5af-375bc9c553dd.png",
+      "sourceRegion": [
+        0,
+        0,
+        1086,
+        724
+      ],
+      "opaqueComponentCrop": [
+        224,
+        172,
+        790,
+        654
+      ],
+      "width": 566,
+      "height": 482,
+      "bytes": {
+        "png": 496026,
+        "webp": 90570
+      },
+      "alpha": true,
+      "style": "Painted warm game-world art;source pixels preserved within exported crop."
+    },
+    {
+      "id": "lock-shackle",
+      "png": "lock-shackle.png",
+      "webp": "lock-shackle.webp",
+      "source": "exec-60ae37c6-e403-40be-b5af-375bc9c553dd.png",
+      "sourceRegion": [
+        1086,
+        0,
+        2172,
+        724
+      ],
+      "opaqueComponentCrop": [
+        292,
+        75,
+        812,
+        635
+      ],
+      "width": 520,
+      "height": 560,
+      "bytes": {
+        "png": 300976,
+        "webp": 61474
+      },
+      "alpha": true,
+      "style": "Painted warm game-world art;source pixels preserved within exported crop."
+    },
+    {
+      "id": "lock-closed",
+      "png": "lock-closed.png",
+      "webp": "lock-closed.webp",
+      "width": 384,
+      "height": 384,
+      "bytes": {
+        "png": 73592,
+        "webp": 15718
+      },
+      "source": "motion/apng/M13-level-unlock.png",
+      "sourceFrame": 0,
+      "alpha": true,
+      "style": "Paintedmechanicallock;staticstateextractedfromvalidatedanimation."
+    },
+    {
+      "id": "lock-open",
+      "png": "lock-open.png",
+      "webp": "lock-open.webp",
+      "width": 384,
+      "height": 384,
+      "bytes": {
+        "png": 77153,
+        "webp": 17826
+      },
+      "source": "motion/apng/M13-level-unlock.png",
+      "sourceFrame": 11,
+      "alpha": true,
+      "style": "Paintedmechanicallock;staticstateextractedfromvalidatedanimation."
+    }
+  ],
+  "rewindHubNormalized": [
+    0.52,
+    0.46
+  ],
+  "lockOpening": "48degreesclockwiseaboutpinnedrightsocket;leftlegclearsbodyvisibly;rightendpointremainsat(240,230)in384pxcanvas."
+}

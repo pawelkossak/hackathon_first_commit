@@ -37,7 +37,10 @@ Hook Claude Code zablokuje edycję poza `engine/` i `data/`, a hook gita commit 
 ## Twoje checkpointy
 - pt 23:00: E-01…E-05 zielone i scalone do `develop`.
 - sob 11:00: ET-D01 (cała ścieżka demo w silniku) zielony, wszystkie 58 ET zielone.
-- sob 12:00: decyzja go / fallback dla całego zespołu i przegląd mediów (G-07): zostają wygenerowane albo bierzemy zadeklarowany zapas.
+- sob 12:00: decyzja go / fallback dla całego zespołu i przegląd mediów (G-07): co z mediów ścieżki demo jest w `develop`; czego brak, zostaje placeholderem (lista w `docs/team/handoffs/G-07.md`).
+
+## Media dla wszystkich lane'ów
+Osobnej gałęzi na assety nie ma. Media są tylko w `design/` na `develop`: lane-właściciel commituje je osobno (`feat: G-xx …`), Ty scalasz takie PR-y w pierwszej kolejności, a każdy lane robi `git pull origin develop`.
 
 ## Czego pilnujesz u wszystkich
 Liczby tylko z silnika · dane syntetyczne · brak faworyzowania produktów banku · AI z fallbackiem i bez kluczy w kliencie · nic na `main` przed finałem.
