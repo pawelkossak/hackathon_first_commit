@@ -64,7 +64,7 @@ if (args[0] === "--file") {
   files = [norm(args[1])];
 } else if (args[0] === "--range") {
   files = execFileSync("git", ["diff", "--name-only", args[1]], { cwd: root, encoding: "utf8" }).split("\n").filter(Boolean);
-  branch = args[1].split("...").pop();
+  branch = args[1].split("...").pop().replace(/^(?:refs\/remotes\/)?origin\//, "");
 } else {
   files = execFileSync("git", ["diff", "--cached", "--name-only", "--diff-filter=ACMRD"], { cwd: root, encoding: "utf8" })
     .split("\n")
