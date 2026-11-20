@@ -1,7 +1,8 @@
 // Public engine API (RUNTIME-ENGINE-CONTRACT.md). UI and narrative code import only from here.
 // E-01: final signatures. E-02: real forecast (forecast.ts). E-03: action cards (cards.ts).
 // E-04: seeded event deck (seed.ts, events.ts). E-05: turn state machine (turn.ts).
-// Other bodies are fixtures until E-06…E-09.
+// E-06: score (score.ts), hidden fraud until its reveal, plans only from a winning lap.
+// Other bodies are fixtures until E-07…E-09.
 import { isValidIsoDate } from "./calendar";
 import { gameData } from "./data";
 import { RuleError } from "./errors";
@@ -69,6 +70,8 @@ export function resetGame(seed: string = DEMO_SEED): GameState {
  * Read-only daily forecast 21 XI … 10 I: ledger + played cards + events, business-day shift,
  * inflows before outflows, crash below −overdraft. Post-crash points are counterfactual.
  * Default includes the scripted E6 delay; `includeFutureEvents: false` applies E6 only once resolved.
+ * Neither view shows a hidden fraud (E1 „Zapłać jak jest”) before its 23 XII reveal has passed in game
+ * time; resolveWeek still settles the true ledger.
  */
 export function forecast(state: GameState, options: ForecastOptions = {}): Forecast {
   return computeForecast(state, options);
@@ -164,10 +167,17 @@ export function rewind(state: GameState, week: WeekNumber): GameState {
   return rewindTo(state, week);
 }
 
-/** Draft the plan of a played decision (not yet saved). Fixture: C1 template, else built from the card. */
+/**
+ * Draft the plan of a winning decision (not yet saved). Throws RuleError("plan_not_allowed") unless
+ * the lap is completed (not crashed, not still running) and `cardId` was played in it (U-6, §6.3).
+ * Fixture: C1 template, else built from the card.
+ */
 export function createPlan(state: GameState, cardId: CardId): Plan {
+  if (state.core.status !== "completed") {
+    throw new RuleError("plan_not_allowed", `lap is ${state.core.status}, not a winning lap`);
+  }
   const played = state.core.played.some((p) => p.cardId === cardId);
-  if (!played) throw new RuleError("plan_not_allowed", `${cardId} not played`);
+  if (!played) throw new RuleError("plan_not_allowed", `${cardId} not played in the winning lap`);
   const template = futureScript.planTemplates.find((t) => t.cardId === cardId);
   const card = cardDef(cardId);
   if (template) {
@@ -188,9 +198,9 @@ export function createPlan(state: GameState, cardId: CardId): Plan {
 }
 
 /**
- * Prospective state with the plan saved. Pilot is finalised only when the lap is completed and
- * Pilot is "pending"; a plan saved during the lap leaves Pilot "open". The caller persists the
- * returned state before showing success.
+ * Prospective state with the plan saved. Only a winning decision can be saved (same rule and error
+ * as createPlan). Pilot is finalised when it is "pending"; a "missed" Pilot stays missed. The caller
+ * persists the returned state before showing success.
  */
 export function savePlan(state: GameState, cardId: CardId): GameState {
   const plan: Plan = { ...createPlan(state, cardId), savedAt: state.account.clock };

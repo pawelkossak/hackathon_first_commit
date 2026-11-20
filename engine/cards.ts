@@ -4,6 +4,7 @@
 import { gameData } from "./data";
 import { RuleError } from "./errors";
 import { computeForecast, forecastTransactions } from "./forecast";
+import { awardCompetence } from "./score";
 import type {
   ActionCard,
   CardId,
@@ -103,11 +104,9 @@ export function applyCard(state: GameState, cardId: CardId, delegated: boolean):
   const blocked = disabledReason(state.core, cardId);
   if (blocked) throw new RuleError("card_unavailable", `${cardId}: ${blocked.code}`);
   const core = state.core;
-  const competences = { ...core.competences };
-  if (card.competence) {
-    const level = delegated ? card.competence.delegated : card.competence.own;
-    competences[card.competence.id] = Math.max(competences[card.competence.id], level) as typeof level;
-  }
+  const competences = card.competence
+    ? awardCompetence(core.competences, card.competence.id, delegated ? card.competence.delegated : card.competence.own)
+    : { ...core.competences };
   const e = card.effect;
   const invoiceState = e.type === "discount" || e.type === "factoring" ? e.invoiceStateAfter : core.invoiceState;
   const next: GameCore = {

@@ -32,6 +32,17 @@ export interface OverlayContext {
   core: GameCore;
   /** True: scripted future events (forced, not yet resolved) are included. */
   includeFutureEvents: boolean;
+  /**
+   * True only for the settlement (resolveWeek): the true ledger, with every revealed effect booked
+   * whatever the game time. False for every player-facing view (forecast, preview, hint, delegate).
+   */
+  groundTruth: boolean;
+}
+
+/** Internal forecast mode. Not part of the public `ForecastOptions`. */
+export interface ForecastMode {
+  /** See `OverlayContext.groundTruth`. Default false. */
+  groundTruth?: boolean;
 }
 
 /** A pure transformation of the forecast transactions. Never mutates its input. */
@@ -134,15 +145,17 @@ function eventTx(ev: EventCard, e: { id: string; date: string; amount: number } 
  * The money effects of one event choice, in data order:
  * - `transaction` books a new row (E1 re-payment, E2 subcontractor and inflow, E3 tool);
  * - `reveal` marks the ledger payment that went to the changed account (E1: L08) with the event id.
- *   In the known-ledger view (`includeFutureEvents: false`) the effects after a reveal stay hidden
- *   until the reveal date lies before the current week: the player cannot know about the fraud earlier;
+ *   In every player-facing view (both `includeFutureEvents` settings) the reveal and the effects
+ *   after it stay hidden until the reveal date lies before the current week: the player cannot know
+ *   about the fraud earlier, so neither the forecast nor the CFO hint may show it. Only the
+ *   settlement (`groundTruth`) books them from the moment of the choice;
  * - `move_invoice` moves the invoice receipt while the invoice is still in the required state (E6);
  * - `reveal_card` has no money effect (E5 only shows the C5 terms).
  */
 function applyEventChoice(txs: Transaction[], ev: EventCard, choiceId: string, ctx: OverlayContext): Transaction[] {
   const choice = ev.choices.find((c) => c.id === choiceId);
   if (!choice) throw new RuleError("invalid_choice", `${ev.id}: ${choiceId}`);
-  const { core, includeFutureEvents } = ctx;
+  const { core, groundTruth } = ctx;
   const weekStart = level1.weeks[core.week - 1].start;
   let out = txs;
   for (const effect of choice.effects) {
@@ -151,8 +164,8 @@ function applyEventChoice(txs: Transaction[], ev: EventCard, choiceId: string, c
         out = [...out, eventTx(ev, effect)];
         break;
       case "reveal":
+        if (!groundTruth && effect.date >= weekStart) return out;
         out = out.map((t) => (t.id === effect.ledgerId ? { ...t, eventId: ev.id } : t));
-        if (!includeFutureEvents && effect.date >= weekStart) return out;
         break;
       case "move_invoice":
         if (core.invoiceState !== effect.requiresInvoiceState) break;
@@ -205,8 +218,12 @@ export function sameDayOrder(txs: readonly Transaction[]): Transaction[] {
 }
 
 /** All forecast transactions of a state, after overlays and the business-day shift (any date). */
-export function forecastTransactions(core: GameCore, options: ForecastOptions = {}): Transaction[] {
-  const ctx: OverlayContext = { core, includeFutureEvents: options.includeFutureEvents ?? true };
+export function forecastTransactions(core: GameCore, options: ForecastOptions = {}, mode: ForecastMode = {}): Transaction[] {
+  const ctx: OverlayContext = {
+    core,
+    includeFutureEvents: options.includeFutureEvents ?? true,
+    groundTruth: mode.groundTruth ?? false,
+  };
   const overlaid = forecastOverlays.reduce<Transaction[]>((txs, overlay) => overlay(txs, ctx), ledgerTransactions());
   return shiftToBusinessDays(overlaid);
 }
@@ -218,13 +235,16 @@ function lowest(points: readonly ForecastPoint[]): BalanceAt {
   );
 }
 
-/** Daily forecast 21 XI 2026 … 10 I 2027 from the opening balance. Post-crash points are counterfactual. */
-export function computeForecast(state: GameState, options: ForecastOptions = {}): Forecast {
+/**
+ * Daily forecast 21 XI 2026 … 10 I 2027 from the opening balance. Post-crash points are counterfactual.
+ * `mode.groundTruth` is for the settlement only (see `OverlayContext`).
+ */
+export function computeForecast(state: GameState, options: ForecastOptions = {}, mode: ForecastMode = {}): Forecast {
   const core = state.core;
   const limit = core.overdraftLimit;
   const from = level1.lap.forecastStart;
   const to = level1.lap.end;
-  const txs = forecastTransactions(core, options);
+  const txs = forecastTransactions(core, options, mode);
 
   let balance = persona.account.openingBalance;
   let crash: Crash | null = null;

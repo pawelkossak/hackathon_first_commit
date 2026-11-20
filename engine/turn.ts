@@ -59,7 +59,8 @@ export function settleWeek(state: GameState): WeekResolution {
   if (core.weeksResolved.includes(core.week)) throw new RuleError("invalid_week", `week ${core.week} already settled`);
   if (shownEvent(state) !== null) throw new RuleError("event_unresolved");
 
-  const f = computeForecast(state);
+  // The true ledger: a hidden fraud (E1 pay_as_is) is settled even before the player learns of it.
+  const f = computeForecast(state, {}, { groundTruth: true });
   const week = core.week;
   const { start, end } = level1.weeks[week - 1];
   const transactions = f.points.filter((p) => p.date >= start && p.date <= end).flatMap((p) => p.transactions);

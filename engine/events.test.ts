@@ -217,15 +217,19 @@ describe("E-04 seeded deck, conditions and narration signals", () => {
     expect(() => playCard(resolveEvent(s, "ignore"), "C5")).not.toThrow();
   });
 
-  it("E1 pay_as_is marks L08 as the fraud payment; the known ledger shows the re-payment only after the 23 XII reveal", () => {
+  it("E1 pay_as_is: neither forecast view shows the fraud before the 23 XII reveal; from T6 L08 is marked and the re-payment is listed", () => {
     const s = resolveEvent(createGame("demo"), "pay_as_is");
     const txs = (st: GameState, includeFutureEvents: boolean) =>
       forecast(st, { includeFutureEvents }).points.flatMap((p) => p.transactions);
-    expect(txs(s, true).find((t) => t.id === "L08")?.eventId).toBe("E1");
-    expect(txs(s, true).find((t) => t.id === "E1")).toMatchObject({ date: "2027-01-08", amount: -35700, counterpartyId: "S1", source: "event" });
-    expect(txs(s, false).some((t) => t.id === "E1")).toBe(false);
+    for (const view of [true, false]) {
+      expect(txs(s, view).find((t) => t.id === "L08")?.eventId).toBeNull();
+      expect(txs(s, view).some((t) => t.id === "E1")).toBe(false);
+    }
     const t6 = atWeek(6, { 1: "C1" }, { E1: "pay_as_is" });
-    expect(txs(t6, false).some((t) => t.id === "E1")).toBe(true);
+    for (const view of [true, false]) {
+      expect(txs(t6, view).find((t) => t.id === "L08")?.eventId).toBe("E1");
+      expect(txs(t6, view).find((t) => t.id === "E1")).toMatchObject({ date: "2027-01-08", amount: -35700, counterpartyId: "S1", source: "event" });
+    }
   });
 
   it("an event never consumes the week's card action, and resolveEvent rejects a wrong or repeated choice", () => {

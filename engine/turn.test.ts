@@ -283,13 +283,11 @@ describe("turn state machine (E-05)", () => {
     expect(errorCode(() => resolveWeek(won.state))).toBe("not_playing");
   });
 
-  it("Pilot: pending only at lap end, finalised by savePlan; a plan saved mid-lap leaves it open; rewind drops it, the plan survives", () => {
-    // Plan saved during the lap: Pilot stays open, and lap end still sets it to pending.
+  it("Pilot: pending only at lap end, finalised by savePlan; no plan mid-lap or after a crash; rewind drops Pilot, the plan survives", () => {
+    // A plan is a winning decision: not while the lap is running (E-06 QA fix 2).
     const t2 = resolveWeek(playCard(resolveEvent(createGame(), "check"), "C1")).state;
-    const savedEarly = savePlan(t2, "C1");
-    expect(savedEarly.core.stars.pilot).toBe("open");
-    expect(savedEarly.account.plans.map((p) => p.cardId)).toEqual(["C1"]);
-    const lap = playLap({}, {}, savedEarly);
+    expect(errorCode(() => savePlan(t2, "C1"))).toBe("plan_not_allowed");
+    const lap = playLap({}, {}, t2);
     expect(lap.state.core.stars).toEqual(stars("earned", "earned", "pending"));
     // Saving after the lap finalises Pilot.
     const saved = savePlan(lap.state, "C1");
@@ -300,9 +298,9 @@ describe("turn state machine (E-05)", () => {
     expect(back.core.stars.pilot).toBe("open");
     expect(back.account.plans).toEqual(saved.account.plans);
     expect(resolveWeek(back).state.core.stars.pilot).toBe("pending");
-    // No Pilot after a crash or a low below 0, even with a saved plan.
+    // No plan from a crashed lap; a low below 0 keeps Pilot missed after the save.
     const crashed = playLap({ 1: "C3" }).state;
-    expect(savePlan(crashed, "C3").core.stars.pilot).toBe("missed");
+    expect(errorCode(() => savePlan(crashed, "C3"))).toBe("plan_not_allowed");
     const overdraft = playLap({ 1: "C4" }).state;
     expect(savePlan(overdraft, "C4").core.stars.pilot).toBe("missed");
     // Only a played decision can become the plan.
