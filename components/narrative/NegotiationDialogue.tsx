@@ -1,9 +1,23 @@
 "use client";
 
+// G14 negotiation with Klient A, and the bank thread of G16 (ENGINE-DATA-AND-TESTS.md §4.1–§4.2, GM-04).
+// Every message goes to the server route /api/agent; the engine decides there and returns the new state.
+// An accepted deal is already played by the engine (result.state): the parent only stores that state.
+// On a failed call or after 3 s the cached fallback line and the quick replies are shown.
 import React, { useRef, useState } from "react";
-import type { CardId, WeekNumber } from "../../engine";
-import { processAgentNegotiation } from "../../lib/ai";
-import type { QuickReplyOption } from "../../lib/ai/types";
+import type { AgentId, AgentIntent, GameState, NegotiationResult } from "../../engine";
+import { getAvailableCards } from "../../engine";
+import {
+  agentName,
+  fallbackLineId,
+  getCopy,
+  maxMessagesPerWeek,
+  quickRepliesFor,
+  type NarratorGender,
+  type PlayerGender,
+  type QuickReply,
+} from "../../narrative";
+import { postAgentTurn } from "./agent-client";
 
 export interface MessageItem {
   id: string;
@@ -12,134 +26,78 @@ export interface MessageItem {
 }
 
 export interface NegotiationDialogueProps {
-  week: WeekNumber;
-  initialCounterPending?: boolean;
-  onCardUnlocked?: (cardId: CardId) => void;
+  state: GameState;
+  agent?: AgentId;
+  playerGender?: PlayerGender;
+  narratorGender?: NarratorGender;
+  /** The engine's new state after each answered message (a deal is already applied in it). */
+  onStateChange?: (state: GameState, result: NegotiationResult) => void;
   onClose?: () => void;
   className?: string;
 }
 
 export function NegotiationDialogue({
-  week,
-  initialCounterPending = false,
-  onCardUnlocked,
+  state,
+  agent = "klient_a",
+  playerGender = "female",
+  narratorGender = "female",
+  onStateChange,
   onClose,
   className = "",
 }: NegotiationDialogueProps) {
+  const copy = (id: string, extra?: Record<string, string | number>) =>
+    getCopy(id, state, playerGender, narratorGender, extra);
+  const name = agentName(agent);
+
+  const [current, setCurrent] = useState<GameState>(state);
   const [messages, setMessages] = useState<MessageItem[]>([
-    {
-      id: "init",
-      sender: "agent",
-      text: "Dzień dobry! Słyszałem, że chcesz porozmawiać o warunkach rozliczenia naszego grudniowego projektu.",
-    },
+    { id: "init", sender: "agent", text: copy(`ui.negotiate.greeting.${agent}`) },
   ]);
+  const [quickReplies, setQuickReplies] = useState<QuickReply[]>(() => quickRepliesFor(state, agent));
   const [inputVal, setInputVal] = useState("");
-  const [counterPending, setCounterPending] = useState(initialCounterPending);
-  const [messagesCount, setMessagesCount] = useState(0);
   const [isSubmitting, setIsSubmitting] = useState(false);
-  const [unlockedCard, setUnlockedCard] = useState<CardId | null>(null);
+  const [playedTitle, setPlayedTitle] = useState<string | null>(null);
   const messageIdRef = useRef(1);
 
-  const maxMessages = 3;
-  const isBlocked = messagesCount >= maxMessages;
+  const maxMessages = maxMessagesPerWeek(agent);
+  const used = current.core.negotiation[agent].messagesThisWeek;
+  const isBlocked = used >= maxMessages || current.core.status !== "playing";
 
-  const quickReplies: QuickReplyOption[] = counterPending
-    ? [
-        {
-          id: "accept_counter",
-          label: "Przyjmij kontrofertę 30% (15 000 zł do 3 XII)",
-          intent: "accept_counter",
-          percent: 30,
-        },
-        {
-          id: "ask_50",
-          label: "Nalegaj na 50% zaliczki",
-          intent: "ask_advance",
-          percent: 50,
-        },
-      ]
-    : week <= 2
-    ? [
-        {
-          id: "ask_50",
-          label: "Poproś o zaliczkę 50% na poczet projektu",
-          intent: "ask_advance",
-          percent: 50,
-        },
-        {
-          id: "ask_30",
-          label: "Zaproponuj 30% zaliczki (bezpieczna opcja)",
-          intent: "ask_advance",
-          percent: 30,
-        },
-        {
-          id: "discount",
-          label: "Zaoferuj skonto 2% za zapłatę w 7 dni",
-          intent: "offer_discount",
-          percent: 2,
-        },
-      ]
-    : [
-        {
-          id: "discount",
-          label: "Zaoferuj skonto 2% za zapłatę w 7 dni",
-          intent: "offer_discount",
-          percent: 2,
-        },
-      ];
-
-  const handleSend = async (textToSend: string) => {
-    if (!textToSend.trim() || isBlocked || isSubmitting) return;
-
+  const push = (sender: MessageItem["sender"], text: string) => {
     messageIdRef.current += 1;
-    const userMsg: MessageItem = {
-      id: `user-${messageIdRef.current}`,
-      sender: "player",
-      text: textToSend,
-    };
+    const item: MessageItem = { id: `${sender}-${messageIdRef.current}`, sender, text };
+    setMessages((prev) => [...prev, item]);
+  };
 
-    setMessages((prev) => [...prev, userMsg]);
+  const send = async (text: string, intent?: AgentIntent) => {
+    if (!text.trim() || isBlocked || isSubmitting) return;
+    push("player", text);
     setInputVal("");
     setIsSubmitting(true);
-    setMessagesCount((prev) => prev + 1);
-
     try {
-      // Direct call through narrative ai service (with fallback)
-      const res = await processAgentNegotiation({
-        message: textToSend,
-        agent: "klient_a",
-        week,
-        counterPending,
+      const response = await postAgentTurn({
+        state: current,
+        agent,
+        ...(intent ? { intent } : { message: text }),
+        playerGender,
+        narratorGender,
       });
-
-      messageIdRef.current += 1;
-      const agentMsg: MessageItem = {
-        id: `agent-${messageIdRef.current}`,
-        sender: "agent",
-        text: res.reply,
-      };
-
-      setMessages((prev) => [...prev, agentMsg]);
-
-      if (res.outcome === "counter") {
-        setCounterPending(true);
-      } else if (res.outcome === "accept") {
-        setCounterPending(false);
-        if (res.cardId) {
-          setUnlockedCard(res.cardId as CardId);
-          onCardUnlocked?.(res.cardId as CardId);
-        }
+      if (response === null) {
+        push("agent", copy(fallbackLineId(agent)));
+        setQuickReplies(quickRepliesFor(current, agent));
+        return;
       }
-    } catch {
-      messageIdRef.current += 1;
-      setMessages((prev) => [
-        ...prev,
-        {
-          id: `fallback-${messageIdRef.current}`,
-          sender: "agent",
-          text: "Wybierz jedną z przygotowanych opcji negocjacji:",
-        },
-      ]);
+      push("agent", response.text);
+      setQuickReplies(response.quickReplies);
+      if (response.ok) {
+        const next = response.result.state;
+        setCurrent(next);
+        const playedId = response.result.appliedCardId;
+        if (playedId) {
+          setPlayedTitle(getAvailableCards(next).find((c) => c.id === playedId)?.title ?? playedId);
+        }
+        onStateChange?.(next, response.result);
+      }
     } finally {
       setIsSubmitting(false);
     }
@@ -147,46 +105,42 @@ export function NegotiationDialogue({
 
   return (
     <section
-      aria-label="Negocjacje z Klientem A (G14)"
+      aria-label={name}
       className={`w-full max-w-2xl bg-neutral-900 border border-neutral-700/80 rounded-2xl p-6 shadow-2xl flex flex-col text-neutral-100 ${className}`}
     >
       <header className="flex items-center justify-between border-b border-neutral-800 pb-3 mb-4">
         <div>
-          <h2 className="text-xl font-bold text-amber-400">Klient A (Agencja)</h2>
-          <p className="text-xs text-neutral-400">
-            Faktura INV-A1 (20 295 zł brutto, termin 60 dni)
-          </p>
+          <h2 className="text-xl font-bold text-amber-400">{name}</h2>
+          <p className="text-sm text-neutral-400">{copy(`ui.negotiate.subtitle.${agent}`)}</p>
         </div>
         <div className="flex items-center gap-3">
-          <span className="text-xs bg-neutral-800 border border-neutral-700 px-2.5 py-1 rounded-full text-neutral-300">
-            Wiadomości: {messagesCount}/{maxMessages}
+          <span className="text-sm bg-neutral-800 border border-neutral-700 px-2.5 py-1 rounded-full text-neutral-300">
+            {copy("ui.negotiate.messages", { used, max: maxMessages })}
           </span>
           {onClose && (
             <button
               type="button"
               onClick={onClose}
-              className="min-h-[44px] min-w-[44px] text-xs px-3 py-1 bg-neutral-800 hover:bg-neutral-700 rounded-lg text-neutral-300 transition-colors"
+              className="min-h-[44px] min-w-[44px] text-sm px-3 py-1 bg-neutral-800 hover:bg-neutral-700 rounded-lg text-neutral-300 transition-colors focus:outline-none focus:ring-2 focus:ring-amber-400"
             >
-              Zamknij
+              {copy("ui.btn.close")}
             </button>
           )}
         </div>
       </header>
 
-      {/* Messages Scroll Area */}
-      <div className="flex-1 overflow-y-auto max-h-[360px] space-y-3 p-2 bg-neutral-950/60 rounded-xl border border-neutral-800/80 mb-4">
+      <div
+        role="log"
+        aria-live="polite"
+        className="flex-1 overflow-y-auto max-h-[360px] space-y-3 p-2 bg-neutral-950/60 rounded-xl border border-neutral-800/80 mb-4"
+      >
         {messages.map((m) => (
-          <div
-            key={m.id}
-            className={`flex flex-col ${
-              m.sender === "player" ? "items-end" : "items-start"
-            }`}
-          >
-            <span className="text-[11px] text-neutral-500 mb-1 px-1">
-              {m.sender === "player" ? "Ty" : "Klient A"}
+          <div key={m.id} className={`flex flex-col ${m.sender === "player" ? "items-end" : "items-start"}`}>
+            <span className="text-xs text-neutral-400 mb-1 px-1">
+              {m.sender === "player" ? copy("ui.negotiate.you") : name}
             </span>
             <div
-              className={`max-w-[85%] rounded-2xl px-4 py-2.5 text-sm sm:text-base leading-relaxed ${
+              className={`max-w-[85%] rounded-2xl px-4 py-2.5 text-base leading-relaxed ${
                 m.sender === "player"
                   ? "bg-amber-400 text-neutral-950 font-medium rounded-tr-none"
                   : "bg-neutral-800 text-neutral-100 border border-neutral-700/80 rounded-tl-none"
@@ -198,67 +152,68 @@ export function NegotiationDialogue({
         ))}
       </div>
 
-      {/* Unlocked Card Notification Banner */}
-      {unlockedCard && (
-        <div className="mb-4 p-3 bg-emerald-950/80 border border-emerald-500/50 rounded-xl text-emerald-200 text-sm flex items-center justify-between">
-          <span>
-            Uzyskano manewr: <strong>{unlockedCard === "C1" ? "Zaliczka (C1)" : "Skonto (C2)"}</strong>! Możesz go teraz zatwierdzić w talii kart.
-          </span>
+      {playedTitle && (
+        <div
+          role="status"
+          className="mb-4 p-3 bg-emerald-950/80 border border-emerald-500/50 rounded-xl text-emerald-200 text-base"
+        >
+          {copy("ui.negotiate.card_played", { "card.title": playedTitle })}
         </div>
       )}
 
-      {/* Quick Replies */}
-      {!isBlocked && (
+      {!isBlocked && quickReplies.length > 0 && (
         <div className="mb-4">
-          <span className="text-xs text-neutral-400 font-medium block mb-2">
-            Szybkie odpowiedzi (kliknij, aby wysłać):
-          </span>
+          <span className="text-sm text-neutral-400 font-medium block mb-2">{copy("ui.negotiate.quick_replies")}</span>
           <div className="flex flex-wrap gap-2">
-            {quickReplies.map((q) => (
-              <button
-                key={q.id}
-                type="button"
-                disabled={isSubmitting}
-                onClick={() => handleSend(q.label)}
-                className="min-h-[44px] text-xs sm:text-sm px-3.5 py-2 rounded-lg bg-neutral-800 hover:bg-neutral-700 active:bg-neutral-600 border border-neutral-700 text-neutral-200 transition-colors focus:outline-none focus:ring-2 focus:ring-amber-400"
-              >
-                {q.label}
-              </button>
-            ))}
+            {quickReplies.map((q) => {
+              const label = copy(q.labelKey);
+              return (
+                <button
+                  key={q.id}
+                  type="button"
+                  disabled={isSubmitting}
+                  onClick={() => send(label, q.intent)}
+                  className="min-h-[44px] text-base px-3.5 py-2 rounded-lg bg-neutral-800 hover:bg-neutral-700 active:bg-neutral-600 border border-neutral-700 text-neutral-200 transition-colors focus:outline-none focus:ring-2 focus:ring-amber-400"
+                >
+                  {label}
+                </button>
+              );
+            })}
           </div>
         </div>
       )}
 
-      {/* Free Text Input */}
       {!isBlocked && (
         <form
           onSubmit={(e) => {
             e.preventDefault();
-            handleSend(inputVal);
+            void send(inputVal);
           }}
           className="flex gap-2"
         >
           <input
             type="text"
+            aria-label={copy("ui.negotiate.input_label")}
             value={inputVal}
             onChange={(e) => setInputVal(e.target.value)}
             disabled={isSubmitting}
-            placeholder="Wpisz propozycję (np. Poproszę o 50% zaliczki)..."
-            className="flex-1 min-h-[44px] px-4 py-2 bg-neutral-950 border border-neutral-700 rounded-lg text-sm text-neutral-100 placeholder-neutral-500 focus:outline-none focus:ring-2 focus:ring-amber-400"
+            maxLength={500}
+            placeholder={copy("ui.negotiate.placeholder")}
+            className="flex-1 min-h-[44px] px-4 py-2 bg-neutral-950 border border-neutral-700 rounded-lg text-base text-neutral-100 placeholder-neutral-500 focus:outline-none focus:ring-2 focus:ring-amber-400"
           />
           <button
             type="submit"
             disabled={!inputVal.trim() || isSubmitting}
-            className="min-h-[44px] px-5 py-2 bg-amber-400 hover:bg-amber-300 disabled:opacity-40 text-neutral-950 font-semibold text-sm rounded-lg transition-colors focus:outline-none focus:ring-2 focus:ring-amber-400"
+            className="min-h-[44px] px-5 py-2 bg-amber-400 hover:bg-amber-300 disabled:opacity-40 text-neutral-950 font-semibold text-base rounded-lg transition-colors focus:outline-none focus:ring-2 focus:ring-amber-400"
           >
-            Wyślij
+            {copy("ui.negotiate.send")}
           </button>
         </form>
       )}
 
       {isBlocked && (
-        <div className="text-center p-3 bg-neutral-800/80 rounded-xl text-xs text-neutral-400">
-          Osiągnięto limit 3 wiadomości w tym tygodniu.
+        <div role="status" className="text-center p-3 bg-neutral-800/80 rounded-xl text-base text-neutral-300">
+          {copy("ui.negotiate.limit")}
         </div>
       )}
     </section>

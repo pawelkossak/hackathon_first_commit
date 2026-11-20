@@ -1,4 +1,5 @@
 import { test, expect } from '@playwright/test';
+import { createGame } from '../engine';
 
 /**
  * End-to-end Playwright specification for Pilot Płynności 90-second demo path (N-07).
@@ -21,20 +22,30 @@ test.describe('N-07: Demo-path E2E (Desktop 1440x900)', () => {
   });
 
   test.describe('Backend Service APIs', () => {
-    test('POST /api/agent returns deterministic counter-offer 30% for 50% advance', async ({ request }) => {
+    test('POST /api/agent returns the engine counter-offer 30% for 50% advance, then accept plays C1', async ({ request }) => {
       const response = await request.post('/api/agent', {
         data: {
+          state: createGame('demo'),
           agent: 'klient_a',
           message: 'Czy możemy prosić o 50% zaliczki na start projektu?',
-          week: 1,
         },
       });
 
       expect(response.ok()).toBeTruthy();
       const data = await response.json();
-      expect(data.outcome).toBe('counter');
-      expect(data.reply).toContain('15 000 zł do 3 grudnia');
-      expect(data.counterPercent).toBe(30);
+      expect(data.ok).toBe(true);
+      expect(data.lineId).toBe('a.advance.counter');
+      expect(data.result.outcome).toBe('counter');
+      expect(data.result.counterPercent).toBe(30);
+      expect(data.text.replace(/\u00a0/g, ' ')).toContain('15 000 zł do 3 grudnia');
+
+      const accept = await request.post('/api/agent', {
+        data: { state: data.result.state, agent: 'klient_a', intent: 'accept_counter' },
+      });
+      expect(accept.ok()).toBeTruthy();
+      const accepted = await accept.json();
+      expect(accepted.result.appliedCardId).toBe('C1');
+      expect(accepted.result.state.core.played.map((p: { cardId: string }) => p.cardId)).toEqual(['C1']);
     });
 
     test('POST /api/push/demo schedules 30 s stage reminder without bank promotion', async ({ request }) => {

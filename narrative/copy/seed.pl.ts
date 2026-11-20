@@ -1172,5 +1172,233 @@ export const SEED_COPY: Record<string, CopyRecord> = {
     "player-male_narrator-female": "Plan sprawdzony na prawdziwym koncie. To działa!",
     "player-female_narrator-male": "Plan sprawdzony na prawdziwym koncie. To działa!",
     "player-male_narrator-male": "Plan sprawdzony na prawdziwym koncie. To działa!"
+  },
+  "rx.fraud": {
+    "player-female_narrator-female": "Zgłoszono oszustwo. {fraud.amount} poszło {fraud.date} na podmienione konto. Wiem, że chciałaś zdążyć z przelewem, ale jestem wściekła: następnym razem najpierw sprawdzamy i dzwonimy.",
+    "player-male_narrator-female": "Zgłoszono oszustwo. {fraud.amount} poszło {fraud.date} na podmienione konto. Wiem, że chciałeś zdążyć z przelewem, ale jestem wściekła: następnym razem najpierw sprawdzamy i dzwonimy.",
+    "player-female_narrator-male": "Zgłoszono oszustwo. {fraud.amount} poszło {fraud.date} na podmienione konto. Wiem, że chciałaś zdążyć z przelewem, ale jestem wściekły: następnym razem najpierw sprawdzamy i dzwonimy.",
+    "player-male_narrator-male": "Zgłoszono oszustwo. {fraud.amount} poszło {fraud.date} na podmienione konto. Wiem, że chciałeś zdążyć z przelewem, ale jestem wściekły: następnym razem najpierw sprawdzamy i dzwonimy."
+  },
+  "a.advance.counter": {
+    "player-female_narrator-female": "Mogę dać {deal.percent} — {deal.amount} do {deal.date}.",
+    "player-male_narrator-female": "Mogę dać {deal.percent} — {deal.amount} do {deal.date}.",
+    "player-female_narrator-male": "Mogę dać {deal.percent} — {deal.amount} do {deal.date}.",
+    "player-male_narrator-male": "Mogę dać {deal.percent} — {deal.amount} do {deal.date}."
+  },
+  "a.advance.accept": {
+    "player-female_narrator-female": "Ustalone. Zaliczka {deal.amount} wpłynie do {deal.date}.",
+    "player-male_narrator-female": "Ustalone. Zaliczka {deal.amount} wpłynie do {deal.date}.",
+    "player-female_narrator-male": "Ustalone. Zaliczka {deal.amount} wpłynie do {deal.date}.",
+    "player-male_narrator-male": "Ustalone. Zaliczka {deal.amount} wpłynie do {deal.date}."
+  },
+  "a.advance.closed": {
+    "player-female_narrator-female": "Budżet projektu jest zamknięty. Sprawdź inne manewry.",
+    "player-male_narrator-female": "Budżet projektu jest zamknięty. Sprawdź inne manewry.",
+    "player-female_narrator-male": "Budżet projektu jest zamknięty. Sprawdź inne manewry.",
+    "player-male_narrator-male": "Budżet projektu jest zamknięty. Sprawdź inne manewry."
+  },
+  "a.discount.accept": {
+    "player-female_narrator-female": "Skonto przyspieszy płatność: {deal.amount} wpłynie {deal.date}. Koszt skonta to {deal.cost} — sprawdź go w prognozie.",
+    "player-male_narrator-female": "Skonto przyspieszy płatność: {deal.amount} wpłynie {deal.date}. Koszt skonta to {deal.cost} — sprawdź go w prognozie.",
+    "player-female_narrator-male": "Skonto przyspieszy płatność: {deal.amount} wpłynie {deal.date}. Koszt skonta to {deal.cost} — sprawdź go w prognozie.",
+    "player-male_narrator-male": "Skonto przyspieszy płatność: {deal.amount} wpłynie {deal.date}. Koszt skonta to {deal.cost} — sprawdź go w prognozie."
+  },
+  "a.rude": {
+    "player-female_narrator-female": "Spokojnie. Porozmawiajmy rzeczowo — relacje też są walutą.",
+    "player-male_narrator-female": "Spokojnie. Porozmawiajmy rzeczowo — relacje też są walutą.",
+    "player-female_narrator-male": "Spokojnie. Porozmawiajmy rzeczowo — relacje też są walutą.",
+    "player-male_narrator-male": "Spokojnie. Porozmawiajmy rzeczowo — relacje też są walutą."
+  },
+  "a.fallback": {
+    "player-female_narrator-female": "Porozmawiajmy o dostępnych warunkach. Wybierz gotową odpowiedź.",
+    "player-male_narrator-female": "Porozmawiajmy o dostępnych warunkach. Wybierz gotową odpowiedź.",
+    "player-female_narrator-male": "Porozmawiajmy o dostępnych warunkach. Wybierz gotową odpowiedź.",
+    "player-male_narrator-male": "Porozmawiajmy o dostępnych warunkach. Wybierz gotową odpowiedź."
+  },
+  "bank.od.offer": {
+    "player-female_narrator-female": "Możemy uruchomić limit w koncie do {deal.limit}. Szacowany koszt to {deal.cost} — opłata i odsetki. Sprawdź go w prognozie.",
+    "player-male_narrator-female": "Możemy uruchomić limit w koncie do {deal.limit}. Szacowany koszt to {deal.cost} — opłata i odsetki. Sprawdź go w prognozie.",
+    "player-female_narrator-male": "Możemy uruchomić limit w koncie do {deal.limit}. Szacowany koszt to {deal.cost} — opłata i odsetki. Sprawdź go w prognozie.",
+    "player-male_narrator-male": "Możemy uruchomić limit w koncie do {deal.limit}. Szacowany koszt to {deal.cost} — opłata i odsetki. Sprawdź go w prognozie."
+  },
+  "bank.od.late": {
+    "player-female_narrator-female": "Na ten scenariusz jest już za późno. Nie zdążymy uruchomić limitu przed terminem tej płatności.",
+    "player-male_narrator-female": "Na ten scenariusz jest już za późno. Nie zdążymy uruchomić limitu przed terminem tej płatności.",
+    "player-female_narrator-male": "Na ten scenariusz jest już za późno. Nie zdążymy uruchomić limitu przed terminem tej płatności.",
+    "player-male_narrator-male": "Na ten scenariusz jest już za późno. Nie zdążymy uruchomić limitu przed terminem tej płatności."
+  },
+  "bank.od.notneeded": {
+    "player-female_narrator-female": "Limit został przyznany, choć prognoza nie pokazuje dziś niedoboru.",
+    "player-male_narrator-female": "Limit został przyznany, choć prognoza nie pokazuje dziś niedoboru.",
+    "player-female_narrator-male": "Limit został przyznany, choć prognoza nie pokazuje dziś niedoboru.",
+    "player-male_narrator-male": "Limit został przyznany, choć prognoza nie pokazuje dziś niedoboru."
+  },
+  "bank.fallback": {
+    "player-female_narrator-female": "Przyjrzyjmy się dostępnym możliwościom. Pożyczka z wiadomości SMS nie jest ofertą naszego banku.",
+    "player-male_narrator-female": "Przyjrzyjmy się dostępnym możliwościom. Pożyczka z wiadomości SMS nie jest ofertą naszego banku.",
+    "player-female_narrator-male": "Przyjrzyjmy się dostępnym możliwościom. Pożyczka z wiadomości SMS nie jest ofertą naszego banku.",
+    "player-male_narrator-male": "Przyjrzyjmy się dostępnym możliwościom. Pożyczka z wiadomości SMS nie jest ofertą naszego banku."
+  },
+  "card.disabled.not_playing": {
+    "player-female_narrator-female": "Okrążenie jest zakończone. Ta karta poczeka na następne.",
+    "player-male_narrator-female": "Okrążenie jest zakończone. Ta karta poczeka na następne.",
+    "player-female_narrator-male": "Okrążenie jest zakończone. Ta karta poczeka na następne.",
+    "player-male_narrator-male": "Okrążenie jest zakończone. Ta karta poczeka na następne."
+  },
+  "card.disabled.event_unresolved": {
+    "player-female_narrator-female": "Najpierw rozstrzygnij wydarzenie tego tygodnia.",
+    "player-male_narrator-female": "Najpierw rozstrzygnij wydarzenie tego tygodnia.",
+    "player-female_narrator-male": "Najpierw rozstrzygnij wydarzenie tego tygodnia.",
+    "player-male_narrator-male": "Najpierw rozstrzygnij wydarzenie tego tygodnia."
+  },
+  "card.disabled.week_action_used": {
+    "player-female_narrator-female": "Ruch w tym tygodniu jest już wykonany. Kolejny w następnym tygodniu.",
+    "player-male_narrator-female": "Ruch w tym tygodniu jest już wykonany. Kolejny w następnym tygodniu.",
+    "player-female_narrator-male": "Ruch w tym tygodniu jest już wykonany. Kolejny w następnym tygodniu.",
+    "player-male_narrator-male": "Ruch w tym tygodniu jest już wykonany. Kolejny w następnym tygodniu."
+  },
+  "card.disabled.already_played": {
+    "player-female_narrator-female": "Już zagrana w tym okrążeniu",
+    "player-male_narrator-female": "Już zagrana w tym okrążeniu",
+    "player-female_narrator-male": "Już zagrana w tym okrążeniu",
+    "player-male_narrator-male": "Już zagrana w tym okrążeniu"
+  },
+  "card.disabled.outside_window": {
+    "player-female_narrator-female": "Ta karta działa w innym tygodniu okrążenia.",
+    "player-male_narrator-female": "Ta karta działa w innym tygodniu okrążenia.",
+    "player-female_narrator-male": "Ta karta działa w innym tygodniu okrążenia.",
+    "player-male_narrator-male": "Ta karta działa w innym tygodniu okrążenia."
+  },
+  "card.disabled.budget_closed": {
+    "player-female_narrator-female": "Za późno — budżet klienta zamknięty",
+    "player-male_narrator-female": "Za późno — budżet klienta zamknięty",
+    "player-female_narrator-male": "Za późno — budżet klienta zamknięty",
+    "player-male_narrator-male": "Za późno — budżet klienta zamknięty"
+  },
+  "card.disabled.bank_too_late": {
+    "player-female_narrator-female": "Bank nie zdąży uruchomić limitu przed terminem płatności.",
+    "player-male_narrator-female": "Bank nie zdąży uruchomić limitu przed terminem płatności.",
+    "player-female_narrator-male": "Bank nie zdąży uruchomić limitu przed terminem płatności.",
+    "player-male_narrator-male": "Bank nie zdąży uruchomić limitu przed terminem płatności."
+  },
+  "card.disabled.invoice_financed": {
+    "player-female_narrator-female": "Faktura już sfinansowana",
+    "player-male_narrator-female": "Faktura już sfinansowana",
+    "player-female_narrator-male": "Faktura już sfinansowana",
+    "player-male_narrator-male": "Faktura już sfinansowana"
+  },
+  "card.disabled.invoice_paid": {
+    "player-female_narrator-female": "Faktura już opłacona",
+    "player-male_narrator-female": "Faktura już opłacona",
+    "player-female_narrator-male": "Faktura już opłacona",
+    "player-male_narrator-male": "Faktura już opłacona"
+  },
+  "card.disabled.payment_already_booked": {
+    "player-female_narrator-female": "Ta płatność już wyszła z konta. Na tę kartę jest za późno.",
+    "player-male_narrator-female": "Ta płatność już wyszła z konta. Na tę kartę jest za późno.",
+    "player-female_narrator-male": "Ta płatność już wyszła z konta. Na tę kartę jest za późno.",
+    "player-male_narrator-male": "Ta płatność już wyszła z konta. Na tę kartę jest za późno."
+  },
+  "card.disabled.overdraft_active": {
+    "player-female_narrator-female": "Limit w koncie już działa.",
+    "player-male_narrator-female": "Limit w koncie już działa.",
+    "player-female_narrator-male": "Limit w koncie już działa.",
+    "player-male_narrator-male": "Limit w koncie już działa."
+  },
+  "ui.negotiate.reply.ask_advance": {
+    "player-female_narrator-female": "Poproś o zaliczkę",
+    "player-male_narrator-female": "Poproś o zaliczkę",
+    "player-female_narrator-male": "Poproś o zaliczkę",
+    "player-male_narrator-male": "Poproś o zaliczkę"
+  },
+  "ui.negotiate.reply.offer_discount": {
+    "player-female_narrator-female": "Zaproponuj skonto za szybszą zapłatę",
+    "player-male_narrator-female": "Zaproponuj skonto za szybszą zapłatę",
+    "player-female_narrator-male": "Zaproponuj skonto za szybszą zapłatę",
+    "player-male_narrator-male": "Zaproponuj skonto za szybszą zapłatę"
+  },
+  "ui.negotiate.reply.ask_overdraft": {
+    "player-female_narrator-female": "Zapytaj o limit w koncie",
+    "player-male_narrator-female": "Zapytaj o limit w koncie",
+    "player-female_narrator-male": "Zapytaj o limit w koncie",
+    "player-male_narrator-male": "Zapytaj o limit w koncie"
+  },
+  "ui.negotiate.greeting.klient_a": {
+    "player-female_narrator-female": "Dzień dobry! Porozmawiajmy o rozliczeniu grudniowego projektu.",
+    "player-male_narrator-female": "Dzień dobry! Porozmawiajmy o rozliczeniu grudniowego projektu.",
+    "player-female_narrator-male": "Dzień dobry! Porozmawiajmy o rozliczeniu grudniowego projektu.",
+    "player-male_narrator-male": "Dzień dobry! Porozmawiajmy o rozliczeniu grudniowego projektu."
+  },
+  "ui.negotiate.greeting.bank": {
+    "player-female_narrator-female": "Dzień dobry. Sprawdźmy, w czym bank może pomóc.",
+    "player-male_narrator-female": "Dzień dobry. Sprawdźmy, w czym bank może pomóc.",
+    "player-female_narrator-male": "Dzień dobry. Sprawdźmy, w czym bank może pomóc.",
+    "player-male_narrator-male": "Dzień dobry. Sprawdźmy, w czym bank może pomóc."
+  },
+  "ui.negotiate.subtitle.klient_a": {
+    "player-female_narrator-female": "Rozmowa o warunkach płatności za projekt",
+    "player-male_narrator-female": "Rozmowa o warunkach płatności za projekt",
+    "player-female_narrator-male": "Rozmowa o warunkach płatności za projekt",
+    "player-male_narrator-male": "Rozmowa o warunkach płatności za projekt"
+  },
+  "ui.negotiate.subtitle.bank": {
+    "player-female_narrator-female": "Rozmowa o limicie w koncie",
+    "player-male_narrator-female": "Rozmowa o limicie w koncie",
+    "player-female_narrator-male": "Rozmowa o limicie w koncie",
+    "player-male_narrator-male": "Rozmowa o limicie w koncie"
+  },
+  "ui.negotiate.messages": {
+    "player-female_narrator-female": "Wiadomości: {used}/{max}",
+    "player-male_narrator-female": "Wiadomości: {used}/{max}",
+    "player-female_narrator-male": "Wiadomości: {used}/{max}",
+    "player-male_narrator-male": "Wiadomości: {used}/{max}"
+  },
+  "ui.negotiate.limit": {
+    "player-female_narrator-female": "Limit wiadomości w tym tygodniu jest wyczerpany. Wróć w kolejnym tygodniu.",
+    "player-male_narrator-female": "Limit wiadomości w tym tygodniu jest wyczerpany. Wróć w kolejnym tygodniu.",
+    "player-female_narrator-male": "Limit wiadomości w tym tygodniu jest wyczerpany. Wróć w kolejnym tygodniu.",
+    "player-male_narrator-male": "Limit wiadomości w tym tygodniu jest wyczerpany. Wróć w kolejnym tygodniu."
+  },
+  "ui.negotiate.quick_replies": {
+    "player-female_narrator-female": "Szybkie odpowiedzi",
+    "player-male_narrator-female": "Szybkie odpowiedzi",
+    "player-female_narrator-male": "Szybkie odpowiedzi",
+    "player-male_narrator-male": "Szybkie odpowiedzi"
+  },
+  "ui.negotiate.placeholder": {
+    "player-female_narrator-female": "Wpisz propozycję, np. „Czy możemy dostać zaliczkę?”",
+    "player-male_narrator-female": "Wpisz propozycję, np. „Czy możemy dostać zaliczkę?”",
+    "player-female_narrator-male": "Wpisz propozycję, np. „Czy możemy dostać zaliczkę?”",
+    "player-male_narrator-male": "Wpisz propozycję, np. „Czy możemy dostać zaliczkę?”"
+  },
+  "ui.negotiate.input_label": {
+    "player-female_narrator-female": "Twoja wiadomość",
+    "player-male_narrator-female": "Twoja wiadomość",
+    "player-female_narrator-male": "Twoja wiadomość",
+    "player-male_narrator-male": "Twoja wiadomość"
+  },
+  "ui.negotiate.send": {
+    "player-female_narrator-female": "Wyślij",
+    "player-male_narrator-female": "Wyślij",
+    "player-female_narrator-male": "Wyślij",
+    "player-male_narrator-male": "Wyślij"
+  },
+  "ui.negotiate.you": {
+    "player-female_narrator-female": "Ty",
+    "player-male_narrator-female": "Ty",
+    "player-female_narrator-male": "Ty",
+    "player-male_narrator-male": "Ty"
+  },
+  "ui.negotiate.card_played": {
+    "player-female_narrator-female": "Zagrana karta: {card.title}. Sprawdź jej skutek w prognozie.",
+    "player-male_narrator-female": "Zagrana karta: {card.title}. Sprawdź jej skutek w prognozie.",
+    "player-female_narrator-male": "Zagrana karta: {card.title}. Sprawdź jej skutek w prognozie.",
+    "player-male_narrator-male": "Zagrana karta: {card.title}. Sprawdź jej skutek w prognozie."
+  },
+  "ui.btn.close": {
+    "player-female_narrator-female": "Zamknij",
+    "player-male_narrator-female": "Zamknij",
+    "player-female_narrator-male": "Zamknij",
+    "player-male_narrator-male": "Zamknij"
   }
 };

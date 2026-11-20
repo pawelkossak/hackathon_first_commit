@@ -10,7 +10,22 @@ export {
   getLocale,
 } from "./copy/get-copy";
 export { getVoiceScript, VOICE_SCRIPTS } from "./copy/voice-scripts";
+export { formatDayMonth, formatPercent, formatPln } from "./format";
 export {
+  agentLineBindings,
+  agentLineIds,
+  agentLineText,
+  agentName,
+  dealCardFor,
+  disabledReasonText,
+  fallbackLineId,
+  maxMessagesPerWeek,
+  quickRepliesFor,
+  type QuickReply,
+} from "./agent-lines";
+export {
+  eventBindings,
+  REACTION_CONFIG,
   reactionFor,
   ReactionTracker,
   type NarratorReaction,

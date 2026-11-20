@@ -1172,5 +1172,233 @@ export const SEED_COPY_EN: Record<string, CopyRecord> = {
     "player-male_narrator-female": "Plan tested on a real account. It works!",
     "player-female_narrator-male": "Plan tested on a real account. It works!",
     "player-male_narrator-male": "Plan tested on a real account. It works!"
+  },
+  "rx.fraud": {
+    "player-female_narrator-female": "Fraud reported. {fraud.amount} went to the swapped account on {fraud.date}. I know you wanted to pay on time, but I am furious: next time we check and call first.",
+    "player-male_narrator-female": "Fraud reported. {fraud.amount} went to the swapped account on {fraud.date}. I know you wanted to pay on time, but I am furious: next time we check and call first.",
+    "player-female_narrator-male": "Fraud reported. {fraud.amount} went to the swapped account on {fraud.date}. I know you wanted to pay on time, but I am furious: next time we check and call first.",
+    "player-male_narrator-male": "Fraud reported. {fraud.amount} went to the swapped account on {fraud.date}. I know you wanted to pay on time, but I am furious: next time we check and call first."
+  },
+  "a.advance.counter": {
+    "player-female_narrator-female": "I can give {deal.percent} — {deal.amount} by {deal.date}.",
+    "player-male_narrator-female": "I can give {deal.percent} — {deal.amount} by {deal.date}.",
+    "player-female_narrator-male": "I can give {deal.percent} — {deal.amount} by {deal.date}.",
+    "player-male_narrator-male": "I can give {deal.percent} — {deal.amount} by {deal.date}."
+  },
+  "a.advance.accept": {
+    "player-female_narrator-female": "Agreed. The advance of {deal.amount} arrives by {deal.date}.",
+    "player-male_narrator-female": "Agreed. The advance of {deal.amount} arrives by {deal.date}.",
+    "player-female_narrator-male": "Agreed. The advance of {deal.amount} arrives by {deal.date}.",
+    "player-male_narrator-male": "Agreed. The advance of {deal.amount} arrives by {deal.date}."
+  },
+  "a.advance.closed": {
+    "player-female_narrator-female": "The project budget is closed. Check other moves.",
+    "player-male_narrator-female": "The project budget is closed. Check other moves.",
+    "player-female_narrator-male": "The project budget is closed. Check other moves.",
+    "player-male_narrator-male": "The project budget is closed. Check other moves."
+  },
+  "a.discount.accept": {
+    "player-female_narrator-female": "The discount speeds up the payment: {deal.amount} arrives on {deal.date}. The discount costs {deal.cost} — check it in the forecast.",
+    "player-male_narrator-female": "The discount speeds up the payment: {deal.amount} arrives on {deal.date}. The discount costs {deal.cost} — check it in the forecast.",
+    "player-female_narrator-male": "The discount speeds up the payment: {deal.amount} arrives on {deal.date}. The discount costs {deal.cost} — check it in the forecast.",
+    "player-male_narrator-male": "The discount speeds up the payment: {deal.amount} arrives on {deal.date}. The discount costs {deal.cost} — check it in the forecast."
+  },
+  "a.rude": {
+    "player-female_narrator-female": "Easy. Let us talk business — relations are a currency too.",
+    "player-male_narrator-female": "Easy. Let us talk business — relations are a currency too.",
+    "player-female_narrator-male": "Easy. Let us talk business — relations are a currency too.",
+    "player-male_narrator-male": "Easy. Let us talk business — relations are a currency too."
+  },
+  "a.fallback": {
+    "player-female_narrator-female": "Let us talk about the available terms. Pick a ready reply.",
+    "player-male_narrator-female": "Let us talk about the available terms. Pick a ready reply.",
+    "player-female_narrator-male": "Let us talk about the available terms. Pick a ready reply.",
+    "player-male_narrator-male": "Let us talk about the available terms. Pick a ready reply."
+  },
+  "bank.od.offer": {
+    "player-female_narrator-female": "We can open an overdraft of up to {deal.limit}. The estimated cost is {deal.cost} — fee and interest. Check it in the forecast.",
+    "player-male_narrator-female": "We can open an overdraft of up to {deal.limit}. The estimated cost is {deal.cost} — fee and interest. Check it in the forecast.",
+    "player-female_narrator-male": "We can open an overdraft of up to {deal.limit}. The estimated cost is {deal.cost} — fee and interest. Check it in the forecast.",
+    "player-male_narrator-male": "We can open an overdraft of up to {deal.limit}. The estimated cost is {deal.cost} — fee and interest. Check it in the forecast."
+  },
+  "bank.od.late": {
+    "player-female_narrator-female": "It is too late for this scenario. We cannot open the overdraft before this payment is due.",
+    "player-male_narrator-female": "It is too late for this scenario. We cannot open the overdraft before this payment is due.",
+    "player-female_narrator-male": "It is too late for this scenario. We cannot open the overdraft before this payment is due.",
+    "player-male_narrator-male": "It is too late for this scenario. We cannot open the overdraft before this payment is due."
+  },
+  "bank.od.notneeded": {
+    "player-female_narrator-female": "The overdraft is granted, although the forecast shows no shortfall today.",
+    "player-male_narrator-female": "The overdraft is granted, although the forecast shows no shortfall today.",
+    "player-female_narrator-male": "The overdraft is granted, although the forecast shows no shortfall today.",
+    "player-male_narrator-male": "The overdraft is granted, although the forecast shows no shortfall today."
+  },
+  "bank.fallback": {
+    "player-female_narrator-female": "Let us look at the available options. The SMS loan is not an offer of our bank.",
+    "player-male_narrator-female": "Let us look at the available options. The SMS loan is not an offer of our bank.",
+    "player-female_narrator-male": "Let us look at the available options. The SMS loan is not an offer of our bank.",
+    "player-male_narrator-male": "Let us look at the available options. The SMS loan is not an offer of our bank."
+  },
+  "card.disabled.not_playing": {
+    "player-female_narrator-female": "The lap is over. This card waits for the next one.",
+    "player-male_narrator-female": "The lap is over. This card waits for the next one.",
+    "player-female_narrator-male": "The lap is over. This card waits for the next one.",
+    "player-male_narrator-male": "The lap is over. This card waits for the next one."
+  },
+  "card.disabled.event_unresolved": {
+    "player-female_narrator-female": "Resolve this week's event first.",
+    "player-male_narrator-female": "Resolve this week's event first.",
+    "player-female_narrator-male": "Resolve this week's event first.",
+    "player-male_narrator-male": "Resolve this week's event first."
+  },
+  "card.disabled.week_action_used": {
+    "player-female_narrator-female": "This week's move is already made. The next one comes next week.",
+    "player-male_narrator-female": "This week's move is already made. The next one comes next week.",
+    "player-female_narrator-male": "This week's move is already made. The next one comes next week.",
+    "player-male_narrator-male": "This week's move is already made. The next one comes next week."
+  },
+  "card.disabled.already_played": {
+    "player-female_narrator-female": "Already played in this lap",
+    "player-male_narrator-female": "Already played in this lap",
+    "player-female_narrator-male": "Already played in this lap",
+    "player-male_narrator-male": "Already played in this lap"
+  },
+  "card.disabled.outside_window": {
+    "player-female_narrator-female": "This card works in another week of the lap.",
+    "player-male_narrator-female": "This card works in another week of the lap.",
+    "player-female_narrator-male": "This card works in another week of the lap.",
+    "player-male_narrator-male": "This card works in another week of the lap."
+  },
+  "card.disabled.budget_closed": {
+    "player-female_narrator-female": "Too late — the client's budget is closed",
+    "player-male_narrator-female": "Too late — the client's budget is closed",
+    "player-female_narrator-male": "Too late — the client's budget is closed",
+    "player-male_narrator-male": "Too late — the client's budget is closed"
+  },
+  "card.disabled.bank_too_late": {
+    "player-female_narrator-female": "The bank cannot open the overdraft before the payment is due.",
+    "player-male_narrator-female": "The bank cannot open the overdraft before the payment is due.",
+    "player-female_narrator-male": "The bank cannot open the overdraft before the payment is due.",
+    "player-male_narrator-male": "The bank cannot open the overdraft before the payment is due."
+  },
+  "card.disabled.invoice_financed": {
+    "player-female_narrator-female": "Invoice already financed",
+    "player-male_narrator-female": "Invoice already financed",
+    "player-female_narrator-male": "Invoice already financed",
+    "player-male_narrator-male": "Invoice already financed"
+  },
+  "card.disabled.invoice_paid": {
+    "player-female_narrator-female": "Invoice already paid",
+    "player-male_narrator-female": "Invoice already paid",
+    "player-female_narrator-male": "Invoice already paid",
+    "player-male_narrator-male": "Invoice already paid"
+  },
+  "card.disabled.payment_already_booked": {
+    "player-female_narrator-female": "This payment has already left the account. It is too late for this card.",
+    "player-male_narrator-female": "This payment has already left the account. It is too late for this card.",
+    "player-female_narrator-male": "This payment has already left the account. It is too late for this card.",
+    "player-male_narrator-male": "This payment has already left the account. It is too late for this card."
+  },
+  "card.disabled.overdraft_active": {
+    "player-female_narrator-female": "The overdraft is already active.",
+    "player-male_narrator-female": "The overdraft is already active.",
+    "player-female_narrator-male": "The overdraft is already active.",
+    "player-male_narrator-male": "The overdraft is already active."
+  },
+  "ui.negotiate.reply.ask_advance": {
+    "player-female_narrator-female": "Ask for an advance",
+    "player-male_narrator-female": "Ask for an advance",
+    "player-female_narrator-male": "Ask for an advance",
+    "player-male_narrator-male": "Ask for an advance"
+  },
+  "ui.negotiate.reply.offer_discount": {
+    "player-female_narrator-female": "Offer a discount for faster payment",
+    "player-male_narrator-female": "Offer a discount for faster payment",
+    "player-female_narrator-male": "Offer a discount for faster payment",
+    "player-male_narrator-male": "Offer a discount for faster payment"
+  },
+  "ui.negotiate.reply.ask_overdraft": {
+    "player-female_narrator-female": "Ask about an overdraft",
+    "player-male_narrator-female": "Ask about an overdraft",
+    "player-female_narrator-male": "Ask about an overdraft",
+    "player-male_narrator-male": "Ask about an overdraft"
+  },
+  "ui.negotiate.greeting.klient_a": {
+    "player-female_narrator-female": "Good morning! Let us talk about the payment for the December project.",
+    "player-male_narrator-female": "Good morning! Let us talk about the payment for the December project.",
+    "player-female_narrator-male": "Good morning! Let us talk about the payment for the December project.",
+    "player-male_narrator-male": "Good morning! Let us talk about the payment for the December project."
+  },
+  "ui.negotiate.greeting.bank": {
+    "player-female_narrator-female": "Good morning. Let us see how the bank can help.",
+    "player-male_narrator-female": "Good morning. Let us see how the bank can help.",
+    "player-female_narrator-male": "Good morning. Let us see how the bank can help.",
+    "player-male_narrator-male": "Good morning. Let us see how the bank can help."
+  },
+  "ui.negotiate.subtitle.klient_a": {
+    "player-female_narrator-female": "Talk about the project's payment terms",
+    "player-male_narrator-female": "Talk about the project's payment terms",
+    "player-female_narrator-male": "Talk about the project's payment terms",
+    "player-male_narrator-male": "Talk about the project's payment terms"
+  },
+  "ui.negotiate.subtitle.bank": {
+    "player-female_narrator-female": "Talk about an overdraft",
+    "player-male_narrator-female": "Talk about an overdraft",
+    "player-female_narrator-male": "Talk about an overdraft",
+    "player-male_narrator-male": "Talk about an overdraft"
+  },
+  "ui.negotiate.messages": {
+    "player-female_narrator-female": "Messages: {used}/{max}",
+    "player-male_narrator-female": "Messages: {used}/{max}",
+    "player-female_narrator-male": "Messages: {used}/{max}",
+    "player-male_narrator-male": "Messages: {used}/{max}"
+  },
+  "ui.negotiate.limit": {
+    "player-female_narrator-female": "This week's message limit is used up. Come back next week.",
+    "player-male_narrator-female": "This week's message limit is used up. Come back next week.",
+    "player-female_narrator-male": "This week's message limit is used up. Come back next week.",
+    "player-male_narrator-male": "This week's message limit is used up. Come back next week."
+  },
+  "ui.negotiate.quick_replies": {
+    "player-female_narrator-female": "Quick replies",
+    "player-male_narrator-female": "Quick replies",
+    "player-female_narrator-male": "Quick replies",
+    "player-male_narrator-male": "Quick replies"
+  },
+  "ui.negotiate.placeholder": {
+    "player-female_narrator-female": "Type a proposal, e.g. “Can we get an advance?”",
+    "player-male_narrator-female": "Type a proposal, e.g. “Can we get an advance?”",
+    "player-female_narrator-male": "Type a proposal, e.g. “Can we get an advance?”",
+    "player-male_narrator-male": "Type a proposal, e.g. “Can we get an advance?”"
+  },
+  "ui.negotiate.input_label": {
+    "player-female_narrator-female": "Your message",
+    "player-male_narrator-female": "Your message",
+    "player-female_narrator-male": "Your message",
+    "player-male_narrator-male": "Your message"
+  },
+  "ui.negotiate.send": {
+    "player-female_narrator-female": "Send",
+    "player-male_narrator-female": "Send",
+    "player-female_narrator-male": "Send",
+    "player-male_narrator-male": "Send"
+  },
+  "ui.negotiate.you": {
+    "player-female_narrator-female": "You",
+    "player-male_narrator-female": "You",
+    "player-female_narrator-male": "You",
+    "player-male_narrator-male": "You"
+  },
+  "ui.negotiate.card_played": {
+    "player-female_narrator-female": "Card played: {card.title}. Check its effect in the forecast.",
+    "player-male_narrator-female": "Card played: {card.title}. Check its effect in the forecast.",
+    "player-female_narrator-male": "Card played: {card.title}. Check its effect in the forecast.",
+    "player-male_narrator-male": "Card played: {card.title}. Check its effect in the forecast."
+  },
+  "ui.btn.close": {
+    "player-female_narrator-female": "Close",
+    "player-male_narrator-female": "Close",
+    "player-female_narrator-male": "Close",
+    "player-male_narrator-male": "Close"
   }
 };
