@@ -5,6 +5,7 @@ import { useGameStore } from "@/lib/ui/game-store";
 import { Hud } from "@/components/play/Hud";
 import { WorldRoute } from "@/components/scenes/WorldRoute";
 import { CardHand } from "@/components/play/CardHand";
+import { EventCard } from "@/components/play/EventCard";
 
 interface PageProps {
   searchParams?: Promise<{ seed?: string; resume?: string }>;
@@ -13,7 +14,6 @@ interface PageProps {
 function GameLevel1Content(props: PageProps) {
   const searchParams = props.searchParams ? use(props.searchParams) : undefined;
   const state = useGameStore((s) => s.state);
-  const resolveCurrentEvent = useGameStore((s) => s.resolveCurrentEvent);
   const advanceWeek = useGameStore((s) => s.advanceWeek);
   const rewindToWeek = useGameStore((s) => s.rewindToWeek);
   const getCurrentEvent = useGameStore((s) => s.getCurrentEvent);
@@ -69,34 +69,8 @@ function GameLevel1Content(props: PageProps) {
         </div>
       )}
 
-      {/* Active Event (G11) */}
-      {currentEvent && (
-        <section
-          data-testid="event-card-g11"
-          aria-label="Bieżące wydarzenie tygodnia"
-          className="p-5 rounded-2xl bg-amber-950/30 border border-amber-600/60 text-slate-100"
-        >
-          <div className="flex items-center justify-between mb-2">
-            <span className="text-xs font-bold uppercase tracking-wider text-amber-400">
-              Wydarzenie losowe: {currentEvent.id} (Tydzień {currentEvent.week})
-            </span>
-            <span className="text-xs text-amber-300/80">Wymaga decyzji przed zakończeniem tygodnia</span>
-          </div>
-          <h2 className="text-lg font-bold text-white mb-4">{currentEvent.title}</h2>
-
-          <div className="flex flex-wrap gap-3">
-            {currentEvent.choices.map((choice) => (
-              <button
-                key={choice.id}
-                onClick={() => resolveCurrentEvent(choice.id)}
-                className="px-4 py-2 rounded-xl bg-amber-500 hover:bg-amber-400 text-slate-950 font-bold text-sm transition cursor-pointer"
-              >
-                {choice.label ?? choice.id}
-              </button>
-            ))}
-          </div>
-        </section>
-      )}
+      {/* Active Event (G11) & Fraud reveal alert (D-18) */}
+      <EventCard />
 
       {/* Six Action Cards Hand (G13) with preview & keyboard 1–6 */}
       <CardHand />
