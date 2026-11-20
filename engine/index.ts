@@ -1,14 +1,15 @@
 // Public engine API (RUNTIME-ENGINE-CONTRACT.md). UI and narrative code import only from here.
 // E-01: final signatures. E-02: real forecast (forecast.ts). E-03: action cards (cards.ts).
-// E-04: seeded event deck (seed.ts, events.ts). Other bodies are fixtures until E-05…E-09.
+// E-04: seeded event deck (seed.ts, events.ts). E-05: turn state machine (turn.ts).
+// Other bodies are fixtures until E-06…E-09.
 import { isValidIsoDate } from "./calendar";
 import { gameData } from "./data";
 import { RuleError } from "./errors";
 import { initialState } from "./fixture";
 import { applyCard, cardCost, cardDef, disabledReason, safeCards } from "./cards";
-import { computeForecast, weekOf } from "./forecast";
-import { applyEventChoice, currentEventView, shownEvent, shownEventSignals } from "./events";
-import { lapScore } from "./score";
+import { computeForecast } from "./forecast";
+import { applyEventChoice, currentEventView, shownEventSignals } from "./events";
+import { coreAfterPlanSave, rewindTo, settleWeek } from "./turn";
 import { assertSeed } from "./seed";
 import type {
   AgentId,
@@ -43,10 +44,6 @@ export const SCHEMA_VERSION = 1;
 
 function withCore(state: GameState, core: GameCore, emitted: EngineEvent[] = []): GameState {
   return { ...state, core, emitted };
-}
-
-function eventPending(state: GameState): boolean {
-  return shownEvent(state) !== null;
 }
 
 function newLap(seed: string): GameState {
@@ -149,80 +146,22 @@ export function resolveEvent(state: GameState, choiceId: EventChoiceId, delegate
   return applyEventChoice(state, choiceId, delegated);
 }
 
-/** Settle the current week exactly once. Throws RuleError("event_unresolved") while the event is open. */
+/**
+ * Settle the current week exactly once (turn state machine in turn.ts). Throws
+ * RuleError("event_unresolved") while the event is open and RuleError("not_playing") after the lap.
+ * Week 7 completes the lap with Pilot "pending" (or "missed"); savePlan finalises it.
+ */
 export function resolveWeek(state: GameState): WeekResolution {
-  const core = state.core;
-  if (core.status !== "playing") throw new RuleError("not_playing");
-  if (eventPending(state)) throw new RuleError("event_unresolved");
-  const f = forecast(state);
-  const week = core.week;
-  const { start, end } = level1.weeks[week - 1];
-  const transactions = f.points.filter((p) => p.date >= start && p.date <= end).flatMap((p) => p.transactions);
-  const crash = f.crash && weekOf(f.crash.date) === week ? f.crash : null;
-  const endPoint = f.points.find((p) => p.date === end);
-  const endBalance = crash || !endPoint ? null : endPoint.balance;
-  const events: EngineEvent[] = [];
-  let next: GameCore = { ...core, weeksResolved: [...core.weeksResolved, week] };
-
-  if (crash) {
-    const score = lapScore(next, f, false);
-    next = { ...next, status: "crashed", crash, stars: score.stars, level2Unlocked: false };
-    events.push({ type: "crash", week, crash });
-  } else {
-    const balance = endBalance ?? core.balance;
-    if (week === 7) {
-      const planSaved = state.account.plans.some((p) => p.savedAt !== null && core.played.some((c) => c.cardId === p.cardId));
-      const score = lapScore(next, f, planSaved);
-      next = {
-        ...next,
-        status: "completed",
-        balance,
-        stars: score.stars,
-        costOfMoney: score.costOfMoney,
-        avoidedCost: score.avoidedCost,
-        lowestBalance: f.low,
-        level2Unlocked: score.level2Unlocked,
-      };
-      const earned = level1.stars.map((st) => st.id).filter((id) => score.stars[id] === "earned");
-      events.push({ type: "lapWon", week, stars: earned });
-    } else {
-      const nextWeek = (week + 1) as WeekNumber;
-      next = {
-        ...next,
-        week: nextWeek,
-        balance,
-        weekActionUsed: false,
-        negotiation: {
-          klient_a: { ...next.negotiation.klient_a, messagesThisWeek: 0 },
-          bank: { ...next.negotiation.bank, messagesThisWeek: 0 },
-        },
-      };
-      if (transactions.length === 0 && !core.eventsResolved.some((r) => r.week === week)) {
-        events.push({ type: "quietWeek", week });
-      }
-    }
-  }
-  const snapshots = next.status === "playing" ? { ...state.snapshots, [next.week]: next } : state.snapshots;
-  const settled: GameState = { ...state, core: next, snapshots, emitted: [] };
-  events.push(...shownEventSignals(settled));
-  const newState: GameState = { ...settled, emitted: events };
-  return { state: newState, week, transactions, endBalance, crash, events };
+  return settleWeek(state);
 }
 
 /**
- * Restore the snapshot of `week`. Keeps the account clock and saved plans. The restored week's
- * event card is current again, so its narration signal is emitted again.
+ * Restore the snapshot of `week` from any status. Keeps the account clock and saved plans; Pilot
+ * lives in core.stars, so it is dropped. The restored week's event card is current again, so its
+ * narration signal is emitted again. Throws RuleError("no_snapshot") for a week not reached yet.
  */
 export function rewind(state: GameState, week: WeekNumber): GameState {
-  const snap = state.snapshots[week];
-  if (!snap) throw new RuleError("no_snapshot", `no snapshot for week ${week}`);
-  const snapshots: GameState["snapshots"] = {};
-  for (const w of [1, 2, 3, 4, 5, 6, 7] as const) {
-    const s = state.snapshots[w];
-    if (s && w <= week) snapshots[w] = s;
-  }
-  const restored: GameState = { ...state, core: snap, snapshots, emitted: [] };
-  return { ...restored, emitted: shownEventSignals(restored) };
+  return rewindTo(state, week);
 }
 
 /** Draft the plan of a played decision (not yet saved). Fixture: C1 template, else built from the card. */
@@ -248,13 +187,15 @@ export function createPlan(state: GameState, cardId: CardId): Plan {
   };
 }
 
-/** Prospective state with the plan saved (Pilot finalised). The caller persists it before showing success. */
+/**
+ * Prospective state with the plan saved. Pilot is finalised only when the lap is completed and
+ * Pilot is "pending"; a plan saved during the lap leaves Pilot "open". The caller persists the
+ * returned state before showing success.
+ */
 export function savePlan(state: GameState, cardId: CardId): GameState {
   const plan: Plan = { ...createPlan(state, cardId), savedAt: state.account.clock };
   const plans = [...state.account.plans.filter((p) => p.cardId !== cardId), plan];
-  const stars =
-    state.core.stars.pilot === "pending" ? { ...state.core.stars, pilot: "earned" as const } : state.core.stars;
-  return { ...state, core: { ...state.core, stars }, account: { ...state.account, plans }, emitted: [] };
+  return { ...state, core: coreAfterPlanSave(state.core), account: { ...state.account, plans }, emitted: [] };
 }
 
 /** Move the synthetic account clock (default 5 XII). Never changes game week, stars or unlock. Fixture: clock only. */
