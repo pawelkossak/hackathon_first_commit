@@ -1,0 +1,42 @@
+{
+  "synthetic": true,
+  "persona": {
+    "name": "Ania",
+    "business": "studio graficzne",
+    "legalForm": "jednoosobowa działalność gospodarcza",
+    "employees": 0
+  },
+  "account": {
+    "openingBalance": 38000,
+    "openingDate": "2026-11-21",
+    "monthlyFixedCosts": 27000
+  },
+  "counterparties": [
+    { "id": "A", "name": "Klient A", "type": "client", "revenueSharePct": 55, "termsDays": 60, "note": "agencja; 60 dni + opóźnienie; faktura INV-A1" },
+    { "id": "B", "name": "Klient B", "type": "client", "revenueSharePct": 25, "termsDays": 14, "note": "" },
+    { "id": "C", "name": "Klient C", "type": "client", "revenueSharePct": 20, "termsDays": 30, "note": "" },
+    { "id": "S1", "name": "Podwykonawcy (2 freelancerów)", "type": "supplier", "revenueSharePct": null, "termsDays": 0, "note": "płatność przy odbiorze" },
+    { "id": "S2", "name": "Podwykonawca zlecenia Klienta C", "type": "supplier", "revenueSharePct": null, "termsDays": 0, "note": "tylko po zdarzeniu E2 „Przyjmij”" },
+    { "id": "O", "name": "Biuro, narzędzia, księgowa, leasing", "type": "supplier", "revenueSharePct": null, "termsDays": null, "note": "miesięcznie" },
+    { "id": "US", "name": "Urząd skarbowy", "type": "public", "revenueSharePct": null, "termsDays": null, "note": "VAT, PIT" },
+    { "id": "ZUS", "name": "ZUS", "type": "public", "revenueSharePct": null, "termsDays": null, "note": "" },
+    { "id": "BANK", "name": "Bank", "type": "bank", "revenueSharePct": null, "termsDays": null, "note": "limit w koncie, faktoring (tytuł karty wg D-09)" },
+    { "id": "N", "name": "Firma pożyczkowa", "type": "non_bank_lender", "revenueSharePct": null, "termsDays": null, "note": "pożyczka SMS, nigdy bank" }
+  ],
+  "ledger": [
+    { "id": "L01", "date": "2026-11-25", "dueDate": "2026-11-25", "amount": -4300, "counterpartyId": "US", "title": "VAT za październik", "kind": "obligation" },
+    { "id": "L02", "date": "2026-11-30", "dueDate": "2026-11-30", "amount": 7380, "counterpartyId": "C", "title": "Klient C, faktura październikowa", "kind": "receivable" },
+    { "id": "L03", "date": "2026-12-07", "dueDate": "2026-12-07", "amount": -12800, "counterpartyId": "S1", "title": "Stali podwykonawcy", "kind": "recurring" },
+    { "id": "L04", "date": "2026-12-10", "dueDate": "2026-12-10", "amount": -2900, "counterpartyId": "O", "title": "Czynsz + księgowa", "kind": "recurring" },
+    { "id": "L05", "date": "2026-12-14", "dueDate": "2026-12-14", "amount": 9225, "counterpartyId": "B", "title": "Klient B, faktura listopadowa", "kind": "receivable" },
+    { "id": "L06", "date": "2026-12-15", "dueDate": "2026-12-15", "amount": -2900, "counterpartyId": "O", "title": "Leasing auta, narzędzia, telefon", "kind": "recurring" },
+    { "id": "L07", "date": "2026-12-21", "dueDate": "2026-12-20", "amount": -4100, "counterpartyId": "ZUS", "title": "ZUS + zaliczka PIT", "kind": "obligation" },
+    { "id": "L08", "date": "2026-12-22", "dueDate": "2026-12-22", "amount": -35700, "counterpartyId": "S1", "title": "Podwykonawcy projektu Klienta A", "kind": "committed" },
+    { "id": "L09", "date": "2026-12-28", "dueDate": "2026-12-25", "amount": -4300, "counterpartyId": "US", "title": "VAT za listopad", "kind": "obligation" },
+    { "id": "L10", "date": "2026-12-30", "dueDate": "2026-12-30", "amount": 7380, "counterpartyId": "C", "title": "Klient C, faktura listopadowa", "kind": "receivable" },
+    { "id": "L11", "date": "2027-01-08", "dueDate": "2027-01-08", "amount": 20295, "counterpartyId": "A", "title": "Klient A, faktura INV-A1", "kind": "receivable" }
+  ],
+  "invoices": [
+    { "id": "INV-A1", "counterpartyId": "A", "gross": 20295, "expectedDate": "2027-01-08", "ledgerId": "L11", "state": "pending" }
+  ]
+}

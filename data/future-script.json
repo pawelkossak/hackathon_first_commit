@@ -1,0 +1,27 @@
+{
+  "synthetic": true,
+  "accountClock": {
+    "start": "2026-11-21",
+    "defaultTarget": "2026-12-05"
+  },
+  "replay": [
+    { "date": "2026-11-25", "source": "ledger", "ledgerId": "L01", "cardId": null, "amount": -4300, "counterpartyId": "US", "title": "VAT za październik" },
+    { "date": "2026-11-30", "source": "ledger", "ledgerId": "L02", "cardId": null, "amount": 7380, "counterpartyId": "C", "title": "Klient C, faktura październikowa" },
+    { "date": "2026-12-03", "source": "card", "ledgerId": null, "cardId": "C1", "amount": 15000, "counterpartyId": "A", "title": "Zaliczka 30% projekt rebranding" }
+  ],
+  "matcher": {
+    "tolerancePct": 10
+  },
+  "planTemplates": [
+    {
+      "cardId": "C1",
+      "counterpartyId": "A",
+      "amount": 15000,
+      "tolerancePct": 10,
+      "deadline": "2026-12-04",
+      "direction": "inflow",
+      "title": "Zaliczka 15 000 zł ±10 % od Klienta A do 4 grudnia"
+    }
+  ],
+  "variantB": ["C2", "C6"]
+}
