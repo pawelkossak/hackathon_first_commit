@@ -1,46 +1,56 @@
-export type GameStatus = "playing" | "won" | "lost";
-
-export interface GameState {
-  week: number;
-  balance: number;
-  status: GameStatus;
-  score: number;
-  answered: string[];
-  decisions: string[];
-  decisionHistory?: DecisionRecord[];
-}
-
-export interface Dilemma {
+export interface Bill {
   id: string;
-  week: number;
-  title: string;
-  prompt: string;
-  decisions: Decision[];
+  name: string;
+  amount: number;
+  dueMonth: number;
+  isPaid: boolean;
+  penaltyFlag?: string;
 }
 
-export interface Decision {
+export interface LogEntry {
+  month: number;
+  message: string;
+  type: 'info' | 'warning' | 'danger' | 'success';
+}
+
+export interface ScheduledEvent {
+  eventId: string;
+  triggerMonth: number;
+  chance: number;
+}
+
+export interface CompanyState {
+  month: number;
+  cash: number;
+  reputation: number;
+  morale: number;
+  stress: number;
+  employees: number;
+  monthlyRevenue: number;
+  bills: Bill[];
+  flags: string[];
+  scheduledEvents: ScheduledEvent[];
+  logs: LogEntry[];
+  isGameOver: boolean;
+}
+
+export interface EventChoiceResult {
+  statePatch: Partial<CompanyState>;
+  logMessage: string;
+  logType?: LogEntry['type'];
+  scheduleEvent?: ScheduledEvent;
+}
+
+export interface EventChoice {
   id: string;
   label: string;
-  balanceChange: number;
-  scoreChange: number;
-  feedback: string;
-  outcome?: GameStatus;
+  effect: (state: CompanyState) => EventChoiceResult;
 }
 
-export interface DecisionRecord {
-  dilemmaId: string;
-  decisionId: string;
-  week: number;
-  balanceChange: number;
-  scoreChange: number;
-}
-
-export interface Question {
+export interface GameEvent {
   id: string;
-  week: number;
   title: string;
-  prompt: string;
-  answers: Decision[];
+  description: string;
+  condition?: (state: CompanyState) => boolean;
+  choices: EventChoice[];
 }
-
-export type Answer = Decision;
