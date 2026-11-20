@@ -207,7 +207,7 @@
           "id": "pay_as_is",
           "label": "Zapłać jak jest",
           "effects": [
-            { "type": "reveal", "date": "2026-12-23", "what": "fraud" },
+            { "type": "reveal", "date": "2026-12-23", "what": "fraud", "ledgerId": "L08" },
             { "type": "transaction", "id": "E1", "date": "2027-01-08", "amount": -35700, "counterpartyId": "S1", "title": "Ponowna zapłata podwykonawcom" }
           ],
           "competence": null

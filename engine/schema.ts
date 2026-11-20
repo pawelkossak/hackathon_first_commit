@@ -189,7 +189,8 @@ export const EventEffectSchema = z.discriminatedUnion("type", [
     counterpartyId: CounterpartyIdSchema,
     title: z.string().min(1),
   }),
-  z.object({ type: z.literal("reveal"), date: IsoDateSchema, what: z.literal("fraud") }),
+  // Fraud reveal (E1 pay_as_is): the ledger payment that went to the changed account, reported on `date`.
+  z.object({ type: z.literal("reveal"), date: IsoDateSchema, what: z.literal("fraud"), ledgerId: LedgerIdSchema }),
   z.object({ type: z.literal("reveal_card"), cardId: CardIdSchema }),
   z.object({
     type: z.literal("move_invoice"),
@@ -288,6 +289,10 @@ export const AgentRuleSchema = z.object({
   weeks: WeekRangeSchema.nullable(),
   condition: AgentConditionSchema,
   outcome: AgentOutcomeSchema,
+  /**
+   * Card the rule applies (accept, inform_allow) or leads to (counter). A rule with a card matches only
+   * while that card is playable now (E-08); otherwise evaluation falls through to the next rule.
+   */
   cardId: CardIdSchema.nullable(),
   counterPercent: z.number().int().positive().nullable(),
   relationsDelta: z.number().int(),
@@ -356,6 +361,7 @@ export const EngineEventTypeSchema = z.enum([
   "negotiationOpen",
   "lateClient",
   "loanOffered",
+  "fraudRevealed",
   "goodMove",
   "crash",
   "quietWeek",

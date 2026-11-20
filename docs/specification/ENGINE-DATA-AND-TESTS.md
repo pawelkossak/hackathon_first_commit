@@ -139,11 +139,12 @@ Plans from other cards keep status `open` (their deadline is after 5 XII). The a
 
 | engine event | emotion | line id prefix (the design team A7) |
 |---|---|---|
-| lapStart / playerReturns | welcoming | `rx.welcome` |
+| lapStart (also after `rewind` to week 1) / playerReturns | welcoming | `rx.welcome` |
 | bigProject (E2 shown) | excited | `rx.project` |
 | negotiationOpen | confident | `rx.negotiate` |
 | lateClient (E6) | suspicious | `rx.late` |
 | loanOffered (E5, C5 preview) | suspicious | `rx.loan` |
+| fraudRevealed (E1 „Zapłać jak jest”: the 22 XII payment is reported as fraud on 23 XII; emitted by the week resolution that passes 23 XII, unless the lap crashed before it) | exasperated | `rx.fraud` |
 | goodMove (crash removed by own action) | proud | `rx.goodmove` |
 | crash | exasperated → supportive | `rx.crash`, then `rx.rewind` |
 | quietWeek | relaxed | `rx.quiet` |

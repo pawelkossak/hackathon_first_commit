@@ -7,6 +7,7 @@
     { "event": "negotiationOpen", "steps": [{ "emotion": "confident", "lineIdPrefix": "rx.negotiate" }] },
     { "event": "lateClient", "steps": [{ "emotion": "suspicious", "lineIdPrefix": "rx.late" }] },
     { "event": "loanOffered", "steps": [{ "emotion": "suspicious", "lineIdPrefix": "rx.loan" }] },
+    { "event": "fraudRevealed", "steps": [{ "emotion": "exasperated", "lineIdPrefix": "rx.fraud" }] },
     { "event": "goodMove", "steps": [{ "emotion": "proud", "lineIdPrefix": "rx.goodmove" }] },
     { "event": "crash", "steps": [{ "emotion": "exasperated", "lineIdPrefix": "rx.crash" }, { "emotion": "supportive", "lineIdPrefix": "rx.rewind" }] },
     { "event": "quietWeek", "steps": [{ "emotion": "relaxed", "lineIdPrefix": "rx.quiet" }] },
