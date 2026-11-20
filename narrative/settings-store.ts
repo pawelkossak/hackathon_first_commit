@@ -1,6 +1,7 @@
 // Game settings persistence and accessibility controls (GM-23, GAME-EXPERIENCE-AND-NARRATION.md §9, §11).
 import { create } from "zustand";
-import type { NarratorGender, PlayerGender } from "./types";
+import type { Locale, NarratorGender, PlayerGender } from "./types";
+import { setLocale } from "./copy/get-copy";
 
 export interface GameSettingsData {
   playerGender: PlayerGender;
@@ -10,6 +11,7 @@ export interface GameSettingsData {
   captionsOnly: boolean;
   reducedMotion: boolean;
   chattiness: "normal" | "reduced";
+  language: Locale;
 }
 
 export interface SettingsStore extends GameSettingsData {
@@ -21,6 +23,7 @@ export interface SettingsStore extends GameSettingsData {
   setCaptionsOnly: (captionsOnly: boolean) => void;
   setReducedMotion: (reduced: boolean) => void;
   setChattiness: (chattiness: "normal" | "reduced") => void;
+  setLanguage: (language: Locale) => void;
   saveToStorage: () => boolean;
   loadFromStorage: () => void;
   clearSaveFailure: () => void;
@@ -36,6 +39,7 @@ const DEFAULT_SETTINGS: GameSettingsData = {
   captionsOnly: false,
   reducedMotion: false,
   chattiness: "normal",
+  language: "pl",
 };
 
 export const useSettingsStore = create<SettingsStore>((set, get) => ({
@@ -77,6 +81,12 @@ export const useSettingsStore = create<SettingsStore>((set, get) => ({
     get().saveToStorage();
   },
 
+  setLanguage: (language) => {
+    set({ language });
+    setLocale(language);
+    get().saveToStorage();
+  },
+
   clearSaveFailure: () => set({ saveFailed: false }),
 
   saveToStorage: () => {
@@ -90,6 +100,7 @@ export const useSettingsStore = create<SettingsStore>((set, get) => ({
         captionsOnly: get().captionsOnly,
         reducedMotion: get().reducedMotion,
         chattiness: get().chattiness,
+        language: get().language,
       };
       window.localStorage.setItem(STORAGE_KEY, JSON.stringify(data));
       set({ saveFailed: false });
@@ -107,6 +118,12 @@ export const useSettingsStore = create<SettingsStore>((set, get) => ({
       const raw = window.localStorage.getItem(STORAGE_KEY);
       if (raw) {
         const parsed = JSON.parse(raw);
+        const language: Locale =
+          parsed.language === "en" || parsed.language === "pl"
+            ? parsed.language
+            : DEFAULT_SETTINGS.language;
+        setLocale(language);
+
         set({
           playerGender: parsed.playerGender ?? DEFAULT_SETTINGS.playerGender,
           narratorGender: parsed.narratorGender ?? DEFAULT_SETTINGS.narratorGender,
@@ -115,6 +132,7 @@ export const useSettingsStore = create<SettingsStore>((set, get) => ({
           captionsOnly: parsed.captionsOnly ?? DEFAULT_SETTINGS.captionsOnly,
           reducedMotion: parsed.reducedMotion ?? DEFAULT_SETTINGS.reducedMotion,
           chattiness: parsed.chattiness ?? DEFAULT_SETTINGS.chattiness,
+          language,
           saveFailed: false,
         });
       }

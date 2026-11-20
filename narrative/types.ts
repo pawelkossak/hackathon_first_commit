@@ -3,6 +3,8 @@ import type { GameState } from "../engine";
 
 export type PlayerGender = "female" | "male";
 export type NarratorGender = "female" | "male";
+export type Locale = "pl" | "en";
+export const SUPPORTED_LOCALES: readonly Locale[] = ["pl", "en"] as const;
 
 export type VariantKey =
   | "player-female_narrator-female"

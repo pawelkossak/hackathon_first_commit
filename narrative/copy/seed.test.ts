@@ -7,11 +7,14 @@ import {
   getVoiceScript,
   toVariantKey,
   SEED_COPY,
+  SEED_COPY_EN,
+  setLocale,
+  getLocale,
 } from "../index";
 import { createGame } from "../../engine";
 
 describe("N-01 Strings module and seed copy", () => {
-  it("every seed key exists in all 4 variants as a non-empty string", () => {
+  it("every seed key exists in all 4 variants as a non-empty string (PL)", () => {
     const keys = Object.keys(SEED_COPY);
     expect(keys.length).toBeGreaterThanOrEqual(100);
 
@@ -24,6 +27,24 @@ describe("N-01 Strings module and seed copy", () => {
         expect(
           typeof text === "string" && text.length > 0,
           `Key "${key}" must have a non-empty string for variant "${variant}"`
+        ).toBe(true);
+      }
+    }
+  });
+
+  it("every seed key exists in all 4 variants as a non-empty string (EN)", () => {
+    const keys = Object.keys(SEED_COPY_EN);
+    expect(keys.length).toBe(Object.keys(SEED_COPY).length);
+
+    for (const key of keys) {
+      const entry = SEED_COPY_EN[key];
+      expect(entry, `EN entry for key "${key}" must exist`).toBeDefined();
+
+      for (const variant of VARIANT_KEYS) {
+        const text = entry[variant];
+        expect(
+          typeof text === "string" && text.length > 0,
+          `Key "${key}" must have a non-empty EN string for variant "${variant}"`
         ).toBe(true);
       }
     }
@@ -59,6 +80,31 @@ describe("N-01 Strings module and seed copy", () => {
       days: 42,
     });
     expect(resolvedRunway).toBe("Runway: 42 dni");
+  });
+
+  it("supports English locale with proper formatting and grammar tokens", () => {
+    const state = createGame("demo");
+
+    // Explicit locale parameter
+    const enWeek = getCopy("ui.hud.week", state, "female", "female", undefined, "en");
+    expect(enWeek).toBe(`Week ${state.core.week}`);
+
+    const enRunway = getCopy("ui.hud.runway", state, "female", "female", { days: 42 }, "en");
+    expect(enRunway).toBe("Runway: 42 days");
+
+    const enIntro = getCopy("intro.owner", state, "female", "female", undefined, "en");
+    expect(enIntro).toContain("I am Ania and I run this studio");
+
+    // Global setLocale
+    setLocale("en");
+    expect(getLocale()).toBe("en");
+    expect(getCopy("ui.intro.skip")).toBe("Skip intro");
+    expect(getCopy("ui.character_select.play")).toBe("Play!");
+
+    // Reset back to PL
+    setLocale("pl");
+    expect(getLocale()).toBe("pl");
+    expect(getCopy("ui.intro.skip")).toBe("Pomiń intro");
   });
 
   it("differentiates player and narrator gender variants in copy and voice scripts", () => {
