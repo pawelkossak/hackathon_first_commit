@@ -15,13 +15,11 @@
 // drops Pilot, while the saved plans in the account survive (they belong to the account clock).
 import { gameData } from "./data";
 import { RuleError } from "./errors";
-import { computeForecast, weekOf } from "./forecast";
+import { computeForecast, fraudRevealsOf, weekOf } from "./forecast";
 import { shownEvent, shownEventSignals } from "./events";
-import { lapScore } from "./score";
-import { eventCard } from "./seed";
+import { coreAfterValidation, lapScore } from "./score";
 import type {
   BalanceAt,
-  Crash,
   EngineEvent,
   Forecast,
   GameCore,
@@ -56,30 +54,16 @@ function earnedStars(stars: Record<StarId, StarStatus>): StarId[] {
 
 /**
  * D-18 `fraudRevealed` signals of the settled week. A resolved choice with a `reveal` fraud effect
- * (E1 „Zapłać jak jest”) is reported by the settlement of the week that contains the reveal date,
- * unless the lap crashed before that date. Only a payment the true ledger booked to the changed
- * account on or before the reveal date can be reported (L08 on 22 XII). The amount and the dates come
- * from the data and the settled forecast, never from literals here.
+ * (E1 „Zapłać jak jest”) is reported by the settlement of the week that contains its report date
+ * (`fraudRevealsOf`: the data's reveal date, or the later day the payment really goes out to the
+ * changed account, e.g. after C3), unless the lap crashed before it or the payment was rejected.
+ * The player-facing views use the same rule (`revealedFrauds`), so they show the fraud exactly from
+ * this resolution on. Amount and dates come from the data and the settled forecast.
  */
-function fraudSignals(core: GameCore, f: Forecast, crash: Crash | null): EngineEvent[] {
-  const week = core.week;
-  const out: EngineEvent[] = [];
-  for (const r of core.eventsResolved) {
-    const ev = eventCard(r.eventId);
-    const choice = ev.choices.find((c) => c.id === r.choiceId);
-    for (const effect of choice?.effects ?? []) {
-      if (effect.type !== "reveal") continue;
-      if (weekOf(effect.date) !== week) continue;
-      if (crash !== null && crash.date < effect.date) continue;
-      const paid = f.points
-        .filter((p) => p.date <= effect.date)
-        .flatMap((p) => p.transactions)
-        .find((t) => t.id === effect.ledgerId && t.eventId === ev.id);
-      if (!paid) continue;
-      out.push({ type: "fraudRevealed", week, eventId: ev.id, ledgerId: effect.ledgerId, amount: paid.amount, date: effect.date });
-    }
-  }
-  return out;
+function fraudSignals(core: GameCore, f: Forecast): EngineEvent[] {
+  return fraudRevealsOf(core, f.points, f.crash)
+    .filter((r) => r.week === core.week)
+    .map((r) => ({ type: "fraudRevealed", week: r.week, eventId: r.eventId, ledgerId: r.ledgerId, amount: r.amount, date: r.date }));
 }
 
 /** Settle the current week exactly once. Throws RuleError("event_unresolved") while the event is open. */
@@ -99,7 +83,7 @@ export function settleWeek(state: GameState): WeekResolution {
   const endBalance = crash || !endPoint ? null : endPoint.balance;
   // Order of the week's signals: fraudRevealed (in the week, by date), then crash / lapWon / quietWeek,
   // then the signal of the next week's shown event.
-  const events: EngineEvent[] = fraudSignals(core, f, crash);
+  const events: EngineEvent[] = fraudSignals(core, f);
   let next: GameCore = { ...core, weeksResolved: [...core.weeksResolved, week] };
 
   if (crash) {
@@ -151,8 +135,9 @@ export function settleWeek(state: GameState): WeekResolution {
 /**
  * Restore the start of `week` from its snapshot, from any status (playing, crashed, completed).
  * Restores hand, seed, costs, choices, stars and competences; keeps the account clock and saved
- * plans; drops the snapshots of later weeks. The restored week's event is current again, so its
- * narration signal is emitted again (E2 bigProject, E5 loanOffered, E6 lateClient).
+ * plans, and with them the competence 3 of every validated (met) plan; drops the snapshots of later
+ * weeks. The restored week's event is current again, so its narration signal is emitted again
+ * (E2 bigProject, E5 loanOffered, E6 lateClient).
  * D-18: a rewind to week 1 starts the lap again, so it emits `lapStart` first, then the restored
  * week-1 event signals (none in the demo deck: E1 has no signal).
  */
@@ -160,12 +145,16 @@ export function rewindTo(state: GameState, week: WeekNumber): GameState {
   if (!isWeekNumber(week)) throw new RuleError("invalid_week", `week ${String(week)}`);
   const snap = state.snapshots[week];
   if (!snap || snap.week !== week) throw new RuleError("no_snapshot", `no snapshot for week ${week}`);
+  // The account and its validated plans are kept, so their effect is kept: a met plan's card
+  // competence stays at milestone 3 (coreAfterValidation is idempotent) in the core and the snapshots.
+  const validated = (c: GameCore): GameCore =>
+    state.account.plans.filter((p) => p.status === "met").reduce((acc, p) => coreAfterValidation(acc, p.cardId), c);
   const snapshots: GameState["snapshots"] = {};
   for (const w of WEEKS) {
     const s = state.snapshots[w];
-    if (s && w <= week) snapshots[w] = s;
+    if (s && w <= week) snapshots[w] = validated(s);
   }
-  const restored: GameState = { ...state, core: snap, snapshots, emitted: [] };
+  const restored: GameState = { ...state, core: validated(snap), snapshots, emitted: [] };
   const lapStart: EngineEvent[] = week === 1 ? [{ type: "lapStart", week }] : [];
   return { ...restored, emitted: [...lapStart, ...shownEventSignals(restored)] };
 }

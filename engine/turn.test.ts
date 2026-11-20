@@ -179,8 +179,14 @@ describe("rewind, seed and reset (E-05)", () => {
       expect(back.core.played).toEqual([]);
       expect(back.core.eventsResolved).toEqual([]);
       expect(getCurrentEvent(back)?.id).toBe("E1");
-      expect(back.core).toEqual(fresh.core);
-      expect(back.snapshots).toEqual({ 1: fresh.core });
+      // Coordinator decision (E-10): a plan validated on the account keeps its competence 3
+      // (Luka płynnościowa 3, ET-M01) through the rewind; everything else is the fresh lap.
+      const met = end.account.plans.some((p) => p.status === "met");
+      const expectedCore = met
+        ? { ...fresh.core, competences: { ...fresh.core.competences, luka_plynnosciowa: 3 } }
+        : fresh.core;
+      expect(back.core).toEqual(expectedCore);
+      expect(back.snapshots).toEqual({ 1: expectedCore });
       // The separate account clock and the saved plans survive the rewind.
       expect(back.account).toEqual(end.account);
     }
