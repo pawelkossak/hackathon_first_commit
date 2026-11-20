@@ -61,7 +61,10 @@ const norm = (p) => path.relative(root, path.resolve(p)).split(path.sep).join("/
 let files;
 let branch = currentBranch();
 if (args[0] === "--file") {
-  files = [norm(args[1])];
+  const rel = norm(args[1]);
+  // A path outside the repository (scratchpad, agent memory) is not a repository file: no lane applies.
+  if (rel === "" || rel.startsWith("../") || rel === ".." || path.isAbsolute(rel)) process.exit(0);
+  files = [rel];
 } else if (args[0] === "--range") {
   files = execFileSync("git", ["diff", "--name-only", args[1]], { cwd: root, encoding: "utf8" }).split("\n").filter(Boolean);
   branch = args[1].split("...").pop().replace(/^(?:refs\/remotes\/)?origin\//, "");
