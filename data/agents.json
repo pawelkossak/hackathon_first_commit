@@ -1,0 +1,33 @@
+{
+  "klient_a": {
+    "name": "Klient A",
+    "maxMessagesPerWeek": 3,
+    "neverOffers": [],
+    "rules": [
+      { "intent": "rude", "weeks": null, "condition": "none", "outcome": "refuse", "cardId": null, "counterPercent": null, "relationsDelta": -1, "lineId": "a.rude", "text": null },
+      { "intent": "ask_advance", "weeks": { "from": 3, "to": 7 }, "condition": "none", "outcome": "refuse", "cardId": null, "counterPercent": null, "relationsDelta": 0, "lineId": "a.advance.closed", "text": null },
+      { "intent": "ask_advance", "weeks": { "from": 1, "to": 2 }, "condition": "percent_at_most_30", "outcome": "accept", "cardId": "C1", "counterPercent": null, "relationsDelta": 0, "lineId": "a.advance.accept", "text": null },
+      { "intent": "ask_advance", "weeks": { "from": 1, "to": 2 }, "condition": "percent_above_30", "outcome": "counter", "cardId": null, "counterPercent": 30, "relationsDelta": 0, "lineId": "a.advance.counter", "text": "Mogę dać 30% — 15 000 zł do 3 grudnia" },
+      { "intent": "accept_counter", "weeks": { "from": 1, "to": 2 }, "condition": "counter_pending", "outcome": "accept", "cardId": "C1", "counterPercent": null, "relationsDelta": 0, "lineId": "a.advance.accept", "text": null },
+      { "intent": "offer_discount", "weeks": { "from": 1, "to": 5 }, "condition": "invoice_pending", "outcome": "accept", "cardId": "C2", "counterPercent": null, "relationsDelta": 0, "lineId": "a.discount.accept", "text": null },
+      { "intent": "unknown", "weeks": null, "condition": "none", "outcome": "quick_replies", "cardId": null, "counterPercent": null, "relationsDelta": 0, "lineId": "a.fallback", "text": null }
+    ]
+  },
+  "bank": {
+    "name": "Doradca banku",
+    "maxMessagesPerWeek": 3,
+    "neverOffers": ["C5"],
+    "rules": [
+      { "intent": "ask_overdraft", "weeks": { "from": 4, "to": 7 }, "condition": "none", "outcome": "refuse", "cardId": null, "counterPercent": null, "relationsDelta": 0, "lineId": "bank.od.late", "text": "Na ten scenariusz jest już za późno." },
+      { "intent": "ask_overdraft", "weeks": { "from": 1, "to": 3 }, "condition": "gap_closed", "outcome": "inform_allow", "cardId": "C4", "counterPercent": null, "relationsDelta": 0, "lineId": "bank.od.notneeded", "text": null },
+      { "intent": "ask_overdraft", "weeks": { "from": 1, "to": 3 }, "condition": "none", "outcome": "accept", "cardId": "C4", "counterPercent": null, "relationsDelta": 0, "lineId": "bank.od.offer", "text": null },
+      { "intent": "unknown", "weeks": null, "condition": "none", "outcome": "quick_replies", "cardId": null, "counterPercent": null, "relationsDelta": 0, "lineId": "bank.fallback", "text": null }
+    ]
+  },
+  "cfo": {
+    "name": "AI-CFO",
+    "hintsPerWeek": 1,
+    "optionCount": 2,
+    "delegatedCompetenceLevel": 1
+  }
+}

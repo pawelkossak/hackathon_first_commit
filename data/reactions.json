@@ -1,0 +1,16 @@
+{
+  "cooldown": { "maxReactionsPerWeekResolution": 1, "sceneChangeCancels": true },
+  "reactions": [
+    { "event": "lapStart", "steps": [{ "emotion": "welcoming", "lineIdPrefix": "rx.welcome" }] },
+    { "event": "playerReturns", "steps": [{ "emotion": "welcoming", "lineIdPrefix": "rx.welcome" }] },
+    { "event": "bigProject", "steps": [{ "emotion": "excited", "lineIdPrefix": "rx.project" }] },
+    { "event": "negotiationOpen", "steps": [{ "emotion": "confident", "lineIdPrefix": "rx.negotiate" }] },
+    { "event": "lateClient", "steps": [{ "emotion": "suspicious", "lineIdPrefix": "rx.late" }] },
+    { "event": "loanOffered", "steps": [{ "emotion": "suspicious", "lineIdPrefix": "rx.loan" }] },
+    { "event": "goodMove", "steps": [{ "emotion": "proud", "lineIdPrefix": "rx.goodmove" }] },
+    { "event": "crash", "steps": [{ "emotion": "exasperated", "lineIdPrefix": "rx.crash" }, { "emotion": "supportive", "lineIdPrefix": "rx.rewind" }] },
+    { "event": "quietWeek", "steps": [{ "emotion": "relaxed", "lineIdPrefix": "rx.quiet" }] },
+    { "event": "lapWon", "steps": [{ "emotion": "delighted", "lineIdPrefix": "rx.win" }] },
+    { "event": "planValidated", "steps": [{ "emotion": "delighted", "lineIdPrefix": "rx.validated" }] }
+  ]
+}

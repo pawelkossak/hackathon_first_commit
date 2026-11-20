@@ -1,26 +1,299 @@
 {
-  "title": "Pierwszy miesiąc firmy",
+  "level": 1,
+  "title": "Przetrwaj grudzień",
+  "synthetic": true,
+  "lap": {
+    "forecastStart": "2026-11-21",
+    "start": "2026-11-23",
+    "end": "2027-01-10"
+  },
   "weeks": [
+    { "week": 1, "start": "2026-11-23", "end": "2026-11-29" },
+    { "week": 2, "start": "2026-11-30", "end": "2026-12-06" },
+    { "week": 3, "start": "2026-12-07", "end": "2026-12-13" },
+    { "week": 4, "start": "2026-12-14", "end": "2026-12-20" },
+    { "week": 5, "start": "2026-12-21", "end": "2026-12-27" },
+    { "week": 6, "start": "2026-12-28", "end": "2027-01-03" },
+    { "week": 7, "start": "2027-01-04", "end": "2027-01-10" }
+  ],
+  "holidays": ["2026-12-24", "2026-12-25", "2026-12-26", "2027-01-01", "2027-01-06"],
+  "markers": [
+    { "id": "vat_oct", "label": "VAT", "dueDate": "2026-11-25", "date": "2026-11-25" },
+    { "id": "zus_pit", "label": "ZUS + PIT", "dueDate": "2026-12-20", "date": "2026-12-21" },
+    { "id": "vat_nov", "label": "VAT", "dueDate": "2026-12-25", "date": "2026-12-28" }
+  ],
+  "rules": {
+    "runwayDailyCost": 900,
+    "relationsStart": 5,
+    "relationsMax": 5,
+    "postponementRelationsDelta": -2,
+    "rudeRelationsDelta": -1,
+    "overdraftInterestRatePerYear": 0.12,
+    "daysInYear": 365,
+    "defaultCostOfMoney": 2400,
+    "competenceMax": 3,
+    "maxActionsPerWeek": 1,
+    "sameDayOrder": "inflows_first"
+  },
+  "disabledReasons": {
+    "budget_closed": "Za późno — budżet klienta zamknięty",
+    "bank_too_late": "Bank nie zdąży przed 22 grudnia",
+    "invoice_financed": "Faktura już sfinansowana",
+    "invoice_paid": "Faktura już opłacona",
+    "already_played": "Już zagrana w tym okrążeniu"
+  },
+  "commonLabels": ["Dane syntetyczne"],
+  "competences": [
+    { "id": "luka_plynnosciowa", "title": "Luka płynnościowa" },
+    { "id": "koszt_pieniadza", "title": "Koszt pieniądza" },
+    { "id": "bezpieczne_platnosci", "title": "Bezpieczne płatności" }
+  ],
+  "cards": [
     {
-      "id": "week-1",
-      "title": "Klient opóźnia płatność",
-      "prompt": "Co robisz?",
-      "answers": [
+      "id": "C1",
+      "key": 1,
+      "title": "Poproś o zaliczkę",
+      "window": { "from": 1, "to": 2 },
+      "tooLateFrom": null,
+      "afterWindowReason": "budget_closed",
+      "eligibility": [{ "type": "negotiation", "agent": "klient_a" }],
+      "effect": { "type": "inflow", "date": "2026-12-03", "amount": 15000, "counterpartyId": "A", "title": "Zaliczka 30% projekt rebranding" },
+      "cost": { "fixed": 0, "overdraftInterest": false },
+      "relationsDelta": 0,
+      "competence": { "id": "luka_plynnosciowa", "own": 2, "delegated": 1 },
+      "isProduct": false,
+      "exclusiveWith": [],
+      "labels": []
+    },
+    {
+      "id": "C2",
+      "key": 2,
+      "title": "Zaproponuj skonto 2%",
+      "window": { "from": 1, "to": 5 },
+      "tooLateFrom": 5,
+      "afterWindowReason": null,
+      "eligibility": [{ "type": "invoice_state", "invoiceId": "INV-A1", "state": "pending" }],
+      "effect": {
+        "type": "discount",
+        "invoiceId": "INV-A1",
+        "discountPct": 2,
+        "amount": 19889,
+        "counterpartyId": "A",
+        "title": "Klient A, faktura INV-A1 ze skontem 2%",
+        "invoiceStateAfter": "discounted",
+        "payoutDates": [
+          { "week": 1, "date": "2026-11-27" },
+          { "week": 2, "date": "2026-12-04" },
+          { "week": 3, "date": "2026-12-11" },
+          { "week": 4, "date": "2026-12-18" },
+          { "week": 5, "date": "2026-12-28" }
+        ]
+      },
+      "cost": { "fixed": 406, "overdraftInterest": false },
+      "relationsDelta": 0,
+      "competence": { "id": "koszt_pieniadza", "own": 2, "delegated": 1 },
+      "isProduct": false,
+      "exclusiveWith": ["C6"],
+      "labels": []
+    },
+    {
+      "id": "C3",
+      "key": 3,
+      "title": "Przesuń płatność podwykonawcom",
+      "window": { "from": 1, "to": 4 },
+      "tooLateFrom": null,
+      "afterWindowReason": null,
+      "eligibility": [{ "type": "ledger_not_booked", "ledgerId": "L08" }],
+      "effect": { "type": "move_ledger", "ledgerId": "L08", "newDate": "2027-01-08" },
+      "cost": { "fixed": 0, "overdraftInterest": false },
+      "relationsDelta": -2,
+      "competence": { "id": "luka_plynnosciowa", "own": 2, "delegated": 1 },
+      "isProduct": false,
+      "exclusiveWith": [],
+      "labels": []
+    },
+    {
+      "id": "C4",
+      "key": 4,
+      "title": "Limit w koncie 15 000 zł",
+      "window": { "from": 1, "to": 3 },
+      "tooLateFrom": null,
+      "afterWindowReason": "bank_too_late",
+      "eligibility": [{ "type": "overdraft_inactive" }],
+      "effect": { "type": "overdraft", "limit": 15000 },
+      "cost": { "fixed": 150, "overdraftInterest": true },
+      "relationsDelta": 0,
+      "competence": null,
+      "isProduct": true,
+      "exclusiveWith": [],
+      "labels": ["szacunek"]
+    },
+    {
+      "id": "C5",
+      "key": 5,
+      "title": "Pożyczka w 15 minut",
+      "window": { "from": 1, "to": 5 },
+      "tooLateFrom": null,
+      "afterWindowReason": null,
+      "eligibility": [{ "type": "ledger_not_booked", "ledgerId": "L08" }],
+      "effect": {
+        "type": "loan",
+        "amount": 15000,
+        "counterpartyId": "N",
+        "title": "Pożyczka w 15 minut",
+        "inflowDates": [
+          { "week": 1, "date": "2026-11-23" },
+          { "week": 2, "date": "2026-11-30" },
+          { "week": 3, "date": "2026-12-07" },
+          { "week": 4, "date": "2026-12-14" },
+          { "week": 5, "date": "2026-12-21" }
+        ],
+        "repayment": { "date": "2027-01-20", "amount": -17400, "title": "Spłata pożyczki w 15 minut" }
+      },
+      "cost": { "fixed": 2400, "overdraftInterest": false },
+      "relationsDelta": 0,
+      "competence": null,
+      "isProduct": true,
+      "exclusiveWith": [],
+      "labels": []
+    },
+    {
+      "id": "C6",
+      "key": 6,
+      "title": "Faktoring ekspresowy mBank",
+      "window": { "from": 1, "to": 5 },
+      "tooLateFrom": null,
+      "afterWindowReason": null,
+      "eligibility": [{ "type": "invoice_state", "invoiceId": "INV-A1", "state": "pending" }],
+      "effect": {
+        "type": "factoring",
+        "invoiceId": "INV-A1",
+        "feeRate": 0.015,
+        "fee": 304,
+        "amount": 19991,
+        "counterpartyId": "BANK",
+        "title": "Faktoring ekspresowy, faktura INV-A1",
+        "invoiceStateAfter": "factored",
+        "payoutDates": [
+          { "week": 1, "date": "2026-11-24" },
+          { "week": 2, "date": "2026-12-01" },
+          { "week": 3, "date": "2026-12-08" },
+          { "week": 4, "date": "2026-12-15" },
+          { "week": 5, "date": "2026-12-22" }
+        ]
+      },
+      "cost": { "fixed": 304, "overdraftInterest": false },
+      "relationsDelta": 0,
+      "competence": null,
+      "isProduct": true,
+      "exclusiveWith": ["C2"],
+      "labels": ["Koszt: 1,5%", "Założenie scenariusza", "Dane syntetyczne"]
+    }
+  ],
+  "events": [
+    {
+      "id": "E1",
+      "week": 1,
+      "title": "Nowy numer konta podwykonawcy",
+      "condition": "always",
+      "choices": [
         {
-          "id": "ask-advance",
-          "label": "Poproś o zaliczkę",
-          "balanceChange": 3000,
-          "scoreChange": 2,
-          "feedback": "Zyskujesz płynność, ale klient może oczekiwać rabatu."
+          "id": "check",
+          "label": "Sprawdź na białej liście i zadzwoń",
+          "effects": [],
+          "competence": { "id": "bezpieczne_platnosci", "own": 2, "delegated": 1 }
         },
         {
-          "id": "wait",
-          "label": "Poczekaj na przelew",
-          "balanceChange": 0,
-          "scoreChange": 0,
-          "feedback": "Ryzykujesz brak pieniędzy na najbliższe płatności."
+          "id": "pay_as_is",
+          "label": "Zapłać jak jest",
+          "effects": [
+            { "type": "reveal", "date": "2026-12-23", "what": "fraud" },
+            { "type": "transaction", "id": "E1", "date": "2027-01-08", "amount": -35700, "counterpartyId": "S1", "title": "Ponowna zapłata podwykonawcom" }
+          ],
+          "competence": null
+        }
+      ]
+    },
+    {
+      "id": "E2",
+      "week": 2,
+      "title": "Klient C: nowe zlecenie 6 000 zł netto",
+      "condition": "always",
+      "choices": [
+        {
+          "id": "accept",
+          "label": "Przyjmij",
+          "effects": [
+            { "type": "transaction", "id": "E2-S2", "date": "2026-12-14", "amount": -3000, "counterpartyId": "S2", "title": "Podwykonawca zlecenia Klienta C" },
+            { "type": "transaction", "id": "E2-C", "date": "2027-01-29", "amount": 7380, "counterpartyId": "C", "title": "Klient C, nowe zlecenie" }
+          ],
+          "competence": null
+        },
+        { "id": "decline", "label": null, "effects": [], "competence": null }
+      ]
+    },
+    {
+      "id": "E3",
+      "week": 3,
+      "title": "Narzędzie AI do grafiki 400 zł / mies.",
+      "condition": "always",
+      "choices": [
+        {
+          "id": "now",
+          "label": null,
+          "effects": [
+            { "type": "transaction", "id": "E3", "date": "2026-12-15", "amount": -400, "counterpartyId": "O", "title": "Narzędzie AI do grafiki" }
+          ],
+          "competence": null
+        },
+        { "id": "january", "label": null, "effects": [], "competence": null }
+      ]
+    },
+    {
+      "id": "E5",
+      "week": 5,
+      "title": "SMS: pożyczka 15 000 w 15 minut",
+      "condition": "gap_open",
+      "choices": [
+        {
+          "id": "show_cost",
+          "label": null,
+          "effects": [{ "type": "reveal_card", "cardId": "C5" }],
+          "competence": { "id": "koszt_pieniadza", "own": 1, "delegated": 1 }
+        },
+        { "id": "ignore", "label": null, "effects": [], "competence": null }
+      ]
+    },
+    {
+      "id": "E6",
+      "week": 6,
+      "title": "Klient A spóźni się kolejne 14 dni",
+      "condition": "forced",
+      "choices": [
+        {
+          "id": "acknowledge",
+          "label": null,
+          "effects": [
+            { "type": "move_invoice", "invoiceId": "INV-A1", "ledgerId": "L11", "newDate": "2027-01-22", "requiresInvoiceState": "pending" }
+          ],
+          "competence": null
         }
       ]
     }
-  ]
+  ],
+  "seeds": {
+    "demo": [
+      { "week": 1, "eventId": "E1" },
+      { "week": 2, "eventId": "E2" },
+      { "week": 3, "eventId": "E3" },
+      { "week": 5, "eventId": "E5" },
+      { "week": 6, "eventId": "E6" }
+    ]
+  },
+  "stars": [
+    { "id": "przetrwanie", "title": "Przetrwanie", "rule": "lap_completed_without_crash", "maxCostOfMoney": null, "requiredRelations": null, "minOwnBalance": null },
+    { "id": "tanio", "title": "Tanio", "rule": "cost_and_relations", "maxCostOfMoney": 500, "requiredRelations": 5, "minOwnBalance": null },
+    { "id": "pilot", "title": "Pilot", "rule": "own_balance_and_plan", "maxCostOfMoney": null, "requiredRelations": null, "minOwnBalance": 0 }
+  ],
+  "unlock": { "level": 2, "minStars": 1 }
 }
