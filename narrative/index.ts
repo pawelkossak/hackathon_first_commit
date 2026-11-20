@@ -11,6 +11,7 @@ export {
 } from "./copy/get-copy";
 export { getVoiceScript, VOICE_SCRIPTS } from "./copy/voice-scripts";
 export { formatDayMonth, formatPercent, formatPln } from "./format";
+export { storyBindings } from "./story-bindings";
 export {
   agentLineBindings,
   agentLineIds,

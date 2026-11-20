@@ -10,6 +10,7 @@ import {
   formatDayMonth,
   formatPln,
   getCopy,
+  getLocale,
   type NarratorGender,
   type PlayerGender,
 } from "../../narrative";
@@ -33,24 +34,25 @@ export function BankAdvisorAndLoanReveal({
   className = "",
 }: BankAdvisorAndLoanRevealProps) {
   const { overdraft, loan } = bankAdvisorView(state);
+  const locale = getLocale();
   const copy = (id: string, extra?: Record<string, string | number>) =>
     getCopy(id, state, playerGender, narratorGender, extra);
 
   return (
     <section
-      aria-label="Doradca bankowy i pożyczka pozabankowa (G16)"
+      aria-label={copy("ui.bank_advisor.aria")}
       className={`w-full max-w-2xl bg-neutral-900 border border-neutral-700/80 rounded-2xl p-6 shadow-2xl backdrop-blur-md text-neutral-100 ${className}`}
     >
       <header className="flex items-center justify-between border-b border-neutral-800 pb-3 mb-5">
         <div>
           <h2 className="text-xl font-bold text-amber-400">{copy("ui.bank_advisor.title")}</h2>
-          <p className="text-sm text-neutral-400">Limit w koncie z banku i oferta pożyczki pozabankowej z SMS-a</p>
+          <p className="text-base text-neutral-400">{copy("ui.bank_advisor.subtitle")}</p>
         </div>
         {onClose && (
           <button
             type="button"
             onClick={onClose}
-            className="min-h-[44px] min-w-[44px] text-sm px-3 py-1 bg-neutral-800 hover:bg-neutral-700 rounded-lg text-neutral-300 transition-colors focus:outline-none focus:ring-2 focus:ring-amber-400"
+            className="min-h-[44px] min-w-[44px] text-base px-3 py-1 bg-neutral-800 hover:bg-neutral-700 rounded-lg text-neutral-300 transition-colors focus:outline-none focus:ring-2 focus:ring-amber-400"
           >
             {copy("ui.btn.close")}
           </button>
@@ -60,14 +62,14 @@ export function BankAdvisorAndLoanReveal({
       <div className="space-y-6">
         <article className="p-4 bg-neutral-800/80 border border-neutral-700 rounded-xl" data-card-id={overdraft.cardId}>
           <h3 className="text-base font-semibold text-neutral-100">{overdraft.title}</h3>
-          <p className="text-sm text-neutral-400">{copy("card.overdraft.body")}</p>
+          <p className="text-base text-neutral-400">{copy("card.overdraft.body")}</p>
 
-          <div className="text-sm text-neutral-300 space-y-1 my-3">
+          <div className="text-base text-neutral-300 space-y-1 my-3">
             {overdraft.limit !== null && (
-              <p>Limit do wykorzystania: {formatPln(overdraft.limit)}</p>
+              <p>{copy("ui.bank_advisor.limit", { "overdraft.limit": formatPln(overdraft.limit, locale) })}</p>
             )}
             <p className="text-amber-300 font-medium">
-              {copy("card.overdraft.cost", { "overdraft.costEstimate": formatPln(overdraft.cost) })}
+              {copy("card.overdraft.cost", { "overdraft.costEstimate": formatPln(overdraft.cost, locale) })}
             </p>
             {overdraft.disabledReason && (
               <p className="text-red-300 font-medium" role="status">
@@ -80,40 +82,42 @@ export function BankAdvisorAndLoanReveal({
             <button
               type="button"
               onClick={() => onSelectCard(overdraft.cardId)}
-              className="min-h-[44px] px-4 py-2 bg-blue-600 hover:bg-blue-500 text-white font-medium text-sm rounded-lg transition-colors focus:outline-none focus:ring-2 focus:ring-blue-400"
+              className="min-h-[44px] px-4 py-2 bg-blue-600 hover:bg-blue-500 text-white font-medium text-base rounded-lg transition-colors focus:outline-none focus:ring-2 focus:ring-blue-400"
             >
-              Wybierz limit w koncie
+              {copy("ui.bank_advisor.choose_overdraft")}
             </button>
           )}
         </article>
 
         <article className="p-4 bg-amber-950/40 border border-amber-600/50 rounded-xl" data-card-id={loan.cardId}>
           <h3 className="text-base font-semibold text-amber-200">{loan.title}</h3>
-          <p className="text-sm text-red-300 font-semibold">{copy("g16.explanation")}</p>
+          <p className="text-base text-red-300 font-semibold">{copy("g16.explanation")}</p>
 
-          <div className="p-3 bg-neutral-950 border border-neutral-700/80 rounded-lg text-sm text-neutral-300 my-3">
-            <span className="block text-xs text-neutral-400 mb-1" aria-hidden="true">SMS</span>
+          <div className="p-3 bg-neutral-950 border border-neutral-700/80 rounded-lg text-base text-neutral-300 my-3">
+            <span className="block text-base text-neutral-400 mb-1" aria-hidden="true">
+              {copy("ui.bank_advisor.sms")}
+            </span>
             {loan.title}
           </div>
 
-          <div className="p-3 bg-red-950/60 border border-red-600/60 rounded-lg text-sm text-red-200 space-y-1">
+          <div className="p-3 bg-red-950/60 border border-red-600/60 rounded-lg text-base text-red-200 space-y-1">
             {loan.payout && loan.repayment ? (
               <p className="font-bold">
                 {copy("g16.repay", {
-                  "loan.amount": formatPln(loan.payout.amount),
-                  "loan.repayment": formatPln(loan.repayment.amount),
-                  "loan.dueDate": formatDayMonth(loan.repayment.date),
+                  "loan.amount": formatPln(loan.payout.amount, locale),
+                  "loan.repayment": formatPln(loan.repayment.amount, locale),
+                  "loan.dueDate": formatDayMonth(loan.repayment.date, locale),
                 })}
               </p>
             ) : null}
-            <p className="font-bold text-amber-300">{copy("g16.cost", { "loan.cost": formatPln(loan.cost) })}</p>
+            <p className="font-bold text-amber-300">{copy("g16.cost", { "loan.cost": formatPln(loan.cost, locale) })}</p>
             {loan.disabledReason && (
               <p role="status">{disabledReasonText(loan.disabledReason, playerGender, narratorGender)}</p>
             )}
           </div>
 
-          <p className="text-sm text-neutral-400 mt-3 italic">
-            Wygrana nigdy nie wymaga pożyczki. Zawsze jest tańszy manewr: zaliczka, skonto albo przesunięcie płatności.
+          <p className="text-base text-neutral-400 mt-3 italic">
+            {copy("ui.bank_advisor.rule")}
           </p>
 
           {loan.playable && onSelectCard && (
@@ -121,9 +125,9 @@ export function BankAdvisorAndLoanReveal({
               <button
                 type="button"
                 onClick={() => onSelectCard(loan.cardId)}
-                className="min-h-[44px] px-4 py-2 bg-neutral-800 hover:bg-neutral-700 text-red-300 border border-red-600/40 font-medium text-sm rounded-lg transition-colors focus:outline-none focus:ring-2 focus:ring-red-400"
+                className="min-h-[44px] px-4 py-2 bg-neutral-800 hover:bg-neutral-700 text-red-300 border border-red-600/40 font-medium text-base rounded-lg transition-colors focus:outline-none focus:ring-2 focus:ring-red-400"
               >
-                Rozważ pożyczkę pozabankową
+                {copy("ui.bank_advisor.consider_loan")}
               </button>
             </div>
           )}

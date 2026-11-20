@@ -1,8 +1,9 @@
 // Seed copy for the demo path in 4 player/narrator gender variants.
 // BUILD-PLAN.md §3.2, §5 N-01.
 import type { CopyRecord } from "../types";
+import { UI_COPY_PL } from "./seed.ui";
 
-export const SEED_COPY: Record<string, CopyRecord> = {
+const BASE_COPY: Record<string, CopyRecord> = {
   "intro.owner": {
     "player-female_narrator-female": "Jestem Ania i prowadzę to studio. Mam klientów, dobre pomysły i kawę na trzy dni. Z pieniędzmi bywa różnie.",
     "player-male_narrator-female": "Jestem Ania i prowadzę to studio. Mam klientów, dobre pomysły i kawę na trzy dni. Z pieniędzmi bywa różnie.",
@@ -40,10 +41,10 @@ export const SEED_COPY: Record<string, CopyRecord> = {
     "player-male_narrator-male": "Grudzień ma dla nas kilka niespodzianek. Sprawdź na trasie, kiedy przelew może nie wystartować. Ja w tym czasie... zaparzę mocniejszą kawę."
   },
   "event.account": {
-    "player-female_narrator-female": "Faktura na trzydzieści pięć tysięcy siedemset złotych ma inny numer konta niż zwykle.",
-    "player-male_narrator-female": "Faktura na trzydzieści pięć tysięcy siedemset złotych ma inny numer konta niż zwykle.",
-    "player-female_narrator-male": "Faktura na trzydzieści pięć tysięcy siedemset złotych ma inny numer konta niż zwykle.",
-    "player-male_narrator-male": "Faktura na trzydzieści pięć tysięcy siedemset złotych ma inny numer konta niż zwykle."
+    "player-female_narrator-female": "Faktura na {supplier.amount} ma inny numer konta niż zwykle.",
+    "player-male_narrator-female": "Faktura na {supplier.amount} ma inny numer konta niż zwykle.",
+    "player-female_narrator-male": "Faktura na {supplier.amount} ma inny numer konta niż zwykle.",
+    "player-male_narrator-male": "Faktura na {supplier.amount} ma inny numer konta niż zwykle."
   },
   "event.account.joke": {
     "player-female_narrator-female": "Faktura ta sama. Konto jakby po liftingu.",
@@ -64,10 +65,10 @@ export const SEED_COPY: Record<string, CopyRecord> = {
     "player-male_narrator-male": "Podobno o pieniądzach się nie rozmawia. Na szczęście prowadzimy firmę."
   },
   "advance.confirmed": {
-    "player-female_narrator-female": "Mamy zaliczkę! Piętnaście tysięcy złotych do trzeciego grudnia. Teraz to jest kurs!",
-    "player-male_narrator-female": "Mamy zaliczkę! Piętnaście tysięcy złotych do trzeciego grudnia. Teraz to jest kurs!",
-    "player-female_narrator-male": "Mamy zaliczkę! Piętnaście tysięcy złotych do trzeciego grudnia. Teraz to jest kurs!",
-    "player-male_narrator-male": "Mamy zaliczkę! Piętnaście tysięcy złotych do trzeciego grudnia. Teraz to jest kurs!"
+    "player-female_narrator-female": "Mamy zaliczkę! {advance.amount} do {advance.date}. Teraz to jest kurs!",
+    "player-male_narrator-female": "Mamy zaliczkę! {advance.amount} do {advance.date}. Teraz to jest kurs!",
+    "player-female_narrator-male": "Mamy zaliczkę! {advance.amount} do {advance.date}. Teraz to jest kurs!",
+    "player-male_narrator-male": "Mamy zaliczkę! {advance.amount} do {advance.date}. Teraz to jest kurs!"
   },
   "move.praise": {
     "player-female_narrator-female": "Świetny manewr. Poradziłaś sobie z tym jak trzeba.",
@@ -88,16 +89,16 @@ export const SEED_COPY: Record<string, CopyRecord> = {
     "player-male_narrator-male": "To nie rollercoaster. To nasze przelewy."
   },
   "event.order": {
-    "player-female_narrator-female": "Nowe zlecenie: sześć tysięcy złotych netto. Podwykonawca potrzebuje trzech tysięcy już czternastego grudnia. Klient zapłaci pod koniec stycznia. Ładny zysk. Tylko za co wystartujemy?",
-    "player-male_narrator-female": "Nowe zlecenie: sześć tysięcy złotych netto. Podwykonawca potrzebuje trzech tysięcy już czternastego grudnia. Klient zapłaci pod koniec stycznia. Ładny zysk. Tylko za co wystartujemy?",
-    "player-female_narrator-male": "Nowe zlecenie: sześć tysięcy złotych netto. Podwykonawca potrzebuje trzech tysięcy już czternastego grudnia. Klient zapłaci pod koniec stycznia. Ładny zysk. Tylko za co wystartujemy?",
-    "player-male_narrator-male": "Nowe zlecenie: sześć tysięcy złotych netto. Podwykonawca potrzebuje trzech tysięcy już czternastego grudnia. Klient zapłaci pod koniec stycznia. Ładny zysk. Tylko za co wystartujemy?"
+    "player-female_narrator-female": "Nowe zlecenie: klient zapłaci {newOrder.amount} {newOrder.paymentDate}. Podwykonawca potrzebuje {newOrder.supplier} już {newOrder.supplierDate}. Ładny zysk. Tylko za co wystartujemy?",
+    "player-male_narrator-female": "Nowe zlecenie: klient zapłaci {newOrder.amount} {newOrder.paymentDate}. Podwykonawca potrzebuje {newOrder.supplier} już {newOrder.supplierDate}. Ładny zysk. Tylko za co wystartujemy?",
+    "player-female_narrator-male": "Nowe zlecenie: klient zapłaci {newOrder.amount} {newOrder.paymentDate}. Podwykonawca potrzebuje {newOrder.supplier} już {newOrder.supplierDate}. Ładny zysk. Tylko za co wystartujemy?",
+    "player-male_narrator-male": "Nowe zlecenie: klient zapłaci {newOrder.amount} {newOrder.paymentDate}. Podwykonawca potrzebuje {newOrder.supplier} już {newOrder.supplierDate}. Ładny zysk. Tylko za co wystartujemy?"
   },
   "event.tool": {
-    "player-female_narrator-female": "Czterysta złotych miesięcznie. Około ośmiu godzin pracy mniej. Brzmi świetnie. Tylko czy właśnie teraz mamy na to paliwo?",
-    "player-male_narrator-female": "Czterysta złotych miesięcznie. Około ośmiu godzin pracy mniej. Brzmi świetnie. Tylko czy właśnie teraz mamy na to paliwo?",
-    "player-female_narrator-male": "Czterysta złotych miesięcznie. Około ośmiu godzin pracy mniej. Brzmi świetnie. Tylko czy właśnie teraz mamy na to paliwo?",
-    "player-male_narrator-male": "Czterysta złotych miesięcznie. Około ośmiu godzin pracy mniej. Brzmi świetnie. Tylko czy właśnie teraz mamy na to paliwo?"
+    "player-female_narrator-female": "{aiTool.cost} miesięcznie. Mniej godzin rutynowej pracy. Brzmi świetnie. Tylko czy właśnie teraz mamy na to paliwo?",
+    "player-male_narrator-female": "{aiTool.cost} miesięcznie. Mniej godzin rutynowej pracy. Brzmi świetnie. Tylko czy właśnie teraz mamy na to paliwo?",
+    "player-female_narrator-male": "{aiTool.cost} miesięcznie. Mniej godzin rutynowej pracy. Brzmi świetnie. Tylko czy właśnie teraz mamy na to paliwo?",
+    "player-male_narrator-male": "{aiTool.cost} miesięcznie. Mniej godzin rutynowej pracy. Brzmi świetnie. Tylko czy właśnie teraz mamy na to paliwo?"
   },
   "event.late": {
     "player-female_narrator-female": "Klient znowu gra na czas. Sprawdź, czy nasza wcześniejsza decyzja już zabezpieczyła tę fakturę. Ja w tym czasie policzę do dziesięciu.",
@@ -118,10 +119,10 @@ export const SEED_COPY: Record<string, CopyRecord> = {
     "player-male_narrator-male": "To oferta pozabankowa z SMS-a. Doradca banku proponuje wyłącznie limit w koncie."
   },
   "loan.repayment": {
-    "player-female_narrator-female": "piętnaście tysięcy złotych teraz. siedemnaście tysięcy czterysta złotych do oddania do dwudziestego stycznia.",
-    "player-male_narrator-female": "piętnaście tysięcy złotych teraz. siedemnaście tysięcy czterysta złotych do oddania do dwudziestego stycznia.",
-    "player-female_narrator-male": "piętnaście tysięcy złotych teraz. siedemnaście tysięcy czterysta złotych do oddania do dwudziestego stycznia.",
-    "player-male_narrator-male": "piętnaście tysięcy złotych teraz. siedemnaście tysięcy czterysta złotych do oddania do dwudziestego stycznia."
+    "player-female_narrator-female": "{loan.amount} teraz. {loan.repayment} do oddania do {loan.dueDate}.",
+    "player-male_narrator-female": "{loan.amount} teraz. {loan.repayment} do oddania do {loan.dueDate}.",
+    "player-female_narrator-male": "{loan.amount} teraz. {loan.repayment} do oddania do {loan.dueDate}.",
+    "player-male_narrator-male": "{loan.amount} teraz. {loan.repayment} do oddania do {loan.dueDate}."
   },
   "loan.joke": {
     "player-female_narrator-female": "Szybko to ja robię kawę. Sprawdźmy koszt.",
@@ -130,10 +131,10 @@ export const SEED_COPY: Record<string, CopyRecord> = {
     "player-male_narrator-male": "Szybko to ja robię kawę. Sprawdźmy koszt."
   },
   "loan.cost": {
-    "player-female_narrator-female": "Koszt wynosi dwa tysiące czterysta złotych. To szacunek w scenariuszu demonstracyjnym.",
-    "player-male_narrator-female": "Koszt wynosi dwa tysiące czterysta złotych. To szacunek w scenariuszu demonstracyjnym.",
-    "player-female_narrator-male": "Koszt wynosi dwa tysiące czterysta złotych. To szacunek w scenariuszu demonstracyjnym.",
-    "player-male_narrator-male": "Koszt wynosi dwa tysiące czterysta złotych. To szacunek w scenariuszu demonstracyjnym."
+    "player-female_narrator-female": "Koszt wynosi {loan.cost}. To szacunek w scenariuszu demonstracyjnym.",
+    "player-male_narrator-female": "Koszt wynosi {loan.cost}. To szacunek w scenariuszu demonstracyjnym.",
+    "player-female_narrator-male": "Koszt wynosi {loan.cost}. To szacunek w scenariuszu demonstracyjnym.",
+    "player-male_narrator-male": "Koszt wynosi {loan.cost}. To szacunek w scenariuszu demonstracyjnym."
   },
   "hint.options": {
     "player-female_narrator-female": "Sprawdźmy, co zdąży zadziałać przed płatnością. Porównanie pokazuje najtańsze dostępne rozwiązania. Ten kalendarz da się jeszcze przechytrzyć.",
@@ -238,16 +239,16 @@ export const SEED_COPY: Record<string, CopyRecord> = {
     "player-male_narrator-male": "Faktura ma termin. My mamy poniedziałek."
   },
   "factoring.fee": {
-    "player-female_narrator-female": "Koszt scenariusza: trzysta cztery złote",
-    "player-male_narrator-female": "Koszt scenariusza: trzysta cztery złote",
-    "player-female_narrator-male": "Koszt scenariusza: trzysta cztery złote",
-    "player-male_narrator-male": "Koszt scenariusza: trzysta cztery złote"
+    "player-female_narrator-female": "Koszt scenariusza: {factoring.fee}",
+    "player-male_narrator-female": "Koszt scenariusza: {factoring.fee}",
+    "player-female_narrator-male": "Koszt scenariusza: {factoring.fee}",
+    "player-male_narrator-male": "Koszt scenariusza: {factoring.fee}"
   },
   "factoring.receipt": {
-    "player-female_narrator-female": "Wpływ: dziewiętnaście tysięcy dziewięćset dziewięćdziesiąt jeden złotych",
-    "player-male_narrator-female": "Wpływ: dziewiętnaście tysięcy dziewięćset dziewięćdziesiąt jeden złotych",
-    "player-female_narrator-male": "Wpływ: dziewiętnaście tysięcy dziewięćset dziewięćdziesiąt jeden złotych",
-    "player-male_narrator-male": "Wpływ: dziewiętnaście tysięcy dziewięćset dziewięćdziesiąt jeden złotych"
+    "player-female_narrator-female": "Wpływ: {factoring.receipt}",
+    "player-male_narrator-female": "Wpływ: {factoring.receipt}",
+    "player-female_narrator-male": "Wpływ: {factoring.receipt}",
+    "player-male_narrator-male": "Wpływ: {factoring.receipt}"
   },
   "factoring.low": {
     "player-female_narrator-female": "Zobacz, jak finansowanie faktury zmienia najniższe saldo. I koniecznie porównaj koszt z pozostałymi manewrami.",
@@ -562,22 +563,22 @@ export const SEED_COPY: Record<string, CopyRecord> = {
     "player-male_narrator-male": "To nie rollercoaster. To nasze przelewy."
   },
   "event.order.body": {
-    "player-female_narrator-female": "{newOrder.net}. Podwykonawca potrzebuje {newOrder.supplier} już 14 grudnia, klient zapłaci pod koniec stycznia.",
-    "player-male_narrator-female": "{newOrder.net}. Podwykonawca potrzebuje {newOrder.supplier} już 14 grudnia, klient zapłaci pod koniec stycznia.",
-    "player-female_narrator-male": "{newOrder.net}. Podwykonawca potrzebuje {newOrder.supplier} już 14 grudnia, klient zapłaci pod koniec stycznia.",
-    "player-male_narrator-male": "{newOrder.net}. Podwykonawca potrzebuje {newOrder.supplier} już 14 grudnia, klient zapłaci pod koniec stycznia."
+    "player-female_narrator-female": "Nowe zlecenie: {newOrder.amount} od klienta {newOrder.paymentDate}. Podwykonawca potrzebuje {newOrder.supplier} już {newOrder.supplierDate}.",
+    "player-male_narrator-female": "Nowe zlecenie: {newOrder.amount} od klienta {newOrder.paymentDate}. Podwykonawca potrzebuje {newOrder.supplier} już {newOrder.supplierDate}.",
+    "player-female_narrator-male": "Nowe zlecenie: {newOrder.amount} od klienta {newOrder.paymentDate}. Podwykonawca potrzebuje {newOrder.supplier} już {newOrder.supplierDate}.",
+    "player-male_narrator-male": "Nowe zlecenie: {newOrder.amount} od klienta {newOrder.paymentDate}. Podwykonawca potrzebuje {newOrder.supplier} już {newOrder.supplierDate}."
   },
   "event.tool.body": {
-    "player-female_narrator-female": "{aiTool.cost} miesięcznie, około {aiTool.hours} oszczędności w miesiącu.",
-    "player-male_narrator-female": "{aiTool.cost} miesięcznie, około {aiTool.hours} oszczędności w miesiącu.",
-    "player-female_narrator-male": "{aiTool.cost} miesięcznie, około {aiTool.hours} oszczędności w miesiącu.",
-    "player-male_narrator-male": "{aiTool.cost} miesięcznie, około {aiTool.hours} oszczędności w miesiącu."
+    "player-female_narrator-female": "{aiTool.cost} miesięcznie, mniej godzin rutynowej pracy w miesiącu.",
+    "player-male_narrator-female": "{aiTool.cost} miesięcznie, mniej godzin rutynowej pracy w miesiącu.",
+    "player-female_narrator-male": "{aiTool.cost} miesięcznie, mniej godzin rutynowej pracy w miesiącu.",
+    "player-male_narrator-male": "{aiTool.cost} miesięcznie, mniej godzin rutynowej pracy w miesiącu."
   },
   "event.late.body": {
-    "player-female_narrator-female": "Płatność przesuwa się z 8 na 22 stycznia. Po skontowaniu lub sfinansowaniu faktury ten skutek jej nie dotyczy.",
-    "player-male_narrator-female": "Płatność przesuwa się z 8 na 22 stycznia. Po skontowaniu lub sfinansowaniu faktury ten skutek jej nie dotyczy.",
-    "player-female_narrator-male": "Płatność przesuwa się z 8 na 22 stycznia. Po skontowaniu lub sfinansowaniu faktury ten skutek jej nie dotyczy.",
-    "player-male_narrator-male": "Płatność przesuwa się z 8 na 22 stycznia. Po skontowaniu lub sfinansowaniu faktury ten skutek jej nie dotyczy."
+    "player-female_narrator-female": "Płatność przesuwa się z {late.from} na {late.to}. Po skontowaniu lub sfinansowaniu faktury ten skutek jej nie dotyczy.",
+    "player-male_narrator-female": "Płatność przesuwa się z {late.from} na {late.to}. Po skontowaniu lub sfinansowaniu faktury ten skutek jej nie dotyczy.",
+    "player-female_narrator-male": "Płatność przesuwa się z {late.from} na {late.to}. Po skontowaniu lub sfinansowaniu faktury ten skutek jej nie dotyczy.",
+    "player-male_narrator-male": "Płatność przesuwa się z {late.from} na {late.to}. Po skontowaniu lub sfinansowaniu faktury ten skutek jej nie dotyczy."
   },
   "reaction.late": {
     "player-female_narrator-female": "Klient zapewnia, że przelew już wyszedł. Chyba pieszo.",
@@ -610,10 +611,10 @@ export const SEED_COPY: Record<string, CopyRecord> = {
     "player-male_narrator-male": "Koszt: {loan.cost} • szacunek"
   },
   "card.overdraft.body": {
-    "player-female_narrator-female": "Doradca banku: pięć dni roboczych na decyzję.",
-    "player-male_narrator-female": "Doradca banku: pięć dni roboczych na decyzję.",
-    "player-female_narrator-male": "Doradca banku: pięć dni roboczych na decyzję.",
-    "player-male_narrator-male": "Doradca banku: pięć dni roboczych na decyzję."
+    "player-female_narrator-female": "Doradca banku: decyzja zapada w kilka dni roboczych.",
+    "player-male_narrator-female": "Doradca banku: decyzja zapada w kilka dni roboczych.",
+    "player-female_narrator-male": "Doradca banku: decyzja zapada w kilka dni roboczych.",
+    "player-male_narrator-male": "Doradca banku: decyzja zapada w kilka dni roboczych."
   },
   "card.overdraft.cost": {
     "player-female_narrator-female": "Koszt: {overdraft.costEstimate} • szacunek",
@@ -1172,7 +1173,8 @@ export const SEED_COPY: Record<string, CopyRecord> = {
     "player-male_narrator-female": "Plan sprawdzony na prawdziwym koncie. To działa!",
     "player-female_narrator-male": "Plan sprawdzony na prawdziwym koncie. To działa!",
     "player-male_narrator-male": "Plan sprawdzony na prawdziwym koncie. To działa!"
-  },
+  }
+,
   "rx.fraud": {
     "player-female_narrator-female": "Zgłoszono oszustwo. {fraud.amount} poszło {fraud.date} na podmienione konto. Wiem, że chciałaś zdążyć z przelewem, ale jestem wściekła: następnym razem najpierw sprawdzamy i dzwonimy.",
     "player-male_narrator-female": "Zgłoszono oszustwo. {fraud.amount} poszło {fraud.date} na podmienione konto. Wiem, że chciałeś zdążyć z przelewem, ale jestem wściekła: następnym razem najpierw sprawdzamy i dzwonimy.",
@@ -1402,3 +1404,6 @@ export const SEED_COPY: Record<string, CopyRecord> = {
     "player-male_narrator-male": "Zamknij"
   }
 };
+
+/** Seed copy plus the interface copy of the narrative screens (seed.ui.ts). */
+export const SEED_COPY: Record<string, CopyRecord> = { ...BASE_COPY, ...UI_COPY_PL };
