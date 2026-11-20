@@ -320,9 +320,57 @@ describe("D-18 fraudRevealed (ENGINE-DATA-AND-TESTS §6)", () => {
     }
   });
 
-  it("E1 pay_as_is + C3: L08 is not paid by 23 XII (moved to 8 I), so there is no payment to report", () => {
-    const { byWeek } = settleFrom(createGame("demo"), { E1: "pay_as_is" }, { 1: "C3" });
+  it("E1 pay_as_is + C3: L08 moves to 8 I and is rejected by the 8 I crash (ET-C06), so nothing is reported and no view shows the fraud", () => {
+    const { state, byWeek } = settleFrom(createGame("demo"), { E1: "pay_as_is" }, { 1: "C3" });
+    // ET-C06: crash 8 I, short 5 015; the rejected transaction is the moved −35 700 (L08).
+    expect(state.core.crash).toMatchObject({ date: "2027-01-08", transactionId: "L08", shortfall: 5015 });
     expect(fraudEvents(byWeek)).toEqual([]);
+    for (const st of [state, atWeek(6, { 1: "C3" }, { E1: "pay_as_is" }), atWeek(7, { 1: "C3" }, { E1: "pay_as_is" })]) {
+      for (const includeFutureEvents of [true, false]) {
+        const all = forecast(st, { includeFutureEvents }).points.flatMap((p) => p.transactions);
+        expect(all.some((t) => t.eventId === "E1"), `T${st.core.week} ${String(includeFutureEvents)}`).toBe(false);
+      }
+    }
+  });
+
+  it("E-10 one reveal rule: E1 pay_as_is + C1 + C3 (T3) reports the fraud when the moved payment goes out on 8 I, and the views show it from that resolution on", () => {
+    // The payment of 35 700 to the changed account goes out on 8 I (C3 moves −35 700 to 8 I, GAME-DESIGN
+    // §6.1), which lies in T7 = 4–10 I (§1). ET-X06 (C1 + C3): T6 end 45 685; 8 I −35 700 → 9 985,
+    // then the E1 re-payment −35 700 → −25 715: crash 8 I at E1, short 25 715 (the ET-E02 shortfall).
+    const moved: EngineEvent = { type: "fraudRevealed", week: 7, eventId: "E1", ledgerId: "L08", amount: -35700, date: "2027-01-08" };
+    const { state, byWeek } = settleFrom(createGame("demo"), { E1: "pay_as_is" }, { 1: "C1", 3: "C3" });
+    expect(fraudEvents(byWeek)).toEqual([{ week: 7, e: moved }]);
+    expect(byWeek[7]?.map((e) => e.type)).toEqual(["fraudRevealed", "crash"]);
+    expect(state.core.crash).toMatchObject({ date: "2027-01-08", transactionId: "E1", shortfall: 25715 });
+    // Before the T7 resolution no player-facing view shows the fraud (it has not happened in game time).
+    const hiddenIn = [atWeek(5, { 1: "C1", 3: "C3" }, { E1: "pay_as_is" }), atWeek(6, { 1: "C1", 3: "C3" }, { E1: "pay_as_is" }), atWeek(7, { 1: "C1", 3: "C3" }, { E1: "pay_as_is" })];
+    for (const st of hiddenIn) {
+      for (const includeFutureEvents of [true, false]) {
+        const all = forecast(st, { includeFutureEvents }).points.flatMap((p) => p.transactions);
+        expect(all.some((t) => t.eventId === "E1"), `T${st.core.week}`).toBe(false);
+      }
+    }
+    // After it (the crashed lap), the views show the payment marked and the re-payment.
+    const after = forecast(state).points.flatMap((p) => p.transactions);
+    expect(after.find((t) => t.id === "L08")).toMatchObject({ date: "2027-01-08", eventId: "E1" });
+    expect(after.find((t) => t.id === "E1")).toMatchObject({ date: "2027-01-08", amount: -35700 });
+    expect(forecast(state).crash).toMatchObject({ date: "2027-01-08", transactionId: "E1", shortfall: 25715 });
+  });
+
+  it("E-10 one reveal rule on the 23 XII path: the views show the fraud exactly from the resolution that emitted fraudRevealed", () => {
+    let s = resolveEvent(createGame("demo"), "pay_as_is");
+    s = playCard(s, "C1");
+    while (s.core.status === "playing") {
+      const shownBefore = forecast(s).points.some((p) => p.transactions.some((t) => t.eventId === "E1"));
+      const r = resolveWeek(s);
+      const emitted = r.events.some((e) => e.type === "fraudRevealed");
+      const shownAfter = forecast(r.state).points.some((p) => p.transactions.some((t) => t.eventId === "E1"));
+      // A view changes from hidden to shown only in the resolution that emits the signal (T5).
+      expect(shownAfter && !shownBefore, `T${r.week}`).toBe(emitted);
+      expect(shownAfter, `T${r.week}`).toBe(r.week >= revealWeek);
+      const next = getCurrentEvent(r.state);
+      s = next ? resolveEvent(r.state, safe[next.id]) : r.state;
+    }
   });
 
   it("rewind before the reveal and replay emits fraudRevealed again; a replay after it does not", () => {

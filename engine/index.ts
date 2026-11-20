@@ -5,6 +5,7 @@
 // E-07: Cash Flow drilldown fields on Forecast and CardPreview (cashflow.ts).
 // E-08: agent rules (agents.ts); the CFO hint and delegation offer a product last (D-17).
 // E-09: plan matcher and the synthetic account clock replaying data/future-script.json (matcher.ts).
+// E-10: one fraud-reveal rule for views and fraudRevealed; rewind keeps a validated plan's competence 3.
 import { negotiateWith } from "./agents";
 import { gameData } from "./data";
 import { RuleError } from "./errors";
@@ -71,8 +72,9 @@ export function resetGame(seed: string = DEMO_SEED): GameState {
  * Default includes the scripted E6 delay; `includeFutureEvents: false` applies E6 only once resolved.
  * E-07: also carries the Cash Flow drilldown — `minimum`, the no-card `baseline`, `vsBaseline`, `tasks`
  * („Zadania”) and `afterLap`.
- * Neither view shows a hidden fraud (E1 „Zapłać jak jest”) before its 23 XII reveal has passed in game
- * time; resolveWeek still settles the true ledger.
+ * Neither view shows a hidden fraud (E1 „Zapłać jak jest”) before its reveal has happened in game time,
+ * i.e. before the week resolution that emitted `fraudRevealed` (23 XII, or the later day the payment
+ * really goes out); resolveWeek still settles the true ledger.
  */
 export function forecast(state: GameState, options: ForecastOptions = {}): Forecast {
   return computeForecast(state, options);

@@ -10,6 +10,7 @@ import {
   createPlan,
   getCurrentEvent,
   playCard,
+  resetGame,
   resolveEvent,
   resolveWeek,
   rewind,
@@ -161,6 +162,29 @@ describe("plan matcher and account clock (E-09)", () => {
     const checked = advanceAccountClock(savedLater, "2026-12-05");
     expect(checked.account.plans[0].status).toBe("met");
     expect(checked.core.competences.luka_plynnosciowa).toBe(3);
+  });
+
+  it("E-10 competence 3 from a validated plan survives every rewind and a replayed lap (ET-M01, ET-S05)", () => {
+    const validated = advanceAccountClock(savePlan(play({ 1: "C1" }), "C1"));
+    expect(validated.core.competences.luka_plynnosciowa).toBe(3);
+    for (const w of [1, 2, 3, 4, 5, 6, 7] as const) {
+      const back = rewind(validated, w);
+      expect(back.core.competences.luka_plynnosciowa, `rewind ${w}`).toBe(3);
+      expect(back.snapshots[w]?.competences.luka_plynnosciowa, `snapshot ${w}`).toBe(3);
+      // Nothing else of the account effect leaks into the game: week, stars and unlock come from the snapshot.
+      expect(back.core.week).toBe(w);
+      expect(back.core.stars.pilot).toBe("open");
+    }
+    // Replaying the lap from T1 (C1 again, ET-C01) keeps the 3; a lap with another card keeps it too.
+    const back = rewind(validated, 1);
+    expect(play({ 1: "C1" }, 7, back).core.competences.luka_plynnosciowa).toBe(3);
+    expect(play({ 1: "C6" }, 7, back).core.competences.luka_plynnosciowa).toBe(3);
+    // Without a validated plan a rewind restores the snapshot competence (0 at T1, 2 after own C1 in T1).
+    const unvalidated = savePlan(play({ 1: "C1" }), "C1");
+    expect(rewind(unvalidated, 1).core.competences.luka_plynnosciowa).toBe(0);
+    expect(rewind(unvalidated, 2).core.competences.luka_plynnosciowa).toBe(2);
+    // A reset clears the account, and with it the validated competence.
+    expect(resetGame("demo").core.competences.luka_plynnosciowa).toBe(0);
   });
 
   it("rejects an invalid date or one before the account clock, and never mutates its input", () => {
