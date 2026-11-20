@@ -289,6 +289,10 @@ export const AgentRuleSchema = z.object({
   weeks: WeekRangeSchema.nullable(),
   condition: AgentConditionSchema,
   outcome: AgentOutcomeSchema,
+  /**
+   * Card the rule applies (accept, inform_allow) or leads to (counter). A rule with a card matches only
+   * while that card is playable now (E-08); otherwise evaluation falls through to the next rule.
+   */
   cardId: CardIdSchema.nullable(),
   counterPercent: z.number().int().positive().nullable(),
   relationsDelta: z.number().int(),

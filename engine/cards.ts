@@ -143,14 +143,17 @@ export function cardCost(state: GameState, cardId: CardId): Pln {
 }
 
 /**
- * Safe cards: playable now and the forecast after the play has no crash. Cheapest first
- * (cost incl. the C4 interest estimate), ties by keyboard key. Winning never requires a product:
- * products compete on cost like any other card.
+ * Safe cards: playable now and the forecast after the play has no crash. D-17 (hard rule 3, no
+ * bank-product bias): a product (C4, C5, C6) is offered only as the last resort, so when any card
+ * without a product is safe, only those are returned. Otherwise the safe products, always with their
+ * engine cost. Cheapest first (cost incl. the C4 interest estimate), ties by keyboard key.
  */
 export function safeCards(state: GameState): CfoOption[] {
-  return level1.cards
+  const safe = level1.cards
     .filter((c) => disabledReason(state.core, c.id) === null)
-    .filter((c) => computeForecast(applyCard(state, c.id, true)).crash === null)
+    .filter((c) => computeForecast(applyCard(state, c.id, true)).crash === null);
+  const withoutProduct = safe.filter((c) => !c.isProduct);
+  return (withoutProduct.length > 0 ? withoutProduct : safe)
     .map((c) => ({ cardId: c.id, cost: cardCost(state, c.id), key: c.key }))
     .sort((a, b) => a.cost - b.cost || a.key - b.key)
     .map(({ cardId, cost }) => ({ cardId, cost }));

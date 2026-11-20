@@ -363,7 +363,7 @@ export interface CfoHint {
   week: WeekNumber;
   /** Earliest future crash in the current forecast; null when no risk. */
   risk: Crash | null;
-  /** Up to two cheapest playable cards that remove the risk. */
+  /** Up to two cheapest playable cards that remove the risk; products only as the last resort (D-17). */
   options: CfoOption[];
 }
 

@@ -101,6 +101,15 @@ export function checkReferences(data: GameData): string[] {
   for (const agent of [data.agents.klient_a, data.agents.bank]) {
     for (const rule of agent.rules) {
       if (rule.cardId !== null && agent.neverOffers.includes(rule.cardId)) problems.push(`${agent.name}: offers forbidden card ${rule.cardId}`);
+      if (rule.outcome === "counter" && (rule.counterPercent === null || rule.cardId === null)) {
+        problems.push(`${agent.name}: a counter rule needs counterPercent and cardId`);
+      }
+      if ((rule.outcome === "accept" || rule.outcome === "inform_allow") && rule.cardId === null) {
+        problems.push(`${agent.name}: an ${rule.outcome} rule needs cardId`);
+      }
+    }
+    if (!agent.rules.some((r) => r.intent === "unknown" && r.weeks === null && r.cardId === null)) {
+      problems.push(`${agent.name}: no fallback rule (intent unknown, any week)`);
     }
   }
   for (const t of data.futureScript.planTemplates) {

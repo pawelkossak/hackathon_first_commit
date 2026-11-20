@@ -352,7 +352,10 @@ describe("turn state machine (E-05)", () => {
       errorCode(() => delegateBestCard(s));
       for (const w of [1, 2, 3, 4, 5, 6, 7] as const) errorCode(() => rewind(s, w));
       advanceAccountClock(s);
-      negotiate(s, "klient_a", "unknown");
+      for (const intent of ["ask_advance", "accept_counter", "offer_discount", "rude", "unknown"] as const) {
+        errorCode(() => negotiate(s, "klient_a", intent, 50));
+      }
+      errorCode(() => negotiate(s, "bank", "ask_overdraft"));
       expect(JSON.stringify(s)).toBe(copy);
     }
   });

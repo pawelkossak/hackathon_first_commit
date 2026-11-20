@@ -3,7 +3,9 @@
 // E-04: seeded event deck (seed.ts, events.ts). E-05: turn state machine (turn.ts).
 // E-06: score (score.ts), hidden fraud until its reveal, plans only from a winning lap.
 // E-07: Cash Flow drilldown fields on Forecast and CardPreview (cashflow.ts).
-// Other bodies are fixtures until E-07…E-09.
+// E-08: agent rules (agents.ts); the CFO hint and delegation offer a product last (D-17).
+// Other bodies are fixtures until E-09.
+import { negotiateWith } from "./agents";
 import { isValidIsoDate } from "./calendar";
 import { gameData } from "./data";
 import { RuleError } from "./errors";
@@ -26,7 +28,6 @@ import type {
   EventChoiceId,
   Forecast,
   ForecastOptions,
-  GameCore,
   GameState,
   IsoDate,
   NegotiationResult,
@@ -44,10 +45,6 @@ const { level1, agents, futureScript } = gameData;
 /** Default seed of the pitch (`/gra/1?seed=demo`). */
 export const DEMO_SEED = "demo";
 export const SCHEMA_VERSION = 1;
-
-function withCore(state: GameState, core: GameCore, emitted: EngineEvent[] = []): GameState {
-  return { ...state, core, emitted };
-}
 
 function newLap(seed: string): GameState {
   assertSeed(seed);
@@ -222,53 +219,31 @@ export function advanceAccountClock(state: GameState, date: IsoDate = futureScri
   return { ...state, account: { ...state.account, clock: date }, emitted: [] };
 }
 
-/** One message to an agent; the rules table decides. Fixture (E-08 pending): counts messages, answers with the fallback line. */
+/**
+ * One message to an agent (agents.ts); data/agents.json decides, first matching rule wins. The AI only
+ * supplies the intent (and the percent for ask_advance). Max 3 messages per agent per week: the 4th is
+ * `blocked` (quick replies only, no state change). An accepted deal (C1, C2, C4) is played through the
+ * same path as playCard, as the player's own decision. Throws RuleError("not_playing") after the lap.
+ * `numbers` lists every number the reply may mention (number guardrail).
+ */
 export function negotiate(state: GameState, agent: AgentId, intent: AgentIntent, percent?: number): NegotiationResult {
-  void percent;
-  const def = agents[agent];
-  const thread = state.core.negotiation[agent];
-  const fallback = agent === "klient_a" ? "a.fallback" : "bank.fallback";
-  if (thread.messagesThisWeek >= def.maxMessagesPerWeek) {
-    return {
-      state: { ...state, emitted: [] },
-      agent,
-      intent,
-      outcome: "blocked",
-      lineId: fallback,
-      appliedCardId: null,
-      counterPercent: null,
-      blocked: true,
-      numbers: [],
-    };
-  }
-  const core: GameCore = {
-    ...state.core,
-    negotiation: { ...state.core.negotiation, [agent]: { ...thread, messagesThisWeek: thread.messagesThisWeek + 1 } },
-  };
-  const emitted: EngineEvent[] =
-    thread.messagesThisWeek === 0 ? [{ type: "negotiationOpen", week: core.week, agent }] : [];
-  return {
-    state: withCore(state, core, emitted),
-    agent,
-    intent,
-    outcome: "quick_replies",
-    lineId: fallback,
-    appliedCardId: null,
-    counterPercent: null,
-    blocked: false,
-    numbers: [],
-  };
+  return negotiateWith(state, agent, intent, percent);
 }
 
-/** AI-CFO hint: earliest future crash and the two cheapest playable cards that remove it (none without risk). */
+/**
+ * AI-CFO hint: earliest future crash and the two cheapest safe cards that remove it (none without
+ * risk). D-17: a product card appears only when no card without a product removes the crash.
+ */
 export function getCfoHint(state: GameState): CfoHint {
   const risk = forecast(state).crash;
-  return { week: state.core.week, risk, options: risk ? safeCards(state).slice(0, 2) : [] };
+  return { week: state.core.week, risk, options: risk ? safeCards(state).slice(0, agents.cfo.optionCount) : [] };
 }
 
 /**
  * Play the cheapest safe card (playable, no crash after it) as a delegated decision: competence
- * milestone 1 for its competence, none for a product. Throws RuleError("no_safe_card") when none is safe.
+ * milestone 1 for its competence, none for a product. Same product-last rule as the hint (D-17): a
+ * product is delegated only when no card without a product is safe.
+ * Throws RuleError("no_safe_card") when none is safe.
  */
 export function delegateBestCard(state: GameState): GameState {
   const best = safeCards(state)[0];
