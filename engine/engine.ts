@@ -95,3 +95,38 @@ function normalizeState(state: CompanyState): CompanyState {
     isGameOver: state.cash < 0,
   };
 }
+
+export function createInitialState(): CompanyState {
+  return {
+    month: 1,
+    cash: 25000,
+    reputation: 50,
+    morale: 70,
+    stress: 20,
+    employees: 2,
+    monthlyRevenue: 15000,
+    bills: [
+      { id: 'rent_1', name: 'Office Rent', amount: 4000, dueMonth: 1, isPaid: false },
+      { id: 'salaries_1', name: 'Team Payroll', amount: 10000, dueMonth: 1, isPaid: false },
+    ],
+    flags: [],
+    scheduledEvents: [],
+    logs: [{ month: 1, message: 'You founded a company! Time for your first month.', type: 'info' }],
+    isGameOver: false,
+  };
+}
+
+export function payBill(state: CompanyState, billId: string): CompanyState {
+  const bill = state.bills.find((b) => b.id === billId && !b.isPaid);
+  if (!bill || state.cash < bill.amount) return state;
+
+  return normalizeState({
+    ...state,
+    cash: state.cash - bill.amount,
+    bills: state.bills.map((b) => (b.id === billId ? { ...b, isPaid: true } : b)),
+    logs: [
+      { month: state.month, message: `Paid: ${bill.name} (-$${bill.amount}).`, type: 'info' },
+      ...state.logs,
+    ],
+  });
+}
