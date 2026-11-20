@@ -32,4 +32,20 @@ describe("assets registry (U-02)", () => {
     expect(fallback.width).toBe(256);
     expect(fallback.height).toBe(256);
   });
+
+  it("U-14 swaps placeholders for real media without breaking registry bindings", () => {
+    // Campaign G09
+    expect(getAsset("sprite.campaign.survive").mediaPath).toBe("/media/sprites/campaign-survive.webp");
+    // World Route G10
+    expect(getAsset("sprite.week.1").mediaPath).toBe("/media/sprites/week-1.webp");
+    expect(getAsset("sprite.finish").mediaPath).toBe("/media/sprites/finish.webp");
+    // Action hand G13
+    expect(getAsset("sprite.action.advance").mediaPath).toBe("/media/sprites/action-advance.webp");
+    expect(getAsset("sprite.action.factoring").mediaPath).toBe("/media/sprites/action-factoring.webp");
+    // Events G11
+    expect(getAsset("sprite.event.account-change").mediaPath).toBe("/media/sprites/event-account-change.webp");
+    // Failure G19 / Rewind G20
+    expect(getAsset("sprite.crash").mediaPath).toBe("/media/sprites/crash.webp");
+    expect(getAsset("sprite.boss.female.exasperated").mediaPath).toBe("/media/sprites/boss-female-exasperated.webp");
+  });
 });

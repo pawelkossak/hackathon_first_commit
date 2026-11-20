@@ -105,7 +105,7 @@ export function GameAsset({
   className = "",
   width,
   height,
-  fallbackToPlaceholder = true,
+  fallbackToPlaceholder = false,
 }: GameAssetProps) {
   const asset = getAsset(id);
   const targetWidth = width ?? asset.width;
