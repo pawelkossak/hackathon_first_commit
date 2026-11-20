@@ -1,26 +1,54 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  /* Pilot Płynności Design Tokens (GAME-EXPERIENCE-AND-NARRATION.md §2) */
+  --background: #020617;
+  --foreground: #f8fafc;
+
+  /* Palette Words */
+  --purple-sky: #2e1065;
+  --purple-storm: #581c87;
+  --mint-plane: #34d399;
+  --mint-accent: #10b981;
+  --cream-panel: #fffbeb;
+  --cream-panel-border: #fef3c7;
+  --cream-text: #1e293b;
+  --gold-control: #f59e0b;
+  --gold-control-hover: #d97706;
+  --gold-control-text: #020617;
+
+  /* Card and Map geometry */
+  --target-touch-min: 44px;
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+  --color-purple-sky: var(--purple-sky);
+  --color-purple-storm: var(--purple-storm);
+  --color-mint-plane: var(--mint-plane);
+  --color-cream-panel: var(--cream-panel);
+  --color-cream-text: var(--cream-text);
+  --color-gold-control: var(--gold-control);
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
+  font-size: 16px; /* Accessibility requirement: body text >= 16px */
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Accessibility: Reduced motion query */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
 }
