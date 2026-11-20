@@ -228,7 +228,8 @@ describe("rewind, seed and reset (E-05)", () => {
       expect(getCurrentEvent(back)).toEqual(getCurrentEvent(start));
     }
     // Narration signals of the restored week's card (E-04): E2 bigProject, E5 loanOffered, E6 lateClient.
-    expect(rewind(lap.state, 1).emitted).toEqual([]);
+    // D-18: a rewind to week 1 starts the lap again and greets with lapStart (E1 itself has no signal).
+    expect(rewind(lap.state, 1).emitted).toEqual([{ type: "lapStart", week: 1 }]);
     expect(rewind(lap.state, 2).emitted).toEqual([{ type: "bigProject", week: 2, eventId: "E2" }]);
     expect(rewind(lap.state, 3).emitted).toEqual([]);
     const noCard = playLap();
@@ -236,6 +237,20 @@ describe("rewind, seed and reset (E-05)", () => {
     expect(rewind(lap.state, 6).emitted).toEqual([{ type: "lateClient", week: 6, eventId: "E6", newDate: "2027-01-22" }]);
     const factored = playLap({ 1: "C6" });
     expect(rewind(factored.state, 6).emitted).toEqual([{ type: "lateClient", week: 6, eventId: "E6", newDate: null }]);
+  });
+
+  it("D-18 rewind to week 1 emits lapStart from every status; other weeks never do", () => {
+    const crashed = playLap();
+    expect(crashed.state.core.status).toBe("crashed");
+    const won = playLap({ 1: "C1" });
+    expect(won.state.core.status).toBe("completed");
+    const midLap = resolveWeek(resolveEvent(createGame(), "check")).state;
+    for (const s of [crashed.state, won.state, midLap, createGame()]) {
+      expect(rewind(s, 1).emitted).toEqual([{ type: "lapStart", week: 1 }]);
+    }
+    for (const w of [2, 3, 4, 5, 6, 7] as const) {
+      expect(rewind(won.state, w).emitted.some((e) => e.type === "lapStart")).toBe(false);
+    }
   });
 
   it("rewind drops later snapshots, rejects weeks not reached and invalid weeks", () => {
@@ -283,13 +298,11 @@ describe("turn state machine (E-05)", () => {
     expect(errorCode(() => resolveWeek(won.state))).toBe("not_playing");
   });
 
-  it("Pilot: pending only at lap end, finalised by savePlan; a plan saved mid-lap leaves it open; rewind drops it, the plan survives", () => {
-    // Plan saved during the lap: Pilot stays open, and lap end still sets it to pending.
+  it("Pilot: pending only at lap end, finalised by savePlan; no plan mid-lap or after a crash; rewind drops Pilot, the plan survives", () => {
+    // A plan is a winning decision: not while the lap is running (E-06 QA fix 2).
     const t2 = resolveWeek(playCard(resolveEvent(createGame(), "check"), "C1")).state;
-    const savedEarly = savePlan(t2, "C1");
-    expect(savedEarly.core.stars.pilot).toBe("open");
-    expect(savedEarly.account.plans.map((p) => p.cardId)).toEqual(["C1"]);
-    const lap = playLap({}, {}, savedEarly);
+    expect(errorCode(() => savePlan(t2, "C1"))).toBe("plan_not_allowed");
+    const lap = playLap({}, {}, t2);
     expect(lap.state.core.stars).toEqual(stars("earned", "earned", "pending"));
     // Saving after the lap finalises Pilot.
     const saved = savePlan(lap.state, "C1");
@@ -300,9 +313,9 @@ describe("turn state machine (E-05)", () => {
     expect(back.core.stars.pilot).toBe("open");
     expect(back.account.plans).toEqual(saved.account.plans);
     expect(resolveWeek(back).state.core.stars.pilot).toBe("pending");
-    // No Pilot after a crash or a low below 0, even with a saved plan.
+    // No plan from a crashed lap; a low below 0 keeps Pilot missed after the save.
     const crashed = playLap({ 1: "C3" }).state;
-    expect(savePlan(crashed, "C3").core.stars.pilot).toBe("missed");
+    expect(errorCode(() => savePlan(crashed, "C3"))).toBe("plan_not_allowed");
     const overdraft = playLap({ 1: "C4" }).state;
     expect(savePlan(overdraft, "C4").core.stars.pilot).toBe("missed");
     // Only a played decision can become the plan.
@@ -339,7 +352,10 @@ describe("turn state machine (E-05)", () => {
       errorCode(() => delegateBestCard(s));
       for (const w of [1, 2, 3, 4, 5, 6, 7] as const) errorCode(() => rewind(s, w));
       advanceAccountClock(s);
-      negotiate(s, "klient_a", "unknown");
+      for (const intent of ["ask_advance", "accept_counter", "offer_discount", "rude", "unknown"] as const) {
+        errorCode(() => negotiate(s, "klient_a", intent, 50));
+      }
+      errorCode(() => negotiate(s, "bank", "ask_overdraft"));
       expect(JSON.stringify(s)).toBe(copy);
     }
   });

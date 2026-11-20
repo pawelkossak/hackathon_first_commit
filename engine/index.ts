@@ -1,12 +1,17 @@
 // Public engine API (RUNTIME-ENGINE-CONTRACT.md). UI and narrative code import only from here.
 // E-01: final signatures. E-02: real forecast (forecast.ts). E-03: action cards (cards.ts).
 // E-04: seeded event deck (seed.ts, events.ts). E-05: turn state machine (turn.ts).
-// Other bodies are fixtures until E-06…E-09.
+// E-06: score (score.ts), hidden fraud until its reveal, plans only from a winning lap.
+// E-07: Cash Flow drilldown fields on Forecast and CardPreview (cashflow.ts).
+// E-08: agent rules (agents.ts); the CFO hint and delegation offer a product last (D-17).
+// Other bodies are fixtures until E-09.
+import { negotiateWith } from "./agents";
 import { isValidIsoDate } from "./calendar";
 import { gameData } from "./data";
 import { RuleError } from "./errors";
 import { initialState } from "./fixture";
 import { applyCard, cardCost, cardDef, disabledReason, safeCards } from "./cards";
+import { compareForecasts } from "./cashflow";
 import { computeForecast } from "./forecast";
 import { applyEventChoice, currentEventView, shownEventSignals } from "./events";
 import { coreAfterPlanSave, rewindTo, settleWeek } from "./turn";
@@ -23,7 +28,6 @@ import type {
   EventChoiceId,
   Forecast,
   ForecastOptions,
-  GameCore,
   GameState,
   IsoDate,
   NegotiationResult,
@@ -41,10 +45,6 @@ const { level1, agents, futureScript } = gameData;
 /** Default seed of the pitch (`/gra/1?seed=demo`). */
 export const DEMO_SEED = "demo";
 export const SCHEMA_VERSION = 1;
-
-function withCore(state: GameState, core: GameCore, emitted: EngineEvent[] = []): GameState {
-  return { ...state, core, emitted };
-}
 
 function newLap(seed: string): GameState {
   assertSeed(seed);
@@ -69,6 +69,10 @@ export function resetGame(seed: string = DEMO_SEED): GameState {
  * Read-only daily forecast 21 XI … 10 I: ledger + played cards + events, business-day shift,
  * inflows before outflows, crash below −overdraft. Post-crash points are counterfactual.
  * Default includes the scripted E6 delay; `includeFutureEvents: false` applies E6 only once resolved.
+ * E-07: also carries the Cash Flow drilldown — `minimum`, the no-card `baseline`, `vsBaseline`, `tasks`
+ * („Zadania”) and `afterLap`.
+ * Neither view shows a hidden fraud (E1 „Zapłać jak jest”) before its 23 XII reveal has passed in game
+ * time; resolveWeek still settles the true ledger.
  */
 export function forecast(state: GameState, options: ForecastOptions = {}): Forecast {
   return computeForecast(state, options);
@@ -98,7 +102,8 @@ export function getAvailableCards(state: GameState): CardView[] {
 }
 
 /**
- * Simulate a card without committing it. `after` is the forecast of the simulated state.
+ * Simulate a card without committing it. `after` is the forecast of the simulated state;
+ * `comparison` is before → after day by day (G32 „Przed decyzją / Po decyzji”).
  * `simulated.emitted` carries the events the play would emit; previewing a playable C5 adds
  * `loanOffered` with `via: "C5_preview"`.
  */
@@ -109,15 +114,18 @@ export function previewCard(state: GameState, cardId: CardId): CardPreview {
   const loanOffered: EngineEvent[] =
     reason === null && card.effect.type === "loan" ? [{ type: "loanOffered", week: state.core.week, via: "C5_preview" }] : [];
   const simulated: GameState = { ...played, emitted: [...played.emitted, ...loanOffered] };
+  const before = forecast(state);
+  const after = forecast(simulated);
   return {
     cardId,
     playable: reason === null,
     disabledReason: reason,
-    before: forecast(state),
-    after: forecast(simulated),
+    before,
+    after,
     simulated,
     cost: cardCost(state, cardId),
     relationsDelta: card.relationsDelta,
+    comparison: compareForecasts(before, after),
   };
 }
 
@@ -164,10 +172,17 @@ export function rewind(state: GameState, week: WeekNumber): GameState {
   return rewindTo(state, week);
 }
 
-/** Draft the plan of a played decision (not yet saved). Fixture: C1 template, else built from the card. */
+/**
+ * Draft the plan of a winning decision (not yet saved). Throws RuleError("plan_not_allowed") unless
+ * the lap is completed (not crashed, not still running) and `cardId` was played in it (U-6, §6.3).
+ * Fixture: C1 template, else built from the card.
+ */
 export function createPlan(state: GameState, cardId: CardId): Plan {
+  if (state.core.status !== "completed") {
+    throw new RuleError("plan_not_allowed", `lap is ${state.core.status}, not a winning lap`);
+  }
   const played = state.core.played.some((p) => p.cardId === cardId);
-  if (!played) throw new RuleError("plan_not_allowed", `${cardId} not played`);
+  if (!played) throw new RuleError("plan_not_allowed", `${cardId} not played in the winning lap`);
   const template = futureScript.planTemplates.find((t) => t.cardId === cardId);
   const card = cardDef(cardId);
   if (template) {
@@ -188,9 +203,9 @@ export function createPlan(state: GameState, cardId: CardId): Plan {
 }
 
 /**
- * Prospective state with the plan saved. Pilot is finalised only when the lap is completed and
- * Pilot is "pending"; a plan saved during the lap leaves Pilot "open". The caller persists the
- * returned state before showing success.
+ * Prospective state with the plan saved. Only a winning decision can be saved (same rule and error
+ * as createPlan). Pilot is finalised when it is "pending"; a "missed" Pilot stays missed. The caller
+ * persists the returned state before showing success.
  */
 export function savePlan(state: GameState, cardId: CardId): GameState {
   const plan: Plan = { ...createPlan(state, cardId), savedAt: state.account.clock };
@@ -204,53 +219,31 @@ export function advanceAccountClock(state: GameState, date: IsoDate = futureScri
   return { ...state, account: { ...state.account, clock: date }, emitted: [] };
 }
 
-/** One message to an agent; the rules table decides. Fixture (E-08 pending): counts messages, answers with the fallback line. */
+/**
+ * One message to an agent (agents.ts); data/agents.json decides, first matching rule wins. The AI only
+ * supplies the intent (and the percent for ask_advance). Max 3 messages per agent per week: the 4th is
+ * `blocked` (quick replies only, no state change). An accepted deal (C1, C2, C4) is played through the
+ * same path as playCard, as the player's own decision. Throws RuleError("not_playing") after the lap.
+ * `numbers` lists every number the reply may mention (number guardrail).
+ */
 export function negotiate(state: GameState, agent: AgentId, intent: AgentIntent, percent?: number): NegotiationResult {
-  void percent;
-  const def = agents[agent];
-  const thread = state.core.negotiation[agent];
-  const fallback = agent === "klient_a" ? "a.fallback" : "bank.fallback";
-  if (thread.messagesThisWeek >= def.maxMessagesPerWeek) {
-    return {
-      state: { ...state, emitted: [] },
-      agent,
-      intent,
-      outcome: "blocked",
-      lineId: fallback,
-      appliedCardId: null,
-      counterPercent: null,
-      blocked: true,
-      numbers: [],
-    };
-  }
-  const core: GameCore = {
-    ...state.core,
-    negotiation: { ...state.core.negotiation, [agent]: { ...thread, messagesThisWeek: thread.messagesThisWeek + 1 } },
-  };
-  const emitted: EngineEvent[] =
-    thread.messagesThisWeek === 0 ? [{ type: "negotiationOpen", week: core.week, agent }] : [];
-  return {
-    state: withCore(state, core, emitted),
-    agent,
-    intent,
-    outcome: "quick_replies",
-    lineId: fallback,
-    appliedCardId: null,
-    counterPercent: null,
-    blocked: false,
-    numbers: [],
-  };
+  return negotiateWith(state, agent, intent, percent);
 }
 
-/** AI-CFO hint: earliest future crash and the two cheapest playable cards that remove it (none without risk). */
+/**
+ * AI-CFO hint: earliest future crash and the two cheapest safe cards that remove it (none without
+ * risk). D-17: a product card appears only when no card without a product removes the crash.
+ */
 export function getCfoHint(state: GameState): CfoHint {
   const risk = forecast(state).crash;
-  return { week: state.core.week, risk, options: risk ? safeCards(state).slice(0, 2) : [] };
+  return { week: state.core.week, risk, options: risk ? safeCards(state).slice(0, agents.cfo.optionCount) : [] };
 }
 
 /**
  * Play the cheapest safe card (playable, no crash after it) as a delegated decision: competence
- * milestone 1 for its competence, none for a product. Throws RuleError("no_safe_card") when none is safe.
+ * milestone 1 for its competence, none for a product. Same product-last rule as the hint (D-17): a
+ * product is delegated only when no card without a product is safe.
+ * Throws RuleError("no_safe_card") when none is safe.
  */
 export function delegateBestCard(state: GameState): GameState {
   const best = safeCards(state)[0];

@@ -18,8 +18,10 @@ import { RuleError } from "./errors";
 import { computeForecast, weekOf } from "./forecast";
 import { shownEvent, shownEventSignals } from "./events";
 import { lapScore } from "./score";
+import { eventCard } from "./seed";
 import type {
   BalanceAt,
+  Crash,
   EngineEvent,
   Forecast,
   GameCore,
@@ -52,6 +54,34 @@ function earnedStars(stars: Record<StarId, StarStatus>): StarId[] {
   return level1.stars.map((s) => s.id).filter((id) => stars[id] === "earned");
 }
 
+/**
+ * D-18 `fraudRevealed` signals of the settled week. A resolved choice with a `reveal` fraud effect
+ * (E1 „Zapłać jak jest”) is reported by the settlement of the week that contains the reveal date,
+ * unless the lap crashed before that date. Only a payment the true ledger booked to the changed
+ * account on or before the reveal date can be reported (L08 on 22 XII). The amount and the dates come
+ * from the data and the settled forecast, never from literals here.
+ */
+function fraudSignals(core: GameCore, f: Forecast, crash: Crash | null): EngineEvent[] {
+  const week = core.week;
+  const out: EngineEvent[] = [];
+  for (const r of core.eventsResolved) {
+    const ev = eventCard(r.eventId);
+    const choice = ev.choices.find((c) => c.id === r.choiceId);
+    for (const effect of choice?.effects ?? []) {
+      if (effect.type !== "reveal") continue;
+      if (weekOf(effect.date) !== week) continue;
+      if (crash !== null && crash.date < effect.date) continue;
+      const paid = f.points
+        .filter((p) => p.date <= effect.date)
+        .flatMap((p) => p.transactions)
+        .find((t) => t.id === effect.ledgerId && t.eventId === ev.id);
+      if (!paid) continue;
+      out.push({ type: "fraudRevealed", week, eventId: ev.id, ledgerId: effect.ledgerId, amount: paid.amount, date: effect.date });
+    }
+  }
+  return out;
+}
+
 /** Settle the current week exactly once. Throws RuleError("event_unresolved") while the event is open. */
 export function settleWeek(state: GameState): WeekResolution {
   const core = state.core;
@@ -59,14 +89,17 @@ export function settleWeek(state: GameState): WeekResolution {
   if (core.weeksResolved.includes(core.week)) throw new RuleError("invalid_week", `week ${core.week} already settled`);
   if (shownEvent(state) !== null) throw new RuleError("event_unresolved");
 
-  const f = computeForecast(state);
+  // The true ledger: a hidden fraud (E1 pay_as_is) is settled even before the player learns of it.
+  const f = computeForecast(state, {}, { groundTruth: true });
   const week = core.week;
   const { start, end } = level1.weeks[week - 1];
   const transactions = f.points.filter((p) => p.date >= start && p.date <= end).flatMap((p) => p.transactions);
   const crash = f.crash && weekOf(f.crash.date) === week ? f.crash : null;
   const endPoint = f.points.find((p) => p.date === end);
   const endBalance = crash || !endPoint ? null : endPoint.balance;
-  const events: EngineEvent[] = [];
+  // Order of the week's signals: fraudRevealed (in the week, by date), then crash / lapWon / quietWeek,
+  // then the signal of the next week's shown event.
+  const events: EngineEvent[] = fraudSignals(core, f, crash);
   let next: GameCore = { ...core, weeksResolved: [...core.weeksResolved, week] };
 
   if (crash) {
@@ -120,6 +153,8 @@ export function settleWeek(state: GameState): WeekResolution {
  * Restores hand, seed, costs, choices, stars and competences; keeps the account clock and saved
  * plans; drops the snapshots of later weeks. The restored week's event is current again, so its
  * narration signal is emitted again (E2 bigProject, E5 loanOffered, E6 lateClient).
+ * D-18: a rewind to week 1 starts the lap again, so it emits `lapStart` first, then the restored
+ * week-1 event signals (none in the demo deck: E1 has no signal).
  */
 export function rewindTo(state: GameState, week: WeekNumber): GameState {
   if (!isWeekNumber(week)) throw new RuleError("invalid_week", `week ${String(week)}`);
@@ -131,7 +166,8 @@ export function rewindTo(state: GameState, week: WeekNumber): GameState {
     if (s && w <= week) snapshots[w] = s;
   }
   const restored: GameState = { ...state, core: snap, snapshots, emitted: [] };
-  return { ...restored, emitted: shownEventSignals(restored) };
+  const lapStart: EngineEvent[] = week === 1 ? [{ type: "lapStart", week }] : [];
+  return { ...restored, emitted: [...lapStart, ...shownEventSignals(restored)] };
 }
 
 /**

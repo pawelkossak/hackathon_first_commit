@@ -6,13 +6,11 @@
 // Narration (§6): the engine event of a card is emitted by the transition that makes the card
 // current (createGame, resolveWeek into the next week, rewind), not by resolving it:
 // E2 → bigProject, E5 → loanOffered (via E5), E6 → lateClient.
-import { gameData } from "./data";
 import { RuleError } from "./errors";
 import { computeForecast } from "./forecast";
+import { awardCompetence } from "./score";
 import { dealtEvent } from "./seed";
 import type { CurrentEvent, EngineEvent, EventCard, EventChoiceId, GameCore, GameState } from "./types";
-
-const { level1 } = gameData;
 
 /**
  * E5 `gap_open`: the known-ledger forecast of the current state still crashes
@@ -85,12 +83,9 @@ export function applyEventChoice(state: GameState, choiceId: EventChoiceId, dele
   if (!ev) throw new RuleError("no_event");
   const choice = ev.choices.find((c) => c.id === choiceId);
   if (!choice) throw new RuleError("invalid_choice", `${ev.id}: ${choiceId}`);
-  const competences = { ...core.competences };
-  if (choice.competence) {
-    const { id, own, delegated: viaDelegate } = choice.competence;
-    const level = Math.min(level1.rules.competenceMax, Math.max(competences[id], delegated ? viaDelegate : own));
-    competences[id] = level as (typeof competences)[typeof id];
-  }
+  const competences = choice.competence
+    ? awardCompetence(core.competences, choice.competence.id, delegated ? choice.competence.delegated : choice.competence.own)
+    : { ...core.competences };
   const revealsLoan = choice.effects.some((e) => e.type === "reveal_card" && e.cardId === "C5");
   return {
     ...state,

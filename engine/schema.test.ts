@@ -5,6 +5,7 @@ import type { ZodType } from "zod";
 import { checkReferences, gameData, rawDataFiles } from "./data";
 import {
   AgentsFileSchema,
+  EngineEventTypeSchema,
   FutureScriptFileSchema,
   Level1FileSchema,
   PersonaFileSchema,
@@ -38,6 +39,18 @@ describe("data/*.json schemas", () => {
 
   it("cross-file references are consistent", () => {
     expect(checkReferences(gameData)).toEqual([]);
+  });
+
+  it("D-18 reactions.json maps every engine event type once; fraudRevealed → exasperated rx.fraud", () => {
+    const events = gameData.reactions.reactions.map((r) => r.event);
+    expect([...events].sort()).toEqual([...EngineEventTypeSchema.options].sort());
+    const fraud = gameData.reactions.reactions.find((r) => r.event === "fraudRevealed");
+    expect(fraud?.steps).toEqual([{ emotion: "exasperated", lineIdPrefix: "rx.fraud" }]);
+  });
+
+  it("a reactions.json without a mapping for an event type fails the cross-check", () => {
+    const reactions = { ...gameData.reactions, reactions: gameData.reactions.reactions.filter((r) => r.event !== "fraudRevealed") };
+    expect(checkReferences({ ...gameData, reactions })).toEqual(["reactions: no mapping for fraudRevealed"]);
   });
 
   it("a broken file is rejected", () => {

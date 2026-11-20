@@ -1,10 +1,31 @@
-// Lap-end score (needed by the ET-C star column; E-06 owns the full ET-S verification).
-// Stars of level1.json §3.4: Przetrwanie, Tanio (cost of money incl. overdraft interest, Relacje),
-// Pilot (lowest own balance ≥ 0 and a played decision saved as the plan; pending until then).
+// Score (E-06, GAME-DESIGN §6.3, ENGINE-DATA-AND-TESTS §7.5).
+// Stars of level1.json: Przetrwanie (all paid on time), Tanio (cost of money incl. the overdraft
+// interest ≤ 500 zł and Relacje not lowered), Pilot (lowest own balance ≥ 0 and a winning decision
+// saved as the plan; "pending" at lap end, finalised by savePlan through turn.ts coreAfterPlanSave).
+// Competences are milestones 0…3: never lowered, never above 3, products never raise one.
+// Level 2 unlocks at lap completion with ≥ 1 earned star. Avoided cost = 2 400 (the loan) − cost.
 import { gameData } from "./data";
-import type { Forecast, GameCore, Pln, StarId, StarStatus } from "./types";
+import type { CardId, CompetenceId, CompetenceLevel, Forecast, GameCore, Pln, StarId, StarStatus } from "./types";
 
 const { level1 } = gameData;
+
+function isCompetenceLevel(n: number): n is CompetenceLevel {
+  return n === 0 || n === 1 || n === 2 || n === 3;
+}
+
+/**
+ * Award a competence milestone: the result keeps the maximum of the current and the awarded level,
+ * capped at `competenceMax` (3). Returns a new record; the input is never mutated.
+ */
+export function awardCompetence(
+  competences: Readonly<Record<CompetenceId, CompetenceLevel>>,
+  id: CompetenceId,
+  level: number,
+): Record<CompetenceId, CompetenceLevel> {
+  const next = Math.max(0, Math.min(level1.rules.competenceMax, Math.max(competences[id], Math.floor(level))));
+  if (!isCompetenceLevel(next)) throw new Error(`competence level ${next} out of range`);
+  return { ...competences, [id]: next };
+}
 
 export interface LapScore {
   stars: Record<StarId, StarStatus>;
@@ -50,4 +71,15 @@ export function lapScore(core: GameCore, f: Forecast, planSaved: boolean): LapSc
     avoidedCost: level1.rules.defaultCostOfMoney - costOfMoney,
     level2Unlocked: earned >= level1.unlock.minStars,
   };
+}
+
+/**
+ * Competence after the plan of `cardId` is validated on the synthetic account (milestone 3).
+ * A product card (no competence) changes nothing. Stars and unlock are never touched.
+ * E-09 calls this from advanceAccountClock once the plan matcher confirms the plan (`met`).
+ */
+export function coreAfterValidation(core: GameCore, cardId: CardId): GameCore {
+  const card = level1.cards.find((c) => c.id === cardId);
+  if (!card?.competence) return core;
+  return { ...core, competences: awardCompetence(core.competences, card.competence.id, level1.rules.competenceMax) };
 }

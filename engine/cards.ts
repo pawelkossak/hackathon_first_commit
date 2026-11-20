@@ -4,6 +4,7 @@
 import { gameData } from "./data";
 import { RuleError } from "./errors";
 import { computeForecast, forecastTransactions } from "./forecast";
+import { awardCompetence } from "./score";
 import type {
   ActionCard,
   CardId,
@@ -103,11 +104,9 @@ export function applyCard(state: GameState, cardId: CardId, delegated: boolean):
   const blocked = disabledReason(state.core, cardId);
   if (blocked) throw new RuleError("card_unavailable", `${cardId}: ${blocked.code}`);
   const core = state.core;
-  const competences = { ...core.competences };
-  if (card.competence) {
-    const level = delegated ? card.competence.delegated : card.competence.own;
-    competences[card.competence.id] = Math.max(competences[card.competence.id], level) as typeof level;
-  }
+  const competences = card.competence
+    ? awardCompetence(core.competences, card.competence.id, delegated ? card.competence.delegated : card.competence.own)
+    : { ...core.competences };
   const e = card.effect;
   const invoiceState = e.type === "discount" || e.type === "factoring" ? e.invoiceStateAfter : core.invoiceState;
   const next: GameCore = {
@@ -144,14 +143,17 @@ export function cardCost(state: GameState, cardId: CardId): Pln {
 }
 
 /**
- * Safe cards: playable now and the forecast after the play has no crash. Cheapest first
- * (cost incl. the C4 interest estimate), ties by keyboard key. Winning never requires a product:
- * products compete on cost like any other card.
+ * Safe cards: playable now and the forecast after the play has no crash. D-17 (hard rule 3, no
+ * bank-product bias): a product (C4, C5, C6) is offered only as the last resort, so when any card
+ * without a product is safe, only those are returned. Otherwise the safe products, always with their
+ * engine cost. Cheapest first (cost incl. the C4 interest estimate), ties by keyboard key.
  */
 export function safeCards(state: GameState): CfoOption[] {
-  return level1.cards
+  const safe = level1.cards
     .filter((c) => disabledReason(state.core, c.id) === null)
-    .filter((c) => computeForecast(applyCard(state, c.id, true)).crash === null)
+    .filter((c) => computeForecast(applyCard(state, c.id, true)).crash === null);
+  const withoutProduct = safe.filter((c) => !c.isProduct);
+  return (withoutProduct.length > 0 ? withoutProduct : safe)
     .map((c) => ({ cardId: c.id, cost: cardCost(state, c.id), key: c.key }))
     .sort((a, b) => a.cost - b.cost || a.key - b.key)
     .map(({ cardId, cost }) => ({ cardId, cost }));

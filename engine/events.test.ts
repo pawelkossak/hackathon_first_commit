@@ -2,7 +2,7 @@
 // (and GAME-DESIGN.md §6.2, §6.5), never computed by the engine and pasted back.
 import { describe, expect, it } from "vitest";
 import { gameData } from "./data";
-import type { CardId, EngineEvent, EventChoiceId, EventId, GameState } from "./index";
+import type { CardId, EngineEvent, EventChoiceId, EventId, Forecast, GameState } from "./index";
 import {
   RuleError,
   createGame,
@@ -14,6 +14,14 @@ import {
   resolveWeek,
   rewind,
 } from "./index";
+
+/** The committed part of a forecast, without the E-07 no-card baseline and its comparison. */
+function committedView(f: Forecast): Omit<Forecast, "baseline" | "vsBaseline"> {
+  const { baseline, vsBaseline, ...rest } = f;
+  void baseline;
+  void vsBaseline;
+  return rest;
+}
 
 function errorCode(fn: () => unknown): string | null {
   try {
@@ -150,8 +158,12 @@ describe("E-04 event deck (ENGINE-DATA-AND-TESTS §7.3)", () => {
       expect(s.core.invoiceState).not.toBe("pending");
       expect(getCurrentEvent(s)?.id).toBe("E6");
       const resolved = resolveEvent(s, "acknowledge");
-      expect(forecast(resolved)).toEqual(forecast(s));
-      expect(forecast(resolved, { includeFutureEvents: false })).toEqual(forecast(s, { includeFutureEvents: false }));
+      // The committed forecast is unchanged. The E-07 „Bez działania” baseline (no card, so INV-A1
+      // pending) does see the delay once E6 is resolved, so it is left out of the comparison.
+      expect(committedView(forecast(resolved))).toEqual(committedView(forecast(s)));
+      expect(committedView(forecast(resolved, { includeFutureEvents: false }))).toEqual(
+        committedView(forecast(s, { includeFutureEvents: false })),
+      );
       expect(s.emitted).toContainEqual({ type: "lateClient", week: 6, eventId: "E6", newDate: null });
     }
   });
@@ -217,15 +229,19 @@ describe("E-04 seeded deck, conditions and narration signals", () => {
     expect(() => playCard(resolveEvent(s, "ignore"), "C5")).not.toThrow();
   });
 
-  it("E1 pay_as_is marks L08 as the fraud payment; the known ledger shows the re-payment only after the 23 XII reveal", () => {
+  it("E1 pay_as_is: neither forecast view shows the fraud before the 23 XII reveal; from T6 L08 is marked and the re-payment is listed", () => {
     const s = resolveEvent(createGame("demo"), "pay_as_is");
     const txs = (st: GameState, includeFutureEvents: boolean) =>
       forecast(st, { includeFutureEvents }).points.flatMap((p) => p.transactions);
-    expect(txs(s, true).find((t) => t.id === "L08")?.eventId).toBe("E1");
-    expect(txs(s, true).find((t) => t.id === "E1")).toMatchObject({ date: "2027-01-08", amount: -35700, counterpartyId: "S1", source: "event" });
-    expect(txs(s, false).some((t) => t.id === "E1")).toBe(false);
+    for (const view of [true, false]) {
+      expect(txs(s, view).find((t) => t.id === "L08")?.eventId).toBeNull();
+      expect(txs(s, view).some((t) => t.id === "E1")).toBe(false);
+    }
     const t6 = atWeek(6, { 1: "C1" }, { E1: "pay_as_is" });
-    expect(txs(t6, false).some((t) => t.id === "E1")).toBe(true);
+    for (const view of [true, false]) {
+      expect(txs(t6, view).find((t) => t.id === "L08")?.eventId).toBe("E1");
+      expect(txs(t6, view).find((t) => t.id === "E1")).toMatchObject({ date: "2027-01-08", amount: -35700, counterpartyId: "S1", source: "event" });
+    }
   });
 
   it("an event never consumes the week's card action, and resolveEvent rejects a wrong or repeated choice", () => {
@@ -243,5 +259,82 @@ describe("E-04 seeded deck, conditions and narration signals", () => {
     resolveEvent(s, "accept");
     resolveWeek(resolveEvent(s, "accept"));
     expect(s).toEqual(copy);
+  });
+});
+
+describe("D-18 fraudRevealed (ENGINE-DATA-AND-TESTS §6)", () => {
+  // From the specification: the reveal is on 23 XII (D-18, §6), which lies in T5 = 21–27 XII (§1);
+  // the reported payment is L08, −35 700 on 22 XII (ET-F04).
+  const revealDate = "2026-12-23";
+  const revealWeek = 5;
+  const expected: EngineEvent = { type: "fraudRevealed", week: 5, eventId: "E1", ledgerId: "L08", amount: -35700, date: revealDate };
+
+  /** Settle from `s` to the end of the lap; returns every week's resolution events keyed by week. */
+  function settleFrom(start: GameState, choices: Partial<Record<EventId, EventChoiceId>>, plays: Partial<Record<number, CardId>> = {}) {
+    let s = start;
+    const byWeek: Partial<Record<number, EngineEvent[]>> = {};
+    while (s.core.status === "playing") {
+      const ev = getCurrentEvent(s);
+      if (ev) s = resolveEvent(s, choices[ev.id] ?? safe[ev.id]);
+      const card = plays[s.core.week];
+      if (card) s = playCard(s, card);
+      const r = resolveWeek(s);
+      expect(r.state.emitted).toEqual(r.events);
+      byWeek[r.week] = r.events;
+      s = r.state;
+    }
+    return { state: s, byWeek };
+  }
+
+  function fraudEvents(byWeek: Partial<Record<number, EngineEvent[]>>): { week: number; e: EngineEvent }[] {
+    return Object.entries(byWeek).flatMap(([w, es]) => (es ?? []).filter((e) => e.type === "fraudRevealed").map((e) => ({ week: Number(w), e })));
+  }
+
+  it("the reveal date and payment in the data match the specification", () => {
+    const e1 = gameData.level1.events.find((e) => e.id === "E1");
+    const reveal = e1?.choices.find((c) => c.id === "pay_as_is")?.effects.find((x) => x.type === "reveal");
+    expect(reveal).toEqual({ type: "reveal", date: revealDate, what: "fraud", ledgerId: "L08" });
+    const week = gameData.level1.weeks.find((w) => w.start <= revealDate && revealDate <= w.end);
+    expect(week?.week).toBe(revealWeek);
+  });
+
+  it("E1 pay_as_is + C1 (survives T5): fraudRevealed exactly once, in the T5 resolution, before the 8 I crash", () => {
+    const { state, byWeek } = settleFrom(createGame("demo"), { E1: "pay_as_is" }, { 1: "C1" });
+    expect(fraudEvents(byWeek)).toEqual([{ week: revealWeek, e: expected }]);
+    // ET-E02: the lap still crashes on 8 I at E1, short 25 715.
+    expect(state.core.crash).toMatchObject({ date: "2027-01-08", transactionId: "E1", shortfall: 25715 });
+  });
+
+  it("E1 pay_as_is, no card: the lap crashes on 22 XII, before the reveal, so no fraudRevealed", () => {
+    const { state, byWeek } = settleFrom(createGame("demo"), { E1: "pay_as_is" });
+    // ET-E01: crash 22 XII at L08, short 8 095.
+    expect(state.core.crash).toMatchObject({ date: "2026-12-22", transactionId: "L08", shortfall: 8095 });
+    expect(fraudEvents(byWeek)).toEqual([]);
+    expect(byWeek[revealWeek]?.map((e) => e.type)).toEqual(["crash"]);
+  });
+
+  it("E1 check and call: never fraudRevealed", () => {
+    for (const plays of [{}, { 1: "C1" as const }, { 1: "C6" as const }]) {
+      const { byWeek } = settleFrom(createGame("demo"), { E1: "check" }, plays);
+      expect(fraudEvents(byWeek)).toEqual([]);
+    }
+  });
+
+  it("E1 pay_as_is + C3: L08 is not paid by 23 XII (moved to 8 I), so there is no payment to report", () => {
+    const { byWeek } = settleFrom(createGame("demo"), { E1: "pay_as_is" }, { 1: "C3" });
+    expect(fraudEvents(byWeek)).toEqual([]);
+  });
+
+  it("rewind before the reveal and replay emits fraudRevealed again; a replay after it does not", () => {
+    const first = settleFrom(createGame("demo"), { E1: "pay_as_is" }, { 1: "C1" });
+    for (const w of [2, 3, 4, 5] as const) {
+      const replay = settleFrom(rewind(first.state, w), { E1: "pay_as_is" });
+      expect(fraudEvents(replay.byWeek)).toEqual([{ week: revealWeek, e: expected }]);
+    }
+    const after = settleFrom(rewind(first.state, 6), { E1: "pay_as_is" });
+    expect(fraudEvents(after.byWeek)).toEqual([]);
+    // Rewind to 1 and a different choice (check and call): no reveal.
+    const changed = settleFrom(rewind(first.state, 1), { E1: "check" }, { 1: "C1" });
+    expect(fraudEvents(changed.byWeek)).toEqual([]);
   });
 });
