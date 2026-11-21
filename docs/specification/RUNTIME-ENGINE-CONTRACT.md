@@ -28,7 +28,7 @@ The level 1 engine is framework-independent TypeScript exported through `engine/
 | Save plan | `createPlan(state, cardId)` then `savePlan(state, cardId)` | Persist prospective state successfully before publishing success or awarding Pilot. The pure engine cannot acknowledge browser storage. |
 | Replay synthetic account | `advanceAccountClock(state, date)` | Account only; default 5 December. Does not change game week, stars or unlock. |
 | Negotiate | `negotiate(state, agent, intent, percent)` | Rules own effects; maximum three messages per agent per week. |
-| Request hint | `getCfoHint(state)` | Forecast risk and two cheapest currently valid safe actions. |
+| Request hint | `getCfoHint(state)` | Forecast risk and the two cheapest currently valid safe actions without a product; a product card (C4, C5, C6) only when no card without a product removes the crash, always with its cost (D-17). |
 | Delegate | `delegateBestCard(state)` | Plays one safe card, delegated competence milestone one. |
 
 State uses week 1–7, status `playing`, `crashed` or `completed`, integer PLN, ISO dates and UTC calendar calculations. Functions return new state and never mutate their inputs. `RuleError` exposes a stable code. Snapshots contain `GameCore`, without recursively nested snapshots. Game saves must retain schemaVersion 1 and both clocks.
