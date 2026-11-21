@@ -1,18 +1,23 @@
 // Loads every data/*.json file as a JSON module and validates it with Zod at module load.
 import personaJson from "../data/persona.json";
 import level1Json from "../data/level1.json";
+import level2Json from "../data/level2.json";
 import agentsJson from "../data/agents.json";
 import futureScriptJson from "../data/future-script.json";
 import reactionsJson from "../data/reactions.json";
 import {
   AgentsFileSchema,
+  EmployeeHiringChoiceSchema,
+  EmployeeInvoiceChoiceSchema,
+  EmployeeTaxChoiceSchema,
   EngineEventTypeSchema,
   FutureScriptFileSchema,
   Level1FileSchema,
+  Level2FileSchema,
   PersonaFileSchema,
   ReactionsFileSchema,
 } from "./schema";
-import type { AgentsFile, FutureScriptFile, Level1File, PersonaFile, ReactionsFile } from "./types";
+import type { AgentsFile, FutureScriptFile, Level1File, Level2File, PersonaFile, ReactionsFile } from "./types";
 
 export interface GameData {
   persona: PersonaFile;
@@ -20,6 +25,7 @@ export interface GameData {
   agents: AgentsFile;
   futureScript: FutureScriptFile;
   reactions: ReactionsFile;
+  level2: Level2File;
 }
 
 /** Raw JSON modules keyed by their file name in `data/`. */
@@ -29,6 +35,7 @@ export const rawDataFiles: Readonly<Record<string, unknown>> = {
   "agents.json": agentsJson,
   "future-script.json": futureScriptJson,
   "reactions.json": reactionsJson,
+  "level2.json": level2Json,
 };
 
 /** Cross-file and cross-row checks that a per-file schema cannot express. Returns the list of problems. */
@@ -137,6 +144,80 @@ export function checkReferences(data: GameData): string[] {
   for (const type of EngineEventTypeSchema.options) {
     if (!covered.has(type)) problems.push(`reactions: no mapping for ${type}`);
   }
+  problems.push(...checkLevel2(data.level2));
+  return problems;
+}
+
+/** Level 2 cross-row checks (FIRST-EMPLOYEE-SCENARIO.md). Returns the list of problems. */
+export function checkLevel2(l2: Level2File): string[] {
+  const problems: string[] = [];
+  const inPeriod = (date: string): boolean => date >= l2.period.start && date <= l2.period.end;
+  const ledgerIds = new Set(l2.ledger.map((l) => l.id));
+  const choiceIds = new Set(l2.choices.map((c) => c.id));
+  if (ledgerIds.size !== l2.ledger.length) problems.push("level2: duplicate ledger id");
+  if (choiceIds.size !== l2.choices.length) problems.push("level2: duplicate choice id");
+  if (l2.period.start > l2.period.end) problems.push("level2: period start after end");
+
+  let previousEnd: string | null = null;
+  l2.weeks.forEach((w, i) => {
+    if (w.week !== i + 1) problems.push(`level2: week ${w.week} out of order`);
+    if (w.start > w.end || !inPeriod(w.start) || !inPeriod(w.end)) problems.push(`level2: week ${w.week} outside the period`);
+    if (i === 0 && w.start !== l2.period.start) problems.push("level2: week 1 does not start the period");
+    if (i === l2.weeks.length - 1 && w.end !== l2.period.end) problems.push("level2: the last week does not end the period");
+    if (previousEnd !== null && w.start <= previousEnd) problems.push(`level2: week ${w.week} overlaps the previous week`);
+    previousEnd = w.end;
+    const options: readonly string[] = {
+      hiring: EmployeeHiringChoiceSchema.options,
+      invoice: EmployeeInvoiceChoiceSchema.options,
+      tax: EmployeeTaxChoiceSchema.options,
+    }[w.decision];
+    if ([...w.choices].sort().join(",") !== [...options].sort().join(",")) {
+      problems.push(`level2: week ${w.week} choices do not match the ${w.decision} decision`);
+    }
+    if (!w.choices.includes(w.defaultChoice)) problems.push(`level2: week ${w.week} default is not one of its choices`);
+    for (const id of w.choices) {
+      const choice = l2.choices.find((c) => c.id === id);
+      if (!choice || choice.week !== w.week) problems.push(`level2: week ${w.week} choice ${id} is not a week-${w.week} choice`);
+    }
+  });
+  const decisions = l2.weeks.map((w) => w.decision).join(",");
+  if (decisions !== "hiring,invoice,tax") problems.push(`level2: decisions ${decisions} are not hiring,invoice,tax`);
+
+  for (const l of l2.ledger) {
+    if (!inPeriod(l.date)) problems.push(`level2: ledger ${l.id} outside the period`);
+    if ((l.kind === "receivable") !== l.amount > 0) problems.push(`level2: ledger ${l.id} sign does not match its kind`);
+  }
+
+  for (const c of l2.choices) {
+    const week = l2.weeks.find((w) => w.week === c.week);
+    const ownTx = c.effects.flatMap((e) => (e.type === "transaction" ? [e] : []));
+    for (const e of c.effects) {
+      if (e.type === "transaction") {
+        if (!inPeriod(e.date)) problems.push(`level2: ${c.id} transaction ${e.id} outside the period`);
+        if (week && e.date < week.start) problems.push(`level2: ${c.id} transaction ${e.id} before its decision week`);
+      } else if (e.type === "set_ledger_amount") {
+        const row = l2.ledger.find((l) => l.id === e.ledgerId);
+        if (!row) {
+          problems.push(`level2: ${c.id} changes unknown ledger ${e.ledgerId}`);
+        } else {
+          // The advance preserves total client revenue: advance + reduced invoice = original invoice.
+          const advance = ownTx.filter((t) => t.role === "advance").reduce((sum, t) => sum + t.amount, 0);
+          if (advance + e.amount !== row.amount) problems.push(`level2: ${c.id} does not conserve ${row.id} revenue`);
+        }
+      } else {
+        const tax = l2.ledger.find((l) => l.id === e.releasedByLedgerId);
+        if (!tax) problems.push(`level2: ${c.id} reserve released by unknown ledger ${e.releasedByLedgerId}`);
+        else if (-tax.amount !== e.amount) problems.push(`level2: ${c.id} reserve ${e.amount} is not the tax ${-tax.amount}`);
+        else if (week && tax.date < week.start) problems.push(`level2: ${c.id} reserve released before its decision week`);
+      }
+    }
+    const salary = ownTx.filter((t) => t.role === "salary").reduce((sum, t) => sum + t.amount, 0);
+    const employer = ownTx.filter((t) => t.role === "employer_costs").reduce((sum, t) => sum + t.amount, 0);
+    if (salary !== 0 && employer !== Math.round((salary * l2.assumptions.employerCostPct) / 100)) {
+      problems.push(`level2: ${c.id} employer costs are not ${l2.assumptions.employerCostPct} % of the salary`);
+    }
+  }
+  if (l2.stars.completed + l2.stars.reserveFunded !== l2.stars.max) problems.push("level2: star rules do not add up to max");
   return problems;
 }
 
@@ -147,6 +228,7 @@ function load(): GameData {
     agents: AgentsFileSchema.parse(agentsJson),
     futureScript: FutureScriptFileSchema.parse(futureScriptJson),
     reactions: ReactionsFileSchema.parse(reactionsJson),
+    level2: Level2FileSchema.parse(level2Json),
   };
   const problems = checkReferences(data);
   if (problems.length > 0) throw new Error(`Invalid game data: ${problems.join("; ")}`);

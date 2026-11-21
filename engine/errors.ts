@@ -12,7 +12,11 @@ export type RuleErrorCode =
   | "plan_not_allowed"
   | "no_safe_card"
   | "invalid_date"
-  | "unknown_seed";
+  | "unknown_seed"
+  /** Level 2: resolveEmployeeWeek before the week's choice. */
+  | "choice_missing"
+  /** Level 2: restoreEmployeeGame got a save that fails validation or cannot be replayed. */
+  | "invalid_save";
 
 export class RuleError extends Error {
   readonly code: RuleErrorCode;
