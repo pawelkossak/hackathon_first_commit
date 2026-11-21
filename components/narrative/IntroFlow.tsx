@@ -6,6 +6,9 @@ import { getCopy } from "../../narrative/copy/get-copy";
 import { CharacterSelect } from "./CharacterSelect";
 import { NarratorDialogue } from "./NarratorDialogue";
 
+/** G05 shows intro.owner and intro.role as one caption, so both recordings play in order. */
+const INTRO_OWNER_LINES = ["intro.owner", "intro.role"] as const;
+
 export interface IntroSettings {
   playerGender: PlayerGender;
   narratorGender: NarratorGender;
@@ -50,7 +53,7 @@ export function IntroFlow({
           speaker={speakerName}
           emotion="welcoming"
           text={`${getCopy("intro.owner", undefined, playerGender, narratorGender)} ${getCopy("intro.role", undefined, playerGender, narratorGender)}`}
-          audioLineId="intro.owner"
+          audioLineId={INTRO_OWNER_LINES}
           playerGender={playerGender}
           narratorGender={narratorGender}
           canBack={false}

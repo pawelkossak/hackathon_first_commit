@@ -248,7 +248,114 @@ const UI_COPY: Record<string, readonly [pl: Spec, en: Spec]> = {
   ],
   "ui.character_select.preview": ["Podgląd zwrotu ({narrator.choice}):", "Preview ({narrator.choice}):"],
   "ui.character_select.quote": ["„{text}”", "“{text}”"],
+
+  // Narrator mood: one key per Emotion (narrative/types.ts, data/reactions.json); the adjective agrees with the narrator
+  "ui.emotion.welcoming": [{ narrator: ["przyjazna", "przyjazny"] }, "welcoming"],
+  "ui.emotion.excited": [{ narrator: ["podekscytowana", "podekscytowany"] }, "excited"],
+  "ui.emotion.confident": [{ narrator: ["pewna siebie", "pewny siebie"] }, "confident"],
+  "ui.emotion.suspicious": [{ narrator: ["podejrzliwa", "podejrzliwy"] }, "suspicious"],
+  "ui.emotion.exasperated": [{ narrator: ["zirytowana", "zirytowany"] }, "exasperated"],
+  "ui.emotion.proud": [{ narrator: ["dumna", "dumny"] }, "proud"],
+  "ui.emotion.relaxed": [{ narrator: ["spokojna", "spokojny"] }, "relaxed"],
+  "ui.emotion.delighted": [{ narrator: ["zachwycona", "zachwycony"] }, "delighted"],
+  "ui.emotion.supportive": [{ narrator: ["wspierająca", "wspierający"] }, "supportive"],
+
+  // Labels the ui lane asked for (lib/ui/copy.ts MISSING_LABELS, docs/team/handoffs/U-round1.md)
+  // HUD and navigation
+  "ui.hud.relations": ["Relacje", "Relations"],
+  "ui.hud.cost_of_money": ["Koszt pieniądza", "Cost of money"],
+  "ui.hud.resilience": ["Odporność", "Resilience"],
+  "ui.common.synthetic": ["Dane syntetyczne", "Synthetic data"],
+  "ui.nav.summary": ["Podsumowanie", "Summary"],
+  "ui.nav.plan": ["Plan", "Plan"],
+  "ui.nav.settings": ["Ustawienia", "Settings"],
+  "ui.nav.reset": ["Reset", "Reset"],
+  "ui.nav.reset_confirm": ["Tak, od nowa", "Yes, start over"],
+  // Route
+  "ui.route.view_list": ["Lista tygodni", "Week list"],
+  "ui.route.view_map": ["Trasa", "Route"],
+  "ui.route.plane": ["Twój samolot", "Your plane"],
+  "ui.route.finish": ["Meta", "Finish"],
+  // Cards and preview
+  "ui.card.cost_free": ["Bez kosztu", "No cost"],
+  "ui.card.product": ["Produkt finansowy", "Financial product"],
+  "ui.card.window": ["Tygodnie", "Weeks"],
+  "ui.preview.title": ["Podgląd — nie zatwierdza ruchu", "Preview — does not confirm the move"],
+  // Cash Flow
+  "ui.cashflow.before": ["Bez działania", "No action"],
+  "ui.cashflow.after": ["Po zatwierdzeniu", "After confirming"],
+  "ui.cashflow.preview": ["Po decyzji", "After the decision"],
+  "ui.cashflow.delta": ["Różnica", "Difference"],
+  "ui.cashflow.day": ["Dzień", "Day"],
+  "ui.cashflow.opening": ["Otwarcie", "Opening"],
+  "ui.cashflow.inflow": ["Wpływy", "Inflows"],
+  "ui.cashflow.outflow": ["Wypływy", "Outflows"],
+  "ui.cashflow.balance": ["Saldo", "Balance"],
+  "ui.cashflow.added": ["Dodane przez decyzję", "Added by the decision"],
+  "ui.cashflow.removed": ["Usunięte przez decyzję", "Removed by the decision"],
+  "ui.cashflow.tasks": ["Zadania", "Tasks"],
+  "ui.cashflow.chart": ["Wykres", "Chart"],
+  "ui.cashflow.counterfactual": ["Prognoza bez działania", "Forecast without action"],
+  // „Zadania” statuses
+  "ui.task.booked": ["Zaksięgowane", "Booked"],
+  "ui.task.upcoming": ["Nadchodzące", "Upcoming"],
+  "ui.task.rejected": ["Odrzucone", "Rejected"],
+  "ui.task.stopped": ["Prognoza bez działania", "Forecast without action"],
+  // Week resolution
+  "ui.week.transactions": ["Przepływy tygodnia", "This week's cash flows"],
+  "ui.week.end_balance": ["Saldo na koniec tygodnia", "Balance at the end of the week"],
+  "ui.week.to_summary": ["Podsumowanie okrążenia", "Lap summary"],
+  // Event choices
+  "ui.event.choice.accept": ["Przyjmij", "Accept"],
+  "ui.event.choice.decline": ["Odrzuć zlecenie", "Decline the order"],
+  "ui.event.choice.now": ["Kup teraz", "Buy now"],
+  "ui.event.choice.january": ["Od stycznia", "From January"],
+  "ui.event.choice.show_cost": ["Pokaż koszt", "Show the cost"],
+  "ui.event.choice.ignore": ["Zignoruj", "Ignore"],
+  "ui.event.choice.acknowledge": ["Przyjmij do wiadomości", "Acknowledge"],
+  // Fraud, failure, rewind
+  "ui.fraud.title": ["Zgłoszono oszustwo", "Fraud reported"],
+  "ui.fraud.rewind": ["Cofnij do tygodnia {week}", "Rewind to week {week}"],
+  "ui.failure.shortfall": ["Brakuje", "Shortfall"],
+  "ui.failure.date": ["Dzień", "Day"],
+  "ui.rewind.week": ["Tydzień {week}", "Week {week}"],
+  "ui.rewind.start_balance": ["Saldo na start: {balance}", "Starting balance: {balance}"],
+  // Summary and stars
+  "ui.summary.end_balance": ["Saldo na koniec okrążenia", "Balance at the end of the lap"],
+  "ui.summary.low": ["Najniższe saldo", "Lowest balance"],
+  "ui.summary.stars": ["Gwiazdki", "Stars"],
+  "ui.star.earned": ["Zdobyta", "Earned"],
+  "ui.star.pending": ["Czeka na zapis planu", "Waiting for a saved plan"],
+  "ui.star.missed": ["Nie zdobyta", "Not earned"],
+  "ui.star.open": ["W grze", "In play"],
+  "ui.summary.not_completed": ["Okrążenie jeszcze trwa", "The lap is still going"],
+  "ui.summary.back_to_game": ["Wróć do gry", "Back to the game"],
+  // Plan
+  "ui.plan.choose_card": ["Decyzja do zapisu", "Decision to save"],
+  "ui.plan.advance_clock": ["Przewiń czas konta: {from} → {to}", "Move the account clock: {from} → {to}"],
+  "ui.plan.clock": ["Zegar konta", "Account clock"],
+  "ui.plan.account_balance": ["Saldo konta", "Account balance"],
+  "ui.plan.matched": ["Transakcje na koncie", "Account transactions"],
+  "ui.plan.competence": ["{name}: poziom {level}", "{name}: level {level}"],
+  "ui.plan.status": ["Status planu", "Plan status"],
+  "ui.plan.not_allowed": ["Plan zapiszesz po wygranym okrążeniu", "You can save a plan after a won lap"],
+  // Map, home, settings, rotate
+  "ui.map.level": ["Poziom {level}", "Level {level}"],
+  "ui.map.locked": ["We mgle", "In the fog"],
+  "ui.map.unlocked": ["Odblokowany", "Unlocked"],
+  "ui.map.coming": ["Wkrótce", "Coming soon"],
+  "ui.map.fly": ["Lecimy", "Let's fly"],
+  "ui.level2.title": ["Pierwszy pracownik", "The first employee"],
+  "ui.home.start": ["Zaczynamy", "Let's start"],
+  "ui.settings.reset_game": ["Zacznij grę od nowa", "Start the game over"],
+  "ui.settings.fallback": ["Lista tygodni zamiast trasy", "Week list instead of the route"],
+  "ui.rotate.title": ["Obróć telefon, lecimy w poziomie.", "Turn your phone, we fly in landscape."],
 };
+
+/** Copy key of the narrator mood label for one emotion. */
+export function emotionCopyKey(emotion: string): string {
+  return `ui.emotion.${emotion}`;
+}
 
 function locale(index: 0 | 1): Record<string, CopyRecord> {
   return Object.fromEntries(Object.entries(UI_COPY).map(([key, pair]) => [key, toRecord(pair[index])]));

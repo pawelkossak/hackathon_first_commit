@@ -3,14 +3,17 @@
 import React, { useEffect } from "react";
 import type { Emotion, NarratorGender, PlayerGender } from "../../narrative/types";
 import { getCopy } from "../../narrative/copy/get-copy";
-import { getVoiceScript } from "../../narrative/copy/voice-scripts";
+import { voiceSequenceFor } from "../../narrative/voice-lines";
+import { emotionCopyKey } from "../../narrative/copy/seed.ui";
+import { isEmotion } from "../../narrative/emotions";
 import { useVoicePlayerStore } from "../../narrative/voice-player-store";
 
 export interface NarratorDialogueProps {
   speaker: string;
   emotion?: Emotion | string;
   text: string;
-  audioLineId?: string;
+  /** One recorded line id, or several spoken in order as this one caption. */
+  audioLineId?: string | readonly string[];
   playerGender?: PlayerGender;
   narratorGender?: NarratorGender;
   onNext?: () => void;
@@ -45,19 +48,22 @@ export function NarratorDialogue({
   const copy = (id: string, extra?: Record<string, string | number>) =>
     getCopy(id, undefined, playerGender, narratorGender, extra);
 
-  // Play corresponding audio line if available
+  // A stable key, so a new array literal on each render does not replay the line
+  const audioKey = audioLineId === undefined ? "" : typeof audioLineId === "string" ? audioLineId : audioLineId.join(" ");
+
+  // Play the recording when the caption matches it; otherwise captions only (never blocks)
   useEffect(() => {
-    if (audioLineId) {
-      const script = getVoiceScript(audioLineId, playerGender, narratorGender);
-      playVoice({
-        id: audioLineId,
-        speaker,
-        text,
-        audioUrl: script?.path ? `/media/${script.path}` : undefined,
-        durationMs: script?.durationMs,
-      });
-    }
-  }, [audioLineId, playerGender, narratorGender, speaker, text, playVoice]);
+    if (!audioKey) return;
+    const voice = voiceSequenceFor(audioKey.split(" "), playerGender, narratorGender, text);
+    playVoice({
+      id: audioKey,
+      speaker,
+      text,
+      audioUrl: voice?.audioUrl,
+      audioQueue: voice?.audioQueue,
+      durationMs: voice?.durationMs,
+    });
+  }, [audioKey, playerGender, narratorGender, speaker, text, playVoice]);
 
   return (
     <section
@@ -76,7 +82,11 @@ export function NarratorDialogue({
             <h2 className="text-base font-semibold text-amber-400 tracking-wide uppercase">
               {speaker}
             </h2>
-            <p className="text-base text-neutral-400 capitalize">{copy("ui.narrator_dialogue.mood", { emotion })}</p>
+            {isEmotion(emotion) && (
+              <p className="text-base text-neutral-400">
+                {copy("ui.narrator_dialogue.mood", { emotion: copy(emotionCopyKey(emotion)) })}
+              </p>
+            )}
           </div>
         </div>
 

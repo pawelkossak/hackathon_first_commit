@@ -1,5 +1,6 @@
 // Narrator reactions based on engine events (ENGINE-DATA-AND-TESTS.md §6, GAME-EXPERIENCE-AND-NARRATION.md §5).
-// Hard rule: Emotion is driven by an engine event, not an LLM. Reactions are rate-limited to at most one per week.
+// Hard rule: Emotion is driven by an engine event, not an LLM. Reactions are rate-limited to at most one per week resolution;
+// in-week signals (negotiation, good move, loan preview) never use that slot.
 import type { EngineEvent, GameState, WeekNumber } from "../engine";
 import { getCopy, getLocale } from "./copy/get-copy";
 import { formatDayMonth, formatPln } from "./format";
@@ -142,14 +143,49 @@ export function reactionFor(
 }
 
 /**
- * Reaction state tracker with weekly cooldown and scene cancellation.
+ * When a signal is narrated (ENGINE-DATA-AND-TESTS.md §6 cooldown: „at most one reaction per week resolution;
+ * a new scene cancels the previous line”):
+ * - `resolution`: emitted by a week resolution, a rewind or a new lap. It uses the week's one resolution slot.
+ * - `inWeek`: an action inside the week (negotiation opened, a good move, the C5 loan preview). It never uses
+ *   the slot; it replaces the line on screen when it outranks the week's last line (a new scene cancels the
+ *   previous line), and each signal type speaks at most once per week.
+ * - `scene`: the plan scene after the lap (account clock). It does not compete with the week's lines.
+ */
+export type SignalKind = "resolution" | "inWeek" | "scene";
+
+export function signalKind(event: EngineEvent): SignalKind {
+  switch (event.type) {
+    case "negotiationOpen":
+    case "goodMove":
+      return "inWeek";
+    case "loanOffered":
+      return event.via === "C5_preview" ? "inWeek" : "resolution";
+    case "planValidated":
+      return "scene";
+    default:
+      return "resolution";
+  }
+}
+
+function byPriority(events: readonly EngineEvent[]): EngineEvent[] {
+  // Stable sort: equal priority keeps the engine order.
+  return [...events].sort((a, b) => EVENT_PRIORITY[b.type] - EVENT_PRIORITY[a.type]);
+}
+
+/**
+ * Reaction state tracker with the week-resolution cooldown and scene cancellation.
  */
 export class ReactionTracker {
   private lastReactionWeek: number | null = null;
   private activeReaction: NarratorReaction | null = null;
+  /** Week and priority of the last line shown, so an in-week signal only replaces a weaker line. */
+  private weekLine: { week: number; priority: number } | null = null;
+  /** In-week and scene signal types already narrated, per week. */
+  private spoken = new Set<string>();
 
   /**
-   * Whether a reaction is allowed for the given week resolution (cooldown: at most 1 per week).
+   * Whether the week resolution of the given week may still react (cooldown: at most 1 per week resolution).
+   * In-week signals never use this slot.
    */
   canReact(week: number): boolean {
     return this.lastReactionWeek !== week;
@@ -175,10 +211,15 @@ export class ReactionTracker {
   reset(lastWeek: number | null = null): void {
     this.lastReactionWeek = lastWeek;
     this.activeReaction = null;
+    this.weekLine = null;
+    this.spoken.clear();
   }
 
   /**
-   * Given a list of engine events, select the highest priority reaction respecting the 1-per-week cooldown.
+   * Given the events of one engine transition, select the reaction to show:
+   * a transition with a resolution signal uses the week's resolution slot (highest priority of all its events);
+   * otherwise the highest-priority in-week or scene signal not yet narrated this week, if it outranks the line
+   * already shown this week (scene signals always may speak once).
    */
   chooseReaction(
     events: readonly EngineEvent[],
@@ -188,21 +229,29 @@ export class ReactionTracker {
   ): NarratorReaction | undefined {
     if (events.length === 0) return undefined;
 
-    // All events in a resolution belong to the same week
+    // All events of one transition belong to the same week
     const targetWeek = events[0].week;
-    if (!this.canReact(targetWeek)) {
-      return undefined;
+    const isResolution = events.some((e) => signalKind(e) === "resolution");
+
+    let chosen: EngineEvent | undefined;
+    if (isResolution) {
+      if (!this.canReact(targetWeek)) return undefined;
+      chosen = byPriority(events)[0];
+      this.lastReactionWeek = targetWeek;
+    } else {
+      const fresh = byPriority(events).filter((e) => !this.spoken.has(`${e.week}:${e.type}`));
+      const candidate = fresh[0];
+      if (!candidate) return undefined;
+      const current = this.weekLine && this.weekLine.week === targetWeek ? this.weekLine.priority : null;
+      const outranks = current === null || EVENT_PRIORITY[candidate.type] > current;
+      if (signalKind(candidate) === "inWeek" && !outranks) return undefined;
+      chosen = candidate;
+      this.spoken.add(`${chosen.week}:${chosen.type}`);
     }
 
-    // Sort events by priority descending (stable: equal priority keeps the engine order)
-    const sorted = [...events].sort((a, b) => EVENT_PRIORITY[b.type] - EVENT_PRIORITY[a.type]);
-
-    const chosenEvent = sorted[0];
-    const reaction = reactionFor(chosenEvent, state, playerGender, narratorGender);
-
-    this.lastReactionWeek = targetWeek;
+    const reaction = reactionFor(chosen, state, playerGender, narratorGender);
+    this.weekLine = { week: targetWeek, priority: EVENT_PRIORITY[chosen.type] };
     this.activeReaction = reaction;
-
     return reaction;
   }
 }
