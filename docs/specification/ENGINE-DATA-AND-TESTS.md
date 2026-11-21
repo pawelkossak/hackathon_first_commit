@@ -144,7 +144,7 @@ Plans from other cards keep status `open` (their deadline is after 5 XII). The a
 | negotiationOpen | confident | `rx.negotiate` |
 | lateClient (E6) | suspicious | `rx.late` |
 | loanOffered (E5, C5 preview) | suspicious | `rx.loan` |
-| fraudRevealed (E1 „Zapłać jak jest”: the 22 XII payment is reported as fraud on 23 XII; emitted by the week resolution that passes 23 XII, unless the lap crashed before it) | exasperated | `rx.fraud` |
+| fraudRevealed (E1 „Zapłać jak jest”: the payment to the changed account is reported as fraud on 23 XII, or on the day it really goes out if a card moved it later (C3: 8 I); emitted by the week resolution that passes the report day, unless the lap crashed before it or that payment was the one rejected by the crash; player-facing views show the E1 effects from the same resolution) | exasperated | `rx.fraud` |
 | goodMove (crash removed by own action) | proud | `rx.goodmove` |
 | crash | exasperated → supportive | `rx.crash`, then `rx.rewind` |
 | quietWeek | relaxed | `rx.quiet` |
