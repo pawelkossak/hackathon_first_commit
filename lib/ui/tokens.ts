@@ -1,4 +1,6 @@
-import tokensData from "../../design/tokens.json";
+// Design tokens at runtime come from lib/generated/tokens.json, emitted by scripts/build-assets.ts
+// from design/tokens.json. No runtime module imports design/.
+import tokensData from "../generated/tokens.json";
 
 export const tokens = tokensData;
 

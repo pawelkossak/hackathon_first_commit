@@ -3,7 +3,14 @@
   "budgetLimit": 1500000,
   "budgetPassed": true,
   "totalSprites": 64,
-  "totalIllustrations": 30,
+  "totalIllustrations": 15,
+  "totalVoiceFiles": 158,
+  "voiceBytes": 14164252,
+  "voiceLoadPolicy": "on-demand",
+  "voiceNarrators": [
+    "ania",
+    "szef"
+  ],
   "firstLoadReport": [
     {
       "scene": "G05",
@@ -1331,18 +1338,8 @@
   "illustrations": [
     {
       "id": "boss-female",
-      "mediaPath": "/media/illustrations/boss-female.png",
-      "bytes": 2086389
-    },
-    {
-      "id": "boss-female",
       "mediaPath": "/media/illustrations/boss-female.webp",
       "bytes": 439480
-    },
-    {
-      "id": "boss-male",
-      "mediaPath": "/media/illustrations/boss-male.png",
-      "bytes": 2200051
     },
     {
       "id": "boss-male",
@@ -1351,18 +1348,8 @@
     },
     {
       "id": "campaign-islands",
-      "mediaPath": "/media/illustrations/campaign-islands.png",
-      "bytes": 2101185
-    },
-    {
-      "id": "campaign-islands",
       "mediaPath": "/media/illustrations/campaign-islands.webp",
       "bytes": 511090
-    },
-    {
-      "id": "card-art",
-      "mediaPath": "/media/illustrations/card-art.png",
-      "bytes": 2174920
     },
     {
       "id": "card-art",
@@ -1371,18 +1358,8 @@
     },
     {
       "id": "player-female",
-      "mediaPath": "/media/illustrations/player-female.png",
-      "bytes": 1738881
-    },
-    {
-      "id": "player-female",
       "mediaPath": "/media/illustrations/player-female.webp",
       "bytes": 336866
-    },
-    {
-      "id": "player-male",
-      "mediaPath": "/media/illustrations/player-male.png",
-      "bytes": 1399964
     },
     {
       "id": "player-male",
@@ -1391,18 +1368,8 @@
     },
     {
       "id": "sky-desktop",
-      "mediaPath": "/media/illustrations/sky-desktop.png",
-      "bytes": 4935832
-    },
-    {
-      "id": "sky-desktop",
       "mediaPath": "/media/illustrations/sky-desktop.webp",
       "bytes": 187502
-    },
-    {
-      "id": "sky-mobile-landscape",
-      "mediaPath": "/media/illustrations/sky-mobile-landscape.png",
-      "bytes": 2315452
     },
     {
       "id": "sky-mobile-landscape",
@@ -1411,18 +1378,8 @@
     },
     {
       "id": "sky",
-      "mediaPath": "/media/illustrations/sky.png",
-      "bytes": 1765596
-    },
-    {
-      "id": "sky",
       "mediaPath": "/media/illustrations/sky.webp",
       "bytes": 137798
-    },
-    {
-      "id": "studio-desktop",
-      "mediaPath": "/media/illustrations/studio-desktop.png",
-      "bytes": 6447112
     },
     {
       "id": "studio-desktop",
@@ -1431,18 +1388,8 @@
     },
     {
       "id": "studio-interior",
-      "mediaPath": "/media/illustrations/studio-interior.png",
-      "bytes": 2116805
-    },
-    {
-      "id": "studio-interior",
       "mediaPath": "/media/illustrations/studio-interior.webp",
       "bytes": 240624
-    },
-    {
-      "id": "studio-mobile-landscape",
-      "mediaPath": "/media/illustrations/studio-mobile-landscape.png",
-      "bytes": 2821332
     },
     {
       "id": "studio-mobile-landscape",
@@ -1451,18 +1398,8 @@
     },
     {
       "id": "supporting-characters",
-      "mediaPath": "/media/illustrations/supporting-characters.png",
-      "bytes": 1908430
-    },
-    {
-      "id": "supporting-characters",
       "mediaPath": "/media/illustrations/supporting-characters.webp",
       "bytes": 472174
-    },
-    {
-      "id": "weather-effects",
-      "mediaPath": "/media/illustrations/weather-effects.png",
-      "bytes": 1915795
     },
     {
       "id": "weather-effects",
@@ -1471,13 +1408,1116 @@
     },
     {
       "id": "week-islands",
-      "mediaPath": "/media/illustrations/week-islands.png",
-      "bytes": 2488639
-    },
-    {
-      "id": "week-islands",
       "mediaPath": "/media/illustrations/week-islands.webp",
       "bytes": 654286
+    }
+  ],
+  "voice": [
+    {
+      "mediaPath": "/media/voice/production/ania/advance.closed.mp3",
+      "lineIds": [
+        "advance.closed"
+      ],
+      "bytes": 116653
+    },
+    {
+      "mediaPath": "/media/voice/production/ania/advance.confirmed.mp3",
+      "lineIds": [
+        "advance.confirmed"
+      ],
+      "bytes": 89904
+    },
+    {
+      "mediaPath": "/media/voice/production/ania/advance.joke.mp3",
+      "lineIds": [
+        "advance.joke"
+      ],
+      "bytes": 65244
+    },
+    {
+      "mediaPath": "/media/voice/production/ania/cashflow.explain.mp3",
+      "lineIds": [
+        "cashflow.explain"
+      ],
+      "bytes": 128774
+    },
+    {
+      "mediaPath": "/media/voice/production/ania/cashflow.joke.mp3",
+      "lineIds": [
+        "cashflow.joke"
+      ],
+      "bytes": 43510
+    },
+    {
+      "mediaPath": "/media/voice/production/ania/client.late.joke.mp3",
+      "lineIds": [
+        "client.late.joke"
+      ],
+      "bytes": 56467
+    },
+    {
+      "mediaPath": "/media/voice/production/ania/close.pitch.mp3",
+      "lineIds": [
+        "close.pitch"
+      ],
+      "bytes": 57303
+    },
+    {
+      "mediaPath": "/media/voice/production/ania/compare.ethics.mp3",
+      "lineIds": [
+        "compare.ethics"
+      ],
+      "bytes": 46018
+    },
+    {
+      "mediaPath": "/media/voice/production/ania/compare.free-option.mp3",
+      "lineIds": [
+        "compare.free-option"
+      ],
+      "bytes": 114981
+    },
+    {
+      "mediaPath": "/media/voice/production/ania/discount.confirmed.mp3",
+      "lineIds": [
+        "discount.confirmed"
+      ],
+      "bytes": 101607
+    },
+    {
+      "mediaPath": "/media/voice/production/ania/discount.too-late.mp3",
+      "lineIds": [
+        "discount.too-late"
+      ],
+      "bytes": 109548
+    },
+    {
+      "mediaPath": "/media/voice/production/ania/event.account.joke.mp3",
+      "lineIds": [
+        "event.account.joke"
+      ],
+      "bytes": 46854
+    },
+    {
+      "mediaPath": "/media/voice/production/ania/event.account.mp3",
+      "lineIds": [
+        "event.account"
+      ],
+      "bytes": 78201
+    },
+    {
+      "mediaPath": "/media/voice/production/ania/event.account.risky.mp3",
+      "lineIds": [
+        "event.account.risky"
+      ],
+      "bytes": 79455
+    },
+    {
+      "mediaPath": "/media/voice/production/ania/event.account.safe.mp3",
+      "lineIds": [
+        "event.account.safe"
+      ],
+      "bytes": 87396
+    },
+    {
+      "mediaPath": "/media/voice/production/ania/event.late.mp3",
+      "lineIds": [
+        "event.late"
+      ],
+      "bytes": 126266
+    },
+    {
+      "mediaPath": "/media/voice/production/ania/event.late.secured.mp3",
+      "lineIds": [
+        "event.late.secured"
+      ],
+      "bytes": 111638
+    },
+    {
+      "mediaPath": "/media/voice/production/ania/event.order.accept.mp3",
+      "lineIds": [
+        "event.order.accept"
+      ],
+      "bytes": 122923
+    },
+    {
+      "mediaPath": "/media/voice/production/ania/event.order.decline.mp3",
+      "lineIds": [
+        "event.order.decline"
+      ],
+      "bytes": 88650
+    },
+    {
+      "mediaPath": "/media/voice/production/ania/event.order.mp3",
+      "lineIds": [
+        "event.order"
+      ],
+      "bytes": 192722
+    },
+    {
+      "mediaPath": "/media/voice/production/ania/event.tool.later.mp3",
+      "lineIds": [
+        "event.tool.later"
+      ],
+      "bytes": 61065
+    },
+    {
+      "mediaPath": "/media/voice/production/ania/event.tool.mp3",
+      "lineIds": [
+        "event.tool"
+      ],
+      "bytes": 124594
+    },
+    {
+      "mediaPath": "/media/voice/production/ania/event.tool.now.mp3",
+      "lineIds": [
+        "event.tool.now"
+      ],
+      "bytes": 90322
+    },
+    {
+      "mediaPath": "/media/voice/production/ania/factoring.confirmed.mp3",
+      "lineIds": [
+        "factoring.confirmed"
+      ],
+      "bytes": 91994
+    },
+    {
+      "mediaPath": "/media/voice/production/ania/factoring.fee.mp3",
+      "lineIds": [
+        "factoring.fee"
+      ],
+      "bytes": 43928
+    },
+    {
+      "mediaPath": "/media/voice/production/ania/factoring.joke.mp3",
+      "lineIds": [
+        "factoring.joke"
+      ],
+      "bytes": 43928
+    },
+    {
+      "mediaPath": "/media/voice/production/ania/factoring.low.mp3",
+      "lineIds": [
+        "factoring.low"
+      ],
+      "bytes": 104114
+    },
+    {
+      "mediaPath": "/media/voice/production/ania/factoring.receipt.mp3",
+      "lineIds": [
+        "factoring.receipt"
+      ],
+      "bytes": 66916
+    },
+    {
+      "mediaPath": "/media/voice/production/ania/failure.cause.mp3",
+      "lineIds": [
+        "failure.cause"
+      ],
+      "bytes": 139223
+    },
+    {
+      "mediaPath": "/media/voice/production/ania/failure.joke.mp3",
+      "lineIds": [
+        "failure.joke"
+      ],
+      "bytes": 50616
+    },
+    {
+      "mediaPath": "/media/voice/production/ania/failure.support.mp3",
+      "lineIds": [
+        "failure.support"
+      ],
+      "bytes": 51452
+    },
+    {
+      "mediaPath": "/media/voice/production/ania/hint.options.mp3",
+      "lineIds": [
+        "hint.options"
+      ],
+      "bytes": 136715
+    },
+    {
+      "mediaPath": "/media/voice/production/ania/intro.goal.mp3",
+      "lineIds": [
+        "intro.goal"
+      ],
+      "bytes": 56467
+    },
+    {
+      "mediaPath": "/media/voice/production/ania/intro.owner.mp3",
+      "lineIds": [
+        "intro.owner"
+      ],
+      "bytes": 116653
+    },
+    {
+      "mediaPath": "/media/voice/production/ania/intro.practice.mp3",
+      "lineIds": [
+        "intro.practice"
+      ],
+      "bytes": 82381
+    },
+    {
+      "mediaPath": "/media/voice/production/ania/intro.role.mp3",
+      "lineIds": [
+        "intro.role"
+      ],
+      "bytes": 106622
+    },
+    {
+      "mediaPath": "/media/voice/production/ania/loader.start.mp3",
+      "lineIds": [
+        "loader.start"
+      ],
+      "bytes": 51870
+    },
+    {
+      "mediaPath": "/media/voice/production/ania/loan.confirmed.mp3",
+      "lineIds": [
+        "loan.confirmed"
+      ],
+      "bytes": 113727
+    },
+    {
+      "mediaPath": "/media/voice/production/ania/loan.cost.mp3",
+      "lineIds": [
+        "loan.cost"
+      ],
+      "bytes": 82798
+    },
+    {
+      "mediaPath": "/media/voice/production/ania/loan.joke.mp3",
+      "lineIds": [
+        "loan.joke"
+      ],
+      "bytes": 44346
+    },
+    {
+      "mediaPath": "/media/voice/production/ania/loan.repayment.mp3",
+      "lineIds": [
+        "loan.repayment"
+      ],
+      "bytes": 99517
+    },
+    {
+      "mediaPath": "/media/voice/production/ania/loan.source.mp3",
+      "lineIds": [
+        "loan.source"
+      ],
+      "bytes": 86560
+    },
+    {
+      "mediaPath": "/media/voice/production/ania/logout.goodbye.mp3",
+      "lineIds": [
+        "logout.goodbye"
+      ],
+      "bytes": 33479
+    },
+    {
+      "mediaPath": "/media/voice/production/ania/map.next.mp3",
+      "lineIds": [
+        "map.next"
+      ],
+      "bytes": 98263
+    },
+    {
+      "mediaPath": "/media/voice/production/ania/map.start.mp3",
+      "lineIds": [
+        "map.start"
+      ],
+      "bytes": 104114
+    },
+    {
+      "mediaPath": "/media/voice/production/ania/mission.storm.mp3",
+      "lineIds": [
+        "mission.storm"
+      ],
+      "bytes": 136297
+    },
+    {
+      "mediaPath": "/media/voice/production/ania/move.delegated.mp3",
+      "lineIds": [
+        "move.delegated"
+      ],
+      "bytes": 103278
+    },
+    {
+      "mediaPath": "/media/voice/production/ania/move.praise.mp3",
+      "lineIds": [
+        "move.praise"
+      ],
+      "bytes": 48526
+    },
+    {
+      "mediaPath": "/media/voice/production/ania/move.praise.player-male.mp3",
+      "lineIds": [
+        "move.praise"
+      ],
+      "bytes": 52287
+    },
+    {
+      "mediaPath": "/media/voice/production/ania/notification.intro.mp3",
+      "lineIds": [
+        "notification.intro"
+      ],
+      "bytes": 86560
+    },
+    {
+      "mediaPath": "/media/voice/production/ania/offline.joke.mp3",
+      "lineIds": [
+        "offline.joke"
+      ],
+      "bytes": 28464
+    },
+    {
+      "mediaPath": "/media/voice/production/ania/overdraft.confirmed.mp3",
+      "lineIds": [
+        "overdraft.confirmed"
+      ],
+      "bytes": 105786
+    },
+    {
+      "mediaPath": "/media/voice/production/ania/pause.return.mp3",
+      "lineIds": [
+        "pause.return"
+      ],
+      "bytes": 67334
+    },
+    {
+      "mediaPath": "/media/voice/production/ania/plan.ask.mp3",
+      "lineIds": [
+        "plan.ask"
+      ],
+      "bytes": 123758
+    },
+    {
+      "mediaPath": "/media/voice/production/ania/plan.goal.mp3",
+      "lineIds": [
+        "plan.goal"
+      ],
+      "bytes": 123341
+    },
+    {
+      "mediaPath": "/media/voice/production/ania/plan.met.mp3",
+      "lineIds": [
+        "plan.met"
+      ],
+      "bytes": 116653
+    },
+    {
+      "mediaPath": "/media/voice/production/ania/plan.missed.mp3",
+      "lineIds": [
+        "plan.missed"
+      ],
+      "bytes": 126266
+    },
+    {
+      "mediaPath": "/media/voice/production/ania/plan.open.mp3",
+      "lineIds": [
+        "plan.open"
+      ],
+      "bytes": 86142
+    },
+    {
+      "mediaPath": "/media/voice/production/ania/plan.saved.mp3",
+      "lineIds": [
+        "plan.saved"
+      ],
+      "bytes": 56467
+    },
+    {
+      "mediaPath": "/media/voice/production/ania/postpone.warning.mp3",
+      "lineIds": [
+        "postpone.warning"
+      ],
+      "bytes": 107040
+    },
+    {
+      "mediaPath": "/media/voice/production/ania/reminder.declined.mp3",
+      "lineIds": [
+        "reminder.declined"
+      ],
+      "bytes": 61901
+    },
+    {
+      "mediaPath": "/media/voice/production/ania/reminder.optin.mp3",
+      "lineIds": [
+        "reminder.optin"
+      ],
+      "bytes": 113310
+    },
+    {
+      "mediaPath": "/media/voice/production/ania/reminder.saved.mp3",
+      "lineIds": [
+        "reminder.saved"
+      ],
+      "bytes": 100771
+    },
+    {
+      "mediaPath": "/media/voice/production/ania/reset.confirm.mp3",
+      "lineIds": [
+        "reset.confirm"
+      ],
+      "bytes": 99517
+    },
+    {
+      "mediaPath": "/media/voice/production/ania/return.welcome.mp3",
+      "lineIds": [
+        "return.welcome"
+      ],
+      "bytes": 109966
+    },
+    {
+      "mediaPath": "/media/voice/production/ania/rewind.help.mp3",
+      "lineIds": [
+        "rewind.help"
+      ],
+      "bytes": 75693
+    },
+    {
+      "mediaPath": "/media/voice/production/ania/save.failed.mp3",
+      "lineIds": [
+        "save.failed"
+      ],
+      "bytes": 117907
+    },
+    {
+      "mediaPath": "/media/voice/production/ania/success.avoided.mp3",
+      "lineIds": [
+        "success.avoided"
+      ],
+      "bytes": 113310
+    },
+    {
+      "mediaPath": "/media/voice/production/ania/success.joke.mp3",
+      "lineIds": [
+        "success.joke"
+      ],
+      "bytes": 54795
+    },
+    {
+      "mediaPath": "/media/voice/production/ania/success.pending.mp3",
+      "lineIds": [
+        "success.pending"
+      ],
+      "bytes": 89486
+    },
+    {
+      "mediaPath": "/media/voice/production/ania/turn.travel.mp3",
+      "lineIds": [
+        "turn.travel"
+      ],
+      "bytes": 31807
+    },
+    {
+      "mediaPath": "/media/voice/production/ania/voice.preview.mp3",
+      "lineIds": [
+        "voice.preview"
+      ],
+      "bytes": 106204
+    },
+    {
+      "mediaPath": "/media/voice/production/ania/week.quiet.mp3",
+      "lineIds": [
+        "week.quiet"
+      ],
+      "bytes": 58557
+    },
+    {
+      "mediaPath": "/media/voice/production/ania/week.report.2.mp3",
+      "lineIds": [
+        "week.report.2"
+      ],
+      "bytes": 93247
+    },
+    {
+      "mediaPath": "/media/voice/production/ania/week.report.3.mp3",
+      "lineIds": [
+        "week.report.3"
+      ],
+      "bytes": 97427
+    },
+    {
+      "mediaPath": "/media/voice/production/ania/week.report.4.mp3",
+      "lineIds": [
+        "week.report.4"
+      ],
+      "bytes": 96591
+    },
+    {
+      "mediaPath": "/media/voice/production/ania/week.report.5.mp3",
+      "lineIds": [
+        "week.report.5"
+      ],
+      "bytes": 94919
+    },
+    {
+      "mediaPath": "/media/voice/production/ania/week.report.6.mp3",
+      "lineIds": [
+        "week.report.6"
+      ],
+      "bytes": 82798
+    },
+    {
+      "mediaPath": "/media/voice/production/ania/week.report.mp3",
+      "lineIds": [
+        "week.report"
+      ],
+      "bytes": 114145
+    },
+    {
+      "mediaPath": "/media/voice/production/szef/advance.closed.mp3",
+      "lineIds": [
+        "advance.closed"
+      ],
+      "bytes": 116653
+    },
+    {
+      "mediaPath": "/media/voice/production/szef/advance.confirmed.mp3",
+      "lineIds": [
+        "advance.confirmed"
+      ],
+      "bytes": 89068
+    },
+    {
+      "mediaPath": "/media/voice/production/szef/advance.joke.mp3",
+      "lineIds": [
+        "advance.joke"
+      ],
+      "bytes": 74021
+    },
+    {
+      "mediaPath": "/media/voice/production/szef/cashflow.explain.mp3",
+      "lineIds": [
+        "cashflow.explain"
+      ],
+      "bytes": 130864
+    },
+    {
+      "mediaPath": "/media/voice/production/szef/cashflow.joke.mp3",
+      "lineIds": [
+        "cashflow.joke"
+      ],
+      "bytes": 45600
+    },
+    {
+      "mediaPath": "/media/voice/production/szef/client.late.joke.mp3",
+      "lineIds": [
+        "client.late.joke"
+      ],
+      "bytes": 57721
+    },
+    {
+      "mediaPath": "/media/voice/production/szef/close.pitch.mp3",
+      "lineIds": [
+        "close.pitch"
+      ],
+      "bytes": 58139
+    },
+    {
+      "mediaPath": "/media/voice/production/szef/compare.ethics.mp3",
+      "lineIds": [
+        "compare.ethics"
+      ],
+      "bytes": 48526
+    },
+    {
+      "mediaPath": "/media/voice/production/szef/compare.free-option.mp3",
+      "lineIds": [
+        "compare.free-option"
+      ],
+      "bytes": 112474
+    },
+    {
+      "mediaPath": "/media/voice/production/szef/discount.confirmed.mp3",
+      "lineIds": [
+        "discount.confirmed"
+      ],
+      "bytes": 104114
+    },
+    {
+      "mediaPath": "/media/voice/production/szef/discount.too-late.mp3",
+      "lineIds": [
+        "discount.too-late"
+      ],
+      "bytes": 110802
+    },
+    {
+      "mediaPath": "/media/voice/production/szef/event.account.joke.mp3",
+      "lineIds": [
+        "event.account.joke"
+      ],
+      "bytes": 53541
+    },
+    {
+      "mediaPath": "/media/voice/production/szef/event.account.mp3",
+      "lineIds": [
+        "event.account"
+      ],
+      "bytes": 81127
+    },
+    {
+      "mediaPath": "/media/voice/production/szef/event.account.risky.mp3",
+      "lineIds": [
+        "event.account.risky"
+      ],
+      "bytes": 78619
+    },
+    {
+      "mediaPath": "/media/voice/production/szef/event.account.safe.mp3",
+      "lineIds": [
+        "event.account.safe"
+      ],
+      "bytes": 92830
+    },
+    {
+      "mediaPath": "/media/voice/production/szef/event.late.mp3",
+      "lineIds": [
+        "event.late"
+      ],
+      "bytes": 124594
+    },
+    {
+      "mediaPath": "/media/voice/production/szef/event.late.secured.mp3",
+      "lineIds": [
+        "event.late.secured"
+      ],
+      "bytes": 109966
+    },
+    {
+      "mediaPath": "/media/voice/production/szef/event.order.accept.mp3",
+      "lineIds": [
+        "event.order.accept"
+      ],
+      "bytes": 119997
+    },
+    {
+      "mediaPath": "/media/voice/production/szef/event.order.decline.mp3",
+      "lineIds": [
+        "event.order.decline"
+      ],
+      "bytes": 89068
+    },
+    {
+      "mediaPath": "/media/voice/production/szef/event.order.mp3",
+      "lineIds": [
+        "event.order"
+      ],
+      "bytes": 191050
+    },
+    {
+      "mediaPath": "/media/voice/production/szef/event.tool.later.mp3",
+      "lineIds": [
+        "event.tool.later"
+      ],
+      "bytes": 68588
+    },
+    {
+      "mediaPath": "/media/voice/production/szef/event.tool.mp3",
+      "lineIds": [
+        "event.tool"
+      ],
+      "bytes": 123758
+    },
+    {
+      "mediaPath": "/media/voice/production/szef/event.tool.now.mp3",
+      "lineIds": [
+        "event.tool.now"
+      ],
+      "bytes": 91576
+    },
+    {
+      "mediaPath": "/media/voice/production/szef/factoring.confirmed.mp3",
+      "lineIds": [
+        "factoring.confirmed"
+      ],
+      "bytes": 90740
+    },
+    {
+      "mediaPath": "/media/voice/production/szef/factoring.fee.mp3",
+      "lineIds": [
+        "factoring.fee"
+      ],
+      "bytes": 42674
+    },
+    {
+      "mediaPath": "/media/voice/production/szef/factoring.joke.mp3",
+      "lineIds": [
+        "factoring.joke"
+      ],
+      "bytes": 48108
+    },
+    {
+      "mediaPath": "/media/voice/production/szef/factoring.low.mp3",
+      "lineIds": [
+        "factoring.low"
+      ],
+      "bytes": 107040
+    },
+    {
+      "mediaPath": "/media/voice/production/szef/factoring.receipt.mp3",
+      "lineIds": [
+        "factoring.receipt"
+      ],
+      "bytes": 66080
+    },
+    {
+      "mediaPath": "/media/voice/production/szef/failure.cause.mp3",
+      "lineIds": [
+        "failure.cause"
+      ],
+      "bytes": 142149
+    },
+    {
+      "mediaPath": "/media/voice/production/szef/failure.joke.mp3",
+      "lineIds": [
+        "failure.joke"
+      ],
+      "bytes": 52287
+    },
+    {
+      "mediaPath": "/media/voice/production/szef/failure.support.mp3",
+      "lineIds": [
+        "failure.support"
+      ],
+      "bytes": 51870
+    },
+    {
+      "mediaPath": "/media/voice/production/szef/hint.options.mp3",
+      "lineIds": [
+        "hint.options"
+      ],
+      "bytes": 139223
+    },
+    {
+      "mediaPath": "/media/voice/production/szef/intro.goal.mp3",
+      "lineIds": [
+        "intro.goal"
+      ],
+      "bytes": 59811
+    },
+    {
+      "mediaPath": "/media/voice/production/szef/intro.owner.mp3",
+      "lineIds": [
+        "intro.owner"
+      ],
+      "bytes": 116235
+    },
+    {
+      "mediaPath": "/media/voice/production/szef/intro.practice.mp3",
+      "lineIds": [
+        "intro.practice"
+      ],
+      "bytes": 83634
+    },
+    {
+      "mediaPath": "/media/voice/production/szef/intro.role.mp3",
+      "lineIds": [
+        "intro.role"
+      ],
+      "bytes": 104532
+    },
+    {
+      "mediaPath": "/media/voice/production/szef/loader.start.mp3",
+      "lineIds": [
+        "loader.start"
+      ],
+      "bytes": 49362
+    },
+    {
+      "mediaPath": "/media/voice/production/szef/loan.confirmed.mp3",
+      "lineIds": [
+        "loan.confirmed"
+      ],
+      "bytes": 116235
+    },
+    {
+      "mediaPath": "/media/voice/production/szef/loan.cost.mp3",
+      "lineIds": [
+        "loan.cost"
+      ],
+      "bytes": 86560
+    },
+    {
+      "mediaPath": "/media/voice/production/szef/loan.joke.mp3",
+      "lineIds": [
+        "loan.joke"
+      ],
+      "bytes": 45600
+    },
+    {
+      "mediaPath": "/media/voice/production/szef/loan.repayment.mp3",
+      "lineIds": [
+        "loan.repayment"
+      ],
+      "bytes": 105368
+    },
+    {
+      "mediaPath": "/media/voice/production/szef/loan.source.mp3",
+      "lineIds": [
+        "loan.source"
+      ],
+      "bytes": 89486
+    },
+    {
+      "mediaPath": "/media/voice/production/szef/logout.goodbye.mp3",
+      "lineIds": [
+        "logout.goodbye"
+      ],
+      "bytes": 32643
+    },
+    {
+      "mediaPath": "/media/voice/production/szef/map.next.mp3",
+      "lineIds": [
+        "map.next"
+      ],
+      "bytes": 96173
+    },
+    {
+      "mediaPath": "/media/voice/production/szef/map.start.mp3",
+      "lineIds": [
+        "map.start"
+      ],
+      "bytes": 112056
+    },
+    {
+      "mediaPath": "/media/voice/production/szef/mission.storm.mp3",
+      "lineIds": [
+        "mission.storm"
+      ],
+      "bytes": 134625
+    },
+    {
+      "mediaPath": "/media/voice/production/szef/move.delegated.mp3",
+      "lineIds": [
+        "move.delegated"
+      ],
+      "bytes": 102861
+    },
+    {
+      "mediaPath": "/media/voice/production/szef/move.praise.mp3",
+      "lineIds": [
+        "move.praise"
+      ],
+      "bytes": 53123
+    },
+    {
+      "mediaPath": "/media/voice/production/szef/move.praise.player-male.mp3",
+      "lineIds": [
+        "move.praise"
+      ],
+      "bytes": 53541
+    },
+    {
+      "mediaPath": "/media/voice/production/szef/notification.intro.mp3",
+      "lineIds": [
+        "notification.intro"
+      ],
+      "bytes": 87814
+    },
+    {
+      "mediaPath": "/media/voice/production/szef/offline.joke.mp3",
+      "lineIds": [
+        "offline.joke"
+      ],
+      "bytes": 30972
+    },
+    {
+      "mediaPath": "/media/voice/production/szef/overdraft.confirmed.mp3",
+      "lineIds": [
+        "overdraft.confirmed"
+      ],
+      "bytes": 107040
+    },
+    {
+      "mediaPath": "/media/voice/production/szef/pause.return.mp3",
+      "lineIds": [
+        "pause.return"
+      ],
+      "bytes": 66498
+    },
+    {
+      "mediaPath": "/media/voice/production/szef/plan.ask.mp3",
+      "lineIds": [
+        "plan.ask"
+      ],
+      "bytes": 124176
+    },
+    {
+      "mediaPath": "/media/voice/production/szef/plan.goal.mp3",
+      "lineIds": [
+        "plan.goal"
+      ],
+      "bytes": 124176
+    },
+    {
+      "mediaPath": "/media/voice/production/szef/plan.met.mp3",
+      "lineIds": [
+        "plan.met"
+      ],
+      "bytes": 118743
+    },
+    {
+      "mediaPath": "/media/voice/production/szef/plan.missed.mp3",
+      "lineIds": [
+        "plan.missed"
+      ],
+      "bytes": 125430
+    },
+    {
+      "mediaPath": "/media/voice/production/szef/plan.open.mp3",
+      "lineIds": [
+        "plan.open"
+      ],
+      "bytes": 86560
+    },
+    {
+      "mediaPath": "/media/voice/production/szef/plan.saved.mp3",
+      "lineIds": [
+        "plan.saved"
+      ],
+      "bytes": 58139
+    },
+    {
+      "mediaPath": "/media/voice/production/szef/postpone.warning.mp3",
+      "lineIds": [
+        "postpone.warning"
+      ],
+      "bytes": 104114
+    },
+    {
+      "mediaPath": "/media/voice/production/szef/reminder.declined.mp3",
+      "lineIds": [
+        "reminder.declined"
+      ],
+      "bytes": 64408
+    },
+    {
+      "mediaPath": "/media/voice/production/szef/reminder.optin.mp3",
+      "lineIds": [
+        "reminder.optin"
+      ],
+      "bytes": 122505
+    },
+    {
+      "mediaPath": "/media/voice/production/szef/reminder.saved.mp3",
+      "lineIds": [
+        "reminder.saved"
+      ],
+      "bytes": 107876
+    },
+    {
+      "mediaPath": "/media/voice/production/szef/reset.confirm.mp3",
+      "lineIds": [
+        "reset.confirm"
+      ],
+      "bytes": 99935
+    },
+    {
+      "mediaPath": "/media/voice/production/szef/return.welcome.mp3",
+      "lineIds": [
+        "return.welcome"
+      ],
+      "bytes": 112474
+    },
+    {
+      "mediaPath": "/media/voice/production/szef/rewind.help.mp3",
+      "lineIds": [
+        "rewind.help"
+      ],
+      "bytes": 81127
+    },
+    {
+      "mediaPath": "/media/voice/production/szef/save.failed.mp3",
+      "lineIds": [
+        "save.failed"
+      ],
+      "bytes": 116653
+    },
+    {
+      "mediaPath": "/media/voice/production/szef/success.avoided.mp3",
+      "lineIds": [
+        "success.avoided"
+      ],
+      "bytes": 110384
+    },
+    {
+      "mediaPath": "/media/voice/production/szef/success.joke.mp3",
+      "lineIds": [
+        "success.joke"
+      ],
+      "bytes": 54795
+    },
+    {
+      "mediaPath": "/media/voice/production/szef/success.pending.mp3",
+      "lineIds": [
+        "success.pending"
+      ],
+      "bytes": 95337
+    },
+    {
+      "mediaPath": "/media/voice/production/szef/turn.travel.mp3",
+      "lineIds": [
+        "turn.travel"
+      ],
+      "bytes": 34315
+    },
+    {
+      "mediaPath": "/media/voice/production/szef/voice.preview.mp3",
+      "lineIds": [
+        "voice.preview"
+      ],
+      "bytes": 112474
+    },
+    {
+      "mediaPath": "/media/voice/production/szef/week.quiet.mp3",
+      "lineIds": [
+        "week.quiet"
+      ],
+      "bytes": 56885
+    },
+    {
+      "mediaPath": "/media/voice/production/szef/week.report.2.mp3",
+      "lineIds": [
+        "week.report.2"
+      ],
+      "bytes": 90740
+    },
+    {
+      "mediaPath": "/media/voice/production/szef/week.report.3.mp3",
+      "lineIds": [
+        "week.report.3"
+      ],
+      "bytes": 98263
+    },
+    {
+      "mediaPath": "/media/voice/production/szef/week.report.4.mp3",
+      "lineIds": [
+        "week.report.4"
+      ],
+      "bytes": 99099
+    },
+    {
+      "mediaPath": "/media/voice/production/szef/week.report.5.mp3",
+      "lineIds": [
+        "week.report.5"
+      ],
+      "bytes": 95337
+    },
+    {
+      "mediaPath": "/media/voice/production/szef/week.report.6.mp3",
+      "lineIds": [
+        "week.report.6"
+      ],
+      "bytes": 82798
+    },
+    {
+      "mediaPath": "/media/voice/production/szef/week.report.mp3",
+      "lineIds": [
+        "week.report"
+      ],
+      "bytes": 114145
     }
   ]
 }

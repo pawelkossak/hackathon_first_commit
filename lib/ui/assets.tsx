@@ -1,6 +1,8 @@
 /* eslint-disable @next/next/no-img-element */
 import React from "react";
-import spritesData from "../../design/contracts/runtime-sprites.json";
+// The registry is the generated manifest (scripts/build-assets.ts): only sprites whose file was
+// published to public/media are listed. No runtime module imports design/.
+import generatedManifest from "../generated/asset-manifest.json";
 import { Placeholder } from "../../components/ui/Placeholder";
 
 export interface AssetDescriptor {
@@ -8,28 +10,29 @@ export interface AssetDescriptor {
   width: number;
   height: number;
   category: string;
-  mediaPath: string;
-  source: string;
+  /** Public URL of the published file; null for an id the registry does not know. */
+  mediaPath: string | null;
 }
 
-export type KnownAssetId = (typeof spritesData)[number]["id"];
+/** Size of the placeholder drawn for an unknown id when the caller gives no size. */
+export const UNKNOWN_ASSET_SIZE = 256;
 
 const ASSET_REGISTRY = new Map<string, AssetDescriptor>();
 
-for (const sprite of spritesData) {
+for (const sprite of generatedManifest.sprites) {
   ASSET_REGISTRY.set(sprite.id, {
     id: sprite.id,
     width: sprite.width,
     height: sprite.height,
     category: sprite.category,
-    mediaPath: `/media/${sprite.path.replace(/^runtime-media\//, "")}`,
-    source: sprite.source,
+    mediaPath: sprite.mediaPath,
   });
 }
 
 /**
  * Returns the asset descriptor for a given ID.
- * If not in the sprite catalog, returns a fallback descriptor with estimated dimensions.
+ * An id outside the registry gets no media path, so GameAsset draws a sized Placeholder instead of
+ * requesting a file that does not exist.
  */
 export function getAsset(id: string): AssetDescriptor {
   const found = ASSET_REGISTRY.get(id);
@@ -37,12 +40,16 @@ export function getAsset(id: string): AssetDescriptor {
 
   return {
     id,
-    width: 256,
-    height: 256,
+    width: UNKNOWN_ASSET_SIZE,
+    height: UNKNOWN_ASSET_SIZE,
     category: "custom",
-    mediaPath: `/media/${id}.webp`,
-    source: `assets/custom/${id}.webp`,
+    mediaPath: null,
   };
+}
+
+/** Whether the registry has a published file for this id. */
+export function isKnownAsset(id: string): boolean {
+  return ASSET_REGISTRY.has(id);
 }
 
 /**
@@ -52,36 +59,14 @@ export function getAllAssetIds(): string[] {
   return Array.from(ASSET_REGISTRY.keys());
 }
 
-interface GeneratedAssetManifest {
-  format: string;
-  budgetLimit: number;
-  budgetPassed: boolean;
-  totalSprites: number;
-  totalIllustrations: number;
-  firstLoadReport: Array<{
-    scene: string;
-    narratorGender: string;
-    playerGender: string;
-    bytes: number;
-    limit: number;
-    passed: boolean;
-  }>;
-}
+export type GeneratedAssetManifest = typeof generatedManifest;
 
-let generatedManifest: GeneratedAssetManifest | null = null;
-try {
-  // eslint-disable-next-line @typescript-eslint/no-require-imports
-  generatedManifest = require("../generated/asset-manifest.json");
-} catch {
-  // not yet built
-}
-
-export function getGeneratedManifest(): GeneratedAssetManifest | null {
+export function getGeneratedManifest(): GeneratedAssetManifest {
   return generatedManifest;
 }
 
 export function isMediaReady(): boolean {
-  return generatedManifest !== null && generatedManifest.totalSprites > 0;
+  return generatedManifest.totalSprites > 0;
 }
 
 export interface GameAssetProps {
@@ -90,13 +75,12 @@ export interface GameAssetProps {
   className?: string;
   width?: number;
   height?: number;
+  /** Forces the sized Placeholder even for a known id. An unknown id always gets the Placeholder. */
   fallbackToPlaceholder?: boolean;
 }
 
 /**
- * GameAsset component.
- * In Phase 1 (no media files in public/media), always returns a styled, sized Placeholder.
- * In Phase 2, if the file is available, renders Next Image or <img>.
+ * GameAsset component: the published WebP for a registry id, otherwise a Placeholder of the same size.
  */
 export function GameAsset({
   id,
@@ -110,8 +94,7 @@ export function GameAsset({
   const targetWidth = width ?? asset.width;
   const targetHeight = height ?? asset.height;
 
-  // In Phase 1 or when fallback is active, render Placeholder
-  if (fallbackToPlaceholder) {
+  if (fallbackToPlaceholder || asset.mediaPath === null) {
     return (
       <Placeholder
         id={asset.id}
