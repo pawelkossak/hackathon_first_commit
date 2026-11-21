@@ -105,7 +105,7 @@ Each task fits ≤ 90 min. Acceptance names its check. Window = target clock tim
 | E-08 | Agent rules: Klient A and bank negotiation outcomes | ENGINE-DATA-AND-TESTS.md §4 | Sat 08–09 | ET-A01…A07 green |
 | E-09 | Plan matcher, account clock and future-script replay | ENGINE-DATA-AND-TESTS.md §5, US-06, US-07 | Sat 09–10 | ET-M cases green; account clock independent of the game clock |
 | E-10 | Demo-path end-to-end engine test | GAME-DESIGN.md §9 | Sat 10–11 | ET-D01 green; all 58 ET cases green |
-| E-11 | Level 2 engine (if MUST green) | FIRST-EMPLOYEE-SCENARIO.md | Sat 14–16 | level 2 acceptance cases green |
+| E-11 | Level 2 engine (if MUST green) — **approved, parallel to demo polish; cut if not green by Sat 23:00 (D-19)** | FIRST-EMPLOYEE-SCENARIO.md | Sat 14–16 | level 2 acceptance cases green |
 | E-12 | Coordinator duties | — | throughout | PRs merged, `develop` green, scope cuts decided at checkpoints |
 
 ### Lane U — Game UI and art (Person B)
@@ -129,7 +129,7 @@ Each task fits ≤ 90 min. Acceptance names its check. Window = target clock tim
 | U-15 | 2 | Mobile landscape 844×390 and rotate prompt | GM-16 | Sat 16–18 | no horizontal scroll; 44 px targets |
 | U-16 | 2 | Final tokens and fonts; AA contrast check | GAME-EXPERIENCE-AND-NARRATION.md §2, §11 | Sat 18–19 | AA pairs recorded in `design/contrast-audit.json` |
 | U-17 | 2 | Motion over the art (plane, storm, card flip), reduced motion, performance budget | GAME-EXPERIENCE-AND-NARRATION.md §17 | Sat 19–21 | reduced motion respected; turn < 200 ms |
-| U-18 | 2 | Level 2 screens (if E-11 done) | FIRST-EMPLOYEE-SCENARIO.md | Sat 21–23 | `/gra/2` playable from the map |
+| U-18 | 2 | Level 2 screens (if E-11 done) — **approved after E-11 merges; cut if not green by Sat 23:00 (D-19)** | FIRST-EMPLOYEE-SCENARIO.md | Sat 21–23 | `/gra/2` playable from the map |
 
 ### Lane N — Narrative, voice, AI, reminders, tests (Person C)
 

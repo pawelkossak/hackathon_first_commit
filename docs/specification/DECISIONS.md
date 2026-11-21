@@ -147,3 +147,11 @@ Numbered D-01 …, never reused; a later decision that replaces one names it.
 - When: 2026-11-20
 - Why: The fraud reveal is a key moment of the story and had no engine event, so the narrator could not react to it; a rewind to the start of the lap greeted no one.
 - What it changed: ENGINE-DATA-AND-TESTS.md §6 gains the `fraudRevealed` row (exasperated, `rx.fraud`) and the rewind note on `lapStart`; the engine event union and `data/reactions.json` follow in the engine lane; the narrative lane adds the `rx.fraud` lines.
+
+## D-19 — Level 2 is built after the demo polish; the factoring card keeps its title
+
+- Decided: Every MUST of the demo path is green on develop, so level 2 „Pierwszy pracownik” (E-11 engine, U-18 screens, FIRST-EMPLOYEE-SCENARIO.md) is built. The demo-path polish (voice, narrator reactions, the D-14 reminder on stage, copy keys) comes first and is never blocked by level 2; E-11 runs in parallel in the engine lane, U-18 starts when E-11 is merged. If level 2 is not green by the Sat 23:00 feature freeze it is cut (§7, cut 2) and `/gra/2` stays a locked placeholder. The C6 card keeps the title „Faktoring ekspresowy mBank” (D-09, D-11) with its „Założenie scenariusza” and „Dane syntetyczne” labels.
+- Who: The product owner (coordinator)
+- When: 2026-11-21
+- Why: Level 2 shows the game goes beyond one lesson; the demo path stays the priority. mBank belongs to the Commerzbank group, so the title fits the challenge.
+- What it changed: BUILD-PLAN.md §5 marks E-11 and U-18 as approved after the demo polish, with the Sat 23:00 cut rule.
