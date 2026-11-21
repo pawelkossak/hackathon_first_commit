@@ -43,6 +43,8 @@ const MapPage = (await import("../../app/mapa/page")).default;
 const SettingsPage = (await import("../../app/ustawienia/page")).default;
 const Level2Page = (await import("../../app/gra/2/page")).default;
 const { CashFlowPanel } = await import("../../components/play/CashFlowPanel");
+const { NegotiationDialogue } = await import("../../components/narrative");
+const { DEMO_REMINDER } = await import("../reminders/push-config");
 
 /** Rendered text with React's text separators removed. */
 function html(node: React.ReactElement): string {
@@ -251,6 +253,49 @@ describe("demo path screens render with engine values (GAME-DESIGN §9)", () => 
     expect(out).toContain('data-testid="plan-not-allowed"');
     expect(out).not.toContain("Zaliczka dotarła");
     expect(html(<SummaryPage />)).toContain('data-testid="lap-summary-not-completed"');
+  });
+
+  it("D-14: the won lap summary offers „Przypomnij mi” (G34) with the reminder line; a lap in progress does not", () => {
+    finishTheLap();
+    const out = html(<SummaryPage />);
+    expect(out).toContain('data-testid="lap-reminder"');
+    expect(out).toContain('data-testid="open-reminder-optin"');
+    expect(out).toContain("Przypomnij mi");
+    // The opt-in dialog opens only on the button, so the summary has no modal over „Zapisz plan”.
+    expect(out).not.toContain('aria-labelledby="optin-title"');
+    store().reset("demo");
+    expect(html(<SummaryPage />)).not.toContain('data-testid="lap-reminder"');
+  });
+
+  it("D-14: LapReminder mounts the narrative PushOptIn with the engine week, and ReturnBanner as the push fallback", () => {
+    const src = fs.readFileSync(path.join(process.cwd(), "components", "play", "LapReminder.tsx"), "utf8");
+    expect(src).toContain("useGameStore((s) => s.state.core.week)");
+    expect(src).toContain("<PushOptIn targetWeek={week}");
+    expect(src).toContain("<ReturnBanner");
+    expect(src).toContain("router.push(resumeLink(w))");
+    expect(DEMO_REMINDER.delaySeconds).toBe(30);
+  });
+
+  it("G14 in later weeks: a new week restarts the thread (messages 0 of 3) and a week-2 negotiation runs on it", () => {
+    weekOneOfTheDemo();
+    const max = engine.gameData.agents.klient_a.maxMessagesPerWeek;
+    expect(max).toBe(3);
+    const used = () => store().state.core.negotiation.klient_a.messagesThisWeek;
+    expect(used()).toBe(2);
+    const dialog = () =>
+      html(<NegotiationDialogue state={store().state} agent="klient_a" onStateChange={() => undefined} />);
+    expect(dialog()).toContain(`2/${max}`);
+
+    store().advanceWeek();
+    expect(store().state.core.week).toBe(2);
+    expect(used()).toBe(0);
+    // AdvisorDock opens the dialogue with the store state of that moment (a fresh mount per opening).
+    expect(dialog()).toContain(`0/${max}`);
+
+    const r = engine.negotiate(store().state, "klient_a", "offer_discount");
+    store().applyEngineState(r.state);
+    expect(used()).toBe(1);
+    expect(dialog()).toContain(`1/${max}`);
   });
 
   it("intro, map, settings and the level-2 placeholder render the narrative components", () => {

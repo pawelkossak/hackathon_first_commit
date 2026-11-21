@@ -1,8 +1,12 @@
 import { describe, it, expect } from "vitest";
-import { getAsset, getAllAssetIds } from "./assets";
+import fs from "node:fs";
+import path from "node:path";
+import { renderToStaticMarkup } from "react-dom/server";
+import React from "react";
+import { GameAsset, getAsset, getAllAssetIds, isKnownAsset, UNKNOWN_ASSET_SIZE } from "./assets";
 
 describe("assets registry (U-02)", () => {
-  it("registers all 64 sprites from runtime-sprites.json", () => {
+  it("registers all 64 sprites from the generated manifest", () => {
     const ids = getAllAssetIds();
     expect(ids.length).toBe(64);
     expect(ids).toContain("sprite.sky");
@@ -26,11 +30,52 @@ describe("assets registry (U-02)", () => {
     }
   });
 
-  it("returns fallback descriptor for unknown asset id", () => {
+  it("an unknown asset id gets no invented path, only a sized fallback descriptor", () => {
     const fallback = getAsset("sprite.unknown.custom");
     expect(fallback.id).toBe("sprite.unknown.custom");
-    expect(fallback.width).toBe(256);
-    expect(fallback.height).toBe(256);
+    expect(fallback.width).toBe(UNKNOWN_ASSET_SIZE);
+    expect(fallback.height).toBe(UNKNOWN_ASSET_SIZE);
+    expect(fallback.mediaPath).toBeNull();
+    expect(isKnownAsset("sprite.unknown.custom")).toBe(false);
+    expect(isKnownAsset("sprite.week.1")).toBe(true);
+  });
+
+  it("GameAsset renders the sized Placeholder for an unknown id and an <img> for a known one", () => {
+    const unknown = renderToStaticMarkup(React.createElement(GameAsset, { id: "sprite.boss.nobody.proud", width: 64, height: 64, alt: "" }));
+    expect(unknown).not.toContain("<img");
+    expect(unknown).toContain('data-testid="placeholder-sprite.boss.nobody.proud"');
+    expect(unknown).toContain("width:64px");
+    expect(unknown).toContain("height:64px");
+
+    const unsized = renderToStaticMarkup(React.createElement(GameAsset, { id: "sprite.unknown.custom" }));
+    expect(unsized).toContain(`width:${UNKNOWN_ASSET_SIZE}px`);
+
+    const known = renderToStaticMarkup(React.createElement(GameAsset, { id: "sprite.week.1", width: 36, height: 36, alt: "" }));
+    expect(known).toContain('<img src="/media/sprites/week-1.webp"');
+    expect(known).not.toContain("placeholder-");
+
+    const forced = renderToStaticMarkup(
+      React.createElement(GameAsset, { id: "sprite.week.1", width: 36, height: 36, fallbackToPlaceholder: true })
+    );
+    expect(forced).not.toContain("<img");
+    expect(forced).toContain('data-testid="placeholder-sprite.week.1"');
+  });
+
+  it("no runtime module imports design/ (lib/ui, app, components outside tests)", () => {
+    const roots = ["lib/ui", "app", "components"].map((d) => path.join(process.cwd(), d));
+    const offenders: string[] = [];
+    const walk = (dir: string) => {
+      for (const entry of fs.readdirSync(dir, { withFileTypes: true })) {
+        const full = path.join(dir, entry.name);
+        if (entry.isDirectory()) walk(full);
+        else if (/\.(ts|tsx)$/.test(entry.name) && !/\.test\.tsx?$/.test(entry.name)) {
+          const src = fs.readFileSync(full, "utf8");
+          if (/(from|import|require\()\s*["'][^"']*\/design\//.test(src)) offenders.push(path.relative(process.cwd(), full));
+        }
+      }
+    };
+    roots.forEach(walk);
+    expect(offenders).toEqual([]);
   });
 
   it("U-14 swaps placeholders for real media without breaking registry bindings", () => {

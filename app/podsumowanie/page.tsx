@@ -6,6 +6,7 @@ import { useGameStore } from "../../lib/ui/game-store";
 import { GameAsset } from "../../lib/ui/assets";
 import { dayMonth, pln, useCopy, type MissingLabelKey } from "../../lib/ui/copy";
 import { InitialLoader } from "../../components/narrative";
+import { LapReminder } from "../../components/play/LapReminder";
 import { gameData, type StarStatus } from "../../engine";
 
 const STAR_STATUS_LABEL: Record<StarStatus, MissingLabelKey> = {
@@ -122,6 +123,8 @@ export default function PodsumowaniePage() {
         <p className="text-base text-slate-200 bg-slate-950/80 p-4 rounded-xl border border-slate-800">
           {copy("success.pending")} {copy("g18.joke")}
         </p>
+
+        <LapReminder />
 
         <div className="pt-2 flex flex-col sm:flex-row justify-between items-center gap-3 border-t border-slate-800">
           <Link href="/gra/1" className="min-h-[44px] inline-flex items-center text-base text-slate-300 hover:text-white">
