@@ -395,3 +395,98 @@ export const ReactionsFileSchema = z.object({
     )
     .min(1),
 });
+
+// ---------- level2.json (FIRST-EMPLOYEE-SCENARIO.md) ----------
+
+export const EmployeeWeekSchema = z.union([z.literal(1), z.literal(2), z.literal(3)]);
+export const EmployeeDecisionSchema = z.enum(["hiring", "invoice", "tax"]);
+export const EmployeeHiringChoiceSchema = z.enum(["hire", "defer"]);
+export const EmployeeInvoiceChoiceSchema = z.enum(["advance", "wait"]);
+export const EmployeeTaxChoiceSchema = z.enum(["reserve", "common"]);
+export const EmployeeChoiceIdSchema = z.enum([
+  ...EmployeeHiringChoiceSchema.options,
+  ...EmployeeInvoiceChoiceSchema.options,
+  ...EmployeeTaxChoiceSchema.options,
+]);
+export const EmployeeLedgerIdSchema = z.string().regex(/^B\d+$/);
+
+export const EmployeeEffectSchema = z.discriminatedUnion("type", [
+  z.object({
+    type: z.literal("transaction"),
+    id: z.string().regex(/^[A-Z]+-[A-Z]+$/),
+    role: z.enum(["salary", "employer_costs", "advance"]),
+    date: IsoDateSchema,
+    amount: PlnSchema.refine((n) => n !== 0, { message: "zero transaction" }),
+    title: z.string().min(1),
+  }),
+  z.object({ type: z.literal("set_ledger_amount"), ledgerId: EmployeeLedgerIdSchema, amount: PlnSchema }),
+  z.object({ type: z.literal("reserve"), amount: PlnSchema.positive(), releasedByLedgerId: EmployeeLedgerIdSchema }),
+]);
+
+export const Level2FileSchema = z.object({
+  level: z.literal(2),
+  title: z.string().min(1),
+  synthetic: z.literal(true),
+  storageKey: z.literal("pilot.employee.v1"),
+  period: z.object({ start: IsoDateSchema, end: IsoDateSchema }),
+  openingBalance: PlnSchema.nonnegative(),
+  assumptions: z.object({
+    employerCostPct: z.number().int().min(0).max(100),
+    sameDayOrder: z.literal("inflows_first"),
+    overdraftLimit: PlnSchema.nonnegative(),
+  }),
+  weeks: z
+    .array(
+      z.object({
+        week: EmployeeWeekSchema,
+        start: IsoDateSchema,
+        end: IsoDateSchema,
+        decision: EmployeeDecisionSchema,
+        choices: z.array(EmployeeChoiceIdSchema).length(2),
+        defaultChoice: EmployeeChoiceIdSchema,
+      }),
+    )
+    .length(3),
+  ledger: z
+    .array(
+      z.object({
+        id: EmployeeLedgerIdSchema,
+        date: IsoDateSchema,
+        amount: PlnSchema.refine((n) => n !== 0, { message: "zero ledger row" }),
+        kind: z.enum(["obligation", "receivable"]),
+        title: z.string().min(1),
+      }),
+    )
+    .min(1),
+  choices: z
+    .array(
+      z.object({
+        id: EmployeeChoiceIdSchema,
+        week: EmployeeWeekSchema,
+        textKey: z.string().regex(/^ui\.level2\.choice\./),
+        title: z.string().min(1),
+        effects: z.array(EmployeeEffectSchema),
+      }),
+    )
+    .length(6),
+  stars: z.object({
+    completed: z.number().int().min(1),
+    reserveFunded: z.number().int().min(0),
+    max: z.number().int().min(1),
+  }),
+});
+
+/**
+ * A level-2 save (`pilot.employee.v1`). Only the choices and the settled weeks are read; any stored
+ * balance, reserve or transaction list is ignored and recomputed (FIRST-EMPLOYEE-SCENARIO.md).
+ */
+export const EmployeeSaveSchema = z.object({
+  schemaVersion: z.literal(1),
+  level: z.literal(2),
+  choices: z.object({
+    hiring: EmployeeHiringChoiceSchema.nullable(),
+    invoice: EmployeeInvoiceChoiceSchema.nullable(),
+    tax: EmployeeTaxChoiceSchema.nullable(),
+  }),
+  weeksResolved: z.array(EmployeeWeekSchema).max(3),
+});

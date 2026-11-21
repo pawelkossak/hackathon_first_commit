@@ -6,6 +6,7 @@
 // E-08: agent rules (agents.ts); the CFO hint and delegation offer a product last (D-17).
 // E-09: plan matcher and the synthetic account clock replaying data/future-script.json (matcher.ts).
 // E-10: one fraud-reveal rule for views and fraudRevealed; rewind keeps a validated plan's competence 3.
+// E-11: level 2 „Pierwszy pracownik” (employee.ts, data/level2.json); additive exports only.
 import { negotiateWith } from "./agents";
 import { gameData } from "./data";
 import { RuleError } from "./errors";
@@ -40,6 +41,16 @@ import type {
 export * from "./types";
 export { RuleError, isRuleError, type RuleErrorCode } from "./errors";
 export { gameData, type GameData } from "./data";
+export {
+  EMPLOYEE_STORAGE_KEY,
+  chooseEmployeeAction,
+  createEmployeeGame,
+  employeeForecast,
+  employeeScore,
+  resolveEmployeeWeek,
+  restoreEmployeeGame,
+  rewindEmployeeGame,
+} from "./employee";
 
 const { level1, agents, futureScript } = gameData;
 

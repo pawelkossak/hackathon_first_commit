@@ -1,0 +1,62 @@
+{
+  "level": 2,
+  "title": "Pierwszy pracownik",
+  "synthetic": true,
+  "storageKey": "pilot.employee.v1",
+  "period": { "start": "2027-02-01", "end": "2027-02-21" },
+  "openingBalance": 8000,
+  "assumptions": {
+    "employerCostPct": 20,
+    "sameDayOrder": "inflows_first",
+    "overdraftLimit": 0
+  },
+  "weeks": [
+    { "week": 1, "start": "2027-02-01", "end": "2027-02-07", "decision": "hiring", "choices": ["hire", "defer"], "defaultChoice": "defer" },
+    { "week": 2, "start": "2027-02-08", "end": "2027-02-14", "decision": "invoice", "choices": ["advance", "wait"], "defaultChoice": "wait" },
+    { "week": 3, "start": "2027-02-15", "end": "2027-02-21", "decision": "tax", "choices": ["reserve", "common"], "defaultChoice": "common" }
+  ],
+  "ledger": [
+    { "id": "B1", "date": "2027-02-01", "amount": -2900, "kind": "obligation", "title": "Czynsz i księgowość" },
+    { "id": "B2", "date": "2027-02-12", "amount": 9000, "kind": "receivable", "title": "Faktura dla klienta" },
+    { "id": "B3", "date": "2027-02-15", "amount": -4100, "kind": "obligation", "title": "Zobowiązania publiczne" },
+    { "id": "B4", "date": "2027-02-17", "amount": 3000, "kind": "receivable", "title": "Mały projekt styczniowy" },
+    { "id": "B5", "date": "2027-02-19", "amount": -4300, "kind": "obligation", "title": "Płatność podatku" }
+  ],
+  "choices": [
+    {
+      "id": "hire",
+      "week": 1,
+      "textKey": "ui.level2.choice.hire",
+      "title": "Zatrudnij pracownika",
+      "effects": [
+        { "type": "transaction", "id": "H-SALARY", "role": "salary", "date": "2027-02-10", "amount": -6000, "title": "Wynagrodzenie brutto" },
+        { "type": "transaction", "id": "H-EMPLOYER", "role": "employer_costs", "date": "2027-02-15", "amount": -1200, "title": "Koszty pracodawcy" }
+      ]
+    },
+    { "id": "defer", "week": 1, "textKey": "ui.level2.choice.defer", "title": "Odrocz zatrudnienie", "effects": [] },
+    {
+      "id": "advance",
+      "week": 2,
+      "textKey": "ui.level2.choice.advance",
+      "title": "Weź zaliczkę od klienta",
+      "effects": [
+        { "type": "transaction", "id": "A-ADVANCE", "role": "advance", "date": "2027-02-08", "amount": 3000, "title": "Zaliczka od klienta" },
+        { "type": "set_ledger_amount", "ledgerId": "B2", "amount": 6000 }
+      ]
+    },
+    { "id": "wait", "week": 2, "textKey": "ui.level2.choice.wait", "title": "Czekaj na fakturę", "effects": [] },
+    {
+      "id": "reserve",
+      "week": 3,
+      "textKey": "ui.level2.choice.reserve",
+      "title": "Odłóż rezerwę na podatek",
+      "effects": [{ "type": "reserve", "amount": 4300, "releasedByLedgerId": "B5" }]
+    },
+    { "id": "common", "week": 3, "textKey": "ui.level2.choice.common", "title": "Wspólne saldo", "effects": [] }
+  ],
+  "stars": {
+    "completed": 2,
+    "reserveFunded": 1,
+    "max": 3
+  }
+}

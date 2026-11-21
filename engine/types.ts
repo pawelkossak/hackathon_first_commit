@@ -13,6 +13,13 @@ import type {
   CounterpartyIdSchema,
   CounterpartySchema,
   DisabledReasonTextKeySchema,
+  EmployeeChoiceIdSchema,
+  EmployeeDecisionSchema,
+  EmployeeHiringChoiceSchema,
+  EmployeeInvoiceChoiceSchema,
+  EmployeeSaveSchema,
+  EmployeeTaxChoiceSchema,
+  EmployeeWeekSchema,
   EmotionSchema,
   EngineEventTypeSchema,
   EventCardSchema,
@@ -25,6 +32,7 @@ import type {
   LedgerIdSchema,
   LedgerKindSchema,
   Level1FileSchema,
+  Level2FileSchema,
   PersonaFileSchema,
   PlanDirectionSchema,
   ReactionsFileSchema,
@@ -473,4 +481,116 @@ export interface WeekResolution {
   endBalance: Pln | null;
   crash: Crash | null;
   events: EngineEvent[];
+}
+
+// ---------- level 2 „Pierwszy pracownik” (FIRST-EMPLOYEE-SCENARIO.md, engine/employee.ts) ----------
+
+export type Level2File = z.infer<typeof Level2FileSchema>;
+export type EmployeeWeek = z.infer<typeof EmployeeWeekSchema>;
+export type EmployeeDecision = z.infer<typeof EmployeeDecisionSchema>;
+export type EmployeeChoiceId = z.infer<typeof EmployeeChoiceIdSchema>;
+export type EmployeeHiringChoice = z.infer<typeof EmployeeHiringChoiceSchema>;
+export type EmployeeInvoiceChoice = z.infer<typeof EmployeeInvoiceChoiceSchema>;
+export type EmployeeTaxChoice = z.infer<typeof EmployeeTaxChoiceSchema>;
+/** The validated part of a `pilot.employee.v1` save; any stored balance is ignored. */
+export type EmployeeSave = z.infer<typeof EmployeeSaveSchema>;
+
+/** One choice per week: week 1 hiring, week 2 invoice, week 3 tax. null = not chosen yet. */
+export interface EmployeeChoices {
+  hiring: EmployeeHiringChoice | null;
+  invoice: EmployeeInvoiceChoice | null;
+  tax: EmployeeTaxChoice | null;
+}
+
+export interface EmployeeTransaction {
+  /** Ledger id (B1…B5) or the choice's transaction id (H-SALARY, H-EMPLOYER, A-ADVANCE). */
+  id: string;
+  date: IsoDate;
+  /** Integer PLN; inflow > 0, outflow < 0. B2 carries 6 000 after the advance. */
+  amount: Pln;
+  title: string;
+  source: "ledger" | "choice";
+  choiceId: EmployeeChoiceId | null;
+}
+
+/** End-of-day point. `available` = cash − earmarked reserve. */
+export interface EmployeePoint {
+  date: IsoDate;
+  week: EmployeeWeek;
+  openingBalance: Pln;
+  /** Cash at the end of the day. */
+  balance: Pln;
+  /** Earmarked tax reserve at the end of the day: min(target, max(0, cash)); 0 once the tax is paid. */
+  reserved: Pln;
+  available: Pln;
+  /** Inflows first, then outflows (same-day order of level 1). */
+  transactions: EmployeeTransaction[];
+  /** True after the crash day (the run stops at the crash). */
+  counterfactual: boolean;
+}
+
+export interface EmployeeReserveView {
+  target: Pln;
+  /** Reserve held at the end of the day before the tax payment (funded only up to cash). */
+  fundedBeforeTax: Pln;
+  fullyFunded: boolean;
+  /** Date of the tax payment that releases the reserve. */
+  releasedOn: IsoDate;
+}
+
+export interface EmployeeForecast {
+  /** One point per day 1 II … 21 II. */
+  points: EmployeePoint[];
+  /** First day the cash goes below zero (shortfall positive PLN), or null. */
+  crash: Crash | null;
+  /** Cash on 21 II when the run does not crash, else null. */
+  endBalance: Pln | null;
+  /** Lowest end-of-day cash among the real (non-counterfactual) days. */
+  minimum: { date: IsoDate; balance: Pln };
+  /** The choices the run used: made choices, the passive default for the rest (defer, wait, common). */
+  assumedChoices: { hiring: EmployeeHiringChoice; invoice: EmployeeInvoiceChoice; tax: EmployeeTaxChoice };
+  /** Present when the assumed tax choice is the reserve. */
+  reserve: EmployeeReserveView | null;
+}
+
+export interface EmployeeState {
+  schemaVersion: 1;
+  level: 2;
+  /** Current week 1–3 (stays on the crash week; stays 3 after completion). */
+  week: EmployeeWeek;
+  status: GameStatus;
+  choices: EmployeeChoices;
+  /** Weeks settled by resolveEmployeeWeek, in order (the crash week included). */
+  weeksResolved: EmployeeWeek[];
+  /** Cash at the end of the last settled week without a crash; the opening balance before week 1. */
+  balance: Pln;
+  /** Earmarked reserve at that moment. */
+  reserved: Pln;
+  /** Transactions booked so far (on a crash: up to, excluding, the rejected transaction). */
+  booked: EmployeeTransaction[];
+  crash: Crash | null;
+  /** Engine events emitted by the last transition (replaced on every call). */
+  emitted: EngineEvent[];
+}
+
+export interface EmployeeWeekResolution {
+  state: EmployeeState;
+  week: EmployeeWeek;
+  transactions: EmployeeTransaction[];
+  /** null when the week crashed. */
+  endBalance: Pln | null;
+  crash: Crash | null;
+  events: EngineEvent[];
+}
+
+export interface EmployeeScore {
+  status: GameStatus;
+  /** 0 unless completed; completed = 2, +1 when the tax reserve was fully funded before the tax payment. */
+  stars: number;
+  maxStars: number;
+  /** Cash on 21 II when completed, else null. */
+  finalBalance: Pln | null;
+  hired: boolean;
+  reserveFunded: boolean;
+  crash: Crash | null;
 }
