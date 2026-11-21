@@ -86,7 +86,6 @@ export function AdvisorDock() {
         >
           {open === "klient_a" && (
             <NegotiationDialogue
-              key={`negotiation-klient_a-week-${openedWith.core.week}`}
               state={openedWith}
               agent="klient_a"
               playerGender={playerGender}
@@ -98,6 +97,8 @@ export function AdvisorDock() {
           {open === "cfo" && (
             <CfoAdvisor
               state={state}
+              playerGender={playerGender}
+              narratorGender={narratorGender}
               onPlayCard={(cardId) => {
                 selectCard(cardId);
                 close();

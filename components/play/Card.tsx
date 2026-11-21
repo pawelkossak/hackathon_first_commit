@@ -65,7 +65,7 @@ export function Card({ card, isSelected, onSelect, className = "" }: CardProps) 
           <span className="block">
             <span className="block text-base font-bold text-white leading-tight">{card.title}</span>
             {card.isProduct && (
-              <span className="block mt-0.5 text-sm font-semibold text-sky-300">{label("ui.card.product")}</span>
+              <span className="block mt-0.5 text-base font-semibold text-sky-300">{label("ui.card.product")}</span>
             )}
           </span>
         </span>
@@ -74,7 +74,7 @@ export function Card({ card, isSelected, onSelect, className = "" }: CardProps) 
           {card.labels.map((lbl) => (
             <span
               key={lbl}
-              className="text-sm font-medium px-1.5 py-0.5 rounded bg-slate-800/80 text-slate-200 border border-slate-700/60"
+              className="text-base font-medium px-1.5 py-0.5 rounded bg-slate-800/80 text-slate-200 border border-slate-700/60"
             >
               {lbl}
             </span>
@@ -86,12 +86,12 @@ export function Card({ card, isSelected, onSelect, className = "" }: CardProps) 
         {reason ? (
           <span
             data-testid={`card-disabled-${card.id}`}
-            className="block text-sm text-red-200 bg-red-950/60 border border-red-900/60 p-1.5 rounded-lg"
+            className="block text-base text-red-200 bg-red-950/60 border border-red-900/60 p-1.5 rounded-lg"
           >
             {reason}
           </span>
         ) : (
-          <span className="block text-sm text-slate-300">
+          <span className="block text-base text-slate-300">
             {label("ui.card.window")} {card.window.from}–{card.window.to}
           </span>
         )}

@@ -1,6 +1,6 @@
 # U-round1: QA P0 fixes of the ui lane (on top of 870c3d4 = Person B 1ec8e82 + develop 374ea9d)
 
-Branch `lane/ui`, worktree `hackaton_ui`. I edited only ui paths: `app/` (not `app/api/`), `components/` (not `components/narrative/`), `lib/ui/` and this handoff. The work is not committed.
+Branch `lane/ui`, worktree `hackaton_ui`. I edited only ui paths: `app/` (not `app/api/`), `components/` (not `components/narrative/`), `lib/ui/` and this handoff. Round 1 is committed as 8389c28; round 1b (below) sits on top of the merge 92b0de5 (develop 0ff1c75 with narrative round 2).
 
 ## Per QA item
 
@@ -89,7 +89,7 @@ Branch `lane/ui`, worktree `hackaton_ui`. I edited only ui paths: `app/` (not `a
 
 ## Checks
 - `PILOT_AI_OFFLINE=1 pnpm check` is green: typecheck, lint, 267 tests in 40 files, and the build.
-- `PILOT_AI_OFFLINE=1 pnpm e2e`: 5/5 green in the last three runs. One earlier run failed the N-07 layout case: it uses an `isVisible` escape on a `text=` locator, and „Dane syntetyczne” matched both the header and the footer. The notice now appears once, in the header. That case still depends on `isVisible` escapes, which is open for N-07.
+- `PILOT_AI_OFFLINE=1 pnpm e2e`: 5/5 green in the last three runs. One earlier run failed the N-07 layout case because „Dane syntetyczne” matched both the header and the footer; the notice now appears once, in the header. Narrative round 2 (7f0416b) removed the `isVisible` escapes from the e2e cases, so nothing is open there.
 
 ## Demo-path click-through (real browser, `next start`, 1440×900, `PILOT_AI_OFFLINE=1`)
 | Step | What I saw (engine values) |
@@ -130,12 +130,20 @@ These numbers match the E-10 demo table.
 ## Round 2
 - `design/` at runtime: `lib/ui/assets.tsx:3` (`design/contracts/runtime-sprites.json`) and `lib/ui/tokens.ts:1` → read from `lib/generated/` instead.
 - An unknown asset id → `Placeholder`. Today `getAsset` invents a `/media/<id>.webp` path; `sprite.boss.male.*` may not exist.
-- The asset test must not write files: `lib/ui/asset-pipeline.test.ts` rewrites `lib/generated/asset-manifest.json` (`buildTime`) on every `pnpm test`. I restored the file after the run.
-- Body text ≥ 16 px and 44 px targets. The new and edited screens use `text-base` and `min-h-[44px]`. Still to do: the chart axis text inside the SVG, and an audit of the narrative components (`text-xs` in NarratorDialogue and CharacterSelect, a narrative-lane fix).
+- ~~The asset test must not write files~~ — done in round 1b.
+- ~~Body text ≥ 16 px and 44 px targets~~ — done in round 1b for the ui lane; narrative round 2 did its own components.
 - P2:
   - star statuses on the map now show labels; check that no enum value is shown raw anywhere else;
   - task ids are removed from screen text („(G10)”, „(U-11)”, „US-08”…); check the remaining pages;
   - PNG masters in `public/media` → WebP only within the first-load budget.
 - A browser e2e of demo steps 1–7, owned by the narrative lane, `e2e/`. My temporary script (not committed) can serve as a template: it clicks `data-testid` `campaign-start-level-1`, `event-choice-*`, `open-negotiation`, `route-storm-badge`, `advance-week-button`, `close-resolution-modal-button`, `goto-plan-button`, `save-plan-button` and `advance-account-clock-button`.
+
+## Round 1b: merge fixes after narrative round 2
+- **Typecheck after the merge.** `InitialLoader` takes `messageKey="loader.start"` (plus the genders) in `/gra/1`, `/plan` and `/podsumowanie`. `ReturnBanner` gets `state` from the store. `AdvisorDock` drops the `key` on `NegotiationDialogue` (it resyncs itself) and passes `playerGender`/`narratorGender` to `CfoAdvisor`.
+- **Body text ≥ 16 px.** Every `text-xs`, `text-sm` and `text-[10px]` in `app/` (without `app/api/`), `components/play`, `components/scenes` and `components/ui` is now `text-base` (Card, Hud, WeekResolutionModal, EventCard, CardHand, CashFlowPanel, WorldRoute, WeekCardList, AppHeader, Placeholder, the skip link). The Cash Flow chart axis labels are `fontSize="20"` in a 900-wide viewBox with `min-w-[720px]`, so they never render below 16 px.
+- **44 px targets.** Every `<button>`, `<Link>` and `<a>` in those folders has `min-h-[44px]`; the skip link gets it on focus.
+- **Test** `components/ui/text-and-targets.test.ts` scans those folders for small text (classes and SVG `fontSize`) and for buttons/links without a 44 px minimum height, with negative controls.
+- **Asset pipeline without side effects.** `buildAssets(rootDir, outDir = rootDir)` writes into `outDir`; the manifest has no `buildTime` and a sorted illustration list, so it is deterministic. `lib/ui/asset-pipeline.test.ts` builds into `os.tmpdir()` and checks that the committed manifest equals a fresh build. The committed manifest was regenerated once with `node scripts/build-assets.ts` (only the `buildTime` line went away). `pnpm check` leaves `lib/generated/` and `public/media/` unchanged.
+- **Open.** The Cash Flow chart points (`<g role="button">`) have an 18 px hit circle; the points are about 17 px apart, so a larger circle would overlap. The day list under the chart is the full-size alternative.
 
 COMMIT: fix: U-01 U-04 U-05 U-06 U-07 U-08 U-09 U-10 U-18 stable store selectors, narrative screens mounted, copy and numbers from engine, one crash dialog, demo path to summary and plan

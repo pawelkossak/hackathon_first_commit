@@ -1,5 +1,6 @@
 import fs from "node:fs";
 import path from "node:path";
+import { pathToFileURL } from "node:url";
 
 interface RuntimeSprite {
   id: string;
@@ -29,12 +30,18 @@ interface FirstLoadManifest {
   sets: FirstLoadSet[];
 }
 
-export function buildAssets(rootDir = process.cwd()) {
+/**
+ * Copies the runtime media from `design/` into `<outDir>/public/media` and writes
+ * `<outDir>/lib/generated/asset-manifest.json`. The manifest is deterministic (no timestamp,
+ * sorted file lists), so a rebuild of unchanged sources leaves the committed files byte-identical.
+ * Tests pass a temporary `outDir`, so `pnpm test` never rewrites the repository.
+ */
+export function buildAssets(rootDir = process.cwd(), outDir = rootDir) {
   const designDir = path.join(rootDir, "design");
-  const publicMediaDir = path.join(rootDir, "public", "media");
+  const publicMediaDir = path.join(outDir, "public", "media");
   const publicSpritesDir = path.join(publicMediaDir, "sprites");
   const publicIllustrationsDir = path.join(publicMediaDir, "illustrations");
-  const libGeneratedDir = path.join(rootDir, "lib", "generated");
+  const libGeneratedDir = path.join(outDir, "lib", "generated");
 
   // Ensure directories exist
   fs.mkdirSync(publicSpritesDir, { recursive: true });
@@ -83,7 +90,7 @@ export function buildAssets(rootDir = process.cwd()) {
   }> = [];
 
   if (fs.existsSync(illustrationsDir)) {
-    const files = fs.readdirSync(illustrationsDir);
+    const files = fs.readdirSync(illustrationsDir).sort();
     for (const file of files) {
       if (file.endsWith(".webp") || file.endsWith(".png")) {
         const srcPath = path.join(illustrationsDir, file);
@@ -124,7 +131,6 @@ export function buildAssets(rootDir = process.cwd()) {
   // 4. Output Manifest to lib/generated/asset-manifest.json
   const manifest = {
     format: "asset-manifest/v1",
-    buildTime: new Date().toISOString(),
     budgetLimit: 1500000,
     budgetPassed,
     totalSprites: copiedSprites.length,
@@ -149,6 +155,6 @@ export function buildAssets(rootDir = process.cwd()) {
 }
 
 // Execute if run directly
-if (import.meta.url === `file://${process.argv[1]}`) {
+if (process.argv[1] && import.meta.url === pathToFileURL(process.argv[1]).href) {
   buildAssets();
 }

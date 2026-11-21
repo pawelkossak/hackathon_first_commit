@@ -19,12 +19,12 @@ const STAR_STATUS_LABEL: Record<StarStatus, MissingLabelKey> = {
 export default function PodsumowaniePage() {
   const hydrated = useGameStore((s) => s.hydrated);
   const core = useGameStore((s) => s.state.core);
-  const { copy, label, narratorGender } = useCopy();
+  const { copy, label, playerGender, narratorGender } = useCopy();
 
   if (!hydrated) {
     return (
       <div className="flex-1 flex items-center justify-center p-8">
-        <InitialLoader message={copy("loader.start")} />
+        <InitialLoader messageKey="loader.start" playerGender={playerGender} narratorGender={narratorGender} />
       </div>
     );
   }

@@ -25,6 +25,7 @@ interface PageProps {
 function GameLevel1Content(props: PageProps) {
   const searchParams = props.searchParams ? use(props.searchParams) : undefined;
   const hydrated = useGameStore((s) => s.hydrated);
+  const gameState = useGameStore((s) => s.state);
   const core = useGameStore((s) => s.state.core);
   const snapshots = useGameStore((s) => s.state.snapshots);
   const fallbackMode = useGameStore((s) => s.fallbackMode);
@@ -50,7 +51,7 @@ function GameLevel1Content(props: PageProps) {
   if (!hydrated) {
     return (
       <div className="flex-1 flex items-center justify-center p-8">
-        <InitialLoader message={copy("loader.start")} />
+        <InitialLoader messageKey="loader.start" playerGender={playerGender} narratorGender={narratorGender} />
       </div>
     );
   }
@@ -67,6 +68,7 @@ function GameLevel1Content(props: PageProps) {
     <div className="flex-1 flex flex-col p-4 sm:p-6 max-w-7xl mx-auto w-full gap-6" data-testid="game-board-g10">
       {searchParams?.resume && (
         <ReturnBanner
+          state={gameState}
           initialWeek={core.week}
           playerGender={playerGender}
           narratorGender={narratorGender}

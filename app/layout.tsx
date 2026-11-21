@@ -20,7 +20,7 @@ export default function RootLayout({
       <body className="min-h-screen flex flex-col bg-slate-950 text-slate-100 antialiased font-sans">
         <a
           href="#main-content"
-          className="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-[100] focus:px-4 focus:py-2 focus:bg-indigo-600 focus:text-white focus:rounded-xl focus:shadow-2xl focus:outline-none focus:ring-4 focus:ring-indigo-400 font-bold text-sm"
+          className="sr-only focus:not-sr-only focus:fixed focus:inline-flex focus:items-center focus:min-h-[44px] focus:top-4 focus:left-4 focus:z-[100] focus:px-4 focus:py-2 focus:bg-indigo-600 focus:text-white focus:rounded-xl focus:shadow-2xl focus:outline-none focus:ring-4 focus:ring-indigo-400 font-bold text-base"
         >
           Przejdź do głównej zawartości
         </a>

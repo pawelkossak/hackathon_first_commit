@@ -58,13 +58,13 @@ export function Placeholder({
       style={style}
       className={`flex flex-col items-center justify-center p-2 rounded-xl border border-dashed transition-all select-none overflow-hidden text-center ${colors.bg} ${colors.text} ${colors.border} ${className}`}
     >
-      <div className="font-mono text-xs font-bold truncate max-w-full px-1">{id}</div>
+      <div className="font-mono text-base font-bold truncate max-w-full px-1">{id}</div>
       {(width || height) && (
-        <div className="text-[10px] opacity-75 font-mono mt-0.5">
+        <div className="text-base opacity-75 font-mono mt-0.5">
           {width ?? "?"}×{height ?? "?"} px
         </div>
       )}
-      {label && <div className="text-xs font-medium mt-1 truncate max-w-full px-1">{label}</div>}
+      {label && <div className="text-base font-medium mt-1 truncate max-w-full px-1">{label}</div>}
     </div>
   );
 }

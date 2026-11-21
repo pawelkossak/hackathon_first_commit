@@ -38,13 +38,13 @@ export default function PlanPage() {
   const cards = useGameStore(selectCards);
   const saveCurrentPlan = useGameStore((s) => s.saveCurrentPlan);
   const advanceClock = useGameStore((s) => s.advanceClock);
-  const { copy, label } = useCopy();
+  const { copy, label, playerGender, narratorGender } = useCopy();
   const [chosen, setChosen] = useState<CardId | null>(null);
 
   if (!hydrated) {
     return (
       <div className="flex-1 flex items-center justify-center p-8">
-        <InitialLoader message={copy("loader.start")} />
+        <InitialLoader messageKey="loader.start" playerGender={playerGender} narratorGender={narratorGender} />
       </div>
     );
   }

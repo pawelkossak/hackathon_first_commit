@@ -85,7 +85,7 @@ export function WeekCardList({ onSelectDate, className = "" }: WeekCardListProps
                     {weekMarkers.map((m) => (
                       <span
                         key={m.id}
-                        className="text-sm font-semibold bg-amber-950/60 text-amber-300 border border-amber-800 px-1.5 py-0.5 rounded"
+                        className="text-base font-semibold bg-amber-950/60 text-amber-300 border border-amber-800 px-1.5 py-0.5 rounded"
                       >
                         {m.label} {shortDate(m.date)}
                       </span>

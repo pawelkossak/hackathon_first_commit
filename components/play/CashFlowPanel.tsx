@@ -210,7 +210,7 @@ export function CashFlowPanel({ isOpen, onClose, initialDate }: CashFlowPanelPro
               <div className="bg-slate-950 border border-slate-800 rounded-2xl p-4 overflow-x-auto">
                 <svg
                   viewBox={`0 0 ${chartWidth} ${chartHeight}`}
-                  className="w-full h-auto min-w-[700px] select-none"
+                  className="w-full h-auto min-w-[720px] select-none"
                   role="img"
                   aria-label={copy("ui.forecast.title")}
                 >
@@ -250,7 +250,7 @@ export function CashFlowPanel({ isOpen, onClose, initialDate }: CashFlowPanelPro
                           strokeWidth="2"
                         />
                         {(i % 7 === 0 || isStorm) && (
-                          <text x={getX(i)} y={chartHeight - 6} textAnchor="middle" fill={isStorm ? "#fbbf24" : "#cbd5e1"} fontSize="14" fontFamily="monospace">
+                          <text x={getX(i)} y={chartHeight - 6} textAnchor="middle" fill={isStorm ? "#fbbf24" : "#cbd5e1"} fontSize="20" fontFamily="monospace">
                             {shortDate(p.date)}
                           </text>
                         )}
@@ -334,7 +334,7 @@ export function CashFlowPanel({ isOpen, onClose, initialDate }: CashFlowPanelPro
                     <span className="space-y-0.5">
                       <span className="flex flex-wrap items-center gap-2">
                         <span className="font-mono text-slate-300">{shortDate(task.date)}</span>
-                        <span className="px-1.5 py-0.5 rounded text-sm font-bold bg-slate-800 text-slate-100">
+                        <span className="px-1.5 py-0.5 rounded text-base font-bold bg-slate-800 text-slate-100">
                           {label(TASK_STATUS_LABEL[task.status])}
                         </span>
                         <span className="font-bold text-white">{task.title}</span>

@@ -27,7 +27,7 @@ export function AppHeader() {
         <Link href="/" className="min-h-[44px] inline-flex items-center font-bold text-lg tracking-tight text-amber-400 hover:text-amber-300">
           Pilot Płynności
         </Link>
-        <span className="text-sm font-semibold px-2 py-0.5 rounded bg-emerald-950 text-emerald-300 border border-emerald-700">
+        <span className="text-base font-semibold px-2 py-0.5 rounded bg-emerald-950 text-emerald-300 border border-emerald-700">
           {label("ui.common.synthetic")}
         </span>
       </div>

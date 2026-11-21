@@ -54,7 +54,6 @@ export function getAllAssetIds(): string[] {
 
 interface GeneratedAssetManifest {
   format: string;
-  buildTime: string;
   budgetLimit: number;
   budgetPassed: boolean;
   totalSprites: number;

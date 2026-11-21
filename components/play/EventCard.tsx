@@ -181,7 +181,7 @@ export function EventCard() {
               <GameAsset id={EVENT_SPRITES[currentEvent.id]} width={64} height={64} alt="" />
             </div>
             <div className="space-y-2">
-              <span className="text-sm font-bold text-amber-300">{copy("ui.hud.week", { week: currentEvent.week })}</span>
+              <span className="text-base font-bold text-amber-300">{copy("ui.hud.week", { week: currentEvent.week })}</span>
               <h2 className="text-xl font-black text-white">{currentEvent.title}</h2>
               <EventBody event={currentEvent} forecast={forecast} />
               <ChoiceEffects event={currentEvent} />

@@ -60,7 +60,7 @@ export function WorldRoute({ onSelectDate, className = "" }: WorldRouteProps) {
                     type="button"
                     data-testid="route-storm-badge"
                     onClick={() => onSelectDate?.(storm.date)}
-                    className="absolute -top-20 min-h-[44px] bg-purple-900 border border-purple-500 text-purple-100 text-sm font-bold px-3 py-1.5 rounded-xl shadow-xl whitespace-nowrap flex flex-col items-center cursor-pointer focus:outline-none focus:ring-2 focus:ring-amber-400"
+                    className="absolute -top-20 min-h-[44px] bg-purple-900 border border-purple-500 text-purple-100 text-base font-bold px-3 py-1.5 rounded-xl shadow-xl whitespace-nowrap flex flex-col items-center cursor-pointer focus:outline-none focus:ring-2 focus:ring-amber-400"
                   >
                     <span>
                       {copy("g10.storm", {
@@ -96,10 +96,10 @@ export function WorldRoute({ onSelectDate, className = "" }: WorldRouteProps) {
                     }`}
                   >
                     <GameAsset id={`sprite.week.${w.week}`} width={36} height={36} alt="" />
-                    <span className="text-sm font-bold font-mono">{w.week}</span>
+                    <span className="text-base font-bold font-mono">{w.week}</span>
                   </div>
                   {isCurrent && (
-                    <span data-testid="plane-marker" className="mt-1 text-sm font-bold text-emerald-300">
+                    <span data-testid="plane-marker" className="mt-1 text-base font-bold text-emerald-300">
                       {label("ui.route.plane")}
                     </span>
                   )}
@@ -111,7 +111,7 @@ export function WorldRoute({ onSelectDate, className = "" }: WorldRouteProps) {
                     <span
                       key={m.id}
                       data-testid={`marker-${m.id}`}
-                      className="text-sm font-bold px-1.5 py-0.5 rounded bg-slate-950 border border-slate-700 text-amber-300"
+                      className="text-base font-bold px-1.5 py-0.5 rounded bg-slate-950 border border-slate-700 text-amber-300"
                     >
                       {m.label} {shortDate(m.date)}
                     </span>
@@ -124,7 +124,7 @@ export function WorldRoute({ onSelectDate, className = "" }: WorldRouteProps) {
           <div data-testid="route-node-finish" className="relative flex flex-col items-center z-10">
             <div className="w-16 h-16 rounded-2xl bg-amber-950/50 border border-amber-500/60 flex flex-col items-center justify-center p-1 shadow-lg">
               <GameAsset id="sprite.finish" width={36} height={36} alt="" />
-              <span className="text-sm font-bold text-amber-300">{label("ui.route.finish")}</span>
+              <span className="text-base font-bold text-amber-300">{label("ui.route.finish")}</span>
             </div>
             <span className="text-base font-semibold text-amber-300 mt-2 font-mono">{shortDate(forecast.to)}</span>
           </div>

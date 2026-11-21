@@ -107,7 +107,7 @@ export function WeekResolutionModal() {
               >
                 <span>
                   <span className="block font-semibold text-white">{tx.title}</span>
-                  <span className="block text-sm text-slate-300 font-mono">{shortDate(tx.date)}</span>
+                  <span className="block text-base text-slate-300 font-mono">{shortDate(tx.date)}</span>
                 </span>
                 <span
                   className={`font-mono font-bold px-2.5 py-1 rounded-lg ${

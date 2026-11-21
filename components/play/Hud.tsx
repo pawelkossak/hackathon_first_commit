@@ -28,7 +28,7 @@ export function Hud({ onOpenCashFlow, className = "" }: HudProps) {
         </div>
 
         <div data-testid="hud-cash">
-          <div className="text-sm font-semibold text-slate-300">{copy("ui.hud.balance")}</div>
+          <div className="text-base font-semibold text-slate-300">{copy("ui.hud.balance")}</div>
           <div className="text-2xl font-extrabold text-emerald-400 font-mono tracking-tight">{pln(core.balance)}</div>
         </div>
 
@@ -37,12 +37,12 @@ export function Hud({ onOpenCashFlow, className = "" }: HudProps) {
         </div>
 
         <div data-testid="hud-relations">
-          <div className="text-sm font-semibold text-slate-300">{label("ui.hud.relations")}</div>
+          <div className="text-base font-semibold text-slate-300">{label("ui.hud.relations")}</div>
           <div className="text-xl font-extrabold text-amber-400 font-mono">{core.relations}/5</div>
         </div>
 
         <div data-testid="hud-cost">
-          <div className="text-sm font-semibold text-slate-300">{label("ui.hud.cost_of_money")}</div>
+          <div className="text-base font-semibold text-slate-300">{label("ui.hud.cost_of_money")}</div>
           <div className="text-xl font-extrabold text-slate-200 font-mono">{pln(core.costOfMoney)}</div>
         </div>
       </div>

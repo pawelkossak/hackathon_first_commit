@@ -77,7 +77,7 @@ export function CardHand({ className = "" }: CardHandProps) {
           className="bg-slate-900 border-2 border-amber-500/80 rounded-2xl p-5 shadow-2xl flex flex-col lg:flex-row items-start lg:items-center justify-between gap-4"
         >
           <div className="space-y-2 max-w-3xl">
-            <div className="text-sm font-bold uppercase tracking-wider text-amber-300">
+            <div className="text-base font-bold uppercase tracking-wider text-amber-300">
               {label("ui.preview.title")} · {selectedCard.title}
             </div>
 
