@@ -1,6 +1,6 @@
 import { describe, expect, it } from "vitest";
-import { gameData, type EngineEvent } from "../engine";
-import { getCopy, REACTION_CONFIG, reactionFor, ReactionTracker } from "./index";
+import { createGame, gameData, negotiate, resolveEvent, resolveWeek, type EngineEvent } from "../engine";
+import { getCopy, REACTION_CONFIG, reactionFor, ReactionTracker, signalKind } from "./index";
 
 /** One sample per engine event type; the mapped type makes a missing or new event type a compile error. */
 type EventSamples = { [K in EngineEvent["type"]]: Extract<EngineEvent, { type: K }> };
@@ -136,6 +136,90 @@ describe("N-03 Narrator reactions", () => {
     expect(rx3).toBeDefined();
     expect(rx3?.eventType).toBe("lateClient");
     expect(tracker.canReact(3)).toBe(false);
+  });
+
+  it("in-week signals do not use the week-resolution slot: lapStart → negotiationOpen → goodMove", () => {
+    const tracker = new ReactionTracker();
+    expect(tracker.chooseReaction([{ type: "lapStart", week: 1 }])?.eventType).toBe("lapStart");
+    expect(tracker.canReact(1)).toBe(false);
+
+    const open = tracker.chooseReaction([{ type: "negotiationOpen", week: 1, agent: "klient_a" }]);
+    expect(open?.eventType).toBe("negotiationOpen");
+    expect(open?.lineId).toBe("rx.negotiate");
+
+    // The accepted deal: a new scene cancels the previous line
+    const good = tracker.chooseReaction([{ type: "goodMove", week: 1, cardId: "C1" }]);
+    expect(good?.eventType).toBe("goodMove");
+    expect(good?.emotion).toBe("proud");
+    expect(good?.lineId).toBe("rx.goodmove");
+    expect(tracker.getActiveReaction()?.eventType).toBe("goodMove");
+
+    // The same in-week signal speaks once per week, a weaker one does not replace the stronger line
+    expect(tracker.chooseReaction([{ type: "goodMove", week: 1, cardId: "C2" }])).toBeUndefined();
+    expect(tracker.chooseReaction([{ type: "loanOffered", week: 1, via: "C5_preview" }])).toBeUndefined();
+    expect(tracker.getActiveReaction()?.eventType).toBe("goodMove");
+
+    // The next week resolution still has its own slot
+    expect(tracker.canReact(2)).toBe(true);
+    expect(tracker.chooseReaction([{ type: "bigProject", week: 2, eventId: "E2" }])?.eventType).toBe("bigProject");
+    expect(tracker.chooseReaction([{ type: "quietWeek", week: 2 }])).toBeUndefined();
+  });
+
+  it("first negotiation message with an immediate deal: goodMove wins over negotiationOpen", () => {
+    const tracker = new ReactionTracker();
+    tracker.chooseReaction([{ type: "lapStart", week: 1 }]);
+    const rx = tracker.chooseReaction([
+      { type: "negotiationOpen", week: 1, agent: "klient_a" },
+      { type: "goodMove", week: 1, cardId: "C1" },
+    ]);
+    expect(rx?.eventType).toBe("goodMove");
+  });
+
+  it("demo sequence on the real engine: counter, accept, then the week-1 resolution", () => {
+    const tracker = new ReactionTracker();
+    const start = createGame("demo");
+    expect(tracker.chooseReaction(start.emitted, start)?.eventType).toBe("lapStart");
+
+    const counter = negotiate(start, "klient_a", "ask_advance", 50);
+    expect(counter.outcome).toBe("counter");
+    expect(tracker.chooseReaction(counter.state.emitted, counter.state)?.eventType).toBe("negotiationOpen");
+
+    const accept = negotiate(counter.state, "klient_a", "accept_counter");
+    expect(accept.appliedCardId).toBe("C1");
+    expect(accept.state.emitted.map((e) => e.type)).toContain("goodMove");
+    expect(tracker.chooseReaction(accept.state.emitted, accept.state)?.eventType).toBe("goodMove");
+
+    // E1 checked (in-week, emits nothing), then the week-1 resolution narrates week 2 in its own slot
+    const checked = resolveEvent(accept.state, "check");
+    expect(tracker.chooseReaction(checked.emitted, checked)).toBeUndefined();
+    const week = resolveWeek(checked);
+    expect(week.state.emitted.length).toBeGreaterThan(0);
+    const next = tracker.chooseReaction(week.state.emitted, week.state);
+    expect(next).toBeDefined();
+    expect(next?.week).toBe(week.state.core.week);
+  });
+
+  it("the plan scene speaks after lapWon used the week-7 slot", () => {
+    const tracker = new ReactionTracker();
+    expect(tracker.chooseReaction([{ type: "lapWon", week: 7, stars: ["przetrwanie"] }])?.eventType).toBe("lapWon");
+    expect(tracker.chooseReaction([{ type: "planValidated", week: 7, planId: "P1" }])?.eventType).toBe("planValidated");
+    expect(tracker.chooseReaction([{ type: "planValidated", week: 7, planId: "P1" }])).toBeUndefined();
+  });
+
+  it("signal kinds: resolution, in-week and scene", () => {
+    expect(signalKind({ type: "negotiationOpen", week: 1, agent: "klient_a" })).toBe("inWeek");
+    expect(signalKind({ type: "goodMove", week: 1, cardId: "C1" })).toBe("inWeek");
+    expect(signalKind({ type: "loanOffered", week: 3, via: "C5_preview" })).toBe("inWeek");
+    expect(signalKind({ type: "loanOffered", week: 3, via: "E5" })).toBe("resolution");
+    expect(signalKind({ type: "planValidated", week: 7, planId: "P1" })).toBe("scene");
+    expect(signalKind({ type: "crash", week: 5, crash: { week: 5, date: "2026-12-22", shortfall: 8095, transactionId: "L08" } })).toBe("resolution");
+  });
+
+  it("reset clears the in-week memory", () => {
+    const tracker = new ReactionTracker();
+    tracker.chooseReaction([{ type: "goodMove", week: 1, cardId: "C1" }]);
+    tracker.reset();
+    expect(tracker.chooseReaction([{ type: "goodMove", week: 1, cardId: "C1" }])?.eventType).toBe("goodMove");
   });
 
   it("scene change cancels the active reaction", () => {

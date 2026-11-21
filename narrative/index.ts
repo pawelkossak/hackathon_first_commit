@@ -10,6 +10,9 @@ export {
   getLocale,
 } from "./copy/get-copy";
 export { getVoiceScript, VOICE_SCRIPTS } from "./copy/voice-scripts";
+export { VOICE_ALIASES, voiceAudioUrl, voiceLineFor, voiceSequenceFor, type VoiceBinding, type VoiceSequence } from "./voice-lines";
+export { EMOTIONS, isEmotion } from "./emotions";
+export { emotionCopyKey } from "./copy/seed.ui";
 export { formatDayMonth, formatPercent, formatPln } from "./format";
 export { storyBindings } from "./story-bindings";
 export {
@@ -29,7 +32,9 @@ export {
   REACTION_CONFIG,
   reactionFor,
   ReactionTracker,
+  signalKind,
   type NarratorReaction,
+  type SignalKind,
   type ReactionStep,
 } from "./reactions";
 export {

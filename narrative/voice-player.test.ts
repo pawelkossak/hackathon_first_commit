@@ -1,4 +1,4 @@
-import { beforeEach, describe, expect, it } from "vitest";
+import { afterEach, beforeEach, describe, expect, it, vi } from "vitest";
 import { useVoicePlayerStore, type VoiceLine } from "./index";
 
 describe("N-04 Voice player with captions-only mode, mute, skip, replay", () => {
@@ -112,5 +112,61 @@ describe("N-04 Voice player with captions-only mode, mute, skip, replay", () => 
     store.play(secondLine);
     expect(useVoicePlayerStore.getState().currentLine?.id).toBe("intro.role");
     expect(useVoicePlayerStore.getState().currentLine?.speaker).toBe("Szef");
+  });
+
+  describe("queued recordings (one caption, several lines)", () => {
+    class FakeAudio {
+      static created: FakeAudio[] = [];
+      onplay: (() => void) | null = null;
+      onended: (() => void) | null = null;
+      onerror: (() => void) | null = null;
+      currentTime = 0;
+      constructor(public src: string) {
+        FakeAudio.created.push(this);
+      }
+      play(): Promise<void> {
+        this.onplay?.();
+        return Promise.resolve();
+      }
+      pause(): void {}
+    }
+
+    beforeEach(() => {
+      FakeAudio.created = [];
+      vi.stubGlobal("window", {});
+      vi.stubGlobal("Audio", FakeAudio);
+    });
+    afterEach(() => {
+      useVoicePlayerStore.getState().stop();
+      vi.unstubAllGlobals();
+    });
+
+    it("plays audioUrl, then each audioQueue entry, then stops", () => {
+      useVoicePlayerStore.getState().play({
+        ...sampleLine,
+        audioUrl: "/media/voice/production/ania/intro.owner.mp3",
+        audioQueue: ["/media/voice/production/ania/intro.role.mp3"],
+      });
+      expect(FakeAudio.created.map((a) => a.src)).toEqual(["/media/voice/production/ania/intro.owner.mp3"]);
+      expect(useVoicePlayerStore.getState().isPlaying).toBe(true);
+      FakeAudio.created[0].onended?.();
+      expect(FakeAudio.created.map((a) => a.src)).toEqual([
+        "/media/voice/production/ania/intro.owner.mp3",
+        "/media/voice/production/ania/intro.role.mp3",
+      ]);
+      FakeAudio.created[1].onended?.();
+      expect(useVoicePlayerStore.getState().isPlaying).toBe(false);
+      expect(useVoicePlayerStore.getState().currentLine?.text).toBe(sampleLine.text);
+    });
+
+    it("a missing recording in the queue falls back to captions without blocking", () => {
+      useVoicePlayerStore.getState().play({ ...sampleLine, audioQueue: ["/media/voice/missing.mp3"] });
+      FakeAudio.created[0].onended?.();
+      FakeAudio.created[1].onerror?.();
+      const state = useVoicePlayerStore.getState();
+      expect(state.hasAudioFailed).toBe(true);
+      expect(state.isPlaying).toBe(false);
+      expect(state.currentLine?.text).toBe(sampleLine.text);
+    });
   });
 });

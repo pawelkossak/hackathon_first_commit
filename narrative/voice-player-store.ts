@@ -7,6 +7,8 @@ export interface VoiceLine {
   speaker: string;
   text: string;
   audioUrl?: string;
+  /** Recordings played after `audioUrl`, in order (one caption spoken by several recorded lines). */
+  audioQueue?: readonly string[];
   durationMs?: number;
 }
 
@@ -64,41 +66,49 @@ export const useVoicePlayerStore = create<VoicePlayerState>((set, get) => ({
       return;
     }
 
-    // Audio playback in browser environment
-    if (typeof window !== "undefined" && typeof Audio !== "undefined") {
-      try {
-        const audio = new Audio(line.audioUrl);
-        activeAudio = audio;
+    // Audio playback in browser environment: audioUrl, then each audioQueue entry in order
+    if (typeof window === "undefined" || typeof Audio === "undefined") return;
+    const urls = [line.audioUrl, ...(line.audioQueue ?? [])];
 
+    const fail = () => {
+      // Audio missing, failed or autoplay blocked -> captions stay visible, nothing blocks
+      set({ isPlaying: false, hasAudioFailed: true });
+      activeAudio = null;
+    };
+
+    const playAt = (index: number) => {
+      const url = urls[index];
+      if (url === undefined) {
+        set({ isPlaying: false });
+        activeAudio = null;
+        return;
+      }
+      try {
+        const audio = new Audio(url);
+        activeAudio = audio;
         audio.onplay = () => {
           set({ isPlaying: true, hasAudioFailed: false });
         };
-
         audio.onended = () => {
-          set({ isPlaying: false });
-          activeAudio = null;
+          if (activeAudio !== audio) return;
+          playAt(index + 1);
         };
-
         audio.onerror = () => {
-          // Audio missing or failed -> fall back silently to captions-only mode without blocking!
-          set({ isPlaying: false, hasAudioFailed: true });
-          activeAudio = null;
+          if (activeAudio === audio) fail();
         };
-
         const playPromise = audio.play();
         if (playPromise !== undefined) {
           playPromise.catch(() => {
-            // Autoplay blocked by browser or file missing -> keep captions visible
-            set({ isPlaying: false, hasAudioFailed: true });
-            activeAudio = null;
+            if (activeAudio === audio) fail();
           });
         }
       } catch {
         // Audio constructor failed -> captions still visible
-        set({ isPlaying: false, hasAudioFailed: true });
-        activeAudio = null;
+        fail();
       }
-    }
+    };
+
+    playAt(0);
   },
 
   stop: () => {
